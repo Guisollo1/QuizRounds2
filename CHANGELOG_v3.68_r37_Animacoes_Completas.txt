@@ -1,0 +1,11 @@
+QuizRounds2 v3.68-r37 — Animações Completas
+
+- Base: r36 ADM 100VH/full width.
+- Backend/Supabase: sem alteração; schema mínimo 040.
+- Adicionada camada de animações compartilhada em jogador, telão, ADM e simulador.
+- Lobby: entrada, prontidão, mapa vivo, movimento suavizado e mascote ocasional.
+- Colisões dos quatro mapas preservadas; movimento continua restrito aos nós/portas auditados.
+- Perguntas/respostas: stagger, seleção, correto/errado, timer e feedback de rodada.
+- Ranking/telão: novo líder, Top 3, pódio, partículas leves, PIN/QR e relógio.
+- ADM/controle remoto: feedback de salvamento, transições de abas e comandos.
+- Acessibilidade: redução automática de movimento conforme preferência do sistema.

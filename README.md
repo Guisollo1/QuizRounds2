@@ -1,4 +1,24 @@
-# QuizRounds2 v3.68 — r36 TESTE · Controlador + Telão + Regras Estáveis
+# QuizRounds2 v3.68 — r37 TESTE · Animações Completas
+
+A r37 mantém o backend/schema **040**, a recuperação de controlador da r35 e o ADM 100VH/full width da r36. Esta versão adiciona uma camada de movimento e feedback visual sem alterar migrations, contratos Supabase ou regras do quiz.
+
+## Animações e refinamentos r37
+
+- Lobby: entrada `pop/fade`, prontidão com check e brilho, nomes/avatares com transições e mapa vivo entre rodadas.
+- Mapas: caminhada suavizada, pequena pausa ao virar, desaceleração em gargalos, passagem visual por portas e preservação das colisões com paredes/mobiliário.
+- Easter egg: mascote gambá aparece ocasionalmente em pontos seguros do lobby, sem participar da colisão ou do estado da sala.
+- Perguntas: entrada com `fade/slide`, alternativas escalonadas, feedback tátil/visual ao selecionar e suspense curto na revelação.
+- Cronômetro: progresso contínuo com pulso discreto nos segundos finais.
+- Respostas: correto/errado com feedback visual próprio e partículas leves somente em eventos positivos.
+- Ranking: reordenação mais suave, Top 3 escalonado, aviso de novo líder e pódio final com celebração.
+- Telão: transições entre estados, PIN/QR animados e relógio com atualização visual suave.
+- ADM: troca de abas mais suave, confirmação de salvamento, status de conexão refinado e feedback imediato nos comandos do controle remoto.
+- Acessibilidade/desempenho: todas as animações respeitam `prefers-reduced-motion`; efeitos são decorativos e não bloqueiam comandos, Realtime ou navegação.
+- Sem migration nova: Supabase permanece em `001–040`, schema mínimo `040`.
+
+---
+
+# QuizRounds2 v3.68 — r36 TESTE · ADM 100VH + Full Width
 
 A r35 corrige três falhas operacionais observadas no ambiente de teste sem alterar o schema do Supabase. O backend mínimo continua **040**, portanto esta atualização pode ser publicada somente pelo GitHub quando o Supabase do QuizRounds2 já está nas migrations `001–040`.
 
