@@ -1,0 +1,303 @@
+# QuizRounds — 20 perguntas de teste para importação direta
+PERGUNTA: Qual é a capital do Brasil?
+TIPO: ESCOLHA
+A: Rio de Janeiro
+B: Brasília
+C: São Paulo
+D: Salvador
+CORRETA: B
+PONTOS: 100
+TEMPO: 20
+CATEGORIA: Geografia
+DIFICULDADE: FACIL
+PONTUAR: SIM
+BONUS_VELOCIDADE: 20
+DESEMPATE: NAO
+ARQUIVADA: NAO
+NOTA: Pergunta de aquecimento.
+---
+PERGUNTA: Qual é o maior planeta do Sistema Solar?
+TIPO: ESCOLHA
+A: Terra
+B: Saturno
+C: Júpiter
+D: Marte
+CORRETA: C
+PONTOS: 100
+TEMPO: 20
+CATEGORIA: Ciência
+DIFICULDADE: FACIL
+PONTUAR: SIM
+BONUS_VELOCIDADE: 20
+DESEMPATE: NAO
+ARQUIVADA: NAO
+---
+PERGUNTA: Qual é a fórmula química da água?
+TIPO: ESCOLHA
+A: CO2
+B: O2
+C: NaCl
+D: H2O
+CORRETA: D
+PONTOS: 100
+TEMPO: 20
+CATEGORIA: Ciência
+DIFICULDADE: FACIL
+PONTUAR: SIM
+BONUS_VELOCIDADE: 20
+DESEMPATE: NAO
+ARQUIVADA: NAO
+---
+PERGUNTA: Quem escreveu o romance Dom Casmurro?
+TIPO: ESCOLHA
+A: Machado de Assis
+B: José de Alencar
+C: Carlos Drummond de Andrade
+D: Monteiro Lobato
+CORRETA: A
+PONTOS: 120
+TEMPO: 25
+CATEGORIA: Literatura
+DIFICULDADE: MEDIO
+PONTUAR: SIM
+BONUS_VELOCIDADE: 15
+DESEMPATE: NAO
+ARQUIVADA: NAO
+---
+PERGUNTA: Em qual país ficam as Pirâmides de Gizé?
+TIPO: ESCOLHA
+A: México
+B: Egito
+C: Grécia
+D: Índia
+CORRETA: B
+PONTOS: 100
+TEMPO: 20
+CATEGORIA: História
+DIFICULDADE: FACIL
+PONTUAR: SIM
+BONUS_VELOCIDADE: 20
+DESEMPATE: NAO
+ARQUIVADA: NAO
+---
+PERGUNTA: Qual é o primeiro mês do ano?
+TIPO: ESCOLHA
+A: Dezembro
+B: Fevereiro
+C: Janeiro
+D: Março
+CORRETA: C
+PONTOS: 80
+TEMPO: 15
+CATEGORIA: Conhecimentos gerais
+DIFICULDADE: FACIL
+PONTUAR: SIM
+BONUS_VELOCIDADE: 25
+DESEMPATE: NAO
+ARQUIVADA: NAO
+---
+PERGUNTA: Como se chama o processo pelo qual as plantas usam luz para produzir seu alimento?
+TIPO: ESCOLHA
+A: Fermentação
+B: Fotossíntese
+C: Respiração
+D: Evaporação
+CORRETA: B
+PONTOS: 120
+TEMPO: 25
+CATEGORIA: Biologia
+DIFICULDADE: FACIL
+PONTUAR: SIM
+BONUS_VELOCIDADE: 15
+DESEMPATE: NAO
+ARQUIVADA: NAO
+---
+PERGUNTA: Qual linguagem é usada para estruturar o conteúdo de uma página web?
+TIPO: ESCOLHA
+A: HTML
+B: SQL
+C: Python
+D: C++
+CORRETA: A
+PONTOS: 120
+TEMPO: 20
+CATEGORIA: Tecnologia
+DIFICULDADE: FACIL
+PONTUAR: SIM
+BONUS_VELOCIDADE: 20
+DESEMPATE: NAO
+ARQUIVADA: NAO
+---
+PERGUNTA: Qual é o satélite natural da Terra?
+TIPO: ESCOLHA
+A: Sol
+B: Lua
+C: Vênus
+D: Mercúrio
+CORRETA: B
+PONTOS: 80
+TEMPO: 15
+CATEGORIA: Astronomia
+DIFICULDADE: FACIL
+PONTUAR: SIM
+BONUS_VELOCIDADE: 25
+DESEMPATE: NAO
+ARQUIVADA: NAO
+---
+PERGUNTA: Em qual continente está o Brasil?
+TIPO: ESCOLHA
+A: Europa
+B: América do Norte
+C: América do Sul
+D: Ásia
+CORRETA: C
+PONTOS: 80
+TEMPO: 15
+CATEGORIA: Geografia
+DIFICULDADE: FACIL
+PONTUAR: SIM
+BONUS_VELOCIDADE: 25
+DESEMPATE: NAO
+ARQUIVADA: NAO
+---
+PERGUNTA: Qual é a unidade do Sistema Internacional usada para medir corrente elétrica?
+TIPO: ESCOLHA
+A: Volt
+B: Watt
+C: Ohm
+D: Ampere
+CORRETA: D
+PONTOS: 150
+TEMPO: 25
+CATEGORIA: Física
+DIFICULDADE: MEDIO
+PONTUAR: SIM
+BONUS_VELOCIDADE: 15
+DESEMPATE: NAO
+ARQUIVADA: NAO
+---
+PERGUNTA: Quanto vale 2 elevado à quinta potência?
+TIPO: ESCOLHA
+A: 10
+B: 16
+C: 32
+D: 64
+CORRETA: C
+PONTOS: 150
+TEMPO: 25
+CATEGORIA: Matemática
+DIFICULDADE: MEDIO
+PONTUAR: SIM
+BONUS_VELOCIDADE: 15
+DESEMPATE: NAO
+ARQUIVADA: NAO
+---
+PERGUNTA: Qual é o maior oceano da Terra?
+TIPO: ESCOLHA
+A: Atlântico
+B: Índico
+C: Ártico
+D: Pacífico
+CORRETA: D
+PONTOS: 120
+TEMPO: 20
+CATEGORIA: Geografia
+DIFICULDADE: FACIL
+PONTUAR: SIM
+BONUS_VELOCIDADE: 20
+DESEMPATE: NAO
+ARQUIVADA: NAO
+---
+PERGUNTA: Quem pintou a Mona Lisa?
+TIPO: ESCOLHA
+A: Pablo Picasso
+B: Leonardo da Vinci
+C: Vincent van Gogh
+D: Michelangelo
+CORRETA: B
+PONTOS: 150
+TEMPO: 25
+CATEGORIA: Arte
+DIFICULDADE: MEDIO
+PONTUAR: SIM
+BONUS_VELOCIDADE: 15
+DESEMPATE: NAO
+ARQUIVADA: NAO
+---
+PERGUNTA: Qual gás é o mais abundante na atmosfera terrestre?
+TIPO: ESCOLHA
+A: Oxigênio
+B: Dióxido de carbono
+C: Nitrogênio
+D: Hidrogênio
+CORRETA: C
+PONTOS: 180
+TEMPO: 30
+CATEGORIA: Ciência
+DIFICULDADE: MEDIO
+PONTUAR: SIM
+BONUS_VELOCIDADE: 10
+DESEMPATE: NAO
+ARQUIVADA: NAO
+---
+PERGUNTA: Quantos minutos existem em 3 horas?
+TIPO: NUMERO
+CORRETA: 180
+PONTOS: 120
+TEMPO: 20
+CATEGORIA: Matemática
+DIFICULDADE: FACIL
+PONTUAR: SIM
+BONUS_VELOCIDADE: 20
+DESEMPATE: NAO
+ARQUIVADA: NAO
+---
+PERGUNTA: Quantos lados possui um hexágono?
+TIPO: NUMERO
+CORRETA: 6
+PONTOS: 120
+TEMPO: 20
+CATEGORIA: Matemática
+DIFICULDADE: FACIL
+PONTUAR: SIM
+BONUS_VELOCIDADE: 20
+DESEMPATE: NAO
+ARQUIVADA: NAO
+---
+PERGUNTA: Qual é o resultado de 15 multiplicado por 8?
+TIPO: NUMERO
+CORRETA: 120
+PONTOS: 150
+TEMPO: 25
+CATEGORIA: Matemática
+DIFICULDADE: MEDIO
+PONTUAR: SIM
+BONUS_VELOCIDADE: 15
+DESEMPATE: NAO
+ARQUIVADA: NAO
+---
+PERGUNTA: Em graus Celsius, qual é a temperatura de congelamento da água em condições padrão?
+TIPO: NUMERO
+CORRETA: 0
+PONTOS: 180
+TEMPO: 25
+CATEGORIA: Ciência
+DIFICULDADE: MEDIO
+PONTUAR: SIM
+BONUS_VELOCIDADE: 10
+DESEMPATE: NAO
+ARQUIVADA: NAO
+---
+PERGUNTA: Quantos dias possui um ano bissexto?
+TIPO: NUMERO
+CORRETA: 366
+PONTOS: 250
+TEMPO: 20
+CATEGORIA: Final
+DIFICULDADE: FINAL
+PONTUAR: SIM
+BONUS_VELOCIDADE: 0
+DESEMPATE: SIM
+ARQUIVADA: NAO
+NOTA: Questão numérica preparada para desempate/final.
+---
