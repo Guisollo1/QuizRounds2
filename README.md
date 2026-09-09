@@ -1,3 +1,21 @@
+# QuizRounds2 v3.68 — r35 TESTE · Controlador + Telão + Regras Estáveis
+
+A r35 corrige três falhas operacionais observadas no ambiente de teste sem alterar o schema do Supabase. O backend mínimo continua **040**, portanto esta atualização pode ser publicada somente pelo GitHub quando o Supabase do QuizRounds2 já está nas migrations `001–040`.
+
+## Correções r35
+
+- **Nova sala:** o ADM identifica a sala ativa real e recupera/assume o controle antes de criar a próxima partida, evitando o erro “Este dispositivo não é o controlador ativo da sala”.
+- **Sala lembrada:** ao iniciar o ADM, uma sala ativa tem prioridade sobre uma sala encerrada apenas lembrada no navegador.
+- **Telão:** uma sala finalizada é bloqueada antes de abrir a janela; o ADM orienta criar uma nova sala em vez de gerar o erro “A sala já foi encerrada”.
+- **Pareamento do telão:** o lease do controlador é renovado antes de gerar a autorização temporária.
+- **Regras:** checkboxes e campos em edição não são mais reescritos pelo polling/Realtime.
+- **Autosave:** alterações nas regras são salvas automaticamente no lobby, com proteção contra mudanças feitas durante um salvamento em andamento.
+- **Lease expirado:** ações normais tentam renovar o controle automaticamente; um controlador realmente ativo em outro painel continua protegido.
+- **Sem migration nova:** Supabase continua `001–040`, schema mínimo `040`.
+- Mantidos **tema azul**, **relógio no telão**, **31 avatares** e **colisões auditadas dos quatro mapas**.
+
+---
+
 # QuizRounds2 v3.68 — r34 TESTE · Relógio no Telão + Refinamento Visual
 
 A r34 mantém o backend/schema 040 e toda a lógica funcional da r33, adicionando uma camada visual segura. O telão agora exibe um relógio grande e permanente no cabeçalho durante a apresentação.

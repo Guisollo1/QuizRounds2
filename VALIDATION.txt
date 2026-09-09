@@ -1,25 +1,18 @@
-QuizRounds v3.68 r30 — validação final da integração de avatares
+QuizRounds2 v3.68-r35 — validação final
 
-VALIDAÇÃO r30: APROVADA (11 grupos)
-- Sintaxe JS verificada em 20 arquivos + scripts de validação.
-- 4 HTML auditados; 689 IDs sem duplicidade; referências/cache-bust r30 conferidos.
-- Imports ES Modules locais resolvem e imports nomeados conferem com exports.
-- 18 CSS: referências, balanceamento, logo, picker e contenção do mapa verificados.
-- Ativos r30 e compatibilidade de cache r29/r28 verificados.
-- Contrato frontend/backend, BUILD_ID r30 e schema 40 verificados.
-- Migrations 001..040 contínuas; hardening 039 e catálogo 040 presentes.
-- Catálogo end-to-end: 31 avatares, 62 assets, seleção, Supabase e mapa do lobby verificados.
-- Suíte local determinística preservada e limites documentados.
-- Config neutro e sem credenciais privilegiadas embutidas.
-- Metadados r30, documentação, launcher e CI gate verificados.
-
-Verificações adicionais de assets:
-- 31 sprite-sheets WEBP em assets/avatars/runtime-r30, todos 640×640.
-- 31 previews WEBP em assets/avatars/preview-r30, todos 320×320.
-- Os 62 arquivos de avatar são cópias byte-a-byte dos assets ativos runtime-r37/preview-r37 do ZIP fornecido.
-- Basenames de runtime e preview correspondem exatamente às 31 chaves do catálogo.
-- Player persiste a chave canônica pelo Supabase; telão usa avatar_key individual no mapa do lobby.
-- Migration 040 aceita as 31 chaves canônicas e mantém compatibilidade com chaves legadas.
-
-Observação:
-- A homologação de carga real continua dependendo do projeto Supabase, rede e dispositivos do evento; o simulador local não substitui ensaio de carga real.
+VALIDAÇÃO QuizRounds2 r35: APROVADA (15 grupos)
+- Sintaxe JS verificada em todos os ativos e scripts.
+- 4 HTML auditados; IDs sem duplicidade; referências/cache-bust r35 conferidos.
+- Imports ES Modules locais resolvidos.
+- CSS auditado: referências, balanceamento, logo, picker e contenção do mapa.
+- Ativos r35 e compatibilidade de cache preservados.
+- Contrato frontend/backend: BUILD_ID 3.68-r35, schema 40.
+- Migrations 001–040 contínuas; hardening 039 e catálogo 040 presentes.
+- 31 avatares e 62 assets preservados.
+- Suíte local determinística preservada.
+- Config neutro e sem credenciais privilegiadas.
+- Namespace QuizRounds2 isolado do QuizRounds principal.
+- Quatro mapas com colisões/portas preservados.
+- Relógio do telão e filtros de avatares preservados.
+- r35: recuperação do controlador, sala ativa, telão encerrado e persistência das regras verificados.
+- Metadados, documentação, launcher e CI gate verificados.
