@@ -1,17 +1,17 @@
 APP=v3.68
 BASE_STABLE=QuizRounds_v3_68_UI_v3_92_GitHub_Supabase_r26
-PREVIOUS_RELEASE=r34
-RELEASE=r35
-BUILD_ID=3.68-r35
-DISPLAY_UI=v3.92-r35
-PLAYER_UI=v3.92-r35
-ADMIN_UI=v3.68-r35
-SIMULATOR_UI=v3.68-r35
-AVATAR_RUNTIME=v3.68-r35
-AVATAR_UI=v3.92-r35
+PREVIOUS_RELEASE=r36
+RELEASE=r36
+BUILD_ID=3.68-r36
+DISPLAY_UI=v3.92-r36
+PLAYER_UI=v3.92-r36
+ADMIN_UI=v3.68-r36
+SIMULATOR_UI=v3.68-r36
+AVATAR_RUNTIME=v3.68-r36
+AVATAR_UI=v3.92-r36
 AVATAR_CATALOG=31
 AVATAR_SOURCE_LOGIC=v3.79-r37d
-PACKAGE=QuizRounds2_v3_68_UI_v3_92_GitHub_Supabase_r35_TESTE_Controller_Rules_Fix
+PACKAGE=QuizRounds2_v3_68_UI_v3_92_GitHub_Supabase_r36_TESTE_Admin_100VH_FullWidth
 SUPABASE_MIGRATIONS=001-040
 BACKEND_SCHEMA_REQUIRED=40
 PLAYER_FIX=31-avatar-picker+category-filters+selected-preview+mobile-ready+build-handshake
@@ -21,9 +21,9 @@ STATE_INTEGRITY=round-eligibility-snapshot+generation-safe-cache+controller-auth
 DISPLAY_FIX=live-clock+larger-lobby+ranking-polish+panel-transitions+adaptive-logo+presence-auth+finished-room-guard
 RULES_FIX=draft-lock+autosave+refresh-safe-checkboxes+retry-state
 LOGO_STORAGE=shared-reference-guard
-CACHE_COMPAT=r34+r33+r32+r31+r30+r29+r28-assets-retained
-AUDIT=html-css-js-avatar-assets-imports-ids-cache-clock-filters-controller-recovery-rules-autosave-supabase-migrations-github-maps-collision-r35
-ROLLBACK_REFERENCE=r34
+CACHE_COMPAT=r35+r34+r33+r32+r31+r30+r29+r28-assets-retained
+AUDIT=html-css-js-avatar-assets-imports-ids-cache-clock-filters-controller-recovery-rules-autosave-supabase-migrations-github-maps-collision-admin-100vh-fullwidth-r36
+ROLLBACK_REFERENCE=r35
 
 INSTANCE=QuizRounds2_TESTE
 BROWSER_STORAGE_NAMESPACE=quiz2
@@ -32,3 +32,5 @@ SUPABASE_RECOMMENDATION=PROJETO_SEPARADO_PARA_TESTE
 
 THEME_PRIMARY=AZUL
 VISUAL_RELEASE=RELOGIO_TELAO+LOBBY+RANKING+AVATARES+ADM+MOBILE
+
+ADMIN_LAYOUT=100dvh+100vw+full-width-tabs+full-width-workspace

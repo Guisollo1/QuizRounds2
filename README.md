@@ -1,4 +1,4 @@
-# QuizRounds2 v3.68 — r35 TESTE · Controlador + Telão + Regras Estáveis
+# QuizRounds2 v3.68 — r36 TESTE · Controlador + Telão + Regras Estáveis
 
 A r35 corrige três falhas operacionais observadas no ambiente de teste sem alterar o schema do Supabase. O backend mínimo continua **040**, portanto esta atualização pode ser publicada somente pelo GitHub quando o Supabase do QuizRounds2 já está nas migrations `001–040`.
 
@@ -109,3 +109,7 @@ Depois de atualizar o Supabase, publique os arquivos da r30 no GitHub. O workflo
 ## Estabilidade
 
 A **r26 continua sendo o rollback homologado**. A r30 mantém as correções da r29 e adiciona somente a camada de catálogo/runtime/persistência necessária para os 31 avatares.
+
+
+## r36 — ADM 100vh / largura total
+O painel `admin.html` passa a ocupar toda a largura disponível e no mínimo 100% da altura do viewport (100dvh com fallback 100vh). Abas, workspace, grids e cabeçalho não possuem max-width centralizador. Conteúdo extenso preserva rolagem natural. Backend e migrations permanecem no schema 040.
