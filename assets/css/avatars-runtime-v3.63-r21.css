@@ -1,0 +1,15 @@
+:root{--avatar-ink:#1e1732;--avatar-muted:#6d6580}
+/* Runtime canônico r21: 10 sprite-sheets 4×4, preservando os 160 frames originais sem recorte. */
+.quiz-avatar{position:relative;width:76px;height:76px;display:inline-grid;place-items:center;flex:0 0 auto;vertical-align:middle;isolation:isolate;overflow:visible;filter:drop-shadow(0 5px 5px rgba(12,8,24,.22))}
+.quiz-avatar .qa-shadow{position:absolute;left:22%;right:22%;bottom:2px;height:6px;border-radius:50%;background:rgba(18,12,30,.18);filter:blur(2px);z-index:-1;transform:scaleX(.92)}
+.quiz-avatar .qa-frame-viewport{position:relative;display:block;width:100%;height:100%;overflow:hidden;pointer-events:none;contain:layout paint}
+.quiz-avatar .qa-sprite-img,.quiz-avatar .qa-map-frame{position:absolute;left:0;top:0;display:block;width:400%;height:400%;max-width:none;max-height:none;object-fit:fill;object-position:0 0;overflow:visible;image-rendering:auto;transform:translate(var(--avatar-frame-tx,0%),var(--avatar-frame-ty,0%));transform-origin:0 0;user-select:none;-webkit-user-drag:none;pointer-events:none}
+.quiz-avatar.avatar-compact{width:44px;height:44px}
+.quiz-avatar.avatar-animated .qa-frame-viewport{animation:avatarIdleR13 1.9s ease-in-out infinite alternate}
+@keyframes avatarIdleR13{from{transform:translateY(0)}to{transform:translateY(-1px)}}
+.player-identity .quiz-avatar{transform:scale(.76);margin:-9px -6px}
+.rank-row .rank-avatar{display:inline-flex;align-items:center;justify-content:center;margin-right:2px}.rank-row .rank-avatar .quiz-avatar{transform:scale(.82);margin:-7px -4px}
+.participant-admin-row .participant-avatar{display:inline-grid;place-items:center;width:38px}.participant-admin-row .participant-avatar .quiz-avatar{transform:scale(.72);margin:-8px -5px}
+.player-lobby-avatar .quiz-avatar{transform:scale(1.52)}
+.admin-body .participant-admin-row .participant-avatar,.admin-body .participant-admin-row .participant-avatar span{color:inherit}
+@media(prefers-reduced-motion:reduce){.quiz-avatar.avatar-animated .qa-frame-viewport{animation:none!important}}

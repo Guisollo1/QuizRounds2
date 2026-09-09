@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
+<meta content="#5927c7" name="theme-color"/>
+<title>Quiz Rounds 2 · TESTE v3.68 · Interface v3.92 r31 — Jogador</title>
+
+
+<link href="assets/css/player-ui-v3.92-r31.css?v=3.68-r31" rel="stylesheet"/><link href="assets/css/avatars-runtime-v3.68-r31.css?v=3.68-r31" rel="stylesheet"/><link href="assets/css/avatars-ui-v3.92-r31.css?v=3.68-r31" rel="stylesheet"/><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.112.4/dist/umd/supabase.min.js"></script>
+</head>
+<body class="player-body player-v38 ui-v392-r30" data-auth-scope="player" data-ui="v3.92-r30">
+<div class="player-bg-shape pbs1"></div><div class="player-bg-shape pbs2"></div><div class="player-bg-shape pbs3"></div>
+<main class="player-shell">
+<header class="player-header">
+<div class="player-brand"><span>Q</span><div><b>Quiz Rounds 2</b><small id="statusText">Entre na sala para jogar</small></div></div>
+<div class="player-status-row"><button aria-pressed="true" class="player-change-room" id="soundToggle" type="button">Som ✓</button><button class="player-change-room hidden" id="changeRoomBtn" type="button">Trocar sala</button><span class="connection-pill connecting" id="connectionStatus">Conectando…</span><span class="badge neutral" id="stateVersion">Estado 0</span></div>
+</header>
+<section class="player-join-stage" id="joinView">
+<article class="join-hero-card">
+<div class="join-hero-copy"><div class="eyebrow light">PRONTO PARA JOGAR?</div><h1>Entre no quiz</h1><p>Use o PIN exibido no telão. Seu nome, avatar e sessão ficam salvos neste navegador para facilitar sua volta à sala.</p></div>
+<div class="join-form-card">
+<label>PIN da sala<input autocapitalize="characters" autocomplete="off" autocorrect="off" enterkeyhint="next" id="roomCode" inputmode="text" maxlength="8" placeholder="ABC123" spellcheck="false"/></label>
+<label>Seu nome<input autocomplete="nickname" enterkeyhint="go" id="playerName" maxlength="32" placeholder="Como quer aparecer?"/></label>
+<fieldset class="avatar-picker"><legend>Escolha seu avatar</legend><div aria-label="Avatares disponíveis" class="avatar-picker-browser" id="avatarPicker"></div><div aria-live="polite" class="avatar-selected-line" id="avatarSelectedLine"></div></fieldset>
+<button aria-busy="false" class="primary jumbo" id="joinBtn" type="button">Entrar na partida</button>
+<div class="resume-hint hidden" id="resumeHint"></div><p aria-live="polite" class="error" id="joinError"></p>
+</div>
+</article>
+</section>
+<section class="hidden player-game-stage" id="gameView">
+<div aria-live="polite" class="player-reconnecting-banner hidden" id="playerReconnectBanner" role="status">Reconectando e recuperando o estado da partida…</div>
+<div class="tab-lock-banner hidden" id="tabLockBanner" role="alert">Esta sessão já está ativa em outra aba. Esta aba ficou em modo somente leitura.</div>
+<div aria-live="assertive" class="pre-round-overlay hidden" id="preRoundOverlay"><div class="pre-round-card"><span>PREPARE-SE</span><strong id="preRoundCount">3</strong><small id="preRoundLabel">Próximo round</small></div></div><div aria-live="assertive" class="player-go-overlay hidden" id="playerGoOverlay">VAMOS!</div>
+<div class="resume-toast hidden" id="resumeToast" role="status"></div>
+<div aria-live="polite" class="placement-feedback hidden" id="placementFeedback" role="status">
+<div class="placement-medal" id="placementMedal">1</div>
+<div class="placement-copy">
+<div class="placement-eyebrow" id="placementEyebrow">CLASSIFICAÇÃO</div>
+<strong id="placementTitle">Você está no Top 5!</strong>
+<span id="placementDetail">Pontuação atualizada.</span>
+</div>
+<div class="placement-total"><small>TOTAL</small><b id="placementPoints">0</b><span>pts</span></div>
+</div>
+
+<article class="player-lobby-panel hidden" id="playerLobbyPanel">
+<div class="player-lobby-avatar" id="playerLobbyAvatar"></div>
+<div class="player-lobby-copy"><div class="eyebrow light">VOCÊ ESTÁ NO LOBBY</div><h2 id="playerLobbyName">Jogador</h2><p id="playerLobbyRoom">Sala ------</p><strong id="playerLobbyMessage">Aguardando o administrador começar.</strong><span class="hidden" id="playerLobbyStart"></span></div>
+<div class="player-lobby-status"><span class="player-lobby-online">● CONECTADO</span><button aria-pressed="false" class="player-ready-btn" id="playerReadyBtn" type="button">Estou pronto</button><small id="playerReadyHint">Confirme quando estiver pronto para começar.</small></div>
+</article>
+<div class="player-game-grid">
+<article class="game-question-card">
+<div class="round-head"><div><div class="eyebrow light" id="roundLabel">Aguardando round</div><div class="player-identity" id="playerIdentity"></div><div class="player-meta-chips"><span class="player-chip hidden" id="qualificationStatus"></span><span class="player-chip hidden" id="streakStatus"></span><span class="player-chip hidden" id="roundPointsInfo"></span></div></div><div class="timer" id="timerText"></div></div>
+<div class="question-stage"><h2 id="questionText">O administrador ainda não liberou a pergunta.</h2><div id="answerArea"></div><p class="success answer-status" id="answerStatus"></p><div class="player-result-details hidden" id="resultDetails"></div><div class="player-ranking-changes hidden" id="rankingChanges"></div></div>
+<div class="player-round-foot"><span id="missedRoundsInfo">Rounds perdidos: 0</span><span id="readyConnectionInfo">Conexão sendo verificada…</span></div>
+</article>
+<aside class="player-rank-card">
+<div class="rank-title"><div><div class="eyebrow">PLACAR</div><h3 id="playerRankingTitle">Ranking parcial</h3></div><div class="online-orb"><strong id="onlineCount">0</strong><small>online</small></div></div>
+<ol id="ranking"></ol>
+</aside>
+</div>
+</section>
+</main>
+<script src="assets/js/player-v3.68-r31.js?v=3.68-r31" type="module"></script>
+</body>
+</html>
