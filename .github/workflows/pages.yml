@@ -1,4 +1,4 @@
-name: Deploy QuizRounds2 r37 TESTE no GitHub Pages
+name: Deploy QuizRounds2 r38 TESTE no GitHub Pages
 
 on:
   push:
@@ -24,7 +24,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: Validar estrutura, regressões e animações QuizRounds2 r37
+      - name: Validar estrutura, regressões e animações QuizRounds2 r38
         run: node scripts/validate-build.mjs
 
       - name: Validar configuração

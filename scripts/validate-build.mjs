@@ -76,16 +76,16 @@ for(const rel of htmlFiles){
   const counts=new Map();for(const id of ids)counts.set(id,(counts.get(id)||0)+1);
   for(const [id,count] of counts)if(count>1)fail(`${rel}: ID duplicado ${id} (${count}x).`);
   for(const m of source.matchAll(/\b(?:src|href)\s*=\s*["']([^"']+)["']/gi)){
-    const u=m[1];if(/^assets\/(?:css|js)\//.test(u)&&!u.includes('v=3.68-r37'))fail(`${rel}: asset ativo sem cache-bust r37 -> ${u}`);
+    const u=m[1];if(/^assets\/(?:css|js)\//.test(u)&&!u.includes('v=3.68-r38'))fail(`${rel}: asset ativo sem cache-bust r38 -> ${u}`);
   }
   if(rel!=='simulator.html'){
     if(!source.includes(pinned))fail(`${rel}: Supabase JS não está fixado exatamente em 2.112.4.`);
     const externalScripts=[...source.matchAll(/<script[^>]+src=["'](https?:[^"']+)["']/gi)].map(m=>m[1]);
     for(const u of externalScripts)if(u!==pinned)fail(`${rel}: script externo inesperado -> ${u}`);
   }
-  if(!source.includes('3.68-r37')&&rel!=='display.html')fail(`${rel}: identificação visual/build r37 ausente.`);
+  if(!source.includes('3.68-r38')&&rel!=='display.html')fail(`${rel}: identificação visual/build r38 ausente.`);
 }
-ok(`${htmlFiles.length} HTML auditados; ${idTotal} IDs sem duplicidade; referências/cache-bust r37 conferidos.`);
+ok(`${htmlFiles.length} HTML auditados; ${idTotal} IDs sem duplicidade; referências/cache-bust r38 conferidos.`);
 
 // 3) ES module imports and named exports.
 for(const rel of allJs){
@@ -109,44 +109,44 @@ for(const rel of allCss){
     const raw=m[1].trim();if(!raw.startsWith('var('))checkReference(rel,raw);
   }
 }
-const displayCss=read('assets/css/display-ui-v3.92-r37.css');
+const displayCss=read('assets/css/display-ui-v3.92-r38.css');
 for(const shape of ['wide','landscape','square','tall']){
   const token=`.display-body.has-event-logo[data-logo-shape="${shape}"] .display-event-logo`;
   if(displayCss.split(token).length-1!==1)fail(`display-ui r30: regra adaptativa ${shape} ausente/duplicada.`);
 }
-for(const rel of ['assets/css/admin-v3.68-r37.css','assets/css/display-ui-v3.92-r37.css','assets/css/player-ui-v3.92-r37.css']){
+for(const rel of ['assets/css/admin-v3.68-r38.css','assets/css/display-ui-v3.92-r38.css','assets/css/player-ui-v3.92-r38.css']){
   if(!read(rel).includes('background-color:transparent'))fail(`${rel}: logo transparente não detectada.`);
 }
-const avatarUi=read('assets/css/avatars-ui-v3.92-r37.css');
+const avatarUi=read('assets/css/avatars-ui-v3.92-r38.css');
 if(!avatarUi.includes('grid-template-columns:repeat(4,minmax(0,1fr))'))fail('Avatar picker r30 não usa 4 colunas no desktop.');
 if(!avatarUi.includes('repeat(3,minmax(0,1fr))'))fail('Avatar picker r30 não possui grade mobile de 3 colunas.');
 if(!avatarUi.includes('city-walkers{overflow:hidden'))fail('Mapa r30 não contém contenção dos atores dentro do viewport.');
 ok(`${allCss.length} CSS: referências, balanceamento, logo, picker e contenção do mapa verificados.`);
 
-// 5) Active r37 assets + cache compatibility.
+// 5) Active r38 assets + cache compatibility.
 const active={
-  'admin.html':['assets/css/admin-v3.68-r37.css','assets/css/avatars-runtime-v3.68-r37.css','assets/css/motion-v3.68-r37.css','assets/js/admin-v3.68-r37.js','assets/js/motion-v3.68-r37.js'],
-  'display.html':['assets/css/display-ui-v3.92-r37.css','assets/css/avatars-runtime-v3.68-r37.css','assets/css/avatars-ui-v3.92-r37.css','assets/css/motion-v3.68-r37.css','assets/js/display-v3.68-r37.js','assets/js/motion-v3.68-r37.js'],
-  'index.html':['assets/css/player-ui-v3.92-r37.css','assets/css/avatars-runtime-v3.68-r37.css','assets/css/avatars-ui-v3.92-r37.css','assets/css/motion-v3.68-r37.css','assets/js/player-v3.68-r37.js','assets/js/motion-v3.68-r37.js'],
-  'simulator.html':['assets/css/simulator-v3.68-r37.css','assets/css/avatars-runtime-v3.68-r37.css','assets/css/avatars-ui-v3.92-r37.css','assets/css/motion-v3.68-r37.css','assets/js/simulator-v3.68-r37.js','assets/js/motion-v3.68-r37.js']
+  'admin.html':['assets/css/admin-v3.68-r38.css','assets/css/avatars-runtime-v3.68-r38.css','assets/css/motion-v3.68-r38.css','assets/js/admin-v3.68-r38.js','assets/js/motion-v3.68-r38.js'],
+  'display.html':['assets/css/display-ui-v3.92-r38.css','assets/css/avatars-runtime-v3.68-r38.css','assets/css/avatars-ui-v3.92-r38.css','assets/css/motion-v3.68-r38.css','assets/js/display-v3.68-r38.js','assets/js/motion-v3.68-r38.js'],
+  'index.html':['assets/css/player-ui-v3.92-r38.css','assets/css/avatars-runtime-v3.68-r38.css','assets/css/avatars-ui-v3.92-r38.css','assets/css/motion-v3.68-r38.css','assets/js/player-v3.68-r38.js','assets/js/motion-v3.68-r38.js'],
+  'simulator.html':['assets/css/simulator-v3.68-r38.css','assets/css/avatars-runtime-v3.68-r38.css','assets/css/avatars-ui-v3.92-r38.css','assets/css/motion-v3.68-r38.css','assets/js/simulator-v3.68-r38.js','assets/js/motion-v3.68-r38.js']
 };
 for(const [rel,required] of Object.entries(active)){
-  const source=read(rel);for(const token of required)if(!source.includes(token))fail(`${rel}: não carrega o ativo r37 ${token}.`);
+  const source=read(rel);for(const token of required)if(!source.includes(token))fail(`${rel}: não carrega o ativo r38 ${token}.`);
 }
 for(const rel of ['assets/js/admin-v3.68-r35.js','assets/js/display-v3.68-r35.js','assets/js/player-v3.68-r35.js','assets/js/simulator-v3.68-r35.js','assets/css/display-ui-v3.92-r35.css','assets/js/admin-v3.68-r32.js','assets/js/display-v3.68-r32.js','assets/js/player-v3.68-r32.js','assets/js/simulator-v3.68-r32.js','assets/css/display-ui-v3.92-r32.css','assets/js/admin-v3.68-r29.js','assets/js/display-v3.68-r29.js','assets/js/player-v3.68-r29.js','assets/js/simulator-v3.68-r29.js','assets/css/display-ui-v3.92-r29.css','assets/js/admin-v3.68-r28.js','assets/js/common-v3.68.js'])if(!exists(rel))fail(`Asset de compatibilidade anterior ausente: ${rel}`);
-ok('Ativos r37 e compatibilidade de cache r29/r28 verificados.');
+ok('Ativos r38 e compatibilidade de cache r29/r28 verificados.');
 
 // 6) Frontend/backend build/schema contract.
-const common=read('assets/js/common-v3.68-r37.js');
-if(!/BUILD_ID=['"]3\.68-r37['"]/.test(common))fail('BUILD_ID r37 ausente no common ativo.');
+const common=read('assets/js/common-v3.68-r38.js');
+if(!/BUILD_ID=['"]3\.68-r38['"]/.test(common))fail('BUILD_ID r38 ausente no common ativo.');
 if(!/BACKEND_SCHEMA_REQUIRED=40/.test(common))fail('BACKEND_SCHEMA_REQUIRED=40 ausente no common ativo.');
-for(const rel of ['assets/js/admin-v3.68-r37.js','assets/js/display-v3.68-r37.js','assets/js/player-v3.68-r37.js']){
+for(const rel of ['assets/js/admin-v3.68-r38.js','assets/js/display-v3.68-r38.js','assets/js/player-v3.68-r38.js']){
   const source=read(rel);if(!source.includes('get_quiz_backend_meta'))fail(`${rel}: handshake de backend ausente.`);if(!source.includes('BUILD_ID'))fail(`${rel}: BUILD_ID não é utilizado.`);
 }
-const admin=read('assets/js/admin-v3.68-r37.js');
+const admin=read('assets/js/admin-v3.68-r38.js');
 if(!admin.includes('version_required'))fail('ADM: broadcast de atualização de build ausente.');
 if(!admin.includes('eligible_count'))fail('ADM: elegibilidade por round não é consumida.');
-ok('Contrato frontend/backend, BUILD_ID r37 e schema 40 verificados.');
+ok('Contrato frontend/backend, BUILD_ID r38 e schema 40 verificados.');
 
 // 7) Migrations 001..040 and hardening + avatar catalog migration.
 const migrations=fs.readdirSync(path.join(root,'supabase/migrations')).filter(n=>/^\d{3}_.*\.sql$/.test(n)).sort();
@@ -161,7 +161,7 @@ if(!avatarMig.includes('private.normalize_avatar_key'))fail('Migration 040: norm
 ok('Migrations 001..040 contínuas; hardening 039 e catálogo 040 presentes.');
 
 // 8) Exact 31-avatar catalog, assets and end-to-end selection/map wiring.
-const avatarModule=read('assets/js/avatars-v3.68-r37.js');
+const avatarModule=read('assets/js/avatars-v3.68-r38.js');
 const avatarKeys=[...avatarModule.matchAll(/\{key:'([^']+)'/g)].map(m=>m[1]);
 const uniqueKeys=[...new Set(avatarKeys)];
 if(avatarKeys.length!==31||uniqueKeys.length!==31)fail(`Catálogo r30 deveria ter 31 avatares únicos; encontrado ${avatarKeys.length}/${uniqueKeys.length}.`);
@@ -175,16 +175,16 @@ for(const key of uniqueKeys){
   if(!avatarMig.includes(`'${key}'`))fail(`Migration 040 não aceita a chave ${key}.`);
 }
 for(const token of ['runtime-r30','preview-r30','avatarPickerMarkup','backendAvatarKey','avatarMapMarkup','applyAvatarFrameElement'])if(!avatarModule.includes(token))fail(`Módulo de avatar r30 não contém ${token}.`);
-const player=read('assets/js/player-v3.68-r37.js'),display=read('assets/js/display-v3.68-r37.js'),city=read('assets/js/city-v3.68-r37.js'),sim=read('assets/js/simulator-v3.68-r37.js');
+const player=read('assets/js/player-v3.68-r38.js'),display=read('assets/js/display-v3.68-r38.js'),city=read('assets/js/city-v3.68-r38.js'),sim=read('assets/js/simulator-v3.68-r38.js');
 if(!player.includes('avatarPickerMarkup')||!player.includes('player_set_avatar')||!player.includes('join_quiz_room_v2'))fail('Jogador r30 não está ligado à seleção/persistência dos avatares.');
 if(!display.includes('createAvatarCity')||!city.includes('avatarMapMarkup')||!city.includes('row.avatar_key'))fail('Telão/mapa r30 não está ligado ao avatar individual do roster.');
-if(!sim.includes('AVATARS')||!sim.includes('avatarPickerMarkup'))fail('Simulador r37 não usa o catálogo de 31 avatares.');
+if(!sim.includes('AVATARS')||!sim.includes('avatarPickerMarkup'))fail('Simulador r38 não usa o catálogo de 31 avatares.');
 ok('Catálogo end-to-end: 31 avatares, 62 assets, seleção, Supabase e mapa do lobby verificados.');
 
 // 9) Simulator deterministic checks.
-if(/\badd\([^;\n]*,\s*true\s*,/.test(sim))fail('Simulador r37 ainda contém verificação aprovada por constante true.');
-for(const token of ['Resposta idempotente','Prazo/deadline','Desempate determinístico','Pausa preserva tempo','Anulação recalcula ranking','Reclassificação recalcula pontos','Carga lógica 100 × 20 rounds'])if(!sim.includes(token))fail(`Simulador r37: teste esperado ausente: ${token}.`);
-if(!sim.includes('Não substitui teste real contra Supabase'))fail('Simulador r37 não explicita limite da suíte local.');
+if(/\badd\([^;\n]*,\s*true\s*,/.test(sim))fail('Simulador r38 ainda contém verificação aprovada por constante true.');
+for(const token of ['Resposta idempotente','Prazo/deadline','Desempate determinístico','Pausa preserva tempo','Anulação recalcula ranking','Reclassificação recalcula pontos','Carga lógica 100 × 20 rounds'])if(!sim.includes(token))fail(`Simulador r38: teste esperado ausente: ${token}.`);
+if(!sim.includes('Não substitui teste real contra Supabase'))fail('Simulador r38 não explicita limite da suíte local.');
 ok('Suíte local determinística preservada e limites documentados.');
 
 // 10) No privileged credentials; config remains placeholders.
@@ -199,63 +199,77 @@ ok('Config neutro e sem credenciais privilegiadas embutidas.');
 
 
 // 10b) QuizRounds2 browser isolation from production path on the same GitHub Pages origin.
-const common2=read('assets/js/common-v3.68-r37.js');
-const admin2=read('assets/js/admin-v3.68-r37.js');
-const player2=read('assets/js/player-v3.68-r37.js');
-const display2=read('assets/js/display-v3.68-r37.js');
+const common2=read('assets/js/common-v3.68-r38.js');
+const admin2=read('assets/js/admin-v3.68-r38.js');
+const player2=read('assets/js/player-v3.68-r38.js');
+const display2=read('assets/js/display-v3.68-r38.js');
 if(!common2.includes('quizrounds2-v38-${scope}'))fail('QuizRounds2: auth storageKey não está isolada.');
 for(const token of ['quiz2AdminRoomId','quiz2RemoteDeviceToken:v1','quiz2EventMode:v1'])if(!admin2.includes(token))fail(`QuizRounds2: chave ADM não isolada: ${token}.`);
 for(const token of ['quiz2Room','quiz2Name','quiz2PlayerId','quiz2ActiveTab'])if(!player2.includes(token))fail(`QuizRounds2: chave jogador não isolada: ${token}.`);
 if(!display2.includes('quiz2DisplaySound'))fail('QuizRounds2: preferência do telão não isolada.');
 ok('Namespace de navegador QuizRounds2 isolado do QuizRounds principal.');
 
-// 10c) Lobby map collision/nav r37: audited graph, door nodes and tight-node spread.
-const city32=read('assets/js/city-v3.68-r37.js');
-for(const scene of ['office','laboratory','industry','platform'])if(!city32.includes(`${scene}:{`))fail(`Mapa r37 ausente no grafo: ${scene}.`);
-for(const token of ['tightSet','density===\'high\'?.38','door-only','mobiliário'])if(!city32.includes(token))fail(`Colisão r37: marcador obrigatório ausente: ${token}.`);
-if(city32.includes("spread=density==='high'?1.05"))fail('Colisão r37: dispersão antiga de 1.05% ainda ativa.');
-ok('Quatro mapas r37 auditados com nós de porta/gargalo e dispersão reduzida.');
+// 10c) Lobby map collision/nav r38: audited graph, door nodes and tight-node spread.
+const city32=read('assets/js/city-v3.68-r38.js');
+for(const scene of ['office','laboratory','industry','platform'])if(!city32.includes(`${scene}:{`))fail(`Mapa r38 ausente no grafo: ${scene}.`);
+for(const token of ['tightSet','density===\'high\'?.38','door-only','mobiliário'])if(!city32.includes(token))fail(`Colisão r38: marcador obrigatório ausente: ${token}.`);
+if(city32.includes("spread=density==='high'?1.05"))fail('Colisão r38: dispersão antiga de 1.05% ainda ativa.');
+ok('Quatro mapas r38 auditados com nós de porta/gargalo e dispersão reduzida.');
 
-// 10d) r37 visual layer: wall clock and avatar category filters.
-const displayHtml34=read('display.html'),displayJs34=read('assets/js/display-v3.68-r37.js'),playerJs34=read('assets/js/player-v3.68-r37.js'),avatarJs34=read('assets/js/avatars-v3.68-r37.js');
-for(const token of ['displayWallClockTime','displayWallClockDate','display-wall-clock'])if(!displayHtml34.includes(token))fail(`r37 telão: relógio ausente: ${token}.`);
-for(const token of ['startWallClock','Intl.DateTimeFormat','setInterval(updateWallClock,1000)'])if(!displayJs34.includes(token))fail(`r37 telão: lógica do relógio ausente: ${token}.`);
-for(const token of ['data-avatar-filter','data-avatar-group','filters:true'])if(!(avatarJs34+playerJs34).includes(token))fail(`r37 avatares: filtro ausente: ${token}.`);
-ok('Relógio do telão e filtros visuais dos avatares r37 verificados.');
+// 10d) r38 visual layer: wall clock and avatar category filters.
+const displayHtml34=read('display.html'),displayJs34=read('assets/js/display-v3.68-r38.js'),playerJs34=read('assets/js/player-v3.68-r38.js'),avatarJs34=read('assets/js/avatars-v3.68-r38.js');
+for(const token of ['displayWallClockTime','displayWallClockDate','display-wall-clock'])if(!displayHtml34.includes(token))fail(`r38 telão: relógio ausente: ${token}.`);
+for(const token of ['startWallClock','Intl.DateTimeFormat','setInterval(updateWallClock,1000)'])if(!displayJs34.includes(token))fail(`r38 telão: lógica do relógio ausente: ${token}.`);
+for(const token of ['data-avatar-filter','data-avatar-group','filters:true'])if(!(avatarJs34+playerJs34).includes(token))fail(`r38 avatares: filtro ausente: ${token}.`);
+ok('Relógio do telão e filtros visuais dos avatares r38 verificados.');
 
-// 10e) r37 runtime recovery: controller lease, finished-room display guard and settings draft lock.
-for(const token of ['ensureControllerForRoomCreation','admin_list_recent_rooms','p_force:true','loadPreferredRoom'])if(!admin.includes(token))fail(`r37 controlador: marcador ausente: ${token}.`);
-for(const token of ['settingsDraftDirty','scheduleSettingsAutosave','settingsDraftSerial','if(!settingsDraftDirty&&!settingsSaving)fillSettings()'])if(!admin.includes(token))fail(`r37 regras: proteção de rascunho ausente: ${token}.`);
-for(const token of ["phase()==='finished'||room?.status==='finished'",'await claimController(false)'])if(!admin.includes(token))fail(`r37 telão: proteção/renovação ausente: ${token}.`);
-if(!admin.includes('Controle administrativo renovado automaticamente'))fail('r37 controlador: retry automático de lease ausente.');
-ok('r37: controlador, sala ativa, telão encerrado e persistência das regras verificados.');
+// 10e) r38 runtime recovery: controller lease, finished-room display guard and settings draft lock.
+for(const token of ['ensureControllerForRoomCreation','admin_list_recent_rooms','p_force:true','loadPreferredRoom'])if(!admin.includes(token))fail(`r38 controlador: marcador ausente: ${token}.`);
+for(const token of ['settingsDraftDirty','scheduleSettingsAutosave','settingsDraftSerial','if(!settingsDraftDirty&&!settingsSaving)fillSettings()'])if(!admin.includes(token))fail(`r38 regras: proteção de rascunho ausente: ${token}.`);
+for(const token of ["phase()==='finished'||room?.status==='finished'",'await claimController(false)'])if(!admin.includes(token))fail(`r38 telão: proteção/renovação ausente: ${token}.`);
+if(!admin.includes('Controle administrativo renovado automaticamente'))fail('r38 controlador: retry automático de lease ausente.');
+ok('r38: controlador, sala ativa, telão encerrado e persistência das regras verificados.');
 
 
-// 10f) r37 admin full viewport/full width layout.
-const adminCss36=read('assets/css/admin-v3.68-r37.css');
-for(const token of ['width:100vw','min-height:100dvh','.admin-app .admin-tabs{','max-width:none','.admin-app .admin-workspace'])if(!adminCss36.includes(token))fail(`r37 ADM viewport: marcador ausente: ${token}.`);
-if(!read('admin.html').includes('assets/css/admin-v3.68-r37.css'))fail('r37 ADM: admin.html não carrega o CSS r37.');
-ok('r37 ADM usa viewport integral e largura total sem max-width centralizador.');
+// 10f) r38 admin full viewport/full width layout.
+const adminCss36=read('assets/css/admin-v3.68-r38.css');
+for(const token of ['width:100vw','min-height:100dvh','.admin-app .admin-tabs{','max-width:none','.admin-app .admin-workspace'])if(!adminCss36.includes(token))fail(`r38 ADM viewport: marcador ausente: ${token}.`);
+if(!read('admin.html').includes('assets/css/admin-v3.68-r38.css'))fail('r38 ADM: admin.html não carrega o CSS r38.');
+ok('r38 ADM usa viewport integral e largura total sem max-width centralizador.');
 
-// 10g) r37 complete animation layer without backend/schema changes.
-const motionJs=read('assets/js/motion-v3.68-r37.js'),motionCss=read('assets/css/motion-v3.68-r37.css');
-for(const token of ['motionLeaderToast','particleBurst','setupTimer','streakStatus','playerMotion','displayMotion','adminMotion','simulatorMotion'])if(!motionJs.includes(token))fail(`r37 animações JS: marcador ausente: ${token}.`);
-for(const token of ['motion-question-in','motion-option-in','motion-streak-pop','motion-podium-in','motion-clock-tick','city-door-pass','city-mascot-peek','motion-remote-command','prefers-reduced-motion'])if(!motionCss.includes(token))fail(`r37 animações CSS: marcador ausente: ${token}.`);
-for(const token of ['mascotTick','city-tight-move','city-door-pass','turnReady'])if(!city32.includes(token))fail(`r37 mapa animado: marcador ausente: ${token}.`);
-ok('r37: animações de jogador, telão, ranking, relógio, mapa, ADM e controle remoto verificadas.');
+// 10g) r38 complete animation layer without backend/schema changes.
+const motionJs=read('assets/js/motion-v3.68-r38.js'),motionCss=read('assets/css/motion-v3.68-r38.css');
+for(const token of ['motionLeaderToast','particleBurst','setupTimer','streakStatus','playerMotion','displayMotion','adminMotion','simulatorMotion'])if(!motionJs.includes(token))fail(`r38 animações JS: marcador ausente: ${token}.`);
+for(const token of ['motion-question-in','motion-option-in','motion-streak-pop','motion-podium-in','motion-clock-tick','city-door-pass','city-mascot-peek','motion-remote-command','prefers-reduced-motion'])if(!motionCss.includes(token))fail(`r38 animações CSS: marcador ausente: ${token}.`);
+for(const token of ['mascotTick','city-tight-move','city-door-pass','turnReady'])if(!city32.includes(token))fail(`r38 mapa animado: marcador ausente: ${token}.`);
+ok('r38: animações de jogador, telão, ranking, relógio, mapa, ADM e controle remoto verificadas.');
+
+
+// 10h) r38 login/join interaction hardening.
+const motion38=read('assets/js/motion-v3.68-r38.js');
+const motionCss38=read('assets/css/motion-v3.68-r38.css');
+const adminCss38=read('assets/css/admin-v3.68-r38.css');
+const playerCss38=read('assets/css/player-ui-v3.92-r38.css');
+for(const token of ['input,textarea,select,label','motion-r38-entry-safe','editable(e.target)'])if(!motion38.includes(token))fail(`r38 interação: proteção JS ausente: ${token}.`);
+for(const token of ['#loginView:not(.hidden) input','#joinView:not(.hidden) input','pointer-events:auto!important','login-visual::before'])if(!motionCss38.includes(token))fail(`r38 interação: proteção CSS ausente: ${token}.`);
+if(!adminCss38.includes('#loginView .login-copy input')||!playerCss38.includes('#joinView .join-form-card input'))fail('r38 interação: hardening local de inputs ausente.');
+for(const [rel,id] of [['admin.html','email'],['admin.html','password'],['index.html','roomCode'],['index.html','playerName']]){
+  const h=read(rel);if(!h.includes(`id="${id}"`)&&!h.includes(`id='${id}'`))fail(`${rel}: input crítico ${id} ausente.`);
+}
+ok('r38: login ADM e entrada do jogador protegidos contra bloqueio de foco/clique/toque.');
 
 // 11) Release metadata and CI gate.
-const version=read('VERSION.txt'),readme=read('README.md'),bat=read('01_Abrir_Simulador_QuizRounds2_v3.68-r37.bat'),workflow=read('.github/workflows/pages.yml');
-for(const token of ['RELEASE=r37','BUILD_ID=3.68-r37','BACKEND_SCHEMA_REQUIRED=40','SUPABASE_MIGRATIONS=001-040','AVATAR_CATALOG=31'])if(!version.includes(token))fail(`VERSION.txt: metadado ausente ${token}.`);
+const version=read('VERSION.txt'),readme=read('README.md'),bat=read('01_Abrir_Simulador_QuizRounds2_v3.68-r38.bat'),workflow=read('.github/workflows/pages.yml');
+for(const token of ['RELEASE=r38','BUILD_ID=3.68-r38','BACKEND_SCHEMA_REQUIRED=40','SUPABASE_MIGRATIONS=001-040','AVATAR_CATALOG=31'])if(!version.includes(token))fail(`VERSION.txt: metadado ausente ${token}.`);
 if(!readme.includes('QuizRounds2')||!readme.includes('31 Avatares')||!readme.includes('segundo projeto Supabase'))fail('README.md não documenta o ambiente de teste QuizRounds2.');
-if(!bat.includes('v3.68-r37'))fail('Launcher do simulador não foi atualizado para r37.');
+if(!bat.includes('v3.68-r38'))fail('Launcher do simulador não foi atualizado para r38.');
 if(!workflow.includes('node scripts/validate-build.mjs'))fail('Workflow do GitHub Pages não executa a validação do build.');
-ok('Metadados r37 QuizRounds2, documentação, launcher e CI gate verificados.');
+ok('Metadados r38 QuizRounds2, documentação, launcher e CI gate verificados.');
 
 if(errors.length){
-  console.error(`\nVALIDAÇÃO QuizRounds2 r37: FALHOU (${errors.length})`);
+  console.error(`\nVALIDAÇÃO QuizRounds2 r38: FALHOU (${errors.length})`);
   for(const e of errors)console.error(`- ${e}`);
   process.exit(1);
 }
-console.log(`VALIDAÇÃO QuizRounds2 r37: APROVADA (${notes.length} grupos)`);
+console.log(`VALIDAÇÃO QuizRounds2 r38: APROVADA (${notes.length} grupos)`);
 for(const n of notes)console.log(`- ${n}`);

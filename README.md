@@ -1,8 +1,8 @@
-# QuizRounds2 v3.68 — r37 TESTE · Animações Completas
+# QuizRounds2 v3.68 — r38 TESTE · Animações Completas
 
-A r37 mantém o backend/schema **040**, a recuperação de controlador da r35 e o ADM 100VH/full width da r36. Esta versão adiciona uma camada de movimento e feedback visual sem alterar migrations, contratos Supabase ou regras do quiz.
+A r38 mantém o backend/schema **040**, a recuperação de controlador da r35 e o ADM 100VH/full width da r36. Esta versão adiciona uma camada de movimento e feedback visual sem alterar migrations, contratos Supabase ou regras do quiz.
 
-## Animações e refinamentos r37
+## Animações e refinamentos r38
 
 - Lobby: entrada `pop/fade`, prontidão com check e brilho, nomes/avatares com transições e mapa vivo entre rodadas.
 - Mapas: caminhada suavizada, pequena pausa ao virar, desaceleração em gargalos, passagem visual por portas e preservação das colisões com paredes/mobiliário.
@@ -102,7 +102,7 @@ Use um **segundo projeto Supabase** para o QuizRounds2. Configure no repositóri
 
 # Base técnica herdada: QuizRounds v3.68 — r30 · 31 Avatares + Lobby Map
 
-Esta versão parte da **r29 Hardening Completo** e incorpora a biblioteca/lógica de avatares do pacote **v3.79/r37d com 31 avatares**, preservando o backend Supabase + GitHub Pages e as correções de segurança da r29.
+Esta versão parte da **r29 Hardening Completo** e incorpora a biblioteca/lógica de avatares do pacote **v3.79/r38d com 31 avatares**, preservando o backend Supabase + GitHub Pages e as correções de segurança da r29.
 
 ## O que mudou na r30
 
@@ -133,3 +133,10 @@ A **r26 continua sendo o rollback homologado**. A r30 mantém as correções da 
 
 ## r36 — ADM 100vh / largura total
 O painel `admin.html` passa a ocupar toda a largura disponível e no mínimo 100% da altura do viewport (100dvh com fallback 100vh). Abas, workspace, grids e cabeçalho não possuem max-width centralizador. Conteúdo extenso preserva rolagem natural. Backend e migrations permanecem no schema 040.
+
+
+## r38 — Hotfix de login e campos de entrada
+- Inputs do ADM e do jogador ficam acima de todas as camadas decorativas.
+- Overlays, pseudo-elementos e animações não participam do hit-testing.
+- Controles editáveis foram excluídos do micro-feedback global de pressão.
+- Mantidas as animações r37 após a entrada, o ADM 100dvh/full-width, o tema azul e o schema 040.
