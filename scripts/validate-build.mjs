@@ -76,16 +76,16 @@ for(const rel of htmlFiles){
   const counts=new Map();for(const id of ids)counts.set(id,(counts.get(id)||0)+1);
   for(const [id,count] of counts)if(count>1)fail(`${rel}: ID duplicado ${id} (${count}x).`);
   for(const m of source.matchAll(/\b(?:src|href)\s*=\s*["']([^"']+)["']/gi)){
-    const u=m[1];if(/^assets\/(?:css|js)\//.test(u)&&!u.includes('v=3.68-r33'))fail(`${rel}: asset ativo sem cache-bust r33 -> ${u}`);
+    const u=m[1];if(/^assets\/(?:css|js)\//.test(u)&&!u.includes('v=3.68-r34'))fail(`${rel}: asset ativo sem cache-bust r34 -> ${u}`);
   }
   if(rel!=='simulator.html'){
     if(!source.includes(pinned))fail(`${rel}: Supabase JS não está fixado exatamente em 2.112.4.`);
     const externalScripts=[...source.matchAll(/<script[^>]+src=["'](https?:[^"']+)["']/gi)].map(m=>m[1]);
     for(const u of externalScripts)if(u!==pinned)fail(`${rel}: script externo inesperado -> ${u}`);
   }
-  if(!source.includes('3.68-r33')&&rel!=='display.html')fail(`${rel}: identificação visual/build r33 ausente.`);
+  if(!source.includes('3.68-r34')&&rel!=='display.html')fail(`${rel}: identificação visual/build r34 ausente.`);
 }
-ok(`${htmlFiles.length} HTML auditados; ${idTotal} IDs sem duplicidade; referências/cache-bust r33 conferidos.`);
+ok(`${htmlFiles.length} HTML auditados; ${idTotal} IDs sem duplicidade; referências/cache-bust r34 conferidos.`);
 
 // 3) ES module imports and named exports.
 for(const rel of allJs){
@@ -109,44 +109,44 @@ for(const rel of allCss){
     const raw=m[1].trim();if(!raw.startsWith('var('))checkReference(rel,raw);
   }
 }
-const displayCss=read('assets/css/display-ui-v3.92-r33.css');
+const displayCss=read('assets/css/display-ui-v3.92-r34.css');
 for(const shape of ['wide','landscape','square','tall']){
   const token=`.display-body.has-event-logo[data-logo-shape="${shape}"] .display-event-logo`;
   if(displayCss.split(token).length-1!==1)fail(`display-ui r30: regra adaptativa ${shape} ausente/duplicada.`);
 }
-for(const rel of ['assets/css/admin-v3.68-r33.css','assets/css/display-ui-v3.92-r33.css','assets/css/player-ui-v3.92-r33.css']){
+for(const rel of ['assets/css/admin-v3.68-r34.css','assets/css/display-ui-v3.92-r34.css','assets/css/player-ui-v3.92-r34.css']){
   if(!read(rel).includes('background-color:transparent'))fail(`${rel}: logo transparente não detectada.`);
 }
-const avatarUi=read('assets/css/avatars-ui-v3.92-r33.css');
+const avatarUi=read('assets/css/avatars-ui-v3.92-r34.css');
 if(!avatarUi.includes('grid-template-columns:repeat(4,minmax(0,1fr))'))fail('Avatar picker r30 não usa 4 colunas no desktop.');
 if(!avatarUi.includes('repeat(3,minmax(0,1fr))'))fail('Avatar picker r30 não possui grade mobile de 3 colunas.');
 if(!avatarUi.includes('city-walkers{overflow:hidden'))fail('Mapa r30 não contém contenção dos atores dentro do viewport.');
 ok(`${allCss.length} CSS: referências, balanceamento, logo, picker e contenção do mapa verificados.`);
 
-// 5) Active r33 assets + cache compatibility.
+// 5) Active r34 assets + cache compatibility.
 const active={
-  'admin.html':['assets/css/admin-v3.68-r33.css','assets/css/avatars-runtime-v3.68-r33.css','assets/js/admin-v3.68-r33.js'],
-  'display.html':['assets/css/display-ui-v3.92-r33.css','assets/css/avatars-runtime-v3.68-r33.css','assets/css/avatars-ui-v3.92-r33.css','assets/js/display-v3.68-r33.js'],
-  'index.html':['assets/css/player-ui-v3.92-r33.css','assets/css/avatars-runtime-v3.68-r33.css','assets/css/avatars-ui-v3.92-r33.css','assets/js/player-v3.68-r33.js'],
-  'simulator.html':['assets/css/simulator-v3.68-r33.css','assets/css/avatars-runtime-v3.68-r33.css','assets/css/avatars-ui-v3.92-r33.css','assets/js/simulator-v3.68-r33.js']
+  'admin.html':['assets/css/admin-v3.68-r34.css','assets/css/avatars-runtime-v3.68-r34.css','assets/js/admin-v3.68-r34.js'],
+  'display.html':['assets/css/display-ui-v3.92-r34.css','assets/css/avatars-runtime-v3.68-r34.css','assets/css/avatars-ui-v3.92-r34.css','assets/js/display-v3.68-r34.js'],
+  'index.html':['assets/css/player-ui-v3.92-r34.css','assets/css/avatars-runtime-v3.68-r34.css','assets/css/avatars-ui-v3.92-r34.css','assets/js/player-v3.68-r34.js'],
+  'simulator.html':['assets/css/simulator-v3.68-r34.css','assets/css/avatars-runtime-v3.68-r34.css','assets/css/avatars-ui-v3.92-r34.css','assets/js/simulator-v3.68-r34.js']
 };
 for(const [rel,required] of Object.entries(active)){
-  const source=read(rel);for(const token of required)if(!source.includes(token))fail(`${rel}: não carrega o ativo r33 ${token}.`);
+  const source=read(rel);for(const token of required)if(!source.includes(token))fail(`${rel}: não carrega o ativo r34 ${token}.`);
 }
 for(const rel of ['assets/js/admin-v3.68-r32.js','assets/js/display-v3.68-r32.js','assets/js/player-v3.68-r32.js','assets/js/simulator-v3.68-r32.js','assets/css/display-ui-v3.92-r32.css','assets/js/admin-v3.68-r29.js','assets/js/display-v3.68-r29.js','assets/js/player-v3.68-r29.js','assets/js/simulator-v3.68-r29.js','assets/css/display-ui-v3.92-r29.css','assets/js/admin-v3.68-r28.js','assets/js/common-v3.68.js'])if(!exists(rel))fail(`Asset de compatibilidade anterior ausente: ${rel}`);
-ok('Ativos r33 e compatibilidade de cache r29/r28 verificados.');
+ok('Ativos r34 e compatibilidade de cache r29/r28 verificados.');
 
 // 6) Frontend/backend build/schema contract.
-const common=read('assets/js/common-v3.68-r33.js');
-if(!/BUILD_ID=['"]3\.68-r33['"]/.test(common))fail('BUILD_ID r33 ausente no common ativo.');
+const common=read('assets/js/common-v3.68-r34.js');
+if(!/BUILD_ID=['"]3\.68-r34['"]/.test(common))fail('BUILD_ID r34 ausente no common ativo.');
 if(!/BACKEND_SCHEMA_REQUIRED=40/.test(common))fail('BACKEND_SCHEMA_REQUIRED=40 ausente no common ativo.');
-for(const rel of ['assets/js/admin-v3.68-r33.js','assets/js/display-v3.68-r33.js','assets/js/player-v3.68-r33.js']){
+for(const rel of ['assets/js/admin-v3.68-r34.js','assets/js/display-v3.68-r34.js','assets/js/player-v3.68-r34.js']){
   const source=read(rel);if(!source.includes('get_quiz_backend_meta'))fail(`${rel}: handshake de backend ausente.`);if(!source.includes('BUILD_ID'))fail(`${rel}: BUILD_ID não é utilizado.`);
 }
-const admin=read('assets/js/admin-v3.68-r33.js');
+const admin=read('assets/js/admin-v3.68-r34.js');
 if(!admin.includes('version_required'))fail('ADM: broadcast de atualização de build ausente.');
 if(!admin.includes('eligible_count'))fail('ADM: elegibilidade por round não é consumida.');
-ok('Contrato frontend/backend, BUILD_ID r33 e schema 40 verificados.');
+ok('Contrato frontend/backend, BUILD_ID r34 e schema 40 verificados.');
 
 // 7) Migrations 001..040 and hardening + avatar catalog migration.
 const migrations=fs.readdirSync(path.join(root,'supabase/migrations')).filter(n=>/^\d{3}_.*\.sql$/.test(n)).sort();
@@ -161,7 +161,7 @@ if(!avatarMig.includes('private.normalize_avatar_key'))fail('Migration 040: norm
 ok('Migrations 001..040 contínuas; hardening 039 e catálogo 040 presentes.');
 
 // 8) Exact 31-avatar catalog, assets and end-to-end selection/map wiring.
-const avatarModule=read('assets/js/avatars-v3.68-r33.js');
+const avatarModule=read('assets/js/avatars-v3.68-r34.js');
 const avatarKeys=[...avatarModule.matchAll(/\{key:'([^']+)'/g)].map(m=>m[1]);
 const uniqueKeys=[...new Set(avatarKeys)];
 if(avatarKeys.length!==31||uniqueKeys.length!==31)fail(`Catálogo r30 deveria ter 31 avatares únicos; encontrado ${avatarKeys.length}/${uniqueKeys.length}.`);
@@ -175,16 +175,16 @@ for(const key of uniqueKeys){
   if(!avatarMig.includes(`'${key}'`))fail(`Migration 040 não aceita a chave ${key}.`);
 }
 for(const token of ['runtime-r30','preview-r30','avatarPickerMarkup','backendAvatarKey','avatarMapMarkup','applyAvatarFrameElement'])if(!avatarModule.includes(token))fail(`Módulo de avatar r30 não contém ${token}.`);
-const player=read('assets/js/player-v3.68-r33.js'),display=read('assets/js/display-v3.68-r33.js'),city=read('assets/js/city-v3.68-r33.js'),sim=read('assets/js/simulator-v3.68-r33.js');
+const player=read('assets/js/player-v3.68-r34.js'),display=read('assets/js/display-v3.68-r34.js'),city=read('assets/js/city-v3.68-r34.js'),sim=read('assets/js/simulator-v3.68-r34.js');
 if(!player.includes('avatarPickerMarkup')||!player.includes('player_set_avatar')||!player.includes('join_quiz_room_v2'))fail('Jogador r30 não está ligado à seleção/persistência dos avatares.');
 if(!display.includes('createAvatarCity')||!city.includes('avatarMapMarkup')||!city.includes('row.avatar_key'))fail('Telão/mapa r30 não está ligado ao avatar individual do roster.');
-if(!sim.includes('AVATARS')||!sim.includes('avatarPickerMarkup'))fail('Simulador r33 não usa o catálogo de 31 avatares.');
+if(!sim.includes('AVATARS')||!sim.includes('avatarPickerMarkup'))fail('Simulador r34 não usa o catálogo de 31 avatares.');
 ok('Catálogo end-to-end: 31 avatares, 62 assets, seleção, Supabase e mapa do lobby verificados.');
 
 // 9) Simulator deterministic checks.
-if(/\badd\([^;\n]*,\s*true\s*,/.test(sim))fail('Simulador r33 ainda contém verificação aprovada por constante true.');
-for(const token of ['Resposta idempotente','Prazo/deadline','Desempate determinístico','Pausa preserva tempo','Anulação recalcula ranking','Reclassificação recalcula pontos','Carga lógica 100 × 20 rounds'])if(!sim.includes(token))fail(`Simulador r33: teste esperado ausente: ${token}.`);
-if(!sim.includes('Não substitui teste real contra Supabase'))fail('Simulador r33 não explicita limite da suíte local.');
+if(/\badd\([^;\n]*,\s*true\s*,/.test(sim))fail('Simulador r34 ainda contém verificação aprovada por constante true.');
+for(const token of ['Resposta idempotente','Prazo/deadline','Desempate determinístico','Pausa preserva tempo','Anulação recalcula ranking','Reclassificação recalcula pontos','Carga lógica 100 × 20 rounds'])if(!sim.includes(token))fail(`Simulador r34: teste esperado ausente: ${token}.`);
+if(!sim.includes('Não substitui teste real contra Supabase'))fail('Simulador r34 não explicita limite da suíte local.');
 ok('Suíte local determinística preservada e limites documentados.');
 
 // 10) No privileged credentials; config remains placeholders.
@@ -199,35 +199,42 @@ ok('Config neutro e sem credenciais privilegiadas embutidas.');
 
 
 // 10b) QuizRounds2 browser isolation from production path on the same GitHub Pages origin.
-const common2=read('assets/js/common-v3.68-r33.js');
-const admin2=read('assets/js/admin-v3.68-r33.js');
-const player2=read('assets/js/player-v3.68-r33.js');
-const display2=read('assets/js/display-v3.68-r33.js');
+const common2=read('assets/js/common-v3.68-r34.js');
+const admin2=read('assets/js/admin-v3.68-r34.js');
+const player2=read('assets/js/player-v3.68-r34.js');
+const display2=read('assets/js/display-v3.68-r34.js');
 if(!common2.includes('quizrounds2-v38-${scope}'))fail('QuizRounds2: auth storageKey não está isolada.');
 for(const token of ['quiz2AdminRoomId','quiz2RemoteDeviceToken:v1','quiz2EventMode:v1'])if(!admin2.includes(token))fail(`QuizRounds2: chave ADM não isolada: ${token}.`);
 for(const token of ['quiz2Room','quiz2Name','quiz2PlayerId','quiz2ActiveTab'])if(!player2.includes(token))fail(`QuizRounds2: chave jogador não isolada: ${token}.`);
 if(!display2.includes('quiz2DisplaySound'))fail('QuizRounds2: preferência do telão não isolada.');
 ok('Namespace de navegador QuizRounds2 isolado do QuizRounds principal.');
 
-// 10c) Lobby map collision/nav r33: audited graph, door nodes and tight-node spread.
-const city32=read('assets/js/city-v3.68-r33.js');
-for(const scene of ['office','laboratory','industry','platform'])if(!city32.includes(`${scene}:{`))fail(`Mapa r33 ausente no grafo: ${scene}.`);
-for(const token of ['tightSet','density===\'high\'?.38','door-only','mobiliário'])if(!city32.includes(token))fail(`Colisão r33: marcador obrigatório ausente: ${token}.`);
-if(city32.includes("spread=density==='high'?1.05"))fail('Colisão r33: dispersão antiga de 1.05% ainda ativa.');
-ok('Quatro mapas r33 auditados com nós de porta/gargalo e dispersão reduzida.');
+// 10c) Lobby map collision/nav r34: audited graph, door nodes and tight-node spread.
+const city32=read('assets/js/city-v3.68-r34.js');
+for(const scene of ['office','laboratory','industry','platform'])if(!city32.includes(`${scene}:{`))fail(`Mapa r34 ausente no grafo: ${scene}.`);
+for(const token of ['tightSet','density===\'high\'?.38','door-only','mobiliário'])if(!city32.includes(token))fail(`Colisão r34: marcador obrigatório ausente: ${token}.`);
+if(city32.includes("spread=density==='high'?1.05"))fail('Colisão r34: dispersão antiga de 1.05% ainda ativa.');
+ok('Quatro mapas r34 auditados com nós de porta/gargalo e dispersão reduzida.');
+
+// 10d) r34 visual layer: wall clock and avatar category filters.
+const displayHtml34=read('display.html'),displayJs34=read('assets/js/display-v3.68-r34.js'),playerJs34=read('assets/js/player-v3.68-r34.js'),avatarJs34=read('assets/js/avatars-v3.68-r34.js');
+for(const token of ['displayWallClockTime','displayWallClockDate','display-wall-clock'])if(!displayHtml34.includes(token))fail(`r34 telão: relógio ausente: ${token}.`);
+for(const token of ['startWallClock','Intl.DateTimeFormat','setInterval(updateWallClock,1000)'])if(!displayJs34.includes(token))fail(`r34 telão: lógica do relógio ausente: ${token}.`);
+for(const token of ['data-avatar-filter','data-avatar-group','filters:true'])if(!(avatarJs34+playerJs34).includes(token))fail(`r34 avatares: filtro ausente: ${token}.`);
+ok('Relógio do telão e filtros visuais dos avatares r34 verificados.');
 
 // 11) Release metadata and CI gate.
-const version=read('VERSION.txt'),readme=read('README.md'),bat=read('01_Abrir_Simulador_QuizRounds2_v3.68-r33.bat'),workflow=read('.github/workflows/pages.yml');
-for(const token of ['RELEASE=r33','BUILD_ID=3.68-r33','BACKEND_SCHEMA_REQUIRED=40','SUPABASE_MIGRATIONS=001-040','AVATAR_CATALOG=31'])if(!version.includes(token))fail(`VERSION.txt: metadado ausente ${token}.`);
+const version=read('VERSION.txt'),readme=read('README.md'),bat=read('01_Abrir_Simulador_QuizRounds2_v3.68-r34.bat'),workflow=read('.github/workflows/pages.yml');
+for(const token of ['RELEASE=r34','BUILD_ID=3.68-r34','BACKEND_SCHEMA_REQUIRED=40','SUPABASE_MIGRATIONS=001-040','AVATAR_CATALOG=31'])if(!version.includes(token))fail(`VERSION.txt: metadado ausente ${token}.`);
 if(!readme.includes('QuizRounds2')||!readme.includes('31 Avatares')||!readme.includes('segundo projeto Supabase'))fail('README.md não documenta o ambiente de teste QuizRounds2.');
-if(!bat.includes('v3.68-r33'))fail('Launcher do simulador não foi atualizado para r33.');
+if(!bat.includes('v3.68-r34'))fail('Launcher do simulador não foi atualizado para r34.');
 if(!workflow.includes('node scripts/validate-build.mjs'))fail('Workflow do GitHub Pages não executa a validação do build.');
-ok('Metadados r33 QuizRounds2, documentação, launcher e CI gate verificados.');
+ok('Metadados r34 QuizRounds2, documentação, launcher e CI gate verificados.');
 
 if(errors.length){
-  console.error(`\nVALIDAÇÃO QuizRounds2 r33: FALHOU (${errors.length})`);
+  console.error(`\nVALIDAÇÃO QuizRounds2 r34: FALHOU (${errors.length})`);
   for(const e of errors)console.error(`- ${e}`);
   process.exit(1);
 }
-console.log(`VALIDAÇÃO QuizRounds2 r33: APROVADA (${notes.length} grupos)`);
+console.log(`VALIDAÇÃO QuizRounds2 r34: APROVADA (${notes.length} grupos)`);
 for(const n of notes)console.log(`- ${n}`);

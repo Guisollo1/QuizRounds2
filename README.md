@@ -1,3 +1,23 @@
+# QuizRounds2 v3.68 — r34 TESTE · Relógio no Telão + Refinamento Visual
+
+A r34 mantém o backend/schema 040 e toda a lógica funcional da r33, adicionando uma camada visual segura. O telão agora exibe um relógio grande e permanente no cabeçalho durante a apresentação.
+
+## Alterações visuais r34
+
+- Relógio digital `HH:MM:SS` no telão, com dia/data e adaptação para resoluções menores.
+- Lobby com PIN/QR mais destacados, superfícies com maior contraste e melhor leitura a distância.
+- Transições mais suaves entre lobby, pergunta, resultado e ranking.
+- Ranking e pódio final com maior profundidade visual e hierarquia do Top 3.
+- Seletor de 31 avatares com filtros: Todos, Ciência, Jalecos, Macacões, Proteção, Social e Especiais.
+- Preview do avatar selecionado ampliado sem aumentar os arquivos de sprite.
+- Jogador mobile com botão de prontidão mais acessível e fixado na área inferior do lobby.
+- ADM harmonizado com cards, abas, estados e botões em azul consistente.
+- Simulador alinhado ao mesmo sistema visual do telão.
+- Mapa do lobby preserva colisões/portas da r33 e recebe somente acabamento de profundidade/sombra.
+- Nenhuma migration nova: Supabase permanece `001–040`, schema mínimo `040`.
+
+---
+
 # QuizRounds2 v3.68 — r33 TESTE · Tema Azul + 31 Avatares + Lobby Map
 
 Esta edição mantém integralmente as colisões auditadas da r32 e troca o tema visual principal roxo por **azul** no jogador, ADM, telão e simulador. O identificador interno `violet` foi preservado apenas por compatibilidade com salas/configurações já gravadas, mas agora renderiza a paleta azul.

@@ -1,0 +1,10 @@
+QuizRounds2 v3.68-r34 — Visual + Relógio
+
+- Relógio digital visível no cabeçalho do telão.
+- Lobby refinado para leitura a distância.
+- Ranking/pódio e transições aprimorados.
+- Filtros por categoria no seletor de 31 avatares.
+- Preview de avatar selecionado ampliado.
+- Prontidão mobile mais acessível.
+- ADM e simulador harmonizados no tema azul.
+- Colisões, portas, backend e schema 040 preservados.
