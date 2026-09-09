@@ -1,0 +1,42 @@
+QuizRounds v3.50
+
+ALTERADO
+- Avatares consolidados como gambás profissionais.
+- Suporte visual completo às 4 direções no telão.
+- Movimento vertical passa a usar frames de cima/baixo.
+- Sem espelhamento artificial do sprite para a esquerda: usa a linha esquerda real.
+- Cache-busting por renomeação dos assets versionados de v3.46 para v3.50.
+- Macacões petroleiros mantidos no padrão laranja.
+
+PRESERVADO
+- Supabase e migrations existentes.
+- Fluxo de sala, quiz, ranking e reconexão.
+- Mapas já integrados no v3.46.
+
+
+[v3.50]
+- Corrigido o seletor de avatares do jogador para exibir a miniatura frontal do gambazinho em cada opção.
+- Ajustado o lobby do telão para layout em grade horizontal: PIN (1 coluna), QR Code (2 colunas) e mapa (3 colunas), lado a lado.
+- Mantidas as 4 direções dos sprites RPG Maker e o mapa animado dos participantes.
+
+[v3.50 — auditoria crítica de CSS]
+- Eliminadas folhas CSS/JS/mapas legados v3.47/v3.48 do pacote ativo para impedir camadas antigas concorrendo no cascade.
+- Removidos seletores duplicados e propriedades repetidas nas folhas ativas.
+- avatars-v3.50.css reconstruído para usar somente os gambazinhos RPG Maker reais; removidas as antigas camadas de avatar procedural/emoji e cenários sintéticos que já não eram renderizados.
+- Preservadas as quatro direções reais dos sprites: frente, esquerda, direita e costas.
+- Seletor de avatar mantém miniatura frontal explícita e estável.
+- Lobby do telão consolidado em grade canônica de 6 colunas: PIN 1/6, QR 2/6 e Mapa 3/6.
+- Removido o antigo modo de layout que reescrevia o tamanho do mapa e conflitava com a grade atual.
+- Mapa ajustado para proporção real 4:3 dos arquivos fornecidos, com background contain para não cortar salas, paredes ou limites do cenário.
+- Regras de 100vh/dvh reorganizadas com fallback e @supports onde necessário.
+- Reduzido uso de !important em regras que não precisavam disputar especificidade; mantido somente onde há razão funcional/acessibilidade.
+- CSS validado sem erros de parse, sem seletores top-level duplicados e sem propriedades duplicadas nas regras ativas.
+- Referências locais e sintaxe JavaScript validadas.
+
+
+[v3.50]
+- Corrigido bug crítico dos avatares invisíveis: os sprites do gambazinho agora são aplicados diretamente no elemento visual, sem depender de URL em variável CSS.
+- Corrigido o posicionamento do mapa RPG: os personagens agora usam left percentual real do contêiner e ficam contidos no mapa.
+- Refinado o movimento com limites mais seguros por cenário para evitar saída visual das áreas do mapa.
+- Ajustado o lobby do telão para dar mais prioridade ao PIN e ao QR Code, com grade mais estável e sem colisão visual entre os blocos.
+- Revisão crítica no CSS do seletor de avatares para melhorar visibilidade, espaçamento e responsividade.

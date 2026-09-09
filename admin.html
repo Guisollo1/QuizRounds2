@@ -6,11 +6,11 @@
 <meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
 <meta content="#5d28c7" name="theme-color"/>
 <title>Quiz Rounds 2 · TESTE v3.68 — Administração</title>
-<link href="assets/css/core-v3.50.css?v=3.68-r31" rel="stylesheet"/>
-<link href="assets/css/admin-v3.68-r31.css?v=3.68-r31" rel="stylesheet"/>
-<link href="assets/css/avatars-runtime-v3.68-r31.css?v=3.68-r31" rel="stylesheet"/>
+<link href="assets/css/core-v3.68-r33.css?v=3.68-r33" rel="stylesheet"/>
+<link href="assets/css/admin-v3.68-r33.css?v=3.68-r33" rel="stylesheet"/>
+<link href="assets/css/avatars-runtime-v3.68-r33.css?v=3.68-r33" rel="stylesheet"/>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.112.4/dist/umd/supabase.min.js"></script>
-<script src="assets/vendor/qr-bundle.js?v=3.68-r31"></script>
+<script src="assets/vendor/qr-bundle.js?v=3.68-r33"></script>
 </head>
 <body class="admin-body admin-app" data-auth-scope="admin">
 <a class="skip-link" href="#mainContent">Pular para o conteúdo</a>
@@ -22,7 +22,7 @@
 <div><div class="eyebrow light">QUIZ ROUNDS 2 · TESTE</div><h1>Painel do Administrador</h1><p>Prepare, apresente e controle o quiz em tempo real.</p></div>
 </div>
 <div aria-label="Ações do administrador" class="top-actions">
-<span class="badge version-badge" id="appVersionBadge">v3.68-r31</span><span aria-live="polite" class="connection-pill connecting" id="adminConnection" role="status">Conectando…</span>
+<span class="badge version-badge" id="appVersionBadge">v3.68-r33</span><span aria-live="polite" class="connection-pill connecting" id="adminConnection" role="status">Conectando…</span>
 <button aria-controls="questionHelpModal" aria-haspopup="dialog" class="ghost glass admin-help-trigger" id="adminHelpBtn" type="button"><span aria-hidden="true">?</span> Ajuda</button>
 <a class="ghost glass" href="simulator.html">Simulador</a>
 <a class="ghost glass" href="index.html">Modo jogador</a>
@@ -222,7 +222,7 @@ TEMPO: 30
 <h2>Dados do evento</h2>
 <label>Nome da sala<input id="roomTitle" maxlength="60" value="Quiz ao vivo"/></label>
 <label>Quantidade inicial de perguntas<input id="plannedRounds" max="200" min="1" type="number" value="10"/><small>A playlist aumenta esse total automaticamente conforme você adiciona perguntas.</small></label><label>Jogadores esperados (estimativa)<input id="expectedPlayers" max="500" min="1" type="number" value="50"/><small>Usado apenas para planejamento e revisão.</small></label>
-<label>Tema<select id="themePreset"><option value="violet">Violeta</option><option value="ocean">Oceano</option><option value="emerald">Esmeralda</option><option value="sunset">Pôr do sol</option><option value="midnight">Midnight</option></select></label><div class="logo-config-card span2" id="logoConfigCard"><div class="logo-config-preview" id="logoConfigPreview"><img alt="Prévia da logo do evento" class="hidden" id="logoPreview"/><span id="logoPreviewEmpty">LOGO</span></div><div class="logo-config-controls"><div class="logo-config-head"><div><b>Logo do evento</b><small>Use um link HTTPS ou envie uma imagem. Links válidos são salvos automaticamente e a logo se ajusta sem deformar nem empurrar o layout.</small></div><span class="badge neutral" id="logoFitBadge">AUTO FIT</span></div><label>Link da logo<input id="logoUrl" inputmode="url" maxlength="500" placeholder="https://.../logo.png" type="url"/></label><div class="logo-upload-row"><label class="logo-file-label"><span>Upload da imagem</span><input accept="image/png,image/jpeg,image/webp" id="logoFile" type="file"/></label><button class="ghost" id="uploadLogoBtn" type="button">Enviar logo</button><button class="ghost danger-soft" id="clearLogoBtn" type="button">Remover logo</button></div><small class="logo-help">Link HTTPS: salvamento automático após a edição. Upload: PNG, JPG ou WebP • até 5 MB • proporção livre. Logos horizontais, quadradas ou verticais usam <b>contain</b> no ADM, telão e celular.</small><div aria-live="polite" class="logo-upload-status" id="logoUploadStatus"></div></div></div><label class="random-order-toggle"><input id="randomizeQueueToggle" type="checkbox"/><span><b>Ordem aleatória</b><small>Embaralha as perguntas automaticamente ao começar a partida.</small></span></label>
+<label>Tema<select id="themePreset"><option value="violet">Azul</option><option value="ocean">Oceano</option><option value="emerald">Esmeralda</option><option value="sunset">Pôr do sol</option><option value="midnight">Midnight</option></select></label><div class="logo-config-card span2" id="logoConfigCard"><div class="logo-config-preview" id="logoConfigPreview"><img alt="Prévia da logo do evento" class="hidden" id="logoPreview"/><span id="logoPreviewEmpty">LOGO</span></div><div class="logo-config-controls"><div class="logo-config-head"><div><b>Logo do evento</b><small>Use um link HTTPS ou envie uma imagem. Links válidos são salvos automaticamente e a logo se ajusta sem deformar nem empurrar o layout.</small></div><span class="badge neutral" id="logoFitBadge">AUTO FIT</span></div><label>Link da logo<input id="logoUrl" inputmode="url" maxlength="500" placeholder="https://.../logo.png" type="url"/></label><div class="logo-upload-row"><label class="logo-file-label"><span>Upload da imagem</span><input accept="image/png,image/jpeg,image/webp" id="logoFile" type="file"/></label><button class="ghost" id="uploadLogoBtn" type="button">Enviar logo</button><button class="ghost danger-soft" id="clearLogoBtn" type="button">Remover logo</button></div><small class="logo-help">Link HTTPS: salvamento automático após a edição. Upload: PNG, JPG ou WebP • até 5 MB • proporção livre. Logos horizontais, quadradas ou verticais usam <b>contain</b> no ADM, telão e celular.</small><div aria-live="polite" class="logo-upload-status" id="logoUploadStatus"></div></div></div><label class="random-order-toggle"><input id="randomizeQueueToggle" type="checkbox"/><span><b>Ordem aleatória</b><small>Embaralha as perguntas automaticamente ao começar a partida.</small></span></label>
 <div class="lobby-config-grid span2"><label class="span2">Mensagem do lobby<input id="lobbyMessage" maxlength="120" placeholder="Ex.: Pegue seu celular e escaneie o QR Code"/></label><label>Horário previsto para começar<input id="lobbyStartTime" type="datetime-local"/></label><label>Cenário do lobby<select id="avatarScene"><option value="auto">Automático</option><option value="office">Escritório / Administração</option><option value="laboratory">Laboratório</option><option value="industry">Indústria / Planta</option><option value="platform">Plataforma de petróleo</option></select></label><label>Layout do telão no lobby<select id="lobbyMapMode"><option value="auto">Automático</option><option value="standard">PIN + QR em destaque</option><option value="map">Mapa em destaque</option></select></label><label>Prontidão para destacar mapa (%)<input id="lobbyReadyThreshold" max="100" min="50" type="number" value="80"/></label><label class="switch-line"><input id="lobbyMusicEnabled" type="checkbox"/><span><b>Música ambiente no lobby</b><small>Trilha sintetizada leve; desaparece ao iniciar o quiz.</small></span></label></div>
 <button class="primary jumbo" id="createRoomBtn" type="button">Criar sala</button><button class="ghost flow-next-btn" id="roomNextQuestionsBtn" type="button">Continuar: escolher perguntas →</button>
 <div class="room-code" id="roomInfo"></div><div class="progress-summary hidden" id="roomProgress"></div>
@@ -272,7 +272,7 @@ TEMPO: 30
 <div class="health-tile checking" id="healthQuestions"><span>PERGUNTAS</span><strong>0 prontas</strong><small>Fila da partida</small></div>
 <div class="health-tile checking" id="healthController"><span>CONTROLE</span><strong>Verificando…</strong><small>Painel principal</small></div>
 <div class="health-tile checking" id="healthRemote"><span>REMOTO</span><strong>Verificando…</strong><small>Celular autorizado</small></div>
-<div class="health-tile checking" id="healthVersions"><span>VERSÕES</span><strong>v3.68-r31</strong><small>ADM, telão e jogadores</small></div>
+<div class="health-tile checking" id="healthVersions"><span>VERSÕES</span><strong>v3.68-r33</strong><small>ADM, telão e jogadores</small></div>
 </div>
 <div class="preflight-summary neutral" id="preflightSummary">Execute o pré-teste antes de começar o evento.</div>
 </article>
@@ -491,6 +491,6 @@ PONTUAR: SIM
 </div>
 </div>
 </main>
-<script src="assets/js/admin-v3.68-r31.js?v=3.68-r31" type="module"></script>
+<script src="assets/js/admin-v3.68-r33.js?v=3.68-r33" type="module"></script>
 </body>
 </html>

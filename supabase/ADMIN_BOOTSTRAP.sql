@@ -1,9 +1,5 @@
--- Execute no SQL Editor do Supabase depois de criar os dois usuários administradores em Authentication > Users.
-
+-- Execute no SQL Editor do Supabase depois de criar o usuário administrador em Authentication > Users.
+-- Substitua o e-mail abaixo pelo e-mail real do administrador.
 insert into public.quiz_admins(user_id)
-select id from auth.users where email='solloleao@outlook.com.br'
-on conflict(user_id) do nothing;
-
-insert into public.quiz_admins(user_id)
-select id from auth.users where email='galaxyygui@gmail.com'
+select id from auth.users where email='ADMIN@EXEMPLO.COM'
 on conflict(user_id) do nothing;

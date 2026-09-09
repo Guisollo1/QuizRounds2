@@ -1,0 +1,16 @@
+QuizRounds v3.66 / interface v3.92 r24
+
+CORREÇÕES
+- Jogador: ranking parcial persistente durante as perguntas.
+- Controle remoto: corrigido salto para sala antiga quando a sala pareada termina.
+- Controle remoto: sala final permanece disponível e sincronizada.
+- Controle remoto: última pergunta não é mais exibida como se ainda estivesse ativa após o fim.
+- Controle remoto: botões diretos para Ranking, Estatísticas, Destaques e Campeão.
+- Fluxo final: se a fila acabou de verdade, a apresentação pode concluir sem esperar pergunta inexistente.
+
+ANIMAÇÕES
+- Lobby: mais conversas, brincadeiras, acenos, dança e high-five entre avatares.
+- Resultado final: líderes com celebração reforçada, ranking com entrada sequencial e campeão com destaque.
+
+SUPABASE
+- Migration 035_remote_final_state_v366.sql.

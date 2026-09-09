@@ -1,0 +1,35 @@
+QUIZROUNDS v3.68 r28 — RELATÓRIO DE AUDITORIA COMPLETA
+
+ESCOPO
+- HTML: display, admin, jogador e simulador.
+- CSS: telão, jogador, admin, simulador, runtime de avatares e cidade.
+- JavaScript: módulos principais, common, avatares, cidade, configuração e QR local.
+- Assets: sprites e mapas.
+- Backend: estrutura de migrations Supabase 001–038.
+- Deploy: GitHub Pages workflow.
+
+RESULTADO
+[OK] HTML sem IDs duplicados.
+[OK] Todos os src/href locais existentes.
+[OK] Imports ES Modules apontam para arquivos existentes e exports compatíveis.
+[OK] Todos os JavaScript ativos passam em `node --check`.
+[OK] CSS ativo parseável e com chaves estruturais válidas.
+[OK] Nenhum url(...) CSS local quebrado.
+[OK] Logo do telão transparente, ampliada, com `contain` e confinada ao slot.
+[OK] Nenhuma alteração funcional em Supabase, PIN, QR, mapa, ranking ou controle remoto.
+[OK] Migrations Supabase sequenciais 001–038, sem lacuna nem número duplicado.
+[OK] Sprites runtime presentes e com grade 4x4 compatível.
+[OK] config.js do pacote não contém URL/chave real.
+[OK] Workflow impede uso de `sb_secret_` no frontend.
+[OK] Cache-busting atualizado para r28 nos recursos carregados pelos HTML.
+[OK] Recursos legados não referenciados do telão removidos do pacote final.
+
+CORREÇÕES APLICADAS NA AUDITORIA
+- Metadados estáticos v3.67 -> v3.68.
+- Main scripts renomeados para r28 e referências atualizadas.
+- CSS do telão promovido para v3.92-r28 mantendo a correção visual r27.
+- Cache-busting uniformizado para evitar mistura de arquivos antigos e novos no navegador.
+- Arquivo display-ui-v3.92-r25.css removido por estar morto/não referenciado.
+
+OBSERVAÇÃO
+A auditoria é estrutural e lógica estática do pacote. Ela não altera as migrations nem depende de dados reais da sala para preservar a base estável Supabase + GitHub.

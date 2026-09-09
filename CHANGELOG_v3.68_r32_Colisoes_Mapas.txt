@@ -1,0 +1,13 @@
+QuizRounds2 v3.68-r32 TESTE — Colisões dos mapas do lobby
+
+Escopo:
+- Escritório: removidas rotas sobre mesas/cadeiras/cubículos; acesso ao workspace, copa e sala gerencial passa por aberturas mapeadas.
+- Laboratório: rotas separadas por corredores entre bancadas; porta do laboratório superior direito e acessos inferiores mapeados.
+- Indústria: removidas travessias sobre máquinas, empilhadeira, caminhão, bancadas e mobiliário; sala de controle/oficina usam pontos de porta.
+- Plataforma: rotas mantidas em heliponto/passarelas/deck; processo central e módulos de máquinas não são atravessados; alojamento usa a porta interna.
+
+Motor:
+- Novo city-v3.68-r32.js.
+- Pontos tight (portas/gargalos) sem offset lateral.
+- Offset geral reduzido para evitar invasão de parede/mobília.
+- Telão e simulador atualizados para r32.

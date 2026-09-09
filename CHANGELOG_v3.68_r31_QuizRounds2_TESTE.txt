@@ -1,0 +1,10 @@
+QuizRounds2 v3.68 / r31 — ambiente de teste isolado
+
+- Base funcional: r30 com 31 avatares e Lobby Map.
+- Projeto preparado para repositório GitHub Pages separado: QuizRounds2.
+- Namespace de localStorage/sessionStorage separado (quiz2).
+- Storage de sessão Auth do Supabase separado do QuizRounds principal.
+- Janelas de telão/simulador separadas.
+- Assets ativos promovidos para r31; r30 preservado como compatibilidade/rollback.
+- URLs internas relativas mantidas para funcionar em /QuizRounds2/.
+- Recomendado Supabase separado para impedir qualquer impacto nos dados/salas do ambiente principal.
