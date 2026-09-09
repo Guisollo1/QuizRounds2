@@ -1,0 +1,144 @@
+/* QuizRounds2 r39 — sistema de movimento e feedback visual, isolado da lógica do jogo. */
+:root{--motion-fast:.18s;--motion-normal:.34s;--motion-slow:.68s;--motion-ease:cubic-bezier(.2,.82,.24,1)}
+.motion-r37-ready body{scroll-behavior:smooth}
+.motion-pressed{transform:translateY(1px) scale(.975)!important;filter:brightness(.98)!important;transition:transform .08s ease,filter .08s ease!important}
+.motion-page-enter{animation:motionPageEnter .58s var(--motion-ease) both}
+.motion-logo-load{animation:motionLogoLoad .72s var(--motion-ease) var(--motion-delay,0s) both}
+.motion-connection-change{animation:motionConnection .58s var(--motion-ease)}
+.connection-pill.connected::before{animation:motionOnline 2.1s ease-in-out infinite}
+
+.motion-question-in{animation:motionQuestionIn .62s var(--motion-ease) both}
+.motion-answer-in,.motion-option-in,.motion-avatar-in,.motion-rank-row,.motion-podium-in{animation:motionStaggerIn .56s var(--motion-ease) both;animation-delay:calc(var(--motion-index,0)*55ms)}
+.motion-avatar-select{animation:motionAvatarSelect .5s var(--motion-ease)}
+.motion-status-in,.motion-text-pop{animation:motionTextPop .5s var(--motion-ease)}
+.motion-result-reveal{animation:motionResultReveal .66s var(--motion-ease)}
+.motion-reveal-kicker{animation:motionKicker .5s var(--motion-ease)}
+.motion-final-stage{animation:motionFinalStage .7s var(--motion-ease)}
+.motion-stage-sync{animation:motionStageSync .46s ease}
+
+/* Cronômetro com aro de progresso sem mudar o cálculo oficial. */
+.display-timer,.timer{position:relative;isolation:isolate}
+.display-timer::after,.timer::after{content:"";position:absolute;inset:-8px;border-radius:inherit;pointer-events:none;background:conic-gradient(from -90deg,rgba(255,255,255,.96) calc(var(--timer-progress,1)*1turn),rgba(255,255,255,.16) 0);-webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 4px),#000 calc(100% - 3px));mask:radial-gradient(farthest-side,transparent calc(100% - 4px),#000 calc(100% - 3px));opacity:.72;transition:background .22s linear,opacity .2s ease}
+.motion-timer-kick{animation:motionTimerKick .4s ease}
+.display-timer.danger::after,.timer.danger::after,.display-timer.expired::after,.timer.expired::after{opacity:1}
+
+/* Lobby/jogador. */
+.motion-ready-confirm{animation:motionReadyConfirm .78s var(--motion-ease)!important}
+.player-ready-btn.ready{position:relative;overflow:visible}
+.player-ready-btn.ready::after{content:"✓";position:absolute;right:-8px;top:-9px;width:28px;height:28px;display:grid;place-items:center;border-radius:50%;background:#eafff3;color:#13774c;border:2px solid #68e6a8;box-shadow:0 8px 22px rgba(20,126,80,.25);animation:motionReadyBadge .55s var(--motion-ease) both}
+.choice-btn.picked{animation:motionChoicePicked .36s var(--motion-ease)}
+#streakStatus.motion-streak-pop{animation:motionStreakPop .72s var(--motion-ease);transform-origin:center}
+.player-fx-correct .game-question-card{animation:motionCorrectCard .72s var(--motion-ease)}
+.player-fx-wrong .game-question-card{animation:motionWrongCard .46s ease-out}
+#playerLobbyAvatar .quiz-avatar{filter:drop-shadow(0 12px 14px rgba(2,25,56,.22))}
+
+/* Telão: PIN, QR, opções e ranking. */
+.motion-pin-reveal{animation:motionPinReveal .8s var(--motion-ease)}
+.motion-qr-pop{animation:motionQrPop .68s var(--motion-ease)}
+.display-option.motion-option-in{transform-origin:50% 100%}
+.display-ranking li.motion-rank-row{transform-origin:center left}
+.display-ranking li .rank-move.up{animation:motionMoverUp .7s var(--motion-ease)}
+.display-ranking li .rank-move.down{animation:motionMoverDown .7s var(--motion-ease)}
+.podium-place.motion-podium-in{transform-origin:center bottom}
+.motion-clock-tick{animation:motionClockTick .38s var(--motion-ease)}
+.motion-clock-minute{animation:motionClockMinute .66s var(--motion-ease)}
+.display-wall-clock{transition:box-shadow .25s ease,transform .25s ease}
+
+.motion-leader-toast{position:fixed;left:50%;top:max(86px,10vh);z-index:1200;max-width:min(86vw,720px);padding:14px 24px;border-radius:999px;background:linear-gradient(135deg,#fff7c7,#fff);color:#6a4700;border:1px solid #f0cf65;box-shadow:0 22px 70px rgba(0,0,0,.26);font-size:clamp(18px,2.2vw,31px);font-weight:1000;letter-spacing:-.02em;opacity:0;transform:translate(-50%,-16px) scale(.94);pointer-events:none}
+.motion-leader-toast.show{animation:motionLeaderToast 1.8s var(--motion-ease) both}
+.motion-celebration-layer{position:fixed;inset:0;z-index:1150;overflow:hidden;pointer-events:none}
+.motion-particle{position:absolute;left:var(--mx);top:var(--my);font-style:normal;font-size:clamp(12px,2vw,26px);font-weight:1000;opacity:0;animation:motionParticle var(--mdur) cubic-bezier(.14,.72,.28,1) var(--mdelay) forwards;text-shadow:0 2px 8px rgba(0,0,0,.12)}
+.motion-particle-blue{color:#5ba6f2}.motion-particle-correct{color:#49d58d}.motion-particle-champion{color:#ffd33f}
+
+/* Mapa: curvas suaves, gargalos lentos, portas e mascote. */
+.city-actor{transition:left var(--city-move-time) var(--city-ease,cubic-bezier(.35,.08,.25,1)),top var(--city-move-time) var(--city-ease,cubic-bezier(.35,.08,.25,1)),filter .22s ease,opacity .22s ease!important}
+.city-actor.city-tight-move{filter:drop-shadow(0 4px 5px rgba(0,0,0,.18)) saturate(.98)}
+.city-actor.city-door-pass .city-avatar-shell{animation:motionDoorPass .72s ease-in-out infinite alternate}
+.city-actor.city-turning .city-avatar-shell{animation:motionTurn .22s ease}
+.city-actor.is-ready .city-avatar-shell{position:relative}
+.city-actor.is-ready .city-avatar-shell::after{content:"✓";position:absolute;right:-2px;top:-5px;width:17px;height:17px;display:grid;place-items:center;border-radius:50%;background:#5ce5a1;color:#073c28;border:2px solid rgba(255,255,255,.9);font:1000 10px/1 system-ui;box-shadow:0 4px 10px rgba(0,0,0,.18);animation:motionReadyBadge .5s var(--motion-ease) both}
+.city-map-viewport{transition:box-shadow .45s ease,filter .45s ease}
+.avatar-city[data-city-phase="lobby"] .city-map-viewport{box-shadow:inset 0 0 0 1px rgba(255,255,255,.15),inset 0 -34px 70px rgba(2,20,43,.14),0 18px 42px rgba(2,29,65,.2)}
+.city-mascot-peek{position:absolute;left:var(--mascot-x);top:var(--mascot-y);z-index:1060;display:grid;place-items:center;opacity:0;transform:translate(-50%,-50%) scale(.66);filter:drop-shadow(0 8px 8px rgba(0,0,0,.25));pointer-events:none;transition:opacity .32s ease,transform .42s var(--motion-ease)}
+.city-mascot-peek.show{opacity:1;transform:translate(-50%,-50%) scale(.9)}
+.city-mascot-peek.leaving{opacity:0;transform:translate(-50%,-50%) scale(.72) translateY(12px)}
+.city-mascot-peek .city-avatar-shell{width:54px;height:54px;display:grid;place-items:center}
+.city-mascot-peek .quiz-avatar{width:54px!important;height:54px!important;margin:0!important}
+.city-mascot-bubble{position:absolute;left:48px;top:-14px;padding:4px 7px;border-radius:10px;background:#fff;color:#163a61;font-size:12px;box-shadow:0 5px 12px rgba(0,0,0,.16);animation:motionTextPop .7s var(--motion-ease)}
+
+/* ADM e controle remoto. */
+.motion-panel-in{animation:motionPanelIn .5s var(--motion-ease) both}
+.motion-tab-confirm{animation:motionTabConfirm .38s var(--motion-ease)}
+.motion-toast-pop{animation:motionToastPop .56s var(--motion-ease)}
+.motion-save-ok{animation:motionSaveOk .65s var(--motion-ease)}
+.motion-save-request{animation:motionSaveRequest .7s var(--motion-ease)!important}
+.motion-remote-state{animation:motionRemoteState .62s var(--motion-ease)}
+.motion-remote-command{animation:motionRemoteCommand .46s var(--motion-ease)!important}
+.motion-status-card{animation:motionStatusCard .5s var(--motion-ease)}
+.remote-phase-badge{transition:background .22s ease,color .22s ease,transform .22s ease}
+.action-toast.show{backdrop-filter:blur(12px)}
+
+/* Simulador. */
+.motion-log-entry{animation:motionLogEntry .48s var(--motion-ease)}
+
+@keyframes motionPageEnter{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes motionLogoLoad{0%{opacity:0;transform:scale(.9) translateY(-4px)}70%{opacity:1;transform:scale(1.035)}100%{transform:none}}
+@keyframes motionConnection{0%{transform:scale(.94);opacity:.62}65%{transform:scale(1.05);opacity:1}100%{transform:none}}
+@keyframes motionOnline{50%{box-shadow:0 0 0 7px color-mix(in srgb,currentColor 0%,transparent)}}
+@keyframes motionQuestionIn{0%{opacity:0;transform:translateY(15px) scale(.985);filter:blur(2px)}65%{opacity:1;filter:none}100%{transform:none}}
+@keyframes motionStaggerIn{0%{opacity:0;transform:translateY(12px) scale(.975)}70%{opacity:1;transform:translateY(-2px) scale(1.006)}100%{transform:none}}
+@keyframes motionAvatarSelect{45%{transform:translateY(-4px) scale(1.035)}100%{transform:none}}
+@keyframes motionTextPop{0%{opacity:.35;transform:scale(.94)}65%{opacity:1;transform:scale(1.035)}100%{transform:none}}
+@keyframes motionResultReveal{0%{opacity:.15;transform:scale(.95);filter:blur(3px)}70%{opacity:1;transform:scale(1.02);filter:none}100%{transform:none}}
+@keyframes motionKicker{0%{opacity:.2;letter-spacing:.18em}100%{opacity:1}}
+@keyframes motionFinalStage{0%{opacity:.25;transform:translateY(10px) scale(.99)}100%{opacity:1;transform:none}}
+@keyframes motionStageSync{50%{filter:brightness(1.035)}}
+@keyframes motionTimerKick{50%{transform:scale(1.08)}}
+@keyframes motionReadyConfirm{0%{transform:scale(.98)}45%{transform:scale(1.045);box-shadow:0 0 0 8px rgba(92,229,161,.18)}100%{transform:none}}
+@keyframes motionReadyBadge{0%{opacity:0;transform:scale(.4) rotate(-16deg)}70%{opacity:1;transform:scale(1.15) rotate(3deg)}100%{transform:none}}
+@keyframes motionChoicePicked{45%{transform:scale(.975);filter:brightness(1.12)}100%{transform:none}}
+@keyframes motionStreakPop{0%{opacity:.35;transform:translateY(5px) scale(.82)}62%{opacity:1;transform:translateY(-2px) scale(1.08)}100%{transform:none}}
+@keyframes motionCorrectCard{0%{box-shadow:inherit}45%{box-shadow:0 0 0 5px rgba(55,199,126,.16),0 20px 54px rgba(13,119,75,.16)}100%{box-shadow:inherit}}
+@keyframes motionWrongCard{0%,100%{transform:none;filter:none}25%{transform:translateX(-5px);filter:saturate(.72)}52%{transform:translateX(4px);filter:saturate(.78)}76%{transform:translateX(-2px);filter:saturate(.9)}}
+@keyframes motionPinReveal{0%{opacity:.4;letter-spacing:.15em;transform:scale(.94)}65%{opacity:1;letter-spacing:.07em;transform:scale(1.025)}100%{transform:none}}
+@keyframes motionQrPop{0%{opacity:.35;transform:scale(.88) rotate(-2deg)}70%{opacity:1;transform:scale(1.035) rotate(.5deg)}100%{transform:none}}
+@keyframes motionClockTick{0%{transform:translateY(-2px);opacity:.65}70%{transform:translateY(1px);opacity:1}100%{transform:none}}
+@keyframes motionClockMinute{45%{box-shadow:0 0 0 4px rgba(72,154,236,.12),0 12px 30px rgba(3,39,82,.15);transform:translateY(-1px)}100%{transform:none}}
+@keyframes motionMoverUp{0%{transform:translateY(7px);opacity:.3}55%{transform:translateY(-3px);opacity:1}100%{transform:none}}
+@keyframes motionMoverDown{0%{transform:translateY(-7px);opacity:.3}55%{transform:translateY(3px);opacity:1}100%{transform:none}}
+@keyframes motionLeaderToast{0%{opacity:0;transform:translate(-50%,-18px) scale(.93)}14%,76%{opacity:1;transform:translate(-50%,0) scale(1)}100%{opacity:0;transform:translate(-50%,-8px) scale(.98)}}
+@keyframes motionParticle{0%{opacity:0;transform:translate(-50%,-50%) scale(.45)}12%{opacity:1}100%{opacity:0;transform:translate(calc(-50% + var(--mdx)),calc(-50% + var(--mdy))) rotate(var(--mrot)) scale(1.12)}}
+@keyframes motionDoorPass{from{filter:brightness(.92);transform:scale(.985)}to{filter:brightness(1.08);transform:scale(1.015)}}
+@keyframes motionTurn{50%{transform:scaleX(.94) translateY(-1px)}}
+@keyframes motionPanelIn{0%{opacity:.45;transform:translateY(7px)}100%{opacity:1;transform:none}}
+@keyframes motionTabConfirm{50%{transform:translateY(-2px) scale(1.015)}}
+@keyframes motionToastPop{0%{transform:translateY(14px) scale(.94);opacity:.3}65%{transform:translateY(-2px) scale(1.02);opacity:1}100%{transform:none}}
+@keyframes motionSaveOk{35%{background:#e9fbf2;color:#14784d;box-shadow:0 0 0 5px rgba(36,169,106,.1)}100%{box-shadow:none}}
+@keyframes motionSaveRequest{45%{box-shadow:0 0 0 6px rgba(47,128,237,.14)}}
+@keyframes motionRemoteState{0%{transform:scale(.985);opacity:.7}65%{transform:scale(1.01);opacity:1}100%{transform:none}}
+@keyframes motionRemoteCommand{45%{transform:translateY(2px) scale(.97);filter:brightness(1.08)}100%{transform:none}}
+@keyframes motionStatusCard{50%{box-shadow:0 0 0 5px rgba(47,128,237,.12)}}
+@keyframes motionLogEntry{from{opacity:.25;transform:translateX(-8px)}to{opacity:1;transform:none}}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important}
+  .motion-page-enter,.motion-logo-load,.motion-connection-change,.motion-question-in,.motion-answer-in,.motion-option-in,.motion-avatar-in,.motion-rank-row,.motion-podium-in,.motion-avatar-select,.motion-status-in,.motion-text-pop,.motion-result-reveal,.motion-reveal-kicker,.motion-final-stage,.motion-stage-sync,.motion-timer-kick,.motion-ready-confirm,.motion-streak-pop,.motion-pin-reveal,.motion-qr-pop,.motion-clock-tick,.motion-clock-minute,.motion-panel-in,.motion-tab-confirm,.motion-toast-pop,.motion-save-ok,.motion-save-request,.motion-remote-state,.motion-remote-command,.motion-status-card,.motion-log-entry,.city-actor.city-door-pass .city-avatar-shell,.city-actor.city-turning .city-avatar-shell{animation:none!important}
+  .motion-particle,.city-mascot-peek{display:none!important}
+  .city-actor{transition:none!important}
+}
+
+
+/* ============================================================
+   r39 HOTFIX — proteção de interação de login/entrada
+   Camadas decorativas nunca podem capturar foco, clique ou toque.
+   ============================================================ */
+.admin-login-stage,.login-card,.login-copy,.player-join-stage,.join-hero-card,.join-form-card{position:relative;isolation:isolate}
+.login-copy,.join-form-card{z-index:20;pointer-events:auto!important}
+.login-copy label,.login-copy input,.login-copy button,.join-form-card label,.join-form-card input,.join-form-card button,.avatar-picker,.avatar-picker *{pointer-events:auto}
+.login-copy input,.join-form-card input{position:relative;z-index:25;pointer-events:auto!important;user-select:text!important;-webkit-user-select:text!important;touch-action:manipulation!important;caret-color:#1565c0}
+.login-visual,.login-visual::before,.login-visual::after,.login-visual .orbit,.ambient,.player-bg-shape,.motion-celebration-layer,.motion-leader-toast,.city-mascot-peek{pointer-events:none!important}
+.admin-top::after,.question-hero::after,.question-workbench-panel::before,.question-workbench-panel::after,.competition-action::after{pointer-events:none!important}
+#loginView:not(.hidden),#joinView:not(.hidden){pointer-events:auto!important}
+#loginView:not(.hidden) input,#joinView:not(.hidden) input{visibility:visible!important;opacity:1!important}
+#loginView:not(.hidden) .login-copy,#joinView:not(.hidden) .join-form-card{transform:none!important;filter:none!important}
+.motion-r39-entry-safe input,.motion-r39-entry-safe textarea,.motion-r39-entry-safe select{animation:none!important;transform:none!important;filter:none!important}

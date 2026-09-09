@@ -1,0 +1,31 @@
+QuizRounds2 v3.68-r39 — VALIDAÇÃO LOGIN/ENTRADA ESTÁVEIS
+
+RESULTADO: APROVADO — 18 grupos de validação.
+
+Correção principal:
+- A r37 passou a carregar a camada motion antes do login/entrada.
+- A r38 adicionou proteções CSS, porém continuou carregando motion no caminho crítico.
+- A r39 não carrega motion no ADM antes da autenticação nem no jogador antes de entrar na sala.
+- Login ADM e entrada do jogador agora usam formulário nativo.
+- Motion é carregado somente depois que login/entrada foram concluídos.
+
+Preservado:
+- Supabase schema 040; sem migration nova.
+- Controller/regras r35.
+- ADM 100vh/full width r36.
+- Tema azul, relógio do telão, 31 avatares, mapas e colisões.
+- Animações continuam ativas depois do acesso/entrada.
+
+Validações executadas:
+- Sintaxe JavaScript.
+- Referências HTML/CSS/JS.
+- Imports ES Modules e exports.
+- Cache-bust r39.
+- 693 IDs sem duplicidade.
+- 31 avatares / 62 assets.
+- Migrations 001–040.
+- Contrato frontend/backend schema 40.
+- Namespace QuizRounds2 isolado.
+- 4 mapas com colisões auditadas.
+- Login/entrada sem preload da camada motion.
+- Motion pós-autenticação/pós-entrada.
