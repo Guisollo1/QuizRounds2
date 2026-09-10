@@ -1,8 +1,8 @@
 QUIZROUNDS2 TESTE
-RELEASE=r40
-BUILD_ID=3.68-r40
+RELEASE=r41
+BUILD_ID=3.68-r41
 BACKEND_SCHEMA_REQUIRED=40
 SUPABASE_MIGRATIONS=001-040
 AVATAR_CATALOG=31
 UI=3.92
-NOTA=Auditoria profunda: login/entrada estáveis, sessão persistente entre releases, overlays revisados e CI alinhado ao build.
+NOTA=Hotfix crítico do travamento da aba Configuração: removidos ciclos de MutationObserver/autorreanimação e reflows forçados; animações preservadas com observação sem feedback.
