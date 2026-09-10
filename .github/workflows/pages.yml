@@ -1,4 +1,4 @@
-name: Deploy QuizRounds2 r38 TESTE no GitHub Pages
+name: Deploy QuizRounds2 r40 TESTE no GitHub Pages
 
 on:
   push:
@@ -24,7 +24,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: Validar estrutura, regressões e animações QuizRounds2 r38
+      - name: Validar auditoria profunda QuizRounds2 r40
         run: node scripts/validate-build.mjs
 
       - name: Validar configuração
@@ -51,6 +51,7 @@ jobs:
         run: |
           mkdir -p _site
           cp index.html admin.html display.html simulator.html _site/
+          cp -R admin _site/admin
           cp -R assets _site/assets
           touch _site/.nojekyll
           cat > _site/assets/js/config.js <<EOF_CONFIG

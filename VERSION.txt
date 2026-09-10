@@ -1,8 +1,8 @@
 QUIZROUNDS2 TESTE
-RELEASE=r39
-BUILD_ID=3.68-r39
+RELEASE=r40
+BUILD_ID=3.68-r40
 BACKEND_SCHEMA_REQUIRED=40
 SUPABASE_MIGRATIONS=001-040
 AVATAR_CATALOG=31
 UI=3.92
-NOTA=Login ADM e entrada do jogador sem motion antes da autenticação/entrada.
+NOTA=Auditoria profunda: login/entrada estáveis, sessão persistente entre releases, overlays revisados e CI alinhado ao build.

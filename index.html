@@ -5,12 +5,23 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
 <meta content="#1565c0" name="theme-color"/>
-<title>Quiz Rounds 2 · TESTE v3.68 · Interface v3.92 r39 — Jogador</title>
+<meta content="3.68-r40" name="quizrounds-build"/>
+<title>Quiz Rounds 2 · TESTE v3.68 · Interface v3.92 r40 — Jogador</title>
 
 
-<link href="assets/css/player-ui-v3.92-r39.css?v=3.68-r39" rel="stylesheet"/><link href="assets/css/avatars-runtime-v3.68-r39.css?v=3.68-r39" rel="stylesheet"/><link href="assets/css/avatars-ui-v3.92-r39.css?v=3.68-r39" rel="stylesheet"/><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.112.4/dist/umd/supabase.min.js"></script>
+<link href="assets/css/player-ui-v3.92-r40.css?v=3.68-r40" rel="stylesheet"/><link href="assets/css/avatars-runtime-v3.68-r40.css?v=3.68-r40" rel="stylesheet"/><link href="assets/css/avatars-ui-v3.92-r40.css?v=3.68-r40" rel="stylesheet"/><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.112.4/dist/umd/supabase.min.js"></script>
+
+<style id="criticalPlayerJoinR40">
+/* Critical pre-join boundary: inline on purpose so PIN/name remain usable even if an older CSS asset is cached. */
+#joinView:not(.hidden){position:relative!important;z-index:100!important;pointer-events:auto!important;isolation:isolate!important}
+#joinView:not(.hidden) .join-hero-card,#joinView:not(.hidden) #playerJoinPanel,#joinView:not(.hidden) label,#joinView:not(.hidden) fieldset{position:relative!important;z-index:102!important;pointer-events:auto!important}
+#joinView:not(.hidden) input,#joinView:not(.hidden) button{position:relative!important;z-index:103!important;pointer-events:auto!important;touch-action:auto!important}
+#joinView:not(.hidden) input{user-select:text!important;-webkit-user-select:text!important;caret-color:auto!important}
+#joinView .player-bg-shape{pointer-events:none!important}
+#joinView.hidden{display:none!important;pointer-events:none!important}
+</style>
 </head>
-<body class="player-body player-v39 ui-v392-r30" data-auth-scope="player" data-ui="v3.92-r30">
+<body class="player-body player-v40 ui-v392-r40" data-auth-scope="player" data-build="3.68-r40" data-ui="v3.92-r40">
 <div class="player-bg-shape pbs1"></div><div class="player-bg-shape pbs2"></div><div class="player-bg-shape pbs3"></div>
 <main class="player-shell">
 <header class="player-header">
@@ -20,13 +31,13 @@
 <section class="player-join-stage" id="joinView">
 <article class="join-hero-card">
 <div class="join-hero-copy"><div class="eyebrow light">PRONTO PARA JOGAR?</div><h1>Entre no quiz</h1><p>Use o PIN exibido no telão. Seu nome, avatar e sessão ficam salvos neste navegador para facilitar sua volta à sala.</p></div>
-<form class="join-form-card" id="playerJoinForm" novalidate>
+<div class="join-form-card" id="playerJoinPanel">
 <label>PIN da sala<input autocapitalize="characters" autocomplete="off" autocorrect="off" enterkeyhint="next" id="roomCode" inputmode="text" maxlength="8" placeholder="ABC123" spellcheck="false"/></label>
 <label>Seu nome<input autocomplete="nickname" enterkeyhint="go" id="playerName" maxlength="32" placeholder="Como quer aparecer?"/></label>
 <fieldset class="avatar-picker"><legend>Escolha seu avatar</legend><div aria-label="Avatares disponíveis" class="avatar-picker-browser" id="avatarPicker"></div><div aria-live="polite" class="avatar-selected-line" id="avatarSelectedLine"></div></fieldset>
-<button aria-busy="false" class="primary jumbo" id="joinBtn" type="submit">Entrar na partida</button>
+<button aria-busy="false" class="primary jumbo" id="joinBtn" type="button">Entrar na partida</button>
 <div class="resume-hint hidden" id="resumeHint"></div><p aria-live="polite" class="error" id="joinError"></p>
-</form>
+</div>
 </article>
 </section>
 <section class="hidden player-game-stage" id="gameView">
@@ -62,6 +73,6 @@
 </div>
 </section>
 </main>
-<script src="assets/js/player-v3.68-r39.js?v=3.68-r39" type="module"></script>
+<script src="assets/js/player-v3.68-r40.js?v=3.68-r40" type="module"></script>
 </body>
 </html>
