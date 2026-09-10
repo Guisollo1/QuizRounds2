@@ -1,8 +1,8 @@
 QUIZROUNDS2 TESTE
-RELEASE=r41
-BUILD_ID=3.68-r41
+RELEASE=r42
+BUILD_ID=3.68-r42
 BACKEND_SCHEMA_REQUIRED=40
 SUPABASE_MIGRATIONS=001-040
 AVATAR_CATALOG=31
 UI=3.92
-NOTA=Hotfix crítico do travamento da aba Configuração: removidos ciclos de MutationObserver/autorreanimação e reflows forçados; animações preservadas com observação sem feedback.
+NOTA=Melhoria visual do jogador: tela de resposta revelada refeita com cards animados, gabarito destacado, sua resposta, estatísticas do round e distribuição mais bonita.
