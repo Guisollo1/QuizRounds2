@@ -1,8 +1,8 @@
-# QuizRounds2 v3.68-r43 — Estabilidade Visual Completa
+# QuizRounds2 v3.68-r44 — Filtros, resultado e ranking estável
 
 Ambiente de teste independente do QuizRounds principal, preparado para GitHub Pages + segundo projeto Supabase.
 
-## Estado da r43
+## Estado da r44
 
 - UI v3.92, tema azul, 31 Avatares e quatro mapas.
 - ADM 100vh/100dvh e largura total.
@@ -12,7 +12,7 @@ Ambiente de teste independente do QuizRounds principal, preparado para GitHub Pa
 - ADM com barra de saúde/status fixa, atalhos de configuração, salvamento inline e diagnóstico resumido.
 - Efeitos visuais reduzem automaticamente em alta densidade e `prefers-reduced-motion` é respeitado.
 - Correções críticas de login, controlador, regras e travamento por MutationObserver permanecem preservadas.
-- Backend mínimo: Supabase schema 040; migrations 001–040. Não existe migration nova na r43.
+- Backend mínimo: Supabase schema 040; migrations 001–040. Não existe migration nova na r44.
 
 ## Publicação
 
@@ -24,8 +24,8 @@ Mantenha o QuizRounds2 apontando para o segundo projeto Supabase já configurado
 
 ## Arquivos da revisão
 
-- `CHANGELOG_v3.68_r43_Estabilidade_Visual_Completa.txt`
-- `VALIDATION_r43_Estabilidade_Visual_Completa.txt`
+- `CHANGELOG_v3.68_r44_Estabilidade_Visual_Completa.txt`
+- `VALIDATION_r44_Estabilidade_Visual_Completa.txt`
 - `VERSION.txt`
 
 ---
@@ -62,3 +62,12 @@ Mantenha o QuizRounds2 apontando para o segundo projeto Supabase já configurado
 - `CHANGELOG_v3.68_r41_Travamento_Config.txt`
 - `VALIDATION_r41_Travamento_Config.txt`
 - `VERSION.txt`
+
+
+## Correções específicas da r44
+
+- Filtros Todos/Ciência/Jalecos/Macacões/Proteção/Social/Especiais corrigidos com ocultação explícita e categoria persistente.
+- Categorias em carrossel horizontal com setas, swipe e roda do mouse.
+- Tela Resposta correta do telão redesenhada com selo, letra/valor e texto separados.
+- Ranking, campeão e pódio usam assinaturas de renderização e sprites estáticos para eliminar piscadas.
+- Supabase schema 040, sem migration nova.
