@@ -1,0 +1,17 @@
+QuizRounds2 v3.68 r31 — validação final do ambiente de teste
+
+[OK] Sintaxe JavaScript verificada.
+[OK] 4 HTML auditados sem IDs duplicados e sem referências locais quebradas.
+[OK] Cache-bust e assets ativos r31 conferidos.
+[OK] Imports ES Modules resolvidos.
+[OK] CSS balanceado; logo, avatar picker e contenção do mapa conferidos.
+[OK] BUILD_ID 3.68-r31; backend schema mínimo 040.
+[OK] Migrations 001..040 presentes e contínuas.
+[OK] Catálogo end-to-end com 31 avatares e 62 assets de preview/runtime.
+[OK] Simulador determinístico preservado.
+[OK] Configuração sem credenciais privilegiadas embutidas.
+[OK] localStorage/sessionStorage/Auth storage isolados no namespace QuizRounds2/quiz2.
+[OK] URLs relativas compatíveis com publicação em /QuizRounds2/ no GitHub Pages.
+[OK] Workflow GitHub Pages separado e com gate de validação.
+
+RECOMENDAÇÃO: para isolamento total dos dados, usar um segundo projeto Supabase de teste e aplicar migrations 001..040 nele. O projeto Supabase do QuizRounds principal deve permanecer intacto.

@@ -1,0 +1,13 @@
+QUIZROUNDS v3.64 / UI v3.92 r22 — CHANGELOG
+
+- Corrigida de forma reforçada a persistência do link da logo no ADM.
+- O link HTTPS válido agora é salvo automaticamente após a edição, sem depender do próximo refresh/polling.
+- Rascunho da logo é preservado em sessionStorage por sala durante sincronizações/realtime e até em recarga acidental da página.
+- Seleção de arquivo interrompe qualquer autosave pendente do link para evitar corrida entre link e upload.
+- Upload renova a sessão quando o token está próximo de expirar.
+- Mensagens de erro de Storage ficaram específicas para RLS/permissão.
+- Supabase: migration 033 substitui a dependência de private.is_admin por private.is_current_quiz_admin() nas policies de quiz-logos.
+- O helper novo valida auth.uid() diretamente contra public.quiz_admins e continua restrito ao papel authenticated.
+- As policies continuam limitando cada administrador à própria pasta UUID no bucket quiz-logos.
+- Migration 033 aplicada ao projeto Supabase QuizRounds conectado em 2026-09-05.
+- Lobby, QR code, mapa, sprites, temas, perguntas e fluxo da partida preservados.

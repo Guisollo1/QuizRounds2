@@ -1,0 +1,29 @@
+QuizRounds2 v3.68 — r35
+Correções de controlador, telão e persistência das regras
+
+1. Nova partida
+- Recupera a autoridade da sala ativa antes de criar uma nova partida.
+- Quando existe outra sala ativa, pede confirmação explícita antes de assumir o controle e encerrá-la.
+- Evita o erro "Este dispositivo não é o controlador ativo da sala" causado por lease/sessão antiga ou por uma sala ativa diferente da sala lembrada no navegador.
+- A mesma recuperação é aplicada à criação de sala a partir de modelo.
+
+2. Telão
+- Bloqueia a abertura do telão quando a sala carregada já está encerrada, antes de abrir a janela vazia.
+- Mostra orientação para criar nova sala em vez do erro técnico "A sala já foi encerrada".
+- Renova/valida o lease do controlador antes de gerar o pareamento do telão.
+
+3. Regras/configurações
+- Corrigido o refresh periódico que reescrevia os checkboxes aproximadamente 2–4 segundos após a marcação.
+- Alterações locais entram em estado de rascunho e não são sobrescritas por Realtime/polling.
+- Regras são salvas automaticamente no lobby após pequena espera.
+- O botão de salvar informa quando existem alterações, quando está salvando e quando precisa tentar novamente.
+- Se houver alteração durante um salvamento, o novo valor é preservado e salvo na sequência.
+
+4. Controlador em ações normais
+- Ações administrativas tentam renovar automaticamente um lease expirado antes de falhar.
+- Se outro painel realmente estiver no controle, o modo somente leitura continua sendo respeitado.
+
+5. Compatibilidade
+- Nenhuma migration nova.
+- Backend mínimo continua schema 040.
+- Mantidos tema azul, relógio do telão, 31 avatares e colisões dos quatro mapas.

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Quiz Rounds 2 · TESTE v3.68 - Simulador Local de Carga e Fluxo</title>
+<link href="assets/css/core-v3.68-r43.css?v=3.68-r43" rel="stylesheet"/>
+<link href="assets/css/admin-v3.68-r43.css?v=3.68-r43" rel="stylesheet"/>
+<link href="assets/css/display-v3.68-r43.css?v=3.68-r43" rel="stylesheet"/>
+<link href="assets/css/simulator-v3.68-r43.css?v=3.68-r43" rel="stylesheet"/>
+<link href="assets/css/avatars-runtime-v3.68-r43.css?v=3.68-r43" rel="stylesheet"/>
+<link href="assets/css/avatars-ui-v3.92-r43.css?v=3.68-r43" rel="stylesheet"/>
+<script src="assets/vendor/qr-bundle.js?v=3.68-r43"></script>
+<link href="assets/css/motion-v3.68-r43.css?v=3.68-r43" rel="stylesheet"/>
+</head>
+<body class="sim-body">
+<section class="sim-login-view" id="simLoginView">
+<div class="sim-login-card">
+<div class="sim-brand-orb">Q</div>
+<div class="eyebrow">AMBIENTE LOCAL DE TESTE</div>
+<h1>Quiz Rounds v3.68-r43</h1>
+<p>Entre como administrador para testar o mesmo fluxo que será usado no evento.</p>
+<form class="sim-login-form" id="simLoginForm">
+<label>Usuário
+          <input autocomplete="username" id="simLoginUser" required="" value="admin"/>
+</label>
+<label>Senha
+          <div class="password-wrap">
+<input autocomplete="current-password" id="simLoginPassword" required="" type="password" value="quiz123"/>
+<button class="ghost small" id="toggleSimPassword" type="button">Mostrar</button>
+</div>
+</label>
+<button class="primary big" type="submit">Entrar no Painel ADM</button>
+</form>
+<div class="sim-credentials">
+<strong>Credenciais do simulador</strong>
+<span>Usuário: <b>admin</b></span>
+<span>Senha: <b>quiz123</b></span>
+</div>
+<p aria-live="polite" class="form-msg" id="simLoginMsg"></p>
+</div>
+</section>
+<main class="sim-app hidden" id="simApp">
+<header class="sim-app-header">
+<div class="sim-brand-line">
+<div class="sim-brand-orb small">Q</div>
+<div><div class="eyebrow">SIMULADOR LOCAL</div><h1>Quiz Rounds 2 <span>v3.68-r43 TESTE</span></h1></div>
+</div>
+<div class="sim-header-actions">
+<span class="badge neutral" id="simStateBadge">CONFIGURAÇÃO</span>
+<button class="ghost" id="openPlayerPreviewBtn" type="button">Celular de teste</button>
+<button class="ghost" id="resetSimBtn" type="button">Reiniciar</button>
+<button class="danger-lite" id="simLogoutBtn" type="button">Sair</button>
+</div>
+</header>
+<nav aria-label="Áreas do simulador" class="sim-tabs">
+<button class="sim-tab active" data-tab="questions" type="button"><span>1</span><b>Perguntas</b><small>Banco local</small></button>
+<button class="sim-tab" data-tab="config" type="button"><span>2</span><b>Configuração</b><small>Montar partida</small></button>
+<button class="sim-tab" data-tab="presentation" type="button"><span>3</span><b>Apresentação</b><small>Lobby e rounds</small></button>
+<button class="sim-tab" data-tab="tests" type="button"><span>4</span><b>Teste de carga</b><small>50–200 pessoas</small></button>
+</nav>
+<section class="sim-tab-panel active" data-panel="questions" id="tabQuestions">
+<div class="sim-section-head">
+<div><div class="eyebrow">BANCO LOCAL</div><h2>Perguntas para o teste</h2><p>Edite, crie ou selecione perguntas que serão usadas nos rounds simulados.</p></div>
+<button class="primary" id="addDemoQuestionBtn" type="button">Nova pergunta</button>
+</div>
+<div class="sim-questions-layout">
+<article class="card sim-editor-card">
+<h3>Editor</h3>
+<input id="editQuestionId" type="hidden"/>
+<label>Enunciado<textarea id="editPrompt" placeholder="Digite a pergunta" rows="4"></textarea></label>
+<div class="two-cols">
+<label>Tipo<select id="editType"><option value="choice">Múltipla escolha</option><option value="numeric">Número / mais próximo</option></select></label>
+<label>Pontos<input id="editPoints" max="100000" min="1" type="number" value="1000"/></label>
+</div>
+<div class="two-cols">
+<label>Tempo limite (s)<input id="editTime" max="300" min="5" type="number" value="20"/></label>
+<label id="editCorrectChoiceWrap">Resposta correta<select id="editCorrectChoice"><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option></select></label>
+<label class="hidden" id="editCorrectNumberWrap">Número correto<input id="editCorrectNumber" step="any" type="number" value="0"/></label>
+</div>
+<div class="option-editor-grid" id="editOptions">
+<label><span>A</span><input data-opt="A"/></label><label><span>B</span><input data-opt="B"/></label>
+<label><span>C</span><input data-opt="C"/></label><label><span>D</span><input data-opt="D"/></label><label><span>E</span><input data-opt="E" placeholder="Opcional"/></label>
+</div>
+<div class="two-cols"><label>Categoria<input id="editCategory" value="Geral"/></label><label>Dificuldade<select id="editDifficulty"><option value="facil">Fácil</option><option selected="" value="medio">Médio</option><option value="dificil">Difícil</option><option value="final">Final</option></select></label></div>
+<div class="two-cols"><label>Bônus velocidade (%)<input id="editSpeedBonus" max="100" min="0" type="number" value="20"/></label><label class="switch-line"><input id="editTiebreaker" type="checkbox"/><span><b>Desempate</b><small>Critério extra de classificação.</small></span></label></div>
+<label class="switch-line"><input checked="" id="editScoreEnabled" type="checkbox"/><span><b>Vale pontos</b><small>Pode ser apenas diversão.</small></span></label>
+<label>Nota do apresentador<textarea id="editNotes" placeholder="Comentário privado" rows="2"></textarea></label>
+<div class="actions wrap"><button class="primary" id="saveQuestionBtn" type="button">Salvar pergunta</button><button class="ghost" id="clearQuestionBtn" type="button">Limpar</button></div>
+<p class="form-msg" id="questionEditorMsg"></p>
+</article>
+<article class="card sim-bank-card">
+<div class="row wrap"><div><h3>Arquivo de perguntas</h3><p class="muted compact">Marque as que podem entrar na partida.</p></div><span class="badge" id="questionCountBadge">0</span></div>
+<div class="question-list sim-question-bank" id="simQuestionBank"></div>
+</article>
+<article class="card sim-bulk-bank">
+<div class="row wrap"><div><h3>Importar / exportar TXT</h3><p class="muted compact">Mesmo formato do sistema real: perguntas, respostas corretas e pontuações.</p></div><span class="badge ready">SIMULADOR</span></div>
+<div class="actions wrap"><label class="file-button ghost">Selecionar .txt<input accept=".txt,text/plain" hidden="" id="simTxtFile" type="file"/></label><button class="ghost" id="simExportQuestionsBtn" type="button">Exportar banco</button><button class="ghost" id="simTxtTemplateBtn" type="button">Modelo TXT</button></div>
+<fieldset class="sim-import-modes"><legend>Modo de importação</legend><label><input checked="" name="simImportMode" type="radio" value="append"/><span><b>Adicionar</b><small>Mantém o banco atual.</small></span></label><label><input name="simImportMode" type="radio" value="replace"/><span><b>Substituir tudo</b><small>Fica somente com o novo lote.</small></span></label></fieldset>
+<textarea aria-label="PERGUNTA: Qual é a capital do Brasil?
+A: São Paulo
+B: Brasília
+C: Salvador
+D: Recife
+CORRETA: B
+PONTOS: 100
+TEMPO: 30" class="bulk-textarea" id="simBulkText" placeholder="PERGUNTA: Qual é a capital do Brasil?
+A: São Paulo
+B: Brasília
+C: Salvador
+D: Recife
+CORRETA: B
+PONTOS: 100
+TEMPO: 30
+---" rows="9"></textarea>
+<div class="actions wrap"><button class="ghost" id="simAnalyzeImportBtn" type="button">Analisar lote</button><button class="primary" disabled="" id="simApplyImportBtn" type="button">Adicionar lote validado</button><button class="ghost" id="simClearImportBtn" type="button">Limpar</button></div>
+<p class="form-msg" id="simImportSummary">Cole um TXT para validar.</p>
+<div class="sim-import-preview" id="simImportPreview"></div>
+</article>
+</div>
+</section>
+<section class="sim-tab-panel" data-panel="config" id="tabConfig">
+<div class="sim-section-head"><div><div class="eyebrow">CONFIGURAÇÃO DO EVENTO</div><h2>Monte a partida de teste</h2><p>Defina rounds, jogadores e comportamento das respostas.</p></div><span class="badge neutral" id="queueReadyBadge">0 / 0 selecionadas</span></div>
+<div class="sim-config-grid">
+<article class="card">
+<h3>Partida</h3>
+<div class="two-cols">
+<label>Nome da partida<input id="simTitle" value="Quiz Teste Local"/></label>
+<label>Quantidade de rounds<input id="simRounds" max="20" min="1" type="number" value="5"/></label>
+</div>
+<div class="two-cols">
+<label>PIN da sala<input id="simPin" inputmode="numeric" maxlength="6" value="482731"/></label>
+<label>Jogadores simulados<select id="botCount"><option value="1">1</option><option value="10">10</option><option value="25">25</option><option selected="" value="50">50</option><option value="75">75</option><option value="100">100</option><option value="150">150</option><option value="200">200</option></select></label>
+</div>
+<div class="two-cols">
+<label>Precisão média<select id="botAccuracy"><option value="0.45">45%</option><option selected="" value="0.65">65%</option><option value="0.80">80%</option><option value="0.95">95%</option></select></label>
+<label>Perfil<select id="responseProfile"><option value="normal">Normal</option><option value="burst">Rajada nos últimos 2 s</option><option value="chaos">Oscilação / reconexão</option></select></label>
+</div>
+<div class="two-cols">
+<label>Velocidade do simulador<select id="simSpeed"><option value="1">Tempo real</option><option value="2">2×</option><option selected="" value="5">5×</option><option value="10">10×</option></select></label>
+<label>Falhas simuladas<select id="failureRate"><option value="0">0%</option><option value="0.05">5%</option><option value="0.15">15%</option></select></label>
+</div>
+<label class="random-order-toggle"><input id="simRandomize" type="checkbox"/><span><b>Ordem aleatória ao começar</b><small>Sorteia novamente a sequência ao preparar o lobby.</small></span></label>
+<div class="sim-feature-grid">
+<label class="switch-line"><input checked="" id="simClassification" type="checkbox"/><span><b>Classificação</b><small>Destaca zona de corte.</small></span></label>
+<label>Top classificados<input id="simQualifyTop" max="200" min="1" type="number" value="5"/></label>
+<label class="switch-line"><input id="simAutoClose" type="checkbox"/><span><b>Fechar com todos respondendo</b></span></label>
+<label class="switch-line"><input checked="" id="simStreak" type="checkbox"/><span><b>Sequência de acertos</b></span></label>
+<label>Entrada tardia<select id="simLateJoin"><option value="allow_zero">Permitir com zero</option><option value="until_round">Até round 3</option><option value="deny">Bloquear após início</option></select></label>
+<label>Cenário do mapa<select id="simAvatarScene"><option value="office">Escritório</option><option value="laboratory">Laboratório</option><option value="industry">Indústria</option><option value="platform">Plataforma</option></select></label>
+<label>Tema<select id="simTheme"><option value="violet">Azul</option><option value="ocean">Oceano</option><option value="emerald">Esmeralda</option><option value="sunset">Pôr do sol</option><option value="midnight">Midnight</option></select></label>
+</div>
+<button class="primary big" id="prepareSimBtn" type="button">Preparar lobby</button>
+<p class="form-msg" id="prepareMsg">Selecione as perguntas na ordem desejada.</p>
+</article>
+<article class="card">
+<div class="row wrap"><div><h3>Fila de rounds</h3><p class="muted compact">Ordem em que as perguntas serão apresentadas.</p></div><button class="ghost small" id="shuffleQueueBtn" type="button">Embaralhar</button></div>
+<div class="sim-queue" id="simQueue"></div>
+</article>
+</div>
+</section>
+<section class="sim-tab-panel" data-panel="presentation" id="tabPresentation">
+<div class="presentation-workspace">
+<aside class="presentation-control">
+<article class="card live-control-card">
+<div class="row wrap"><div><div class="eyebrow">CONTROLE AO VIVO</div><h3 id="simStageTitle">Aguardando configuração</h3></div><span class="badge" id="simRoundBadge">0 / 0</span></div>
+<div class="round-clock" id="simAdminTimer">Aguardando</div>
+<div class="current-question muted" id="simCurrentAdmin">Prepare a partida para abrir o lobby.</div>
+<div class="sim-presenter-preview hidden" id="simPresenterPreview"><b>Próxima pergunta</b><span id="simPreviewPrompt"></span><small id="simPreviewAnswer"></small></div>
+<div class="actions vertical-actions">
+<button class="restart-game big" disabled="" id="restartGameBtn" type="button">Recomeçar partida</button>
+<button class="primary big" disabled="" id="startSimBtn" type="button">Começar Quiz</button>
+<button class="primary big" disabled="" id="prepareNextSimBtn" type="button">Preparar próximo round</button>
+<button class="ghost big" disabled="" id="pauseSimBtn" type="button">Pausar partida</button>
+<div class="actions"><button class="ghost" disabled="" id="extend5SimBtn" type="button">+5 s</button><button class="ghost" disabled="" id="extend10SimBtn" type="button">+10 s</button></div>
+<button class="warn big" disabled="" id="closeSimRoundBtn" type="button">Encerrar e pontuar</button>
+<div class="actions"><button class="ghost danger-soft" disabled="" id="annulSimBtn" type="button">Anular</button><button class="ghost" disabled="" id="regradeSimBtn" type="button">Corrigir gabarito</button></div>
+<div class="actions reveal-sim"><button class="ghost small" data-sim-reveal="answer" type="button">Resposta</button><button class="ghost small" data-sim-reveal="distribution" type="button">Distribuição</button><button class="ghost small" data-sim-reveal="ranking" type="button">Ranking</button></div>
+<button class="primary big" disabled="" id="nextSimRoundBtn" type="button">Próxima pergunta</button>
+</div>
+</article>
+<article class="card">
+<h3>Participação</h3>
+<div class="sim-kpis four"><div><strong id="connectedCount">0</strong><span>Conectados</span></div><div><strong id="answeredCount">0</strong><span>Responderam</span></div><div><strong id="pendingCount">0</strong><span>Pendentes</span></div><div><strong id="missedCount">0</strong><span>Perdidos</span></div></div>
+<div class="answer-meter"><span id="answerMeterBar"></span></div>
+<p class="muted compact" id="answerMeterLabel">0 de 0 respostas</p>
+</article>
+<article class="card">
+<div class="row wrap"><div><h3>Ranking</h3><p class="muted compact">Atualiza após cada round.</p></div><span class="badge neutral" id="rankRoundLabel">Lobby</span></div>
+<ol class="sim-ranking compact-ranking" id="simRanking"></ol>
+</article>
+</aside>
+<section class="sim-display-wrap">
+<article class="sim-display">
+<div class="sim-display-header">
+<div><span class="display-kicker" id="projectorKicker">LOBBY</span><div class="sim-room-title" id="projectorTitle">QUIZ TESTE LOCAL</div></div>
+<div class="sim-projector-stats"><div><strong id="projectorPlayers">0</strong><span>jogadores</span></div><div><strong id="projectorAnswers">0</strong><span>respostas</span></div></div>
+</div>
+<div class="sim-projector-body lobby-stage" id="projectorLobby">
+<div class="sim-lobby-layout">
+<div class="sim-lobby-join-panel">
+<span class="display-kicker">ENTRE NA SALA</span>
+<div class="sim-lobby-join-flex">
+<div class="sim-pin-zone"><span class="display-kicker">PIN DA SALA</span><div class="display-big-code sim-code" id="projectorPin">482731</div><small>Digite o PIN no celular</small></div>
+<div class="sim-qr-zone"><span class="display-kicker">QR PARA ENTRAR</span><div aria-label="QR Code de teste" class="sim-qr" id="simQr"></div><strong>Escaneie pelo celular</strong></div>
+</div>
+<div class="sim-link" id="projectorLink">http://localhost/quiz?pin=482731</div>
+<div class="sim-lobby-status"><p id="lobbyStatusText">Prepare a partida para abrir o lobby.</p><div class="avatar-cloud" id="lobbyAvatars"></div></div>
+</div>
+<section aria-label="Mapa RPG do simulador" class="avatar-city sim-avatar-city" data-scene="office" id="simAvatarCity">
+<div class="city-map-viewport"><div aria-hidden="true" class="city-scene-fx" id="avatarCityFx"></div><div aria-hidden="true" class="city-door-guides" id="avatarCityDoorGuides"></div><div class="city-walkers" id="simAvatarCityWalkers"></div><div aria-hidden="true" class="city-occlusion-layer" id="avatarCityOcclusion"></div><div class="city-map-legend" id="avatarCityLegend"><span class="city-door-legend-dot"></span><strong>Avatares explorando o mapa</strong><small>Portas e passagens válidas destacadas</small></div></div>
+<div class="avatar-scene-badge" id="simAvatarCitySceneLabel">Escritório</div><div class="city-population-badge" id="simAvatarCityPopulation">0 jogadores</div>
+</section>
+</div>
+</div>
+<div class="sim-projector-body hidden" id="projectorPreparing"><span class="display-kicker">PREPARE-SE</span><div class="display-countdown" id="simCountdown">3</div><h2 class="sim-result-answer">Próximo round</h2></div>
+<div class="sim-projector-body hidden" id="projectorPaused"><span class="display-kicker">INTERVALO</span><h2 class="sim-result-answer">Partida pausada</h2></div>
+<div class="sim-projector-body hidden" id="projectorQuestion">
+<div class="display-round-line"><span class="display-round-label" id="projectorRound">ROUND 1 / 5</span><span class="display-timer" id="projectorTimer">20</span></div>
+<h2 class="display-question-text" id="projectorPrompt"></h2>
+<div class="display-options" id="projectorOptions"></div>
+<div class="display-numeric-hint hidden" id="projectorNumeric">Digite um número. Quem chegar mais perto vence.</div>
+<div class="display-answer-progress" id="projectorProgress">0 de 0 respostas</div>
+</div>
+<div class="sim-projector-body hidden" id="projectorResult"><span class="display-kicker" id="simRevealKicker">RESULTADO DO ROUND</span><h2 class="sim-result-answer" id="projectorAnswer"></h2><div class="display-distribution hidden" id="simDistribution"></div><div class="display-movers hidden" id="simMovers"></div><div class="sim-winner" id="projectorWinner"></div><p class="display-next-text">O administrador controla a revelação e a próxima pergunta.</p></div>
+<div class="sim-projector-body hidden" id="projectorFinal"><span class="display-kicker">QUIZ ENCERRADO</span><h2 class="sim-result-answer">Ranking final</h2><ol class="display-ranking sim-final-ranking" id="projectorFinalRanking"></ol></div>
+</article>
+</section>
+</div>
+</section>
+<section class="sim-tab-panel" data-panel="tests" id="tabTests">
+<div class="sim-section-head"><div><div class="eyebrow">VALIDAÇÃO</div><h2>Suíte determinística local</h2><p>Executa verificações lógicas reais no navegador para idempotência, deadline, desempate, pausa, anulação, reclassificação, entrada tardia, reconexão e 100 × 20 rounds. Não mede capacidade do Supabase.</p></div><button class="primary big" id="runStabilityBtn" type="button">Executar suíte local (100 × 20)</button></div>
+<div class="tests-grid">
+<article class="card"><div class="row wrap"><h3>Resultado</h3><span class="badge neutral" id="stabilityBadge">NÃO EXECUTADO</span></div><div class="stability-results" id="stabilityResults"><div class="empty">Execute a suíte determinística local.</div></div></article>
+<article class="card"><div class="row wrap"><h3>Eventos da simulação</h3><button class="ghost small" id="clearLogBtn" type="button">Limpar</button></div><div aria-live="polite" class="sim-log" id="simLog"></div></article>
+</div>
+</section>
+</main>
+<aside aria-hidden="true" class="player-drawer" id="playerPreviewDrawer">
+<div class="player-drawer-head"><div><div class="eyebrow">CELULAR DE TESTE</div><h2>Experiência do jogador</h2></div><button class="ghost" id="closePlayerPreviewBtn" type="button">Fechar</button></div>
+<div class="phone-frame">
+<div class="phone-notch"></div>
+<div class="phone-screen active" id="phoneJoin">
+<div class="phone-brand">Quiz Rounds 2</div><h3>Entrar na partida</h3><label>PIN<input id="testPlayerPin" inputmode="numeric" maxlength="6"/></label><label>Seu nome<input id="testPlayerName" maxlength="28" value="Jogador Teste"/></label><div class="phone-avatar-picker"><span>Escolha seu avatar</span><div id="simAvatarPicker"></div></div><button class="primary big" id="joinTestPlayerBtn" type="button">Entrar</button><p class="phone-msg" id="testPlayerJoinMsg"></p>
+</div>
+<div class="phone-screen" id="phoneLobby"><div class="phone-brand">Quiz Rounds 2</div><div class="phone-status-pill">CONECTADO</div><div class="phone-avatar-visual" id="phoneAvatarVisual"></div><h3 id="phonePlayerName">Jogador Teste</h3><p>Aguardando o administrador iniciar.</p><div class="phone-room">Sala <b id="phoneLobbyPin">------</b></div><button class="ghost" id="disconnectTestPlayerBtn" type="button">Simular fechar navegador</button></div>
+<div class="phone-screen" id="phoneQuestion"><div class="phone-topline"><span id="phoneRound">1/5</span><strong id="phoneTimer">20</strong></div><h3 id="phonePrompt"></h3><div class="phone-answer-grid" id="phoneChoiceAnswers"></div><div class="hidden" id="phoneNumericAnswer"><input aria-label="Digite o número" id="phoneNumberInput" placeholder="Digite o número" step="any" type="number"/><button class="primary big" id="submitPhoneNumberBtn" type="button">Responder</button></div><p class="phone-msg" id="phoneAnswerMsg"></p></div>
+<div class="phone-screen" id="phoneResult"><div class="phone-brand">Round encerrado</div><div class="phone-result-icon" id="phoneResultIcon">✓</div><h3 id="phoneResultTitle">Resposta registrada</h3><p id="phoneResultText"></p><div class="phone-placement hidden" id="phonePlacementResult"><strong id="phonePlacementResultRank">1º</strong><span id="phonePlacementResultText">Top 5</span></div><div class="phone-score">Pontuação <b id="phoneScore">0</b></div></div>
+<div class="phone-screen" id="phoneDisconnected"><div class="phone-brand">Sessão salva</div><div class="phone-result-icon muted-icon">↻</div><h3>Navegador fechado</h3><p>Ao abrir novamente, o jogador retorna com o mesmo nome. Rounds encerrados enquanto esteve fora valem 0.</p><button class="primary big" id="reopenTestPlayerBtn" type="button">Reabrir navegador</button></div>
+<div class="phone-screen" id="phoneFinal"><div class="phone-brand">Fim do Quiz</div><div class="phone-result-icon">★</div><h3 id="phoneFinalTitle">Partida encerrada</h3><p id="phoneFinalText">Confira sua pontuação final.</p><div class="phone-placement hidden" id="phonePlacementFinal"><strong id="phonePlacementFinalRank">1º</strong><span id="phonePlacementFinalText">Top 5</span></div><div class="phone-score">Pontos <b id="phoneFinalScore">0</b></div></div>
+</div>
+</aside>
+<div class="drawer-backdrop hidden" id="drawerBackdrop"></div>
+<script src="assets/js/simulator-v3.68-r43.js?v=3.68-r43" type="module"></script>
+<script src="assets/js/motion-v3.68-r43.js?v=3.68-r43" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+QuizRounds2 v3.68-r35 — validação
+
+- Build ativo: 3.68-r35
+- Backend exigido: schema 040
+- Migrations: 001–040
+- 31 avatares preservados
+- Relógio do telão preservado
+- Colisões/portas dos 4 mapas preservadas
+- Recuperação de controlador antes de criar nova sala: verificada
+- Bloqueio amigável de telão em sala encerrada: verificado
+- Renovação de lease antes do pareamento do telão: verificada
+- Draft-lock das regras contra refreshState: verificado
+- Autosave das regras no lobby: verificado
+- Sintaxe, imports, referências locais, IDs e cache-bust: validados pelo scripts/validate-build.mjs

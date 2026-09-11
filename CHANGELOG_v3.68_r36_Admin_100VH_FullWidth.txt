@@ -1,0 +1,10 @@
+QuizRounds2 v3.68-r36 — ADM 100vh / Full Width
+
+- admin.html ocupa toda a largura do viewport.
+- shell administrativo: 100vw e mínimo 100dvh (fallback 100vh).
+- abas principais e workspace sem max-width centralizador.
+- login administrativo também aproveita a largura disponível no desktop.
+- conteúdo longo mantém rolagem vertical natural.
+- responsividade e safe-area mobile preservadas.
+- lógica r35 de controlador/regras preservada.
+- Supabase schema permanece 040; nenhuma migration nova.
