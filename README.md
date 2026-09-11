@@ -1,3 +1,35 @@
+# QuizRounds2 v3.68-r43 — Estabilidade Visual Completa
+
+Ambiente de teste independente do QuizRounds principal, preparado para GitHub Pages + segundo projeto Supabase.
+
+## Estado da r43
+
+- UI v3.92, tema azul, 31 Avatares e quatro mapas.
+- ADM 100vh/100dvh e largura total.
+- Jogador com resultado game-show, progresso da partida, pontos animados e feedback de ranking pessoal.
+- Telão com tela cheia, relógio configurável, pódio 3º → 2º → 1º e diagnóstico técnico discreto.
+- Lobby com guias opcionais de portas/passagens, sombra e caminhada mais natural dos avatares.
+- ADM com barra de saúde/status fixa, atalhos de configuração, salvamento inline e diagnóstico resumido.
+- Efeitos visuais reduzem automaticamente em alta densidade e `prefers-reduced-motion` é respeitado.
+- Correções críticas de login, controlador, regras e travamento por MutationObserver permanecem preservadas.
+- Backend mínimo: Supabase schema 040; migrations 001–040. Não existe migration nova na r43.
+
+## Publicação
+
+Substitua o conteúdo da pasta local do repositório `QuizRounds2` por esta release completa, faça `Commit to main` e `Push origin` pelo GitHub Desktop. Não é necessário alterar o Supabase.
+
+## Supabase de teste
+
+Mantenha o QuizRounds2 apontando para o segundo projeto Supabase já configurado. A Publishable Key deve começar com `sb_publishable_` e Anonymous Sign-Ins deve permanecer habilitado para jogador/telão.
+
+## Arquivos da revisão
+
+- `CHANGELOG_v3.68_r43_Estabilidade_Visual_Completa.txt`
+- `VALIDATION_r43_Estabilidade_Visual_Completa.txt`
+- `VERSION.txt`
+
+---
+
 # QuizRounds2 v3.68-r42 — Jogador com resposta revelada mais bonita
 
 Ambiente de teste independente do QuizRounds principal, preparado para GitHub Pages + segundo projeto Supabase.
