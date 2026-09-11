@@ -1,8 +1,0 @@
-QuizRounds2 v3.68-r39 — LOGIN/ENTRADA ESTÁVEIS
-
-- Corrige regressão introduzida na r37: a camada motion era carregada antes do login/entrada.
-- r38 adicionou hardening CSS, mas manteve a camada motion inicial; r39 remove essa dependência do caminho crítico.
-- ADM: formulário nativo; motion carregado somente após autenticação autorizada.
-- Jogador: formulário nativo; motion carregado somente depois de entrar na sala.
-- Mantém ADM 100vh/full width, tema azul, relógio do telão, 31 avatares, mapas/colisões e correções r35.
-- Supabase: sem migration nova; schema 040.

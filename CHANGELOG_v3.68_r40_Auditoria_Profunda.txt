@@ -1,9 +1,0 @@
-v3.68-r40 — Auditoria Profunda / Base Estável
-- restaura controles explícitos de login e entrada
-- adiciona busy/foco/Enter e tratamento de exceção no login ADM
-- protege pré-login/pré-entrada contra overlays e CSS antigo em cache
-- estabiliza a sessão Supabase entre releases e migra chaves r31-r39
-- adiciona alias /admin -> admin.html r40 com cache-bust
-- alinha workflow, build ID, cache-bust, classes runtime e metadados
-- preserva controller/regras, ADM 100vh, relógio, animações pós-auth, mapas, 31 avatares e schema 040
-- nenhuma migration nova

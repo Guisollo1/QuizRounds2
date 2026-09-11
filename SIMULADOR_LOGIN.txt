@@ -1,7 +1,0 @@
-QUIZ ROUNDS v3.68-r30 - SIMULADOR LOCAL
-
-Login ADM de teste: admin
-Senha de teste: quiz123
-
-Abra 01_Abrir_Simulador.bat ou simulator.html.
-A suíte local valida lógica determinística, mas não mede capacidade real do Supabase.

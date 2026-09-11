@@ -1,8 +1,0 @@
-VALIDATION QuizRounds2 r33
-- Referências HTML apontam para assets r33: OK
-- Tema principal azul em player/admin/display/simulator: OK
-- Common theme palette compatível com chave violet: OK
-- Assets r32 preservados para rollback: OK
-- Colisões/mapas r32 mantidos via city r33 derivado: OK
-- 31 avatares mantidos: OK
-- Backend schema 40 mantido: OK
