@@ -1,14 +1,14 @@
 QUIZROUNDS2 TESTE
-RELEASE=r44
-BUILD_ID=3.68-r44
+RELEASE=r45
+BUILD_ID=3.68-r45
 BACKEND_SCHEMA_REQUIRED=40
 SUPABASE_MIGRATIONS=001-040
 AVATAR_CATALOG=31
 UI=3.92
-PLAYER_UI=v3.92-r44
-DISPLAY_UI=v3.92-r44
-ADMIN_UI=v3.68-r44
-SIMULATOR_UI=v3.68-r44
+PLAYER_UI=v3.92-r45
+DISPLAY_UI=v3.92-r45
+ADMIN_UI=v3.68-r45
+SIMULATOR_UI=v3.68-r45
 THEME_PRIMARY=AZUL
-PACKAGE=QuizRounds2_v3_68_UI_v3_92_GitHub_Supabase_r44_Filtros_Resultados_Rank_Estavel
-NOTA=Filtros de avatares corrigidos com carrossel horizontal, resposta correta estilizada no telão e avatares do ranking/pódio estabilizados sem piscadas. Sem migration nova.
+PACKAGE=QuizRounds2_v3_68_UI_v3_92_GitHub_Supabase_r45_Acabamento_Visual_Profissional
+NOTA=Acabamento visual profissional em jogador, telão e ADM: resultado, timer em anel, lobby, carrossel de avatares, ranking/pódio, cards finais e responsividade. Sem migration nova.

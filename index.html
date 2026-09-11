@@ -5,9 +5,9 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
 <meta content="#1565c0" name="theme-color"/>
-<meta content="3.68-r44" name="quizrounds-build"/>
-<title>Quiz Rounds 2 · TESTE v3.68 · Interface v3.92 r44 — Jogador</title>
-<link href="assets/css/player-ui-v3.92-r44.css?v=3.68-r44" rel="stylesheet"/><link href="assets/css/avatars-runtime-v3.68-r44.css?v=3.68-r44" rel="stylesheet"/><link href="assets/css/avatars-ui-v3.92-r44.css?v=3.68-r44" rel="stylesheet"/><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.112.4/dist/umd/supabase.min.js"></script>
+<meta content="3.68-r45" name="quizrounds-build"/>
+<title>Quiz Rounds 2 · TESTE v3.68 · Interface v3.92 r45 — Jogador</title>
+<link href="assets/css/player-ui-v3.92-r45.css?v=3.68-r45" rel="stylesheet"/><link href="assets/css/avatars-runtime-v3.68-r45.css?v=3.68-r45" rel="stylesheet"/><link href="assets/css/avatars-ui-v3.92-r45.css?v=3.68-r45" rel="stylesheet"/><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.112.4/dist/umd/supabase.min.js"></script>
 <style id="criticalPlayerJoinR43">
 /* Critical pre-join boundary: inline on purpose so PIN/name remain usable even if an older CSS asset is cached. */
 #joinView:not(.hidden){position:relative!important;z-index:100!important;pointer-events:auto!important;isolation:isolate!important}
@@ -18,12 +18,12 @@
 #joinView.hidden{display:none!important;pointer-events:none!important}
 </style>
 </head>
-<body class="player-body player-v40 ui-v392-r44" data-auth-scope="player" data-build="3.68-r44" data-ui="v3.92-r44">
+<body class="player-body player-v40 ui-v392-r45" data-auth-scope="player" data-build="3.68-r45" data-ui="v3.92-r45">
 <div class="player-bg-shape pbs1"></div><div class="player-bg-shape pbs2"></div><div class="player-bg-shape pbs3"></div>
 <main class="player-shell">
 <header class="player-header">
 <div class="player-brand"><span>Q</span><div><b>Quiz Rounds 2</b><small id="statusText">Entre na sala para jogar</small></div></div>
-<div class="player-status-row"><button aria-pressed="true" class="player-change-room" id="soundToggle" type="button">Som ✓</button><button class="player-change-room hidden" id="changeRoomBtn" type="button">Trocar sala</button><span class="connection-pill connecting" id="connectionStatus">Conectando…</span><span class="badge neutral" id="stateVersion">Estado 0</span><span class="badge neutral player-build-badge" id="playerBuildBadge">r44</span></div>
+<div class="player-status-row"><button aria-pressed="true" class="player-change-room" id="soundToggle" type="button">Som ✓</button><button class="player-change-room hidden" id="changeRoomBtn" type="button">Trocar sala</button><span class="connection-pill connecting" id="connectionStatus">Conectando…</span><span class="badge neutral" id="stateVersion">Estado 0</span><span class="badge neutral player-build-badge" id="playerBuildBadge">r45</span></div>
 </header>
 <section class="player-join-stage" id="joinView">
 <article class="join-hero-card">
@@ -54,7 +54,7 @@
 <article class="player-lobby-panel hidden" id="playerLobbyPanel">
 <div class="player-lobby-avatar" id="playerLobbyAvatar"></div>
 <div class="player-lobby-copy"><div class="eyebrow light">VOCÊ ESTÁ NO LOBBY</div><h2 id="playerLobbyName">Jogador</h2><p id="playerLobbyRoom">Sala ------</p><strong id="playerLobbyMessage">Aguardando o administrador começar.</strong><span class="hidden" id="playerLobbyStart"></span></div>
-<div class="player-lobby-status"><span class="player-lobby-online">● CONECTADO</span><button aria-pressed="false" class="player-ready-btn" id="playerReadyBtn" type="button">Estou pronto</button><small id="playerReadyHint">Confirme quando estiver pronto para começar.</small></div>
+<div class="player-lobby-status"><span class="player-lobby-online">● CONECTADO</span><div class="player-ready-progress" aria-label="Prontidão da sala"><div class="player-ready-progress-head"><span id="playerReadyProgressText">Aguardando prontidão da sala</span></div><span class="player-ready-progress-track"><i id="playerReadyProgressBar"></i></span></div><button aria-pressed="false" class="player-ready-btn" id="playerReadyBtn" type="button">Estou pronto</button><small id="playerReadyHint">Confirme quando estiver pronto para começar.</small></div>
 </article>
 <div class="player-game-grid">
 <article class="game-question-card">
@@ -69,6 +69,6 @@
 </div>
 </section>
 </main>
-<script src="assets/js/player-v3.68-r44.js?v=3.68-r44" type="module"></script>
+<script src="assets/js/player-v3.68-r45.js?v=3.68-r45" type="module"></script>
 </body>
 </html>

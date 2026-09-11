@@ -5,13 +5,13 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
 <meta content="#0d57a1" name="theme-color"/>
-<meta content="3.68-r44" name="quizrounds-build"/>
+<meta content="3.68-r45" name="quizrounds-build"/>
 <title>Quiz Rounds 2 · TESTE v3.68 — Administração</title>
-<link href="assets/css/core-v3.68-r44.css?v=3.68-r44" rel="stylesheet"/>
-<link href="assets/css/admin-v3.68-r44.css?v=3.68-r44" rel="stylesheet"/>
-<link href="assets/css/avatars-runtime-v3.68-r44.css?v=3.68-r44" rel="stylesheet"/>
+<link href="assets/css/core-v3.68-r45.css?v=3.68-r45" rel="stylesheet"/>
+<link href="assets/css/admin-v3.68-r45.css?v=3.68-r45" rel="stylesheet"/>
+<link href="assets/css/avatars-runtime-v3.68-r45.css?v=3.68-r45" rel="stylesheet"/>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.112.4/dist/umd/supabase.min.js"></script>
-<script src="assets/vendor/qr-bundle.js?v=3.68-r44"></script>
+<script src="assets/vendor/qr-bundle.js?v=3.68-r45"></script>
 <style id="criticalAdminLoginR43">
 /* Critical pre-auth boundary: inline on purpose so login remains usable even if an older CSS asset is cached. */
 #loginView:not(.hidden){position:relative!important;z-index:100!important;pointer-events:auto!important;isolation:isolate!important}
@@ -22,7 +22,7 @@
 #loginView.hidden{display:none!important;pointer-events:none!important}
 </style>
 </head>
-<body class="admin-body admin-app" data-auth-scope="admin" data-build="3.68-r44">
+<body class="admin-body admin-app" data-auth-scope="admin" data-build="3.68-r45">
 <a class="skip-link" href="#mainContent">Pular para o conteúdo</a>
 <div class="ambient ambient-a"></div><div class="ambient ambient-b"></div><div class="ambient ambient-c"></div>
 <main class="shell wide admin-shell" id="mainContent">
@@ -32,7 +32,7 @@
 <div><div class="eyebrow light">QUIZ ROUNDS 2 · TESTE</div><h1>Painel do Administrador</h1><p>Prepare, apresente e controle o quiz em tempo real.</p></div>
 </div>
 <div aria-label="Ações do administrador" class="top-actions">
-<span class="badge version-badge" id="appVersionBadge">v3.68-r44</span><span aria-live="polite" class="connection-pill connecting" id="adminConnection" role="status">Conectando…</span>
+<span class="badge version-badge" id="appVersionBadge">v3.68-r45</span><span aria-live="polite" class="connection-pill connecting" id="adminConnection" role="status">Conectando…</span>
 <button aria-controls="questionHelpModal" aria-haspopup="dialog" class="ghost glass admin-help-trigger" id="adminHelpBtn" type="button"><span aria-hidden="true">?</span> Ajuda</button>
 <a class="ghost glass" href="simulator.html">Simulador</a>
 <a class="ghost glass" href="index.html">Modo jogador</a>
@@ -60,7 +60,7 @@
 <button aria-controls="adminPanelQuestions" aria-selected="false" class="admin-tab" data-tab="questions" id="adminTabQuestions" role="tab" type="button"><span>2</span><b><span class="tab-label-desktop">Editar perguntas</span><span class="tab-label-mobile">Perguntas</span></b><small>Criar e organizar</small></button>
 <button aria-controls="adminPanelConfig" aria-selected="false" class="admin-tab" data-tab="config" id="adminTabConfig" role="tab" type="button"><span>3</span><b><span class="tab-label-desktop">Configuração</span><span class="tab-label-mobile">Configurar</span></b><small>Montar a partida</small></button>
 <button aria-controls="adminPanelPresentation" aria-selected="false" class="admin-tab" data-tab="presentation" id="adminTabPresentation" role="tab" type="button"><span>4</span><b><span class="tab-label-desktop">Apresentação</span><span class="tab-label-mobile">Ao vivo</span></b><small>Lobby e rounds</small></button>
-</nav><div aria-label="Status da partida" class="admin-live-status-bar" id="adminLiveStatusBar"><div><span>SALA</span><strong id="statusRoom">—</strong></div><div><span>JOGADORES</span><strong id="statusPlayers">0</strong></div><div><span>TELÃO</span><strong id="statusDisplay">—</strong></div><div><span>REALTIME</span><strong id="statusRealtime">—</strong></div><div><span>CONTROLADOR</span><strong id="statusController">—</strong></div><div><span>BUILD</span><strong id="statusBuild">r44</strong></div></div>
+</nav><div aria-label="Status da partida" class="admin-live-status-bar" id="adminLiveStatusBar"><div><span>SALA</span><strong id="statusRoom">—</strong></div><div><span>JOGADORES</span><strong id="statusPlayers">0</strong></div><div><span>TELÃO</span><strong id="statusDisplay">—</strong></div><div><span>REALTIME</span><strong id="statusRealtime">—</strong></div><div><span>CONTROLADOR</span><strong id="statusController">—</strong></div><div><span>BUILD</span><strong id="statusBuild">r45</strong></div></div>
 <div aria-live="polite" class="system-reconnect-banner hidden" id="adminReconnectBanner" role="status">Reconectando e reconstruindo o estado oficial da sala…</div>
 <div aria-live="polite" class="controller-conflict-banner hidden" id="controllerConflictBanner" role="alert">
 <div><strong>Outro painel ADM está como controlador principal</strong><span id="controllerConflictText">Este painel ficou em modo de acompanhamento para evitar comandos duplicados.</span></div>
@@ -282,7 +282,7 @@ TEMPO: 30
 <div class="health-tile checking" id="healthQuestions"><span>PERGUNTAS</span><strong>0 prontas</strong><small>Fila da partida</small></div>
 <div class="health-tile checking" id="healthController"><span>CONTROLE</span><strong>Verificando…</strong><small>Painel principal</small></div>
 <div class="health-tile checking" id="healthRemote"><span>REMOTO</span><strong>Verificando…</strong><small>Celular autorizado</small></div>
-<div class="health-tile checking" id="healthVersions"><span>VERSÕES</span><strong>v3.68-r44</strong><small>ADM, telão e jogadores</small></div>
+<div class="health-tile checking" id="healthVersions"><span>VERSÕES</span><strong>v3.68-r45</strong><small>ADM, telão e jogadores</small></div>
 </div>
 <div class="preflight-summary neutral" id="preflightSummary">Execute o pré-teste antes de começar o evento.</div>
 </article>
@@ -328,7 +328,7 @@ TEMPO: 30
 <article class="card live-ranking-card"><div class="row wrap"><div><h2>Ranking ao vivo</h2><p class="muted">Atualizado após cada round pontuado.</p></div><span class="badge neutral" id="qualificationBadge">Sem corte</span></div><ol class="admin-ranking" id="adminRanking"></ol><div class="ranking-movers" id="rankingMovers"></div></article>
 <article class="card participants-live-card"><div class="row wrap"><div><h2>Participantes</h2><p class="muted">Conexão, prontidão e controle de acesso.</p></div><div class="actions wrap"><span class="badge neutral" id="connectionTestResult">Teste não executado</span><button class="ghost small" id="refreshParticipantsBtn" type="button">Atualizar</button></div></div><div aria-label="Filtrar participantes" class="participant-filter-bar" role="group"><button class="active" data-participant-filter="all" type="button">Todos</button><button data-participant-filter="online" type="button">Online</button><button data-participant-filter="offline" type="button">Offline</button><button data-participant-filter="ready" type="button">Prontos</button><button data-participant-filter="issues" type="button">Problemas</button><span id="participantFilterCount">0</span></div><div class="participant-admin-list" id="participantAdminList"></div></article>
 <article class="card span2 event-secondary-card"><div class="row wrap"><div><h2>Histórico e evolução</h2><p class="muted">Respostas, pontos, rounds perdidos e evolução da classificação.</p></div><div class="actions"><button class="ghost small" id="loadHistoryBtn" type="button">Atualizar histórico</button><button class="ghost small" id="showEvolutionBtn" type="button">Evolução de posição</button></div></div><div class="history-summary" id="historySummary"></div><div class="evolution-chart hidden" id="evolutionChart"></div></article>
-<article class="card span2 diagnostic-card"><div class="row wrap"><div><h2>Diagnóstico do evento</h2><p class="muted">Conexão, transições, comandos e eventos técnicos desta sessão.</p></div><div class="actions wrap"><span class="badge neutral" id="latencyBadge">Latência —</span><button class="ghost small" id="exportDiagnosticsBtn" type="button">Exportar diagnóstico</button><button class="ghost small" id="reloadCurrentBuildBtn" type="button">Recarregar r44</button></div></div><div class="diagnostic-summary-grid" id="diagnosticSummaryGrid"><div><span>FRONTEND</span><strong id="diagBuild">3.68-r44</strong></div><div><span>SCHEMA</span><strong id="diagSchema">040</strong></div><div><span>ESTADO</span><strong id="diagRoomState">—</strong></div><div><span>CONTROLADOR</span><strong id="diagController">—</strong></div><div class="diagnostic-last-error"><span>ÚLTIMO ERRO</span><strong id="diagLastError">Nenhum</strong></div></div><div class="diagnostic-log" id="diagnosticLog"></div><details><summary>Auditoria persistida no Supabase</summary><div class="audit-list" id="auditList"></div></details></article>
+<article class="card span2 diagnostic-card"><div class="row wrap"><div><h2>Diagnóstico do evento</h2><p class="muted">Conexão, transições, comandos e eventos técnicos desta sessão.</p></div><div class="actions wrap"><span class="badge neutral" id="latencyBadge">Latência —</span><button class="ghost small" id="exportDiagnosticsBtn" type="button">Exportar diagnóstico</button><button class="ghost small" id="reloadCurrentBuildBtn" type="button">Recarregar r45</button></div></div><div class="diagnostic-summary-grid" id="diagnosticSummaryGrid"><div><span>FRONTEND</span><strong id="diagBuild">3.68-r45</strong></div><div><span>SCHEMA</span><strong id="diagSchema">040</strong></div><div><span>ESTADO</span><strong id="diagRoomState">—</strong></div><div><span>CONTROLADOR</span><strong id="diagController">—</strong></div><div class="diagnostic-last-error"><span>ÚLTIMO ERRO</span><strong id="diagLastError">Nenhum</strong></div></div><div class="diagnostic-log" id="diagnosticLog"></div><details><summary>Auditoria persistida no Supabase</summary><div class="audit-list" id="auditList"></div></details></article>
 </div>
 </section>
 </section>
@@ -500,6 +500,6 @@ PONTUAR: SIM
 </div>
 </div>
 </main>
-<script src="assets/js/admin-v3.68-r44.js?v=3.68-r44" type="module"></script>
+<script src="assets/js/admin-v3.68-r45.js?v=3.68-r45" type="module"></script>
 </body>
 </html>

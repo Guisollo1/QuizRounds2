@@ -76,16 +76,16 @@ for(const rel of htmlFiles){
   const counts=new Map();for(const id of ids)counts.set(id,(counts.get(id)||0)+1);
   for(const [id,count] of counts)if(count>1)fail(`${rel}: ID duplicado ${id} (${count}x).`);
   for(const m of source.matchAll(/\b(?:src|href)\s*=\s*["']([^"']+)["']/gi)){
-    const u=m[1];if(/^assets\/(?:css|js)\//.test(u)&&!u.includes('v=3.68-r44'))fail(`${rel}: asset ativo sem cache-bust r44 -> ${u}`);
+    const u=m[1];if(/^assets\/(?:css|js)\//.test(u)&&!u.includes('v=3.68-r45'))fail(`${rel}: asset ativo sem cache-bust r45 -> ${u}`);
   }
   if(rel!=='simulator.html'){
     if(!source.includes(pinned))fail(`${rel}: Supabase JS não está fixado exatamente em 2.112.4.`);
     const externalScripts=[...source.matchAll(/<script[^>]+src=["'](https?:[^"']+)["']/gi)].map(m=>m[1]);
     for(const u of externalScripts)if(u!==pinned)fail(`${rel}: script externo inesperado -> ${u}`);
   }
-  if(!source.includes('3.68-r44')&&rel!=='display.html')fail(`${rel}: identificação visual/build r44 ausente.`);
+  if(!source.includes('3.68-r45')&&rel!=='display.html')fail(`${rel}: identificação visual/build r45 ausente.`);
 }
-ok(`${htmlFiles.length} HTML auditados; ${idTotal} IDs sem duplicidade; referências/cache-bust r44 conferidos.`);
+ok(`${htmlFiles.length} HTML auditados; ${idTotal} IDs sem duplicidade; referências/cache-bust r45 conferidos.`);
 
 // 3) ES module imports and named exports.
 for(const rel of allJs){
@@ -109,44 +109,44 @@ for(const rel of allCss){
     const raw=m[1].trim();if(!raw.startsWith('var('))checkReference(rel,raw);
   }
 }
-const displayCss=read('assets/css/display-ui-v3.92-r44.css');
+const displayCss=read('assets/css/display-ui-v3.92-r45.css');
 for(const shape of ['wide','landscape','square','tall']){
   const token=`.display-body.has-event-logo[data-logo-shape="${shape}"] .display-event-logo`;
   if(displayCss.split(token).length-1!==1)fail(`display-ui r30: regra adaptativa ${shape} ausente/duplicada.`);
 }
-for(const rel of ['assets/css/admin-v3.68-r44.css','assets/css/display-ui-v3.92-r44.css','assets/css/player-ui-v3.92-r44.css']){
+for(const rel of ['assets/css/admin-v3.68-r45.css','assets/css/display-ui-v3.92-r45.css','assets/css/player-ui-v3.92-r45.css']){
   if(!read(rel).includes('background-color:transparent'))fail(`${rel}: logo transparente não detectada.`);
 }
-const avatarUi=read('assets/css/avatars-ui-v3.92-r44.css');
+const avatarUi=read('assets/css/avatars-ui-v3.92-r45.css');
 if(!avatarUi.includes('grid-template-columns:repeat(4,minmax(0,1fr))'))fail('Avatar picker r30 não usa 4 colunas no desktop.');
 if(!avatarUi.includes('repeat(3,minmax(0,1fr))'))fail('Avatar picker r30 não possui grade mobile de 3 colunas.');
 if(!avatarUi.includes('city-walkers{overflow:hidden'))fail('Mapa r30 não contém contenção dos atores dentro do viewport.');
 ok(`${allCss.length} CSS: referências, balanceamento, logo, picker e contenção do mapa verificados.`);
 
-// 5) Active r44 assets + cache compatibility.
+// 5) Active r45 assets + cache compatibility.
 const active={
-  'admin.html':['assets/css/admin-v3.68-r44.css','assets/css/avatars-runtime-v3.68-r44.css','assets/js/admin-v3.68-r44.js'],
-  'display.html':['assets/css/display-ui-v3.92-r44.css','assets/css/avatars-runtime-v3.68-r44.css','assets/css/avatars-ui-v3.92-r44.css','assets/css/motion-v3.68-r44.css','assets/js/display-v3.68-r44.js','assets/js/motion-v3.68-r44.js'],
-  'index.html':['assets/css/player-ui-v3.92-r44.css','assets/css/avatars-runtime-v3.68-r44.css','assets/css/avatars-ui-v3.92-r44.css','assets/js/player-v3.68-r44.js'],
-  'simulator.html':['assets/css/simulator-v3.68-r44.css','assets/css/avatars-runtime-v3.68-r44.css','assets/css/avatars-ui-v3.92-r44.css','assets/css/motion-v3.68-r44.css','assets/js/simulator-v3.68-r44.js','assets/js/motion-v3.68-r44.js']
+  'admin.html':['assets/css/admin-v3.68-r45.css','assets/css/avatars-runtime-v3.68-r45.css','assets/js/admin-v3.68-r45.js'],
+  'display.html':['assets/css/display-ui-v3.92-r45.css','assets/css/avatars-runtime-v3.68-r45.css','assets/css/avatars-ui-v3.92-r45.css','assets/css/motion-v3.68-r45.css','assets/js/display-v3.68-r45.js','assets/js/motion-v3.68-r45.js'],
+  'index.html':['assets/css/player-ui-v3.92-r45.css','assets/css/avatars-runtime-v3.68-r45.css','assets/css/avatars-ui-v3.92-r45.css','assets/js/player-v3.68-r45.js'],
+  'simulator.html':['assets/css/simulator-v3.68-r45.css','assets/css/avatars-runtime-v3.68-r45.css','assets/css/avatars-ui-v3.92-r45.css','assets/css/motion-v3.68-r45.css','assets/js/simulator-v3.68-r45.js','assets/js/motion-v3.68-r45.js']
 };
 for(const [rel,required] of Object.entries(active)){
-  const source=read(rel);for(const token of required)if(!source.includes(token))fail(`${rel}: não carrega o ativo r44 ${token}.`);
+  const source=read(rel);for(const token of required)if(!source.includes(token))fail(`${rel}: não carrega o ativo r45 ${token}.`);
 }
 for(const rel of ['assets/js/admin-v3.68-r35.js','assets/js/display-v3.68-r35.js','assets/js/player-v3.68-r35.js','assets/js/simulator-v3.68-r35.js','assets/css/display-ui-v3.92-r35.css','assets/js/admin-v3.68-r32.js','assets/js/display-v3.68-r32.js','assets/js/player-v3.68-r32.js','assets/js/simulator-v3.68-r32.js','assets/css/display-ui-v3.92-r32.css','assets/js/admin-v3.68-r29.js','assets/js/display-v3.68-r29.js','assets/js/player-v3.68-r29.js','assets/js/simulator-v3.68-r29.js','assets/css/display-ui-v3.92-r29.css','assets/js/admin-v3.68-r28.js','assets/js/common-v3.68.js'])if(!exists(rel))fail(`Asset de compatibilidade anterior ausente: ${rel}`);
-ok('Ativos r44 e compatibilidade de cache r29/r28 verificados.');
+ok('Ativos r45 e compatibilidade de cache r29/r28 verificados.');
 
 // 6) Frontend/backend build/schema contract.
-const common=read('assets/js/common-v3.68-r44.js');
-if(!/BUILD_ID=['"]3\.68-r44['"]/.test(common))fail('BUILD_ID r44 ausente no common ativo.');
+const common=read('assets/js/common-v3.68-r45.js');
+if(!/BUILD_ID=['"]3\.68-r45['"]/.test(common))fail('BUILD_ID r45 ausente no common ativo.');
 if(!/BACKEND_SCHEMA_REQUIRED=40/.test(common))fail('BACKEND_SCHEMA_REQUIRED=40 ausente no common ativo.');
-for(const rel of ['assets/js/admin-v3.68-r44.js','assets/js/display-v3.68-r44.js','assets/js/player-v3.68-r44.js']){
+for(const rel of ['assets/js/admin-v3.68-r45.js','assets/js/display-v3.68-r45.js','assets/js/player-v3.68-r45.js']){
   const source=read(rel);if(!source.includes('get_quiz_backend_meta'))fail(`${rel}: handshake de backend ausente.`);if(!source.includes('BUILD_ID'))fail(`${rel}: BUILD_ID não é utilizado.`);
 }
-const admin=read('assets/js/admin-v3.68-r44.js');
+const admin=read('assets/js/admin-v3.68-r45.js');
 if(!admin.includes('version_required'))fail('ADM: broadcast de atualização de build ausente.');
 if(!admin.includes('eligible_count'))fail('ADM: elegibilidade por round não é consumida.');
-ok('Contrato frontend/backend, BUILD_ID r44 e schema 40 verificados.');
+ok('Contrato frontend/backend, BUILD_ID r45 e schema 40 verificados.');
 
 // 7) Migrations 001..040 and hardening + avatar catalog migration.
 const migrations=fs.readdirSync(path.join(root,'supabase/migrations')).filter(n=>/^\d{3}_.*\.sql$/.test(n)).sort();
@@ -161,7 +161,7 @@ if(!avatarMig.includes('private.normalize_avatar_key'))fail('Migration 040: norm
 ok('Migrations 001..040 contínuas; hardening 039 e catálogo 040 presentes.');
 
 // 8) Exact 31-avatar catalog, assets and end-to-end selection/map wiring.
-const avatarModule=read('assets/js/avatars-v3.68-r44.js');
+const avatarModule=read('assets/js/avatars-v3.68-r45.js');
 const avatarKeys=[...avatarModule.matchAll(/\{key:'([^']+)'/g)].map(m=>m[1]);
 const uniqueKeys=[...new Set(avatarKeys)];
 if(avatarKeys.length!==31||uniqueKeys.length!==31)fail(`Catálogo r30 deveria ter 31 avatares únicos; encontrado ${avatarKeys.length}/${uniqueKeys.length}.`);
@@ -175,16 +175,16 @@ for(const key of uniqueKeys){
   if(!avatarMig.includes(`'${key}'`))fail(`Migration 040 não aceita a chave ${key}.`);
 }
 for(const token of ['runtime-r30','preview-r30','avatarPickerMarkup','backendAvatarKey','avatarMapMarkup','applyAvatarFrameElement'])if(!avatarModule.includes(token))fail(`Módulo de avatar r30 não contém ${token}.`);
-const player=read('assets/js/player-v3.68-r44.js'),display=read('assets/js/display-v3.68-r44.js'),city=read('assets/js/city-v3.68-r44.js'),sim=read('assets/js/simulator-v3.68-r44.js');
+const player=read('assets/js/player-v3.68-r45.js'),display=read('assets/js/display-v3.68-r45.js'),city=read('assets/js/city-v3.68-r45.js'),sim=read('assets/js/simulator-v3.68-r45.js');
 if(!player.includes('avatarPickerMarkup')||!player.includes('player_set_avatar')||!player.includes('join_quiz_room_v2'))fail('Jogador r30 não está ligado à seleção/persistência dos avatares.');
 if(!display.includes('createAvatarCity')||!city.includes('avatarMapMarkup')||!city.includes('row.avatar_key'))fail('Telão/mapa r30 não está ligado ao avatar individual do roster.');
-if(!sim.includes('AVATARS')||!sim.includes('avatarPickerMarkup'))fail('Simulador r44 não usa o catálogo de 31 avatares.');
+if(!sim.includes('AVATARS')||!sim.includes('avatarPickerMarkup'))fail('Simulador r45 não usa o catálogo de 31 avatares.');
 ok('Catálogo end-to-end: 31 avatares, 62 assets, seleção, Supabase e mapa do lobby verificados.');
 
 // 9) Simulator deterministic checks.
-if(/\badd\([^;\n]*,\s*true\s*,/.test(sim))fail('Simulador r44 ainda contém verificação aprovada por constante true.');
-for(const token of ['Resposta idempotente','Prazo/deadline','Desempate determinístico','Pausa preserva tempo','Anulação recalcula ranking','Reclassificação recalcula pontos','Carga lógica 100 × 20 rounds'])if(!sim.includes(token))fail(`Simulador r44: teste esperado ausente: ${token}.`);
-if(!sim.includes('Não substitui teste real contra Supabase'))fail('Simulador r44 não explicita limite da suíte local.');
+if(/\badd\([^;\n]*,\s*true\s*,/.test(sim))fail('Simulador r45 ainda contém verificação aprovada por constante true.');
+for(const token of ['Resposta idempotente','Prazo/deadline','Desempate determinístico','Pausa preserva tempo','Anulação recalcula ranking','Reclassificação recalcula pontos','Carga lógica 100 × 20 rounds'])if(!sim.includes(token))fail(`Simulador r45: teste esperado ausente: ${token}.`);
+if(!sim.includes('Não substitui teste real contra Supabase'))fail('Simulador r45 não explicita limite da suíte local.');
 ok('Suíte local determinística preservada e limites documentados.');
 
 // 10) No privileged credentials; config remains placeholders.
@@ -199,10 +199,10 @@ ok('Config neutro e sem credenciais privilegiadas embutidas.');
 
 
 // 10b) QuizRounds2 browser isolation from production path on the same GitHub Pages origin.
-const common2=read('assets/js/common-v3.68-r44.js');
-const admin2=read('assets/js/admin-v3.68-r44.js');
-const player2=read('assets/js/player-v3.68-r44.js');
-const display2=read('assets/js/display-v3.68-r44.js');
+const common2=read('assets/js/common-v3.68-r45.js');
+const admin2=read('assets/js/admin-v3.68-r45.js');
+const player2=read('assets/js/player-v3.68-r45.js');
+const display2=read('assets/js/display-v3.68-r45.js');
 if(!common2.includes('quizrounds2-${scope}-auth-v1'))fail('QuizRounds2: auth storageKey estável/isolada ausente.');
 if(!common2.includes("['v40','v39','v38'"))fail('QuizRounds2: migração das sessões recentes ausente.');
 for(const token of ['quiz2AdminRoomId','quiz2RemoteDeviceToken:v1','quiz2EventMode:v1'])if(!admin2.includes(token))fail(`QuizRounds2: chave ADM não isolada: ${token}.`);
@@ -210,113 +210,131 @@ for(const token of ['quiz2Room','quiz2Name','quiz2PlayerId','quiz2ActiveTab'])if
 if(!display2.includes('quiz2DisplaySound'))fail('QuizRounds2: preferência do telão não isolada.');
 ok('Namespace de navegador QuizRounds2 isolado do QuizRounds principal.');
 
-// 10c) Lobby map collision/nav r44: audited graph, door nodes and tight-node spread.
-const city32=read('assets/js/city-v3.68-r44.js');
-for(const scene of ['office','laboratory','industry','platform'])if(!city32.includes(`${scene}:{`))fail(`Mapa r44 ausente no grafo: ${scene}.`);
-for(const token of ['tightSet','density===\'high\'?.38','door-only','mobiliário'])if(!city32.includes(token))fail(`Colisão r44: marcador obrigatório ausente: ${token}.`);
-if(city32.includes("spread=density==='high'?1.05"))fail('Colisão r44: dispersão antiga de 1.05% ainda ativa.');
-ok('Quatro mapas r44 auditados com nós de porta/gargalo e dispersão reduzida.');
+// 10c) Lobby map collision/nav r45: audited graph, door nodes and tight-node spread.
+const city32=read('assets/js/city-v3.68-r45.js');
+for(const scene of ['office','laboratory','industry','platform'])if(!city32.includes(`${scene}:{`))fail(`Mapa r45 ausente no grafo: ${scene}.`);
+for(const token of ['tightSet','density===\'high\'?.38','door-only','mobiliário'])if(!city32.includes(token))fail(`Colisão r45: marcador obrigatório ausente: ${token}.`);
+if(city32.includes("spread=density==='high'?1.05"))fail('Colisão r45: dispersão antiga de 1.05% ainda ativa.');
+ok('Quatro mapas r45 auditados com nós de porta/gargalo e dispersão reduzida.');
 
-// 10d) r44 visual layer: wall clock and avatar category filters.
-const displayHtml34=read('display.html'),displayJs34=read('assets/js/display-v3.68-r44.js'),playerJs34=read('assets/js/player-v3.68-r44.js'),avatarJs34=read('assets/js/avatars-v3.68-r44.js');
-for(const token of ['displayWallClockTime','displayWallClockDate','display-wall-clock'])if(!displayHtml34.includes(token))fail(`r44 telão: relógio ausente: ${token}.`);
-for(const token of ['startWallClock','Intl.DateTimeFormat','setInterval(updateWallClock,1000)'])if(!displayJs34.includes(token))fail(`r44 telão: lógica do relógio ausente: ${token}.`);
-for(const token of ['data-avatar-filter','data-avatar-group','filters:true'])if(!(avatarJs34+playerJs34).includes(token))fail(`r44 avatares: filtro ausente: ${token}.`);
-ok('Relógio do telão e filtros visuais dos avatares r44 verificados.');
+// 10d) r45 visual layer: wall clock and avatar category filters.
+const displayHtml34=read('display.html'),displayJs34=read('assets/js/display-v3.68-r45.js'),playerJs34=read('assets/js/player-v3.68-r45.js'),avatarJs34=read('assets/js/avatars-v3.68-r45.js');
+for(const token of ['displayWallClockTime','displayWallClockDate','display-wall-clock'])if(!displayHtml34.includes(token))fail(`r45 telão: relógio ausente: ${token}.`);
+for(const token of ['startWallClock','Intl.DateTimeFormat','setInterval(updateWallClock,1000)'])if(!displayJs34.includes(token))fail(`r45 telão: lógica do relógio ausente: ${token}.`);
+for(const token of ['data-avatar-filter','data-avatar-group','filters:true'])if(!(avatarJs34+playerJs34).includes(token))fail(`r45 avatares: filtro ausente: ${token}.`);
+ok('Relógio do telão e filtros visuais dos avatares r45 verificados.');
 
-// 10e) r44 runtime recovery: controller lease, finished-room display guard and settings draft lock.
-for(const token of ['ensureControllerForRoomCreation','admin_list_recent_rooms','p_force:true','loadPreferredRoom'])if(!admin.includes(token))fail(`r44 controlador: marcador ausente: ${token}.`);
-for(const token of ['settingsDraftDirty','scheduleSettingsAutosave','settingsDraftSerial','if(!settingsDraftDirty&&!settingsSaving)fillSettings()'])if(!admin.includes(token))fail(`r44 regras: proteção de rascunho ausente: ${token}.`);
-for(const token of ["phase()==='finished'||room?.status==='finished'",'await claimController(false)'])if(!admin.includes(token))fail(`r44 telão: proteção/renovação ausente: ${token}.`);
-if(!admin.includes('Controle administrativo renovado automaticamente'))fail('r44 controlador: retry automático de lease ausente.');
-ok('r44: controlador, sala ativa, telão encerrado e persistência das regras verificados.');
-
-
-// 10f) r44 admin full viewport/full width layout.
-const adminCss36=read('assets/css/admin-v3.68-r44.css');
-for(const token of ['width:100vw','min-height:100dvh','.admin-app .admin-tabs{','max-width:none','.admin-app .admin-workspace'])if(!adminCss36.includes(token))fail(`r44 ADM viewport: marcador ausente: ${token}.`);
-if(!read('admin.html').includes('assets/css/admin-v3.68-r44.css'))fail('r44 ADM: admin.html não carrega o CSS r44.');
-ok('r44 ADM usa viewport integral e largura total sem max-width centralizador.');
-
-// 10g) r44 complete animation layer without backend/schema changes.
-const motionJs=read('assets/js/motion-v3.68-r44.js'),motionCss=read('assets/css/motion-v3.68-r44.css');
-for(const token of ['motionLeaderToast','particleBurst','setupTimer','streakStatus','playerMotion','displayMotion','adminMotion','simulatorMotion'])if(!motionJs.includes(token))fail(`r44 animações JS: marcador ausente: ${token}.`);
-for(const token of ['motion-question-in','motion-option-in','motion-streak-pop','motion-podium-in','motion-clock-tick','city-door-pass','city-mascot-peek','motion-remote-command','prefers-reduced-motion'])if(!motionCss.includes(token))fail(`r44 animações CSS: marcador ausente: ${token}.`);
-for(const token of ['mascotTick','city-tight-move','city-door-pass','turnReady'])if(!city32.includes(token))fail(`r44 mapa animado: marcador ausente: ${token}.`);
-ok('r44: animações de jogador, telão, ranking, relógio, mapa, ADM e controle remoto verificadas.');
+// 10e) r45 runtime recovery: controller lease, finished-room display guard and settings draft lock.
+for(const token of ['ensureControllerForRoomCreation','admin_list_recent_rooms','p_force:true','loadPreferredRoom'])if(!admin.includes(token))fail(`r45 controlador: marcador ausente: ${token}.`);
+for(const token of ['settingsDraftDirty','scheduleSettingsAutosave','settingsDraftSerial','if(!settingsDraftDirty&&!settingsSaving)fillSettings()'])if(!admin.includes(token))fail(`r45 regras: proteção de rascunho ausente: ${token}.`);
+for(const token of ["phase()==='finished'||room?.status==='finished'",'await claimController(false)'])if(!admin.includes(token))fail(`r45 telão: proteção/renovação ausente: ${token}.`);
+if(!admin.includes('Controle administrativo renovado automaticamente'))fail('r45 controlador: retry automático de lease ausente.');
+ok('r45: controlador, sala ativa, telão encerrado e persistência das regras verificados.');
 
 
-// 10g.1) r44 animation observer safety: no class-feedback loop or forced synchronous layout.
-for(const token of ['semanticClassName','restartHandles','requestAnimationFrame','lastPanel','key===lastPanel'])if(!motionJs.includes(token))fail(`r44 motion safety: marcador ausente: ${token}.`);
-for(const forbidden of ['void el.offsetWidth','void document.body.offsetWidth','let last=el.className'])if(motionJs.includes(forbidden))fail(`r44 motion safety: padrão inseguro ainda presente: ${forbidden}.`);
-if(!motionJs.includes("filter(c=>!c.startsWith('motion-'))"))fail('r44 motion safety: classes internas de animação ainda podem realimentar observeClass.');
-ok('r44: observadores de animação protegidos contra feedback e reflow síncrono.');
+// 10f) r45 admin full viewport/full width layout.
+const adminCss36=read('assets/css/admin-v3.68-r45.css');
+for(const token of ['width:100vw','min-height:100dvh','.admin-app .admin-tabs{','max-width:none','.admin-app .admin-workspace'])if(!adminCss36.includes(token))fail(`r45 ADM viewport: marcador ausente: ${token}.`);
+if(!read('admin.html').includes('assets/css/admin-v3.68-r45.css'))fail('r45 ADM: admin.html não carrega o CSS r45.');
+ok('r45 ADM usa viewport integral e largura total sem max-width centralizador.');
+
+// 10g) r45 complete animation layer without backend/schema changes.
+const motionJs=read('assets/js/motion-v3.68-r45.js'),motionCss=read('assets/css/motion-v3.68-r45.css');
+for(const token of ['motionLeaderToast','particleBurst','setupTimer','streakStatus','playerMotion','displayMotion','adminMotion','simulatorMotion'])if(!motionJs.includes(token))fail(`r45 animações JS: marcador ausente: ${token}.`);
+for(const token of ['motion-question-in','motion-option-in','motion-streak-pop','motion-podium-in','motion-clock-tick','city-door-pass','city-mascot-peek','motion-remote-command','prefers-reduced-motion'])if(!motionCss.includes(token))fail(`r45 animações CSS: marcador ausente: ${token}.`);
+for(const token of ['mascotTick','city-tight-move','city-door-pass','turnReady'])if(!city32.includes(token))fail(`r45 mapa animado: marcador ausente: ${token}.`);
+ok('r45: animações de jogador, telão, ranking, relógio, mapa, ADM e controle remoto verificadas.');
 
 
-// 10h) r44 login/join interaction hardening and deferred motion.
+// 10g.1) r45 animation observer safety: no class-feedback loop or forced synchronous layout.
+for(const token of ['semanticClassName','restartHandles','requestAnimationFrame','lastPanel','key===lastPanel'])if(!motionJs.includes(token))fail(`r45 motion safety: marcador ausente: ${token}.`);
+for(const forbidden of ['void el.offsetWidth','void document.body.offsetWidth','let last=el.className'])if(motionJs.includes(forbidden))fail(`r45 motion safety: padrão inseguro ainda presente: ${forbidden}.`);
+if(!motionJs.includes("filter(c=>!c.startsWith('motion-'))"))fail('r45 motion safety: classes internas de animação ainda podem realimentar observeClass.');
+ok('r45: observadores de animação protegidos contra feedback e reflow síncrono.');
+
+
+// 10h) r45 login/join interaction hardening and deferred motion.
 const adminHtml39=read('admin.html'),playerHtml39=read('index.html');
-if(adminHtml39.includes('motion-v3.68-r44.css')||adminHtml39.includes('motion-v3.68-r44.js'))fail('r44 ADM: animação não pode ser pré-carregada antes do login.');
-if(playerHtml39.includes('motion-v3.68-r44.css')||playerHtml39.includes('motion-v3.68-r44.js'))fail('r44 jogador: animação não pode ser pré-carregada antes da entrada.');
-for(const token of ['adminLoginPanel','id=\"loginBtn\" type=\"button\"','id=\"email\"','id=\"password\"'])if(!adminHtml39.includes(token))fail(`r44 ADM login: estrutura estável ausente: ${token}.`);
-for(const token of ['playerJoinPanel','id=\"joinBtn\" type=\"button\"','id=\"roomCode\"','id=\"playerName\"'])if(!playerHtml39.includes(token))fail(`r44 jogador: estrutura estável ausente: ${token}.`);
-for(const token of ['loadAdminMotionAfterAuth','adminMotionCss','motion-v3.68-r44.js'])if(!admin.includes(token))fail(`r44 ADM: motion pós-login ausente: ${token}.`);
-for(const token of ['loadPlayerMotionAfterJoin','playerMotionCss','motion-v3.68-r44.js'])if(!player.includes(token))fail(`r44 jogador: motion pós-entrada ausente: ${token}.`);
-const adminCss39=read('assets/css/admin-v3.68-r44.css'),playerCss39=read('assets/css/player-ui-v3.92-r44.css');
-for(const token of ['#loginView:not(.hidden)','pointer-events:auto!important','user-select:text!important'])if(!adminCss39.includes(token))fail(`r44 ADM: boundary interativo ausente: ${token}.`);
-for(const token of ['#joinView:not(.hidden)','pointer-events:auto!important','user-select:text!important'])if(!playerCss39.includes(token))fail(`r44 jogador: boundary interativo ausente: ${token}.`);
-if(!admin.includes("$('#loginBtn')?.addEventListener('click',login)"))fail('r44 ADM: listener explícito do login ausente.');
-if(!player.includes("$('#joinBtn')?.addEventListener('click',join)"))fail('r44 jogador: listener explícito da entrada ausente.');
-ok('r44: login/entrada explícitos, boundaries de foco e animações somente após autenticação/entrada.');
+if(adminHtml39.includes('motion-v3.68-r45.css')||adminHtml39.includes('motion-v3.68-r45.js'))fail('r45 ADM: animação não pode ser pré-carregada antes do login.');
+if(playerHtml39.includes('motion-v3.68-r45.css')||playerHtml39.includes('motion-v3.68-r45.js'))fail('r45 jogador: animação não pode ser pré-carregada antes da entrada.');
+for(const token of ['adminLoginPanel','id=\"loginBtn\" type=\"button\"','id=\"email\"','id=\"password\"'])if(!adminHtml39.includes(token))fail(`r45 ADM login: estrutura estável ausente: ${token}.`);
+for(const token of ['playerJoinPanel','id=\"joinBtn\" type=\"button\"','id=\"roomCode\"','id=\"playerName\"'])if(!playerHtml39.includes(token))fail(`r45 jogador: estrutura estável ausente: ${token}.`);
+for(const token of ['loadAdminMotionAfterAuth','adminMotionCss','motion-v3.68-r45.js'])if(!admin.includes(token))fail(`r45 ADM: motion pós-login ausente: ${token}.`);
+for(const token of ['loadPlayerMotionAfterJoin','playerMotionCss','motion-v3.68-r45.js'])if(!player.includes(token))fail(`r45 jogador: motion pós-entrada ausente: ${token}.`);
+const adminCss39=read('assets/css/admin-v3.68-r45.css'),playerCss39=read('assets/css/player-ui-v3.92-r45.css');
+for(const token of ['#loginView:not(.hidden)','pointer-events:auto!important','user-select:text!important'])if(!adminCss39.includes(token))fail(`r45 ADM: boundary interativo ausente: ${token}.`);
+for(const token of ['#joinView:not(.hidden)','pointer-events:auto!important','user-select:text!important'])if(!playerCss39.includes(token))fail(`r45 jogador: boundary interativo ausente: ${token}.`);
+if(!admin.includes("$('#loginBtn')?.addEventListener('click',login)"))fail('r45 ADM: listener explícito do login ausente.');
+if(!player.includes("$('#joinBtn')?.addEventListener('click',join)"))fail('r45 jogador: listener explícito da entrada ausente.');
+ok('r45: login/entrada explícitos, boundaries de foco e animações somente após autenticação/entrada.');
 
 
 
-// 10i) r44 stability-visual improvements across player, display, admin and maps.
+// 10i) r45 stability-visual improvements across player, display, admin and maps.
 const index43=read('index.html'),display43=read('display.html'),admin43=read('admin.html');
-const player44=read('assets/js/player-v3.68-r44.js'),display43js=read('assets/js/display-v3.68-r44.js'),admin43js=read('assets/js/admin-v3.68-r44.js'),city43=read('assets/js/city-v3.68-r44.js');
-const player44css=read('assets/css/player-ui-v3.92-r44.css'),display43css=read('assets/css/display-ui-v3.92-r44.css'),admin43css=read('assets/css/admin-v3.68-r44.css'),avatar44css=read('assets/css/avatars-ui-v3.92-r44.css');
-for(const token of ['playerRoundProgress','playerRoundProgressBar','playerBuildBadge'])if(!index43.includes(token))fail(`r44 jogador: progresso/build ausente: ${token}.`);
-for(const token of ['renderQuizProgress','outcomeBadge','Gabarito oculto','animateNumber','playCue','fxDensity','Posição mantida','parseCorrectAnswer'])if(!player44.includes(token))fail(`r44 jogador: melhoria ausente: ${token}.`);
-if(player44.includes('r.correct_choice')||player44.includes('r.correct_number'))fail('r44 jogador: não pode depender de correct_choice/correct_number no payload público do jogador; use result_text após a revelação.');
-if(!player44.includes("stage==='hidden'")||!player44.includes('Gabarito oculto'))fail('r44 jogador: proteção do gabarito antes da revelação ausente.');
-for(const token of ['reveal-outcome-badge','player-round-progress','player-ranking-changes.same'])if(!player44css.includes(token))fail(`r44 jogador CSS: melhoria ausente: ${token}.`);
-for(const token of ['displayTechPanel','displayTechBtn','displayFullscreenBtn','displayWallClock'])if(!display43.includes(token))fail(`r44 telão: controle ausente: ${token}.`);
-for(const token of ['display_clock_mode','renderDisplayTech','fullscreenchange','fxDensity','playCue'])if(!display43js.includes(token))fail(`r44 telão JS: melhoria ausente: ${token}.`);
-for(const token of ['display-tech-panel','podium-3','podium-2','podium-1'])if(!display43css.includes(token))fail(`r44 telão CSS: melhoria ausente: ${token}.`);
-for(const token of ['adminLiveStatusBar','configCategoryNav','displayClockMode','settingsSaveState','diagnosticSummaryGrid','reloadCurrentBuildBtn'])if(!admin43.includes(token))fail(`r44 ADM: melhoria ausente: ${token}.`);
-for(const token of ['renderAdminStatusBar','jumpConfigBlock','display_clock_mode','diagLastError'])if(!admin43js.includes(token))fail(`r44 ADM JS: melhoria ausente: ${token}.`);
-for(const token of ['admin-live-status-bar','config-category-nav','diagnostic-summary-grid','settings-save-state'])if(!admin43css.includes(token))fail(`r44 ADM CSS: melhoria ausente: ${token}.`);
-for(const token of ['avatarCityDoorGuides','avatarCityLegend'])if(!display43.includes(token))fail(`r44 mapa HTML: guia ausente: ${token}.`);
-for(const token of ['doorLayer','city-door-guide'])if(!city43.includes(token))fail(`r44 mapa JS: guia de porta ausente: ${token}.`);
-for(const token of ['city-door-guide','city-map-legend','cityWalkBobR43','cityShadowStepR43'])if(!avatar44css.includes(token))fail(`r44 mapa CSS: melhoria ausente: ${token}.`);
-if(display43js.includes('void el.offsetWidth')||display43js.includes('void stage.offsetWidth')||player44.includes('void el.offsetWidth'))fail('r44 estabilidade: reflow forçado ainda presente no jogador/telão ativo.');
-if(!motionJs.includes("dataset?.fxDensity==='low'"))fail('r44 desempenho: motion não reduz partículas em alta densidade.');
-ok('r44: jogador, telão, ADM, mapa, sons, diagnóstico, cache e redução de efeitos verificados.');
+const player45=read('assets/js/player-v3.68-r45.js'),display43js=read('assets/js/display-v3.68-r45.js'),admin43js=read('assets/js/admin-v3.68-r45.js'),city43=read('assets/js/city-v3.68-r45.js');
+const player45css=read('assets/css/player-ui-v3.92-r45.css'),display43css=read('assets/css/display-ui-v3.92-r45.css'),admin43css=read('assets/css/admin-v3.68-r45.css'),avatar45css=read('assets/css/avatars-ui-v3.92-r45.css');
+for(const token of ['playerRoundProgress','playerRoundProgressBar','playerBuildBadge'])if(!index43.includes(token))fail(`r45 jogador: progresso/build ausente: ${token}.`);
+for(const token of ['renderQuizProgress','outcomeBadge','Gabarito oculto','animateNumber','playCue','fxDensity','Posição mantida','parseCorrectAnswer'])if(!player45.includes(token))fail(`r45 jogador: melhoria ausente: ${token}.`);
+if(player45.includes('r.correct_choice')||player45.includes('r.correct_number'))fail('r45 jogador: não pode depender de correct_choice/correct_number no payload público do jogador; use result_text após a revelação.');
+if(!player45.includes("stage==='hidden'")||!player45.includes('Gabarito oculto'))fail('r45 jogador: proteção do gabarito antes da revelação ausente.');
+for(const token of ['reveal-outcome-badge','player-round-progress','player-ranking-changes.same'])if(!player45css.includes(token))fail(`r45 jogador CSS: melhoria ausente: ${token}.`);
+for(const token of ['displayTechPanel','displayTechBtn','displayFullscreenBtn','displayWallClock'])if(!display43.includes(token))fail(`r45 telão: controle ausente: ${token}.`);
+for(const token of ['display_clock_mode','renderDisplayTech','fullscreenchange','fxDensity','playCue'])if(!display43js.includes(token))fail(`r45 telão JS: melhoria ausente: ${token}.`);
+for(const token of ['display-tech-panel','podium-3','podium-2','podium-1'])if(!display43css.includes(token))fail(`r45 telão CSS: melhoria ausente: ${token}.`);
+for(const token of ['adminLiveStatusBar','configCategoryNav','displayClockMode','settingsSaveState','diagnosticSummaryGrid','reloadCurrentBuildBtn'])if(!admin43.includes(token))fail(`r45 ADM: melhoria ausente: ${token}.`);
+for(const token of ['renderAdminStatusBar','jumpConfigBlock','display_clock_mode','diagLastError'])if(!admin43js.includes(token))fail(`r45 ADM JS: melhoria ausente: ${token}.`);
+for(const token of ['admin-live-status-bar','config-category-nav','diagnostic-summary-grid','settings-save-state'])if(!admin43css.includes(token))fail(`r45 ADM CSS: melhoria ausente: ${token}.`);
+for(const token of ['avatarCityDoorGuides','avatarCityLegend'])if(!display43.includes(token))fail(`r45 mapa HTML: guia ausente: ${token}.`);
+for(const token of ['doorLayer','city-door-guide'])if(!city43.includes(token))fail(`r45 mapa JS: guia de porta ausente: ${token}.`);
+for(const token of ['city-door-guide','city-map-legend','cityWalkBobR43','cityShadowStepR43'])if(!avatar45css.includes(token))fail(`r45 mapa CSS: melhoria ausente: ${token}.`);
+if(display43js.includes('void el.offsetWidth')||display43js.includes('void stage.offsetWidth')||player45.includes('void el.offsetWidth'))fail('r45 estabilidade: reflow forçado ainda presente no jogador/telão ativo.');
+if(!motionJs.includes("dataset?.fxDensity==='low'"))fail('r45 desempenho: motion não reduz partículas em alta densidade.');
+ok('r45: jogador, telão, ADM, mapa, sons, diagnóstico, cache e redução de efeitos verificados.');
 
 // 11) Release metadata and CI gate.
-const version=read('VERSION.txt'),readme=read('README.md'),bat=read('01_Abrir_Simulador_QuizRounds2_v3.68-r44.bat'),workflow=read('.github/workflows/pages.yml');
-for(const token of ['RELEASE=r44','BUILD_ID=3.68-r44','BACKEND_SCHEMA_REQUIRED=40','SUPABASE_MIGRATIONS=001-040','AVATAR_CATALOG=31'])if(!version.includes(token))fail(`VERSION.txt: metadado ausente ${token}.`);
+const version=read('VERSION.txt'),readme=read('README.md'),bat=read('01_Abrir_Simulador_QuizRounds2_v3.68-r45.bat'),workflow=read('.github/workflows/pages.yml');
+for(const token of ['RELEASE=r45','BUILD_ID=3.68-r45','BACKEND_SCHEMA_REQUIRED=40','SUPABASE_MIGRATIONS=001-040','AVATAR_CATALOG=31'])if(!version.includes(token))fail(`VERSION.txt: metadado ausente ${token}.`);
 if(!readme.includes('QuizRounds2')||!readme.includes('31 Avatares')||!readme.includes('segundo projeto Supabase'))fail('README.md não documenta o ambiente de teste QuizRounds2.');
-if(!bat.includes('v3.68-r44'))fail('Launcher do simulador não foi atualizado para r44.');
+if(!bat.includes('v3.68-r45'))fail('Launcher do simulador não foi atualizado para r45.');
 if(!workflow.includes('node scripts/validate-build.mjs'))fail('Workflow do GitHub Pages não executa a validação do build.');
 const adminAlias=read('admin/index.html');
-if(!adminAlias.includes('../admin.html?v=3.68-r44'))fail('Alias /admin não aponta para o admin.html r44 com cache-bust.');
+if(!adminAlias.includes('../admin.html?v=3.68-r45'))fail('Alias /admin não aponta para o admin.html r45 com cache-bust.');
 if(!workflow.includes('cp -R admin _site/admin'))fail('Workflow não publica o alias /admin.');
-ok('Metadados r44 QuizRounds2, documentação, launcher e CI gate verificados.');
+ok('Metadados r45 QuizRounds2, documentação, launcher e CI gate verificados.');
 
 
 
-// 10j) r44 targeted fixes: avatar filters/carousel, result styling and stable ranking avatars.
-const player44Target=read('assets/js/player-v3.68-r44.js'),avatar44Target=read('assets/js/avatars-v3.68-r44.js'),avatarCss44Target=read('assets/css/avatars-ui-v3.92-r44.css'),display44Target=read('assets/js/display-v3.68-r44.js'),displayCss44Target=read('assets/css/display-ui-v3.92-r44.css'),runtime44Target=read('assets/css/avatars-runtime-v3.68-r44.css');
-for(const token of ['applyAvatarFilter','avatar-filtered-out','quiz2AvatarCategory','data-avatar-filter-track','data-avatar-filter-nav','scrollBy','wheel'])if(!(player44Target+avatar44Target+avatarCss44Target).includes(token))fail(`r44 filtro/carrossel: marcador ausente: ${token}.`);
-if(!avatarCss44Target.includes('.avatar-choice[hidden],.avatar-choice.avatar-filtered-out{display:none!important}'))fail('r44 filtro: ocultação CSS explícita ausente.');
-for(const token of ['renderDisplayResultAnswer','parseDisplayResult','display-answer-showcase','display-answer-key','display-answer-value'])if(!(display44Target+displayCss44Target).includes(token))fail(`r44 resultado telão: marcador ausente: ${token}.`);
-for(const token of ['podiumSignature','avatarSignature','animated:false'])if(!display44Target.includes(token))fail(`r44 ranking estável: marcador ausente: ${token}.`);
-if(!runtime44Target.includes('placares usam frame estático'))fail('r44 ranking estável: trava CSS de sprite ausente.');
-ok('r44: filtros/carrossel dos avatares, resposta estilizada e ranking sem piscadas verificados.');
+// 10j) r45 targeted fixes: avatar filters/carousel, result styling and stable ranking avatars.
+const player45Target=read('assets/js/player-v3.68-r45.js'),avatar45Target=read('assets/js/avatars-v3.68-r45.js'),avatarCss44Target=read('assets/css/avatars-ui-v3.92-r45.css'),display44Target=read('assets/js/display-v3.68-r45.js'),displayCss44Target=read('assets/css/display-ui-v3.92-r45.css'),runtime44Target=read('assets/css/avatars-runtime-v3.68-r45.css');
+for(const token of ['applyAvatarFilter','avatar-filtered-out','quiz2AvatarCategory','data-avatar-filter-track','data-avatar-filter-nav','scrollBy','wheel'])if(!(player45Target+avatar45Target+avatarCss44Target).includes(token))fail(`r45 filtro/carrossel: marcador ausente: ${token}.`);
+if(!avatarCss44Target.includes('.avatar-choice[hidden],.avatar-choice.avatar-filtered-out{display:none!important}'))fail('r45 filtro: ocultação CSS explícita ausente.');
+for(const token of ['renderDisplayResultAnswer','parseDisplayResult','display-answer-showcase','display-answer-key','display-answer-value'])if(!(display44Target+displayCss44Target).includes(token))fail(`r45 resultado telão: marcador ausente: ${token}.`);
+for(const token of ['podiumSignature','avatarSignature','animated:false'])if(!display44Target.includes(token))fail(`r45 ranking estável: marcador ausente: ${token}.`);
+if(!runtime44Target.includes('placares usam frame estático'))fail('r45 ranking estável: trava CSS de sprite ausente.');
+ok('r45: filtros/carrossel dos avatares, resposta estilizada e ranking sem piscadas verificados.');
+
+
+// 10k) r45 professional visual-polish pass.
+const index45Visual=read('index.html'),display45Visual=read('display.html');
+const common45Visual=read('assets/js/common-v3.68-r45.js'),player45Visual=read('assets/js/player-v3.68-r45.js'),avatar45Visual=read('assets/js/avatars-v3.68-r45.js'),display45VisualJs=read('assets/js/display-v3.68-r45.js');
+const player45VisualCss=read('assets/css/player-ui-v3.92-r45.css'),avatar45VisualCss=read('assets/css/avatars-ui-v3.92-r45.css'),display45VisualCss=read('assets/css/display-ui-v3.92-r45.css'),admin45VisualCss=read('assets/css/admin-v3.68-r45.css');
+for(const token of ['playerReadyProgressText','playerReadyProgressBar'])if(!index45Visual.includes(token))fail(`r45 lobby jogador: prontidão visual ausente: ${token}.`);
+for(const token of ['updateAvatarGridNav','data-avatar-grid-nav','data-avatar-grid-track','--timer-progress','ready_count'])if(!player45Visual.includes(token))fail(`r45 jogador: acabamento visual ausente: ${token}.`);
+for(const token of ['avatar-grid-shell','data-avatar-grid-track','data-avatar-grid-nav'])if(!avatar45Visual.includes(token))fail(`r45 carrossel de avatar: estrutura ausente: ${token}.`);
+for(const token of ['avatar-grid-nav','.avatar-choice.selected::after','scroll-snap-type:x proximity'])if(!avatar45VisualCss.includes(token))fail(`r45 carrossel de avatar CSS: marcador ausente: ${token}.`);
+for(const token of ['displayResultProgressBar','displayResultProgressLabel'])if(!display45Visual.includes(token))fail(`r45 resultado telão: progresso ausente: ${token}.`);
+for(const token of ['podium-platform','rank-shift-up','--display-timer-progress','championScore'])if(!display45VisualJs.includes(token))fail(`r45 telão: acabamento visual ausente: ${token}.`);
+for(const token of ['.display-answer-line','.podium-platform','.champion-avatar','.display-result-progress','displayRankUp','champion-question-recap'])if(!display45VisualCss.includes(token))fail(`r45 telão CSS: acabamento ausente: ${token}.`);
+for(const token of ['config-block-heading','settings-save-state[data-state="saving"]','admin-live-status-bar'])if(!admin45VisualCss.includes(token))fail(`r45 ADM visual: marcador ausente: ${token}.`);
+for(const token of ['rank-shift-up','animated:false'])if(!common45Visual.includes(token))fail(`r45 ranking do jogador: transição/estabilidade ausente: ${token}.`);
+for(const token of ['player-ready-progress','conic-gradient','data-player-phase="question_open"'])if(!player45VisualCss.includes(token))fail(`r45 jogador CSS: acabamento ausente: ${token}.`);
+if(!version.includes('SUPABASE_MIGRATIONS=001-040')||!common45Visual.includes('BACKEND_SCHEMA_REQUIRED=40'))fail('r45 visual não pode alterar o contrato Supabase schema 040.');
+ok('r45: acabamento visual profissional de jogador, avatares, telão, ranking/pódio e ADM verificado sem mudança de schema.');
 if(errors.length){
-  console.error(`\nVALIDAÇÃO QuizRounds2 r44: FALHOU (${errors.length})`);
+  console.error(`\nVALIDAÇÃO QuizRounds2 r45: FALHOU (${errors.length})`);
   for(const e of errors)console.error(`- ${e}`);
   process.exit(1);
 }
-console.log(`VALIDAÇÃO QuizRounds2 r44: APROVADA (${notes.length} grupos)`);
+console.log(`VALIDAÇÃO QuizRounds2 r45: APROVADA (${notes.length} grupos)`);
 for(const n of notes)console.log(`- ${n}`);

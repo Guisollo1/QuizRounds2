@@ -1,3 +1,32 @@
+# QuizRounds2 v3.68-r45 — Acabamento Visual Profissional
+
+Ambiente de teste independente do QuizRounds principal, preparado para GitHub Pages + Supabase schema 040.
+
+## Estado da r45
+
+- Jogador com acabamento de game show: resultado correto/errado, gabarito e resposta pessoal, pontuação, posição, progresso e timer em anel.
+- Seletor de avatares com filtros destacados, carrossel horizontal, setas laterais, rolagem pela rodinha e foco visual no avatar selecionado.
+- Lobby do jogador com avatar maior e barra de prontidão da sala.
+- Telão com fundo mais profundo, hierarquia refinada, área segura para TV, resultado central, progresso e alternativas mais legíveis.
+- Ranking e pódio refinados: avatares estáticos quando nada muda, animação somente na mudança de posição, campeão maior e plataformas de 1º/2º/3º.
+- Cards finais e estatísticas com melhor hierarquia visual.
+- ADM 100vh/full width com cabeçalho mais compacto, configuração em blocos e status de salvamento mais claro.
+- Responsividade refinada: durante a pergunta, o celular prioriza enunciado e alternativas; informações secundárias voltam no resultado.
+- Preservadas as correções críticas da r35–r44, inclusive login, controlador, regras, filtros e proteção contra loops de MutationObserver.
+- Backend mínimo: Supabase schema 040, migrations 001–040. **Não há migration nova na r45.**
+
+## Publicação
+
+Substitua o conteúdo do repositório local `QuizRounds2` por esta release completa, faça `Commit to main` e `Push origin` pelo GitHub Desktop. Não altere o Supabase.
+
+## Arquivos desta revisão
+
+- `CHANGELOG_v3.68_r45_Acabamento_Visual_Profissional.txt`
+- `VALIDATION_r45_Acabamento_Visual_Profissional.txt`
+- `VERSION.txt`
+
+---
+
 # QuizRounds2 v3.68-r44 — Filtros, resultado e ranking estável
 
 Ambiente de teste independente do QuizRounds principal, preparado para GitHub Pages + segundo projeto Supabase.

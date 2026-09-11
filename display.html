@@ -5,11 +5,11 @@
 <meta charset="utf-8"/>
 <meta content="#0d57a1" name="theme-color"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<title>Quiz Rounds 2 · TESTE v3.68 · Interface v3.92 r44 — Telão</title>
-<link href="assets/css/display-ui-v3.92-r44.css?v=3.68-r44" rel="stylesheet"/><link href="assets/css/avatars-runtime-v3.68-r44.css?v=3.68-r44" rel="stylesheet"/><link href="assets/css/avatars-ui-v3.92-r44.css?v=3.68-r44" rel="stylesheet"/><link href="assets/css/motion-v3.68-r44.css?v=3.68-r44" rel="stylesheet"/><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.112.4/dist/umd/supabase.min.js"></script>
-<script src="assets/vendor/qr-bundle.js?v=3.68-r44"></script>
-<meta content="3.68-r44" name="quizrounds-build"/></head>
-<body class="display-body" data-auth-scope="display" data-build="3.68-r44" data-ui="v3.92-r44">
+<title>Quiz Rounds 2 · TESTE v3.68 · Interface v3.92 r45 — Telão</title>
+<link href="assets/css/display-ui-v3.92-r45.css?v=3.68-r45" rel="stylesheet"/><link href="assets/css/avatars-runtime-v3.68-r45.css?v=3.68-r45" rel="stylesheet"/><link href="assets/css/avatars-ui-v3.92-r45.css?v=3.68-r45" rel="stylesheet"/><link href="assets/css/motion-v3.68-r45.css?v=3.68-r45" rel="stylesheet"/><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.112.4/dist/umd/supabase.min.js"></script>
+<script src="assets/vendor/qr-bundle.js?v=3.68-r45"></script>
+<meta content="3.68-r45" name="quizrounds-build"/></head>
+<body class="display-body" data-auth-scope="display" data-build="3.68-r45" data-ui="v3.92-r45">
 <div aria-live="polite" class="display-reconnect-banner hidden" id="displayReconnectBanner" role="status">Reconectando ao servidor…</div>
 <main class="display-shell">
 <section class="display-connect" id="displayConnect">
@@ -27,7 +27,7 @@
 <section class="hidden display-stage" id="displayStage">
 <header class="display-header"><div class="display-header-main"><div class="display-brand-block"><div aria-hidden="true" class="display-event-logo" id="displayEventLogo"></div><div class="display-brand-copy"><div class="display-title" id="displayTitle">Quiz ao vivo</div>
 <div class="display-room-info" id="displayRoomInfo">Sala ------</div>
-<div class="display-credit">Quiz Rounds 2 · r44</div></div></div>
+<div class="display-credit">Quiz Rounds 2 · r45</div></div></div>
 <div class="display-header-actions"><div aria-label="Relógio do telão" class="display-wall-clock" id="displayWallClock" role="timer"><strong id="displayWallClockTime">--:--:--</strong><span id="displayWallClockDate">---</span></div><span aria-live="polite" class="connection-pill connecting" id="displayConnection" role="status">Conectando…</span><button class="display-mini-btn" id="displaySoundBtn" type="button">Som ✓</button><button class="display-mini-btn" id="displayFullscreenBtn" type="button">Entrar em tela cheia</button><button aria-controls="displayTechPanel" aria-expanded="false" class="display-mini-btn display-tech-btn" id="displayTechBtn" title="Diagnóstico técnico" type="button">⋯</button></div></div><div class="display-header-right">
 <div aria-label="QR Code de entrada" class="display-mini-qr" id="displayMiniQr"></div>
 <div class="display-header-stats">
@@ -35,7 +35,7 @@
 <div><strong id="displayRegistered">0</strong><span>cadastrados</span></div>
 <div><strong id="displayAnswers">0</strong><span>respostas</span></div>
 <div><strong id="displayResponseRate">0%</strong><span>participação</span></div>
-</div></div><aside aria-label="Diagnóstico técnico do telão" class="display-tech-panel hidden" id="displayTechPanel"><div><span>BUILD</span><strong id="displayTechBuild">3.68-r44</strong></div><div><span>SCHEMA</span><strong id="displayTechSchema">040</strong></div><div><span>ESTADO</span><strong id="displayTechState">—</strong></div><button class="display-mini-btn" id="displayTechReloadBtn" type="button">Recarregar versão</button></aside></header>
+</div></div><aside aria-label="Diagnóstico técnico do telão" class="display-tech-panel hidden" id="displayTechPanel"><div><span>BUILD</span><strong id="displayTechBuild">3.68-r45</strong></div><div><span>SCHEMA</span><strong id="displayTechSchema">040</strong></div><div><span>ESTADO</span><strong id="displayTechState">—</strong></div><button class="display-mini-btn" id="displayTechReloadBtn" type="button">Recarregar versão</button></aside></header>
 <div class="display-stage-layout">
 <div class="display-main-area">
 <div class="hidden display-center-panel display-lobby-panel" id="displayLobby">
@@ -86,7 +86,7 @@
 <h1 id="displayResultText">Resultado</h1>
 <div class="display-distribution hidden" id="displayDistribution"></div>
 <div class="display-movers hidden" id="displayMovers"></div>
-<div class="display-next-text" id="displayNextText">Aguardando a próxima pergunta...</div>
+<div class="display-result-progress" id="displayResultProgress"><span class="display-result-progress-track"><i id="displayResultProgressBar"></i></span><small id="displayResultProgressLabel">Preparando próxima etapa…</small></div><div class="display-next-text" id="displayNextText">Aguardando a próxima pergunta...</div>
 </div>
 <div class="display-ranking-wrap">
 <h2>Ranking</h2>
@@ -121,7 +121,7 @@
 </div>
 </section>
 </main>
-<script src="assets/js/display-v3.68-r44.js?v=3.68-r44" type="module"></script>
-<script src="assets/js/motion-v3.68-r44.js?v=3.68-r44" type="module"></script>
+<script src="assets/js/display-v3.68-r45.js?v=3.68-r45" type="module"></script>
+<script src="assets/js/motion-v3.68-r45.js?v=3.68-r45" type="module"></script>
 </body>
 </html>
