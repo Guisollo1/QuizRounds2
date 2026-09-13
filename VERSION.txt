@@ -1,14 +1,14 @@
 QUIZROUNDS2 TESTE
-RELEASE=r49
-BUILD_ID=3.68-r49
+RELEASE=r51
+BUILD_ID=3.68-r51
 BACKEND_SCHEMA_REQUIRED=42
 SUPABASE_MIGRATIONS=001-042
 AVATAR_CATALOG=31
 UI=3.92
-PLAYER_UI=v3.92-r49
-DISPLAY_UI=v3.92-r49
-ADMIN_UI=v3.68-r49
-SIMULATOR_UI=v3.68-r49
+PLAYER_UI=v3.92-r51
+DISPLAY_UI=v3.92-r51
+ADMIN_UI=v3.68-r51
+SIMULATOR_UI=v3.68-r51
 THEME_PRIMARY=AZUL
-PACKAGE=QuizRounds2_v3_68_UI_v3_92_GitHub_Supabase_r49_GameShow_Criacao_Simples
-NOTA=GameShow Pro simplificado com as mesmas etapas Sala/Regras/Rounds da Configuração. A criação da sala aplica automaticamente a dinâmica principal, regras básicas e equipes. Backend permanece schema 042; sem migration nova.
+PACKAGE=QuizRounds2_v3_68_UI_v3_92_GitHub_Supabase_r51_Fluxo_Perguntas_Individual
+NOTA=Fluxo simplificado: aba 2 virou Criar perguntas (Editor/Importar); o Banco Pesquisar e selecionar passou a ser o passo 2 individual da Partida Padrão e do GameShow Pro. Cada fluxo agora segue Sala > Perguntas > Regras > Ordem dos rounds > Apresentação. Backend permanece schema 042; sem migration nova.

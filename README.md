@@ -1,4 +1,22 @@
-# QuizRounds2 v3.68-r49 — GameShow Pro com criação simples
+# QuizRounds2 v3.68-r51 — Fluxo de Perguntas Individual
+
+## O que mudou
+- A aba 2 agora é **Criar perguntas**: apenas Editor e Importação.
+- O **Banco / Pesquisar e selecionar** saiu da aba 2.
+- A aba 3 **Partida Padrão** agora segue: Sala → Escolher perguntas → Regras → Ordem dos rounds → Apresentação.
+- A aba 4 **GameShow Pro** usa o mesmo fluxo, com banco próprio no contexto da sala Pro e ferramentas de mídia/mecânicas no passo Perguntas.
+- O mesmo componente de banco é montado no contexto certo sem duplicar IDs nem criar bancos separados no Supabase.
+- Sem migration nova; backend continua no schema 042.
+
+# QuizRounds2 v3.68-r50 — Apresentação em subabas individuais
+
+## Fluxo do ADM
+- Aba 3 **Configuração**: Sala → Regras → Rounds → Apresentação.
+- Aba 4 **GameShow Pro**: Sala → Regras → Rounds → Apresentação.
+- Não existe mais uma aba principal separada para “Apresentação”.
+- O lobby e o controle dos rounds permanecem individuais no contexto em que a sala foi montada.
+- Backend: schema 042. Não há migration nova na r50.
+
 
 A r49 reorganiza o GameShow Pro para repetir o fluxo Sala → Regras → Rounds da Configuração normal. A nova sala é criada já com a dinâmica principal, regras básicas e equipes escolhidas. Backend schema 042, sem migration nova.
 
