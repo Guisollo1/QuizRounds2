@@ -77,3 +77,7 @@ Substitua o conteúdo da pasta local do repositório `QuizRounds2` por esta rele
 ## Base preservada
 
 A r47 mantém os recursos consolidados da r46: GameShow Pro, equipes, mídia por pergunta, banco profissional, importação CSV/JSON, dashboard pós-evento, áudio, modo ensaio, permissões administrativas, branding, lobby vivo e controle de apresentação. Também preserva 31 avatares, mapas com colisão/portas, tema azul, ADM 100vh, login estável, controlador autoritativo, persistência das regras e ranking sem piscadas.
+
+## r52 — Formação de equipes em 3 modos
+No GameShow Pro > Sala > Equipes, escolha: Automático equilibrado, Jogador escolhe ou ADM escolhe. No modo ADM, o painel permite selecionar ou arrastar jogadores entre os times. No modo Jogador, a escolha aparece no celular antes da prontidão. Requer migration 043.
+

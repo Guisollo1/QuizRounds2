@@ -1,4 +1,4 @@
-name: Deploy QuizRounds2 r51 TESTE no GitHub Pages
+name: Deploy QuizRounds2 r52 TESTE no GitHub Pages
 
 on:
   push:
@@ -24,7 +24,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: Validar QuizRounds2 r51 Apresentação em subabas
+      - name: Validar QuizRounds2 r52 Formação de equipes
         run: node scripts/validate-build.mjs
 
       - name: Validar configuração

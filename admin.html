@@ -5,13 +5,13 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
 <meta content="#0d57a1" name="theme-color"/>
-<meta content="3.68-r51" name="quizrounds-build"/>
+<meta content="3.68-r52" name="quizrounds-build"/>
 <title>Quiz Rounds 2 · TESTE v3.68 — Administração</title>
-<link href="assets/css/core-v3.68-r51.css?v=3.68-r51" rel="stylesheet"/>
-<link href="assets/css/admin-v3.68-r51.css?v=3.68-r51" rel="stylesheet"/>
-<link href="assets/css/avatars-runtime-v3.68-r51.css?v=3.68-r51" rel="stylesheet"/>
+<link href="assets/css/core-v3.68-r52.css?v=3.68-r52" rel="stylesheet"/>
+<link href="assets/css/admin-v3.68-r52.css?v=3.68-r52" rel="stylesheet"/>
+<link href="assets/css/avatars-runtime-v3.68-r52.css?v=3.68-r52" rel="stylesheet"/>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.112.4/dist/umd/supabase.min.js"></script>
-<script src="assets/vendor/qr-bundle.js?v=3.68-r51"></script>
+<script src="assets/vendor/qr-bundle.js?v=3.68-r52"></script>
 <style id="criticalAdminLoginR43">
 /* Critical pre-auth boundary: inline on purpose so login remains usable even if an older CSS asset is cached. */
 #loginView:not(.hidden){position:relative!important;z-index:100!important;pointer-events:auto!important;isolation:isolate!important}
@@ -21,9 +21,9 @@
 #loginView .login-visual,#loginView .orbit,#loginView .login-visual::before,#loginView .login-visual::after{pointer-events:none!important}
 #loginView.hidden{display:none!important;pointer-events:none!important}
 </style>
-<link href="assets/css/pro-v3.68-r51.css?v=3.68-r51" rel="stylesheet"/>
+<link href="assets/css/pro-v3.68-r52.css?v=3.68-r52" rel="stylesheet"/>
 </head>
-<body class="admin-body admin-app" data-auth-scope="admin" data-build="3.68-r51">
+<body class="admin-body admin-app" data-auth-scope="admin" data-build="3.68-r52">
 <a class="skip-link" href="#mainContent">Pular para o conteúdo</a>
 <div class="ambient ambient-a"></div><div class="ambient ambient-b"></div><div class="ambient ambient-c"></div>
 <main class="shell wide admin-shell" id="mainContent">
@@ -33,7 +33,7 @@
 <div><div class="eyebrow light">QUIZ ROUNDS 2 · TESTE</div><h1>Painel do Administrador</h1><p>Prepare, apresente e controle o quiz em tempo real.</p></div>
 </div>
 <div aria-label="Ações do administrador" class="top-actions">
-<span class="badge version-badge" id="appVersionBadge">v3.68-r51</span><span aria-live="polite" class="connection-pill connecting" id="adminConnection" role="status">Conectando…</span>
+<span class="badge version-badge" id="appVersionBadge">v3.68-r52</span><span aria-live="polite" class="connection-pill connecting" id="adminConnection" role="status">Conectando…</span>
 <button aria-controls="questionHelpModal" aria-haspopup="dialog" class="ghost glass admin-help-trigger" id="adminHelpBtn" type="button"><span aria-hidden="true">?</span> Ajuda</button>
 <a class="ghost glass" href="simulator.html">Simulador</a>
 <a class="ghost glass" href="index.html">Modo jogador</a>
@@ -274,8 +274,8 @@ TEMPO: 30
 </section>
 <section aria-labelledby="adminTabPro" class="tab-panel pro-panel" data-panel="pro" data-pro-pane="room" id="adminPanelPro" role="tabpanel">
   <div class="pro-hero">
-    <div><div class="eyebrow light">GAMESHOW PRO · r51</div><h2>Monte seu GameShow em 5 passos</h2><p>Crie a sala, escolha as perguntas do GameShow, ajuste regras, organize os rounds e abra a apresentação. Tudo fica dentro desta área.</p></div>
-    <div class="pro-hero-badges"><span class="pro-chip" id="proRoomBadge">Sala —</span><span class="pro-chip" id="proRoleBadge">Perfil —</span><span class="pro-chip" id="proSchemaBadge">Schema 042</span></div>
+    <div><div class="eyebrow light">GAMESHOW PRO · r52</div><h2>Monte seu GameShow em 5 passos</h2><p>Crie a sala, escolha as perguntas do GameShow, ajuste regras, organize os rounds e abra a apresentação. Tudo fica dentro desta área.</p></div>
+    <div class="pro-hero-badges"><span class="pro-chip" id="proRoomBadge">Sala —</span><span class="pro-chip" id="proRoleBadge">Perfil —</span><span class="pro-chip" id="proSchemaBadge">Schema 043</span></div>
   </div>
   <nav aria-label="Fluxo do GameShow Pro" class="admin-subtabs config-subtabs pro-config-subtabs" id="proConfigSubtabs" role="tablist">
     <button aria-selected="true" class="active" data-pro-pane="room" role="tab" type="button"><span>Sala</span><small>1 · Dinâmica e equipes</small></button>
@@ -302,7 +302,7 @@ TEMPO: 30
       <div class="pro-card-head"><div><div class="pro-kicker">MODOS DE JOGO</div><h3>Escolha a dinâmica principal</h3><p>Os modos usam o motor estável atual e aplicam presets de regras. Equipes agrega a pontuação individual por time.</p></div><span class="badge neutral" id="proGameModeBadge">CLÁSSICO</span></div>
       <div class="pro-modes" id="proGameModes">
         <label class="pro-mode"><input name="proGameMode" type="radio" value="classic"><strong>Clássico</strong><span>Ranking individual, pontuação normal e revelação por etapas.</span></label>
-        <label class="pro-mode"><input name="proGameMode" type="radio" value="teams"><strong>Equipes</strong><span>Jogadores são distribuídos automaticamente e o telão mostra ranking por time.</span></label>
+        <label class="pro-mode"><input name="proGameMode" type="radio" value="teams"><strong>Equipes</strong><span>O ADM escolhe como os jogadores entram nos times; o telão mostra ranking por equipe.</span></label>
         <label class="pro-mode"><input name="proGameMode" type="radio" value="speed"><strong>Relâmpago</strong><span>Tempo curto e bônus de velocidade com ritmo acelerado.</span></label>
         <label class="pro-mode"><input name="proGameMode" type="radio" value="knockout"><strong>Mata-mata</strong><span>Classificação progressiva e corte de posições ao longo dos rounds.</span></label>
         <label class="pro-mode"><input name="proGameMode" type="radio" value="championship"><strong>Campeonato</strong><span>Mais rounds, classificação e apresentação final completa.</span></label>
@@ -312,9 +312,24 @@ TEMPO: 30
     </article>
 
     <article class="pro-card" data-pro-pane="room" id="proTeamsCard">
-      <div class="pro-card-head"><div><div class="pro-kicker">EQUIPES</div><h3>Times da sala</h3><p>Crie até 12 equipes. Se “Equipes” estiver selecionado, estes times são criados automaticamente junto com a nova sala.</p></div><button class="ghost small" id="proAddTeamBtn" type="button">+ Equipe</button></div>
+      <div class="pro-card-head"><div><div class="pro-kicker">EQUIPES</div><h3>Times da sala</h3><p>Crie até 12 equipes e escolha como cada jogador será colocado em um time.</p></div><button class="ghost small" id="proAddTeamBtn" type="button">+ Equipe</button></div>
+      <section class="pro-team-formation" aria-labelledby="proTeamFormationTitle">
+        <div class="pro-team-formation-head"><div><span>COMO FORMAR AS EQUIPES</span><strong id="proTeamFormationTitle">Escolha uma forma simples</strong><small>Essa regra vale para todos que entrarem no lobby.</small></div><span class="badge neutral" id="proTeamFormationBadge">AUTOMÁTICO</span></div>
+        <div class="pro-team-formation-options" id="proTeamFormationOptions">
+          <label class="pro-team-formation-option"><input checked name="proTeamJoinMode" type="radio" value="auto"><span class="pro-team-formation-icon">⚖</span><strong>Automático equilibrado</strong><small>O sistema coloca cada jogador no time com menos pessoas.</small></label>
+          <label class="pro-team-formation-option"><input name="proTeamJoinMode" type="radio" value="player"><span class="pro-team-formation-icon">👆</span><strong>Jogador escolhe</strong><small>Depois de nome e avatar, o jogador escolhe seu time no celular.</small></label>
+          <label class="pro-team-formation-option"><input name="proTeamJoinMode" type="radio" value="admin"><span class="pro-team-formation-icon">🎛</span><strong>ADM escolhe</strong><small>O jogador entra sem time e o ADM distribui no lobby por seleção ou arrastar.</small></label>
+        </div>
+        <div class="pro-status" id="proTeamFormationStatus">Automático equilibrado selecionado.</div>
+      </section>
       <div class="pro-team-list" id="proTeamList"></div>
       <div class="pro-actions"><button class="primary" id="proSaveTeamsBtn" type="button">Salvar equipes</button><button class="ghost" id="proRefreshTeamsBtn" type="button">Atualizar</button></div><div class="pro-status" id="proTeamsStatus"></div>
+      <section class="pro-team-admin-board" id="proTeamAdminBoard">
+        <div class="pro-team-admin-head"><div><span>DISTRIBUIÇÃO NO LOBBY</span><strong id="proTeamAdminTitle">Visão das equipes</strong><small id="proTeamAdminHint">No modo ADM, arraste jogadores entre as colunas ou use o seletor.</small></div><button class="ghost small" id="proRefreshAssignmentsBtn" type="button">Atualizar jogadores</button></div>
+        <div class="pro-team-assignment-summary" id="proTeamAssignmentSummary">Crie a sala para acompanhar os jogadores.</div>
+        <div class="pro-team-assignment-board" id="proTeamAssignmentBoard"></div>
+        <div class="pro-status" id="proTeamAssignmentStatus"></div>
+      </section>
       <div class="pro-team-rank" id="proTeamRank"></div>
     </article>
 
@@ -334,7 +349,7 @@ TEMPO: 30
         <div class="pro-form two"><label>Tags<input id="proQuestionTags" placeholder="segurança, laboratório, nível 1"></label><label>Fonte / origem<input id="proQuestionSource" maxlength="120" placeholder="Ex.: Treinamento interno"></label></div>
         <label class="pro-check"><input id="proQuestionStarred" type="checkbox"><span><b>Favorita</b><small>Fica no topo do banco profissional.</small></span></label>
         <div class="pro-game-builder" id="proGameBuilder">
-          <div class="pro-game-builder-head"><div><div class="pro-kicker">MECÂNICA r51</div><h4>Tipo de game da pergunta</h4><p id="proGameHint">Escolha uma mecânica. O motor clássico continua disponível em “Padrão”.</p></div><span class="badge neutral" id="proGameBadge">PADRÃO</span></div>
+          <div class="pro-game-builder-head"><div><div class="pro-kicker">MECÂNICA r52</div><h4>Tipo de game da pergunta</h4><p id="proGameHint">Escolha uma mecânica. O motor clássico continua disponível em “Padrão”.</p></div><span class="badge neutral" id="proGameBadge">PADRÃO</span></div>
           <label>Game<select id="proGameType">
             <option value="standard">Padrão / clássico</option><option value="nearest">Mais Próximo Vence</option><option value="precision">Faixa de Precisão</option><option value="ordering">Ordenação</option><option value="matching">Relacionar Colunas</option><option value="classification">Classificação</option><option value="true_false_series">Verdadeiro ou Falso em Série</option><option value="hidden_image">Imagem Oculta</option><option value="zoom_mystery">Zoom Misterioso</option><option value="who_am_i">Quem Sou Eu?</option><option value="before_after">Antes e Depois</option><option value="case_study">Caso Técnico</option><option value="decision_tree">Árvore de Decisão</option><option value="team_mission">Missão em Equipe</option><option value="bingo">Bingo de Conhecimento</option><option value="wheel">Roda da Sorte</option><option value="surprise">Caixa Surpresa</option><option value="crowd_prediction">Previsão da Sala</option><option value="live_poll">Enquete ao Vivo</option><option value="audience_choice">Escolha do Público</option><option value="category_choice">Categoria Escolhida</option>
           </select></label>
@@ -351,7 +366,7 @@ TEMPO: 30
     </article>
 
     <article class="pro-card wide" data-pro-pane="rounds" id="proAutomationCard">
-      <div class="pro-card-head"><div><div class="pro-kicker">AUTOMAÇÃO DE ROUNDS</div><h3>Categoria, dificuldade, prova e escolha do público</h3><p>Ferramentas para Categoria Escolhida/Aleatória, Dificuldade Progressiva, Modo Prova e votação pública sem alterar a fila manual.</p></div><span class="badge neutral">r51</span></div>
+      <div class="pro-card-head"><div><div class="pro-kicker">AUTOMAÇÃO DE ROUNDS</div><h3>Categoria, dificuldade, prova e escolha do público</h3><p>Ferramentas para Categoria Escolhida/Aleatória, Dificuldade Progressiva, Modo Prova e votação pública sem alterar a fila manual.</p></div><span class="badge neutral">r52</span></div>
       <div class="pro-automation-grid">
         <section><h4>Fila inteligente</h4><div class="pro-form"><label>Categoria<select id="proSmartCategory"><option value="">Carregando categorias…</option></select></label><div class="pro-actions"><button class="ghost" id="proQueueChosenBtn" type="button">Enfileirar categoria escolhida</button><button class="ghost" id="proQueueRandomBtn" type="button">Categoria aleatória</button><button class="primary" id="proQueueProgressiveBtn" type="button">Dificuldade progressiva</button></div><div class="pro-status" id="proSmartQueueStatus"></div></div></section>
         <section><h4>Modo Prova</h4><div class="pro-form"><label class="pro-check"><input id="proExamMode" type="checkbox"><span><b>Ocultar feedback e ranking durante a prova</b><small>Jogadores respondem normalmente; gabarito, distribuição e ranking ficam protegidos até o final.</small></span></label><label class="pro-check"><input id="proProgressiveMode" type="checkbox"><span><b>Sugerir dificuldade progressiva</b><small>O botão progressivo escolhe fácil/médio/difícil conforme o desempenho recente da sala.</small></span></label><button class="primary" id="proSaveAutomationBtn" type="button">Salvar automação</button></div><div class="pro-status" id="proAutomationStatus"></div></section>
@@ -405,7 +420,7 @@ Curiosidades"></textarea></label><div class="pro-actions"><button class="primary
     </article>
 
     <article class="pro-card wide" data-pro-pane="questions" id="proImportCard">
-      <div class="pro-card-head"><div><div class="pro-kicker">IMPORTAÇÃO PROFISSIONAL</div><h3>CSV ou JSON com validação</h3><p>Complementa o TXT existente. CSV aceita cabeçalho; JSON aceita uma lista de objetos. A r51 também aceita game_type e game_spec. Até 500 perguntas por lote.</p></div><span class="badge neutral" id="proImportBadge">0 válidas</span></div>
+      <div class="pro-card-head"><div><div class="pro-kicker">IMPORTAÇÃO PROFISSIONAL</div><h3>CSV ou JSON com validação</h3><p>Complementa o TXT existente. CSV aceita cabeçalho; JSON aceita uma lista de objetos. A r52 também aceita game_type e game_spec. Até 500 perguntas por lote.</p></div><span class="badge neutral" id="proImportBadge">0 válidas</span></div>
       <div class="pro-import-drop"><input accept=".csv,.json,text/csv,application/json" id="proImportFile" type="file"><textarea id="proImportText" placeholder="Cole CSV ou JSON aqui para analisar..."></textarea><div class="pro-form two"><label>Formato<select id="proImportFormat"><option value="auto">Detectar automaticamente</option><option value="csv">CSV</option><option value="json">JSON</option></select></label><label>Modo<select id="proImportMode"><option value="append">Adicionar ao banco</option><option value="replace">Substituir banco ativo</option></select></label></div></div>
       <div class="pro-actions"><button class="ghost" id="proAnalyzeImportBtn" type="button">Analisar</button><button class="primary" disabled id="proRunImportBtn" type="button">Importar lote</button><button class="ghost" id="proDownloadCsvModelBtn" type="button">Modelo CSV</button></div><div class="pro-status" id="proImportStatus"></div><div class="pro-import-preview" id="proImportPreview"></div>
     </article>
@@ -416,7 +431,7 @@ Curiosidades"></textarea></label><div class="pro-actions"><button class="primary
     </article>
 
     <article class="pro-card wide" data-pro-pane="rules" id="proPermissionsCard">
-      <div class="pro-card-head"><div><div class="pro-kicker">PERMISSÕES ADMINISTRATIVAS</div><h3>Proprietário, apresentador, editor e visualizador</h3><p>O schema 042 mantém os papéis no Supabase. Proprietário gerencia acessos; apresentador controla a partida; editor trabalha no banco; visualizador é leitura.</p></div><span class="badge pro-role-badge" id="proPermissionRole">—</span></div>
+      <div class="pro-card-head"><div><div class="pro-kicker">PERMISSÕES ADMINISTRATIVAS</div><h3>Proprietário, apresentador, editor e visualizador</h3><p>O schema 043 mantém os papéis no Supabase. Proprietário gerencia acessos; apresentador controla a partida; editor trabalha no banco; visualizador é leitura.</p></div><span class="badge pro-role-badge" id="proPermissionRole">—</span></div>
       <div class="pro-form three"><label>E-mail do usuário<input id="proPermissionEmail" inputmode="email" placeholder="usuario@empresa.com" type="email"></label><label>Papel<select id="proPermissionSelect"><option value="presenter">Apresentador</option><option value="editor">Editor</option><option value="viewer">Visualizador</option><option value="owner">Proprietário</option><option value="remove">Remover acesso</option></select></label><label>&nbsp;<button class="primary" id="proPermissionApplyBtn" type="button">Aplicar permissão</button></label></div><div class="pro-permission-list" id="proPermissionList"></div><div class="pro-status" id="proPermissionStatus"></div>
     </article>
 
@@ -443,7 +458,7 @@ Curiosidades"></textarea></label><div class="pro-actions"><button class="primary
 <div class="health-tile checking" id="healthQuestions"><span>PERGUNTAS</span><strong>0 prontas</strong><small>Fila da partida</small></div>
 <div class="health-tile checking" id="healthController"><span>CONTROLE</span><strong>Verificando…</strong><small>Painel principal</small></div>
 <div class="health-tile checking" id="healthRemote"><span>REMOTO</span><strong>Verificando…</strong><small>Celular autorizado</small></div>
-<div class="health-tile checking" id="healthVersions"><span>VERSÕES</span><strong>v3.68-r51</strong><small>ADM, telão e jogadores</small></div>
+<div class="health-tile checking" id="healthVersions"><span>VERSÕES</span><strong>v3.68-r52</strong><small>ADM, telão e jogadores</small></div>
 </div>
 <div class="preflight-summary neutral" id="preflightSummary">Execute o pré-teste antes de começar o evento.</div>
 </article>
@@ -492,7 +507,7 @@ Curiosidades"></textarea></label><div class="pro-actions"><button class="primary
 <article class="card participants-live-card"><div class="row wrap"><div><h2>Participantes</h2><p class="muted">Conexão, prontidão e controle de acesso.</p></div><div class="actions wrap"><span class="badge neutral" id="connectionTestResult">Teste não executado</span><button class="ghost small" id="refreshParticipantsBtn" type="button">Atualizar</button></div></div><div aria-label="Filtrar participantes" class="participant-filter-bar" role="group"><button class="active" data-participant-filter="all" type="button">Todos</button><button data-participant-filter="online" type="button">Online</button><button data-participant-filter="offline" type="button">Offline</button><button data-participant-filter="ready" type="button">Prontos</button><button data-participant-filter="issues" type="button">Problemas</button><span id="participantFilterCount">0</span></div><div class="participant-admin-list" id="participantAdminList"></div></article>
 <div class="presentation-zone-heading zone-analysis"><span>04</span><div><b>Análise e diagnóstico</b><small>Histórico, evolução e registros técnicos</small></div></div>
 <article class="card span2 event-secondary-card"><div class="row wrap"><div><h2>Histórico e evolução</h2><p class="muted">Respostas, pontos, rounds perdidos e evolução da classificação.</p></div><div class="actions"><button class="ghost small" id="loadHistoryBtn" type="button">Atualizar histórico</button><button class="ghost small" id="showEvolutionBtn" type="button">Evolução de posição</button></div></div><div class="history-summary" id="historySummary"></div><div class="evolution-chart hidden" id="evolutionChart"></div></article>
-<article class="card span2 diagnostic-card"><div class="row wrap"><div><h2>Diagnóstico do evento</h2><p class="muted">Conexão, transições, comandos e eventos técnicos desta sessão.</p></div><div class="actions wrap"><span class="badge neutral" id="latencyBadge">Latência —</span><button class="ghost small" id="exportDiagnosticsBtn" type="button">Exportar diagnóstico</button><button class="ghost small" id="reloadCurrentBuildBtn" type="button">Recarregar r51</button></div></div><div class="diagnostic-summary-grid" id="diagnosticSummaryGrid"><div><span>FRONTEND</span><strong id="diagBuild">3.68-r51</strong></div><div><span>SCHEMA</span><strong id="diagSchema">042</strong></div><div><span>ESTADO</span><strong id="diagRoomState">—</strong></div><div><span>CONTROLADOR</span><strong id="diagController">—</strong></div><div class="diagnostic-last-error"><span>ÚLTIMO ERRO</span><strong id="diagLastError">Nenhum</strong></div></div><div class="diagnostic-log" id="diagnosticLog"></div><details><summary>Auditoria persistida no Supabase</summary><div class="audit-list" id="auditList"></div></details></article>
+<article class="card span2 diagnostic-card"><div class="row wrap"><div><h2>Diagnóstico do evento</h2><p class="muted">Conexão, transições, comandos e eventos técnicos desta sessão.</p></div><div class="actions wrap"><span class="badge neutral" id="latencyBadge">Latência —</span><button class="ghost small" id="exportDiagnosticsBtn" type="button">Exportar diagnóstico</button><button class="ghost small" id="reloadCurrentBuildBtn" type="button">Recarregar r52</button></div></div><div class="diagnostic-summary-grid" id="diagnosticSummaryGrid"><div><span>FRONTEND</span><strong id="diagBuild">3.68-r52</strong></div><div><span>SCHEMA</span><strong id="diagSchema">043</strong></div><div><span>ESTADO</span><strong id="diagRoomState">—</strong></div><div><span>CONTROLADOR</span><strong id="diagController">—</strong></div><div class="diagnostic-last-error"><span>ÚLTIMO ERRO</span><strong id="diagLastError">Nenhum</strong></div></div><div class="diagnostic-log" id="diagnosticLog"></div><details><summary>Auditoria persistida no Supabase</summary><div class="audit-list" id="auditList"></div></details></article>
 </div>
 </section>
 </section>
@@ -664,7 +679,7 @@ PONTUAR: SIM
 </div>
 </div>
 </main>
-<script src="assets/js/admin-v3.68-r51.js?v=3.68-r51" type="module"></script>
-<script src="assets/js/pro-admin-v3.68-r51.js?v=3.68-r51" type="module"></script>
+<script src="assets/js/admin-v3.68-r52.js?v=3.68-r52" type="module"></script>
+<script src="assets/js/pro-admin-v3.68-r52.js?v=3.68-r52" type="module"></script>
 </body>
 </html>
