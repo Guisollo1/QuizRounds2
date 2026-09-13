@@ -1,8 +1,0 @@
-QuizRounds2 v3.68-r50 — validação da navegação de Apresentação
-
-- Aba principal Apresentação removida.
-- Configuração possui subaba Apresentação.
-- GameShow Pro possui subaba Apresentação.
-- Workspace ao vivo único é movido entre os dois mounts, evitando IDs duplicados.
-- Retorno aos rounds respeita o contexto ativo.
-- Schema Supabase permanece 042.

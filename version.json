@@ -1,8 +1,0 @@
-{
-  "product": "QuizRounds2",
-  "release": "r63",
-  "build": "3.68-r63",
-  "ui": "3.92-r63",
-  "backend_schema_required": 42,
-  "team_feature_schema_required": 43
-}

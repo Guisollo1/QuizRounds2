@@ -1,9 +1,0 @@
-QuizRounds2 v3.68-r38 — HOTFIX LOGIN / INPUTS
-
-- Corrige bloqueio de foco, clique, toque e digitação nos campos de login do ADM.
-- Protege PIN/nome do jogador contra overlays e stacking contexts de animação.
-- Camadas decorativas e pseudo-elementos passam a ignorar pointer events.
-- Inputs, textarea, select, labels e contenteditable foram excluídos do microPress global.
-- A animação de entrada deixa de transformar o contêiner que envolve os campos do jogador.
-- Mantidas animações completas r37 fora das áreas críticas de autenticação/entrada.
-- Sem alterações no Supabase; schema permanece 040.

@@ -1,2 +1,0 @@
-Validação automatizada: execute node scripts/validate-build.mjs
-Esperado: APROVADA em 27 grupos.

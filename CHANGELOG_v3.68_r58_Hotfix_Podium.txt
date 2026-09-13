@@ -1,6 +1,0 @@
-QuizRounds2 v3.68-r58 — Hotfix do pódio
-
-- Corrigido o layout do pódio final no telão.
-- Avatar agora respeita uma área própria e não sobrepõe o nome do jogador.
-- Ajustado espaçamento entre medalha, avatar, nome, pontuação e base do pódio.
-- Ajuste responsivo adicional para telas menores.
