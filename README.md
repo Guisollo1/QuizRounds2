@@ -1,24 +1,29 @@
-# QuizRounds2 v3.68-r57 — Hardening Real
+# QuizRounds2 v3.68-r61 — Estável Pré-GitHub
 
 ## Estado desta release
 
-A r57 é a consolidação técnica da r56. O runtime ativo foi unificado em uma única revisão, os imports ES Modules foram fechados, o deploy do GitHub Pages foi alinhado à mesma versão e os mapas passaram a usar somente pontos de spawn/POIs alcançáveis pelo grafo transitável.
+A r61 é a revisão de fechamento antes da publicação. Não cria migration nova e mantém o backend base no schema 042, com schema 043 necessário somente para os três modos avançados de formação de equipes.
 
-### Correções principais
+### Refatoração r61
 
-- JS e CSS ativos somente em **r57**, sem mistura r55/r56.
-- `/admin`, cache-bust, simulador, diagnóstico, workflow e validador alinhados em **3.68-r57**.
-- **Gambá ET** e aliases legados preservados; preview e sprite runtime continuam no catálogo de 31 avatares.
-- Nomes, balões e personagens ficam acima do mapa para não desaparecer atrás de mobiliário.
-- Gambá surpresa aparece dentro do mapa, sem escapar para a área preta externa.
-- Spawns e POIs dos quatro mapas ficam somente no componente alcançável; regiões fechadas sem porta funcional deixam de receber personagens.
-- Troca de mapa ao vivo disponível na Apresentação durante a partida.
-- Abertura do telão limpa o overlay Pro e **bloqueia com mensagem clara** se a limpeza falhar.
-- Manifesto SHA-256 e validação de release passam a fazer parte do hardening.
+- Runtime ativo unificado em **r61**: HTML, JS, CSS, cache-bust, `/admin`, workflow, validador e diagnóstico usam a mesma revisão.
+- **Sons de feedback somente no telão**. Jogadores e ADM permanecem silenciosos; no celular continuam animações e vibração.
+- O telão exibe um controle explícito **Ativar som do telão** quando o navegador ainda não liberou o AudioContext.
+- Feedbacks do telão: todos prontos, 3–2–1, pergunta liberada, últimos 5 segundos, tempo encerrado, pausa/congelamento, novo líder, ranking final e celebração.
+- **Novo líder** só é anunciado depois que o ranking correspondente foi revelado; nunca durante resposta oculta.
+- Fade entre lobby, preparação, pergunta, pausa, resultado e final com tempos sincronizados.
+- Troca de mapa usa crossfade real: o mapa anterior desaparece gradualmente sobre o novo.
+- Pódio mantém avatar, nome e pontuação em áreas separadas.
+- Gambá ET, aliases, prioridade visual dos nomes e spawns dentro da área jogável preservados.
+- Assets legados de avatar `runtime-r21` e `hd` removidos do pacote por não serem usados pelo runtime atual.
+- Manifesto SHA-256 deve corresponder integralmente ao pacote antes da publicação.
 
 ## Supabase
 
-A r57 **não cria migration nova**. Schema **042** continua suficiente para Partida Padrão e GameShow individual. Para Equipes com Automático equilibrado, Jogador escolhe ou ADM escolhe, use schema **043** executando `00_ATUALIZAR_SUPABASE_PARA_SCHEMA_043.sql` no projeto de teste.
+- Partida Padrão e GameShow individual: **schema 042**.
+- Equipes com Automático equilibrado, Jogador escolhe ou ADM escolhe: **schema 043**.
+- Para atualizar ao 043, use `00_ATUALIZAR_SUPABASE_PARA_SCHEMA_043.sql`.
+
 
 ---
 
@@ -111,4 +116,3 @@ A r53 reorganiza a criação da partida para reduzir cliques e decisões técnic
 - **Partida Padrão:** Sala → Perguntas → Regras → Ordem → Revisar → Apresentação.
 - **Partida GameShow:** Sala → Dinâmica → Perguntas → Equipes (quando necessário) → Regras → Ordem → Revisar → Apresentação.
 - **Sem migration nova:** mantém o backend no schema 043. Quem já aplicou a migration 043 não precisa executar SQL novamente.
-

@@ -1,0 +1,12 @@
+VALIDAÇÃO QuizRounds2 r61: APROVADA (38/38 grupos)
+
+- Runtime ativo unificado em r61.
+- HTML/CSS/JS e imports locais verificados.
+- Backend base schema 042; equipes avançadas schema 043.
+- Migrations 001–043 contínuas.
+- 31 avatares e quatro mapas preservados.
+- Sons de feedback exclusivamente no telão; jogador e ADM sem áudio local.
+- Novo líder somente após revelação do ranking.
+- Ativação explícita do áudio no telão.
+- Fade entre painéis e crossfade real de mapa verificados.
+- /admin, workflow, validador e manifesto SHA-256 alinhados.

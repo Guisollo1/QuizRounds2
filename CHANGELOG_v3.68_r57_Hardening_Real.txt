@@ -1,13 +1,13 @@
-QuizRounds2 v3.68-r57 — Hardening Real
+QuizRounds2 v3.68-r58 — Hotfix Podium
 
 Objetivo
 - Consolidar a r56 em uma release coerente e publicável, sem runtime híbrido r55/r56.
 
 Correções críticas
-- Runtime JS/CSS unificado em r57; removidas duplicações ativas r55/r56.
-- Todos os imports ES Modules apontam para arquivos existentes da própria r57.
-- Cache-bust, /admin, simulador, diagnóstico, GitHub Actions e validação alinhados em 3.68-r57.
-- Workflow do GitHub Pages atualizado para validar/publicar a r57.
+- Runtime JS/CSS unificado em r58; removidas duplicações ativas r55/r56.
+- Todos os imports ES Modules apontam para arquivos existentes da própria r58.
+- Cache-bust, /admin, simulador, diagnóstico, GitHub Actions e validação alinhados em 3.68-r58.
+- Workflow do GitHub Pages atualizado para validar/publicar a r58.
 - Manifesto SHA-256 regenerado para refletir os bytes reais da release.
 
 Avatares e mapas
@@ -26,4 +26,4 @@ Apresentação
 Backend
 - Schema 042 permanece suficiente para Partida Padrão e GameShow individual.
 - Schema 043 continua necessário somente para os três modos avançados de formação de equipes.
-- Não há migration nova na r57.
+- Não há migration nova na r58.
