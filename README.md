@@ -1,12 +1,12 @@
-# QuizRounds2 v3.68-r61 — Estável Pré-GitHub
+# QuizRounds2 v3.68-r62 — Publicação Verificada
 
 ## Estado desta release
 
-A r61 é a revisão de fechamento antes da publicação. Não cria migration nova e mantém o backend base no schema 042, com schema 043 necessário somente para os três modos avançados de formação de equipes.
+A r62 é a revisão estável para publicação, mantendo o runtime funcional da r61 e adicionando verificação automática do conteúdo realmente servido pelo GitHub Pages. Não cria migration nova e mantém o backend base no schema 042, com schema 043 necessário somente para os três modos avançados de formação de equipes.
 
-### Refatoração r61
+### Refatoração r62
 
-- Runtime ativo unificado em **r61**: HTML, JS, CSS, cache-bust, `/admin`, workflow, validador e diagnóstico usam a mesma revisão.
+- Runtime ativo unificado em **r62**: HTML, JS, CSS, cache-bust, `/admin`, workflow, validador e diagnóstico usam a mesma revisão.
 - **Sons de feedback somente no telão**. Jogadores e ADM permanecem silenciosos; no celular continuam animações e vibração.
 - O telão exibe um controle explícito **Ativar som do telão** quando o navegador ainda não liberou o AudioContext.
 - Feedbacks do telão: todos prontos, 3–2–1, pergunta liberada, últimos 5 segundos, tempo encerrado, pausa/congelamento, novo líder, ranking final e celebração.
@@ -17,6 +17,11 @@ A r61 é a revisão de fechamento antes da publicação. Não cria migration nov
 - Gambá ET, aliases, prioridade visual dos nomes e spawns dentro da área jogável preservados.
 - Assets legados de avatar `runtime-r21` e `hd` removidos do pacote por não serem usados pelo runtime atual.
 - Manifesto SHA-256 deve corresponder integralmente ao pacote antes da publicação.
+
+
+### Publicação no GitHub Pages
+
+A r62 não considera o deploy concluído apenas porque o artefato foi enviado. O workflow gera `_site`, valida esse conteúdo, publica e depois consulta o endereço público. A Action só termina com sucesso quando `version.json`, ADM, jogador, telão, simulador e o runtime `common-v3.68-r62.js` confirmam a revisão **3.68-r62**.
 
 ## Supabase
 
