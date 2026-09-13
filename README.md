@@ -1,3 +1,7 @@
+# QuizRounds2 v3.68-r49 — GameShow Pro com criação simples
+
+A r49 reorganiza o GameShow Pro para repetir o fluxo Sala → Regras → Rounds da Configuração normal. A nova sala é criada já com a dinâmica principal, regras básicas e equipes escolhidas. Backend schema 042, sem migration nova.
+
 # QuizRounds2 v3.68-r48 — ADM organizado e estável
 
 ## Estado da r48

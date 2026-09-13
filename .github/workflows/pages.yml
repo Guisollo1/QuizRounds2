@@ -1,4 +1,4 @@
-name: Deploy QuizRounds2 r48 TESTE no GitHub Pages
+name: Deploy QuizRounds2 r49 TESTE no GitHub Pages
 
 on:
   push:
@@ -24,7 +24,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: Validar QuizRounds2 r48 Game Modes Expandido
+      - name: Validar QuizRounds2 r49 Game Modes Expandido
         run: node scripts/validate-build.mjs
 
       - name: Validar configuração

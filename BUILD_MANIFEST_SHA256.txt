@@ -1,4 +1,4 @@
-7656a05c21429a5157da0de00eb39bda160353108012e4798953282292ad1f84  ./.github/workflows/pages.yml
+33a705d3432a2051c53050d03d3254daecd838ec94047464a5c2db5134f5074b  ./.github/workflows/pages.yml
 6e764a077c15f29b7458271b20b2247b924d592534db4c75b6a8ca55a69cea64  ./00_APLICAR_MIGRATION_041.sql
 a1e84541f8bbc9c69275e4ae05408afb1fc144543f6ec4ef4a3a520d4a84541e  ./00_APLICAR_MIGRATION_042.sql
 496bd727d2f5f72c3b5e1c5a311da0bd4343101b816f3bfe10eabcd4fefd84b2  ./01_Abrir_Simulador_QuizRounds2_v3.68-r32.bat
@@ -17,6 +17,7 @@ de3ed3063514f47ffb3c1af96503c9cd7b0ef90df4ebc53c961adf0c9d070129  ./01_Abrir_Sim
 13bcf7dd48c40650014adb1fb62794770fe66b39779d9fa1b13ff89f79113d7d  ./01_Abrir_Simulador_QuizRounds2_v3.68-r46.bat
 1b2b81e980d1ddb94d523ae9f486ba245f2f533ec5227a989cb8cdff9c9cc4a8  ./01_Abrir_Simulador_QuizRounds2_v3.68-r47.bat
 c8a89f6ec89445939ca0e77f67d0e2439d06f6be8722cb5a888a416debb0fc7a  ./01_Abrir_Simulador_QuizRounds2_v3.68-r48.bat
+a9b21aa90ddaf54bf054ba5be5cf35993b33485b33279a06ac8cf1947ec12588  ./01_Abrir_Simulador_QuizRounds2_v3.68-r49.bat
 20b65c1d4ef067b2258a4f8b76cb3f69eed9f000da6e7c05f54ae5d5e7e128c1  ./20_Perguntas_Teste.txt
 a5313f66542b6066185c56f0f68f7b8c7b794f696125e8bda273e0df9f7145a6  ./AUDITORIA_AVATARES_v3.68_r30.txt
 165aacb0d130a61d0a2ddcf1617842547278c1c0be1ef82f94b8efb5690106d8  ./AUDITORIA_COMPLETA_v3.68_r28.txt
@@ -51,9 +52,10 @@ f508143bb9864258d148c4d3cbda3d0e6f5bd5fb75f2f603a219d4ca4e50d83f  ./CHANGELOG_v3
 980b8aeb6999ba2bcc8e79ed70e0dca680812fb79e7ad323c9fe546dd0a6ab96  ./CHANGELOG_v3.68_r46_GameShow_Pro.txt
 bd8d7dedb0ee95be9853f89e11ea0938db1626e094430eb4526b09c5889a9bce  ./CHANGELOG_v3.68_r47_GameModes_Expandido.txt
 5ec90a1b7276d6ee0146bf07fc531b03e769b52a3663bdb66e77808fa1e8c6ec  ./CHANGELOG_v3.68_r48_Admin_Organizado.txt
-26b5908c8ef3738045cd7b5f6276b5cba132f65d826262dd7bb2f007a7fe0f76  ./README.md
+b07eaecf1ed84c99a7776d926a1581c0ff760d1aa0c7245867cabb141b58d700  ./CHANGELOG_v3.68_r49_GameShow_Criacao_Simples.txt
+e95c93f15194182a65c9aa37c3591d6772c1a473c1f7706998909a10188124b6  ./README.md
 c3ecfd164094ca886f76a807d2f848b2b29da68ab60d101dfc3eecdd02ef9a25  ./SIMULADOR_LOGIN.txt
-9ecf58b9fb9c210717dfada50257c2ffdbd916cc68366b332175edfaeaba535b  ./VALIDATION.txt
+5c67eabd1833a3a50385bda315f743d3f1e8ee5d7bfa47f6b7fd1d395db771f4  ./VALIDATION.txt
 5df85fe53e4eeb2d01cc6edd2e82bde9ef96177b8bda06242d69d57723a117b2  ./VALIDATION_r27.txt
 22aa21b2f00289894e3010f144419f8d7444cac60cd592efe2bff73c6d06e2f6  ./VALIDATION_r28.txt
 b23313242995904f6b21e8372fc63e5b52c4ecfd058a732a03620bb85bd2d865  ./VALIDATION_r29.txt
@@ -75,9 +77,10 @@ cac99515af2dfd5a4fb2c50b0bb31d56544b6cc3e276ad415aca75a15ced183d  ./VALIDATION_r
 354385f0c57f4fb54046281cfc80c5b279ce891252c227380e00d9f083062c98  ./VALIDATION_r46_GameShow_Pro.txt
 b9bf4d8cf5e4da6e7215cac8163275f177ad150c60980c936e8a732125efb343  ./VALIDATION_r47_GameModes_Expandido.txt
 9ecf58b9fb9c210717dfada50257c2ffdbd916cc68366b332175edfaeaba535b  ./VALIDATION_r48_Admin_Organizado.txt
-00ddcb167056fd25617acab2719353f30a74146da90f4e8fcd205624bc5fa1a2  ./VERSION.txt
-423aebe8a48a73bceac7c29d0af753dbdd136a5118dee0494a0cd5ecf8c9aee8  ./admin.html
-c9ac81e346ddf7b2a2efe7439927c1c7518654ad55b58205aa00d8504ab70eb9  ./admin/index.html
+91959a169dabf975c821b53fe15dd1d7f0e209d375427707c979aa98728838a0  ./VALIDATION_r49_GameShow_Criacao_Simples.txt
+f7bad77118ffcf8cc068cbb5c0255167d2d92e6910d35ce0dfab22df06548de2  ./VERSION.txt
+f370450d3e0e0c0df15dfaebcfc0c7066a4034e5a39105f147590f0998f4e406  ./admin.html
+f3d4b60321c68921986a919316a9719d20d073c08627f61f72155523b577121b  ./admin/index.html
 713e6f7f3fefd77d486e30c410916b52a55a55c0da8cead2a10803888e84b93f  ./assets/avatars/hd/chemist_f.png
 85a99773cc54536f9ad209b59737abd3e8f37921422e10b6e95f49f85cff3866  ./assets/avatars/hd/chemist_m.png
 44d7543da2e9a44f8ab14a564838b93140427d64debe7e7036be6c9224307f4a  ./assets/avatars/hd/cleanroom_f.png
@@ -179,6 +182,7 @@ f33d498087733d7ba2ada4cda226b2b5da366be20dc4a6bf080537bcf4c878a2  ./assets/css/a
 f33d498087733d7ba2ada4cda226b2b5da366be20dc4a6bf080537bcf4c878a2  ./assets/css/admin-v3.68-r46.css
 f33d498087733d7ba2ada4cda226b2b5da366be20dc4a6bf080537bcf4c878a2  ./assets/css/admin-v3.68-r47.css
 21e978578ed3e614ed96dcfe3641f8e63c8372027f6731d8f4bd6f636963ad2d  ./assets/css/admin-v3.68-r48.css
+1e79bf3095a9d2f076865a5c0d782cd822b5a924a8b33ccb989e8977a2f46e26  ./assets/css/admin-v3.68-r49.css
 bab43ffcee530f1593225bf4ec6404ed53177013f675628cfa593986ed50c757  ./assets/css/avatars-runtime-v3.63-r21.css
 521417483706759cd4c342175cea503ddd2d5007a97cdafb494cf82d7541f4ba  ./assets/css/avatars-runtime-v3.68-r30.css
 521417483706759cd4c342175cea503ddd2d5007a97cdafb494cf82d7541f4ba  ./assets/css/avatars-runtime-v3.68-r31.css
@@ -197,6 +201,7 @@ f67574bba0d461e0afca906ad40781edc161299c3271637d988955e332b210ac  ./assets/css/a
 f67574bba0d461e0afca906ad40781edc161299c3271637d988955e332b210ac  ./assets/css/avatars-runtime-v3.68-r46.css
 f67574bba0d461e0afca906ad40781edc161299c3271637d988955e332b210ac  ./assets/css/avatars-runtime-v3.68-r47.css
 f67574bba0d461e0afca906ad40781edc161299c3271637d988955e332b210ac  ./assets/css/avatars-runtime-v3.68-r48.css
+f67574bba0d461e0afca906ad40781edc161299c3271637d988955e332b210ac  ./assets/css/avatars-runtime-v3.68-r49.css
 6170245c76f7879ac6ce24951d3b0708fb03790aa9825735704fd1c3f3dc01e9  ./assets/css/avatars-ui-v3.92-r25.css
 32f8043d8161d4eaf13dbfa0ef518b69ef1faa8487b63f4754a1840ba7062c24  ./assets/css/avatars-ui-v3.92-r30.css
 32f8043d8161d4eaf13dbfa0ef518b69ef1faa8487b63f4754a1840ba7062c24  ./assets/css/avatars-ui-v3.92-r31.css
@@ -215,6 +220,7 @@ f0d832d85ed8ee57f55d1e26852071ffea63b760dac77c74993a42f361380234  ./assets/css/a
 f0d832d85ed8ee57f55d1e26852071ffea63b760dac77c74993a42f361380234  ./assets/css/avatars-ui-v3.92-r46.css
 f0d832d85ed8ee57f55d1e26852071ffea63b760dac77c74993a42f361380234  ./assets/css/avatars-ui-v3.92-r47.css
 f0d832d85ed8ee57f55d1e26852071ffea63b760dac77c74993a42f361380234  ./assets/css/avatars-ui-v3.92-r48.css
+f0d832d85ed8ee57f55d1e26852071ffea63b760dac77c74993a42f361380234  ./assets/css/avatars-ui-v3.92-r49.css
 bacc62d38c9624e1c38ac67aa551bf87786993155b6fb030b7a82ddcd14f4cad  ./assets/css/core-v3.50.css
 90171a5b21a8f7ff453c0f40210b6b9e660c6eead7ab876248c226e734693c25  ./assets/css/core-v3.68-r33.css
 d97f25e988df2a01610aa58646de8263c47c181adb81b43c0d7ef6020ee60b2a  ./assets/css/core-v3.68-r34.css
@@ -230,6 +236,7 @@ e3fbaff9742e11adf2bb8b7305d01c19bd1ed8e6b0404636543a074b19d7b014  ./assets/css/c
 e3fbaff9742e11adf2bb8b7305d01c19bd1ed8e6b0404636543a074b19d7b014  ./assets/css/core-v3.68-r46.css
 e3fbaff9742e11adf2bb8b7305d01c19bd1ed8e6b0404636543a074b19d7b014  ./assets/css/core-v3.68-r47.css
 e3fbaff9742e11adf2bb8b7305d01c19bd1ed8e6b0404636543a074b19d7b014  ./assets/css/core-v3.68-r48.css
+e3fbaff9742e11adf2bb8b7305d01c19bd1ed8e6b0404636543a074b19d7b014  ./assets/css/core-v3.68-r49.css
 19b5a946f60d1764a6d58e91e028faf907c2821de9e24a2d53b756e8e0976722  ./assets/css/display-ui-v3.92-r28.css
 62bec0358acf3520d5e7d5a057de032d2e421d687a3030cd7c87043f3e961c81  ./assets/css/display-ui-v3.92-r29.css
 9f916ab5f4c1ebb7fd0f53a404b428dea2e7ffd71f4b47dde5c37e8bfabc7236  ./assets/css/display-ui-v3.92-r30.css
@@ -249,6 +256,7 @@ f9e4afcc807a5222075c6a324089ff567f7f661f056fae23021402e0e564be8a  ./assets/css/d
 830909bbca76909d63f5918b4143275849729490426469f2cc4e902abe1d91d7  ./assets/css/display-ui-v3.92-r46.css
 830909bbca76909d63f5918b4143275849729490426469f2cc4e902abe1d91d7  ./assets/css/display-ui-v3.92-r47.css
 830909bbca76909d63f5918b4143275849729490426469f2cc4e902abe1d91d7  ./assets/css/display-ui-v3.92-r48.css
+830909bbca76909d63f5918b4143275849729490426469f2cc4e902abe1d91d7  ./assets/css/display-ui-v3.92-r49.css
 8d02977454a94979903276f6a998b8d109c6907e45fd5e540b77844b1e1345a8  ./assets/css/display-v3.50.css
 d0c356af5285c528e1dc5d4a910819cc3c12fb616b844a319f548d8d3d587315  ./assets/css/display-v3.68-r33.css
 33e98363226629d3ebd20e59fb42cc8a287a9c243f7bde60a285328c8b516229  ./assets/css/display-v3.68-r34.css
@@ -264,6 +272,7 @@ d0c356af5285c528e1dc5d4a910819cc3c12fb616b844a319f548d8d3d587315  ./assets/css/d
 33e98363226629d3ebd20e59fb42cc8a287a9c243f7bde60a285328c8b516229  ./assets/css/display-v3.68-r46.css
 33e98363226629d3ebd20e59fb42cc8a287a9c243f7bde60a285328c8b516229  ./assets/css/display-v3.68-r47.css
 33e98363226629d3ebd20e59fb42cc8a287a9c243f7bde60a285328c8b516229  ./assets/css/display-v3.68-r48.css
+33e98363226629d3ebd20e59fb42cc8a287a9c243f7bde60a285328c8b516229  ./assets/css/display-v3.68-r49.css
 28528c65fb0bc0cf214c2552b0898059d26a48a244a0ed68e85e947885a8abcd  ./assets/css/motion-v3.68-r37.css
 80c2ac3f9c699153815a86eac706b2b7dec7a825dcd099286c9d17eac65e3622  ./assets/css/motion-v3.68-r38.css
 03c99ad351348f25bf721805d452501b2881c0b81884e1e26a2f04eb02a21c93  ./assets/css/motion-v3.68-r40.css
@@ -274,6 +283,7 @@ f3f4b9c7af62e97cc0172597409ca4d0a1957a15f7af848858bd9c45826afb6a  ./assets/css/m
 f3f4b9c7af62e97cc0172597409ca4d0a1957a15f7af848858bd9c45826afb6a  ./assets/css/motion-v3.68-r46.css
 f3f4b9c7af62e97cc0172597409ca4d0a1957a15f7af848858bd9c45826afb6a  ./assets/css/motion-v3.68-r47.css
 f3f4b9c7af62e97cc0172597409ca4d0a1957a15f7af848858bd9c45826afb6a  ./assets/css/motion-v3.68-r48.css
+f3f4b9c7af62e97cc0172597409ca4d0a1957a15f7af848858bd9c45826afb6a  ./assets/css/motion-v3.68-r49.css
 92265cc58640642b52eb2325da6b8f3a9aba80d295bf7af2e41f08c936dd6199  ./assets/css/player-ui-v3.92-r25.css
 291239bd505c0a6a840c2fa08fd0a0ef3a693137ed3e88c7b6f4cda337ee28b3  ./assets/css/player-ui-v3.92-r29.css
 291239bd505c0a6a840c2fa08fd0a0ef3a693137ed3e88c7b6f4cda337ee28b3  ./assets/css/player-ui-v3.92-r30.css
@@ -294,9 +304,11 @@ c20798145e4a879cac6dd6c5eced8c6e3b163faa4056af78c8cf091104b953ab  ./assets/css/p
 53e9e680f946f84cd6cab9bbeb833b3da9b3b1a829216422f9d5f9eb6826ac29  ./assets/css/player-ui-v3.92-r46.css
 53e9e680f946f84cd6cab9bbeb833b3da9b3b1a829216422f9d5f9eb6826ac29  ./assets/css/player-ui-v3.92-r47.css
 53e9e680f946f84cd6cab9bbeb833b3da9b3b1a829216422f9d5f9eb6826ac29  ./assets/css/player-ui-v3.92-r48.css
+53e9e680f946f84cd6cab9bbeb833b3da9b3b1a829216422f9d5f9eb6826ac29  ./assets/css/player-ui-v3.92-r49.css
 94777d5a8472469e34680ca8b9d4fb5bf038ef600ae896c3e0f5bdba294ca1e7  ./assets/css/pro-v3.68-r46.css
 34e473aef3528aa41f3440efd6094281e49042a560f1d66c6e05b6574023d76d  ./assets/css/pro-v3.68-r47.css
 a2dc60be91caeefbf2234ea5cf663d2fa188faee1d44a3bcd393d0d8127da700  ./assets/css/pro-v3.68-r48.css
+ac43064b1ced5f7ddbe9d05e866f81ea917e2dfa802ec25b581a1ee48940ea2e  ./assets/css/pro-v3.68-r49.css
 04dba5f829d0a6bdb8d6a3c34d732aedd53a908a5fb8b02b42ed1b5a389cb65e  ./assets/css/simulator-v3.67-r25.css
 04dba5f829d0a6bdb8d6a3c34d732aedd53a908a5fb8b02b42ed1b5a389cb65e  ./assets/css/simulator-v3.68-r29.css
 04dba5f829d0a6bdb8d6a3c34d732aedd53a908a5fb8b02b42ed1b5a389cb65e  ./assets/css/simulator-v3.68-r30.css
@@ -316,6 +328,7 @@ a7dbf90c49283cb5f0ca3a7fb658fa6e904c9e6f3dd8c6f45d1141f6ee13a5e9  ./assets/css/s
 a7dbf90c49283cb5f0ca3a7fb658fa6e904c9e6f3dd8c6f45d1141f6ee13a5e9  ./assets/css/simulator-v3.68-r46.css
 a7dbf90c49283cb5f0ca3a7fb658fa6e904c9e6f3dd8c6f45d1141f6ee13a5e9  ./assets/css/simulator-v3.68-r47.css
 a7dbf90c49283cb5f0ca3a7fb658fa6e904c9e6f3dd8c6f45d1141f6ee13a5e9  ./assets/css/simulator-v3.68-r48.css
+a7dbf90c49283cb5f0ca3a7fb658fa6e904c9e6f3dd8c6f45d1141f6ee13a5e9  ./assets/css/simulator-v3.68-r49.css
 5333b72be243c6aa2440aeb0b1c730943ea9106889ab348feefe3e37a0c546d7  ./assets/js/admin-v3.68-r28.js
 c24f1afca46f7f788e60fc423d59bf1bb5a55ece6d4b10728af8fce3ee248736  ./assets/js/admin-v3.68-r29.js
 cffe4040d94587c91b6381af3d2d4ca3b25f6fb24950339c68177e043a302d4a  ./assets/js/admin-v3.68-r30.js
@@ -335,6 +348,7 @@ ac0778febd627044ef495fa6f95f3745d84e1c1f3ac2b03b4becdae132fcb9dd  ./assets/js/ad
 7185676947c441790680ccc60c21f2a2ceb209f68bafdfa92a665aeaf4aa72af  ./assets/js/admin-v3.68-r46.js
 a43d0775ffc2112574d0e3ae2543fe127bfe033edc3fab492b3942f19a9f71f8  ./assets/js/admin-v3.68-r47.js
 2650c56caaa28c39e421f255ba1a31de570580e1cee4bffc430bc2c9de4d124c  ./assets/js/admin-v3.68-r48.js
+ac353a00835bd0c5a8c1db6ede166ee7428266e9e30aea14f7af23a88320ab63  ./assets/js/admin-v3.68-r49.js
 2e550958d33a328c59be10569540d8589e7eb3173ea197dee78e42175f75d17c  ./assets/js/avatars-v3.63-r21.js
 2f7be2d23daabd99c04be39aa309f07d68ff6eb01ca563627f91c7159a4cb4c5  ./assets/js/avatars-v3.68-r30.js
 2f7be2d23daabd99c04be39aa309f07d68ff6eb01ca563627f91c7159a4cb4c5  ./assets/js/avatars-v3.68-r31.js
@@ -353,6 +367,7 @@ a43d0775ffc2112574d0e3ae2543fe127bfe033edc3fab492b3942f19a9f71f8  ./assets/js/ad
 3c0cc8289aa4baadf3d556c4b27a1f2e329900ae235632641f9edcceb2e8498e  ./assets/js/avatars-v3.68-r46.js
 3c0cc8289aa4baadf3d556c4b27a1f2e329900ae235632641f9edcceb2e8498e  ./assets/js/avatars-v3.68-r47.js
 3c0cc8289aa4baadf3d556c4b27a1f2e329900ae235632641f9edcceb2e8498e  ./assets/js/avatars-v3.68-r48.js
+3c0cc8289aa4baadf3d556c4b27a1f2e329900ae235632641f9edcceb2e8498e  ./assets/js/avatars-v3.68-r49.js
 e5fd4895f9894bfa5c7c4869cb8e3de62d8f7d2a5995b9c179c3d308a9c59d7a  ./assets/js/city-v3.67-r25.js
 653b388d9c4773d493f7b5f5e87d16796a117ec06d68e20e9db98e7c4bd71b21  ./assets/js/city-v3.68-r30.js
 1220891399c379acf7a9cab52bded5b06db36ee8a3f282fd99a52157ee969ebb  ./assets/js/city-v3.68-r31.js
@@ -371,6 +386,7 @@ be3a47f5bd85a98c448eee86b026824f662ccdd120852edecf2cb00db091b484  ./assets/js/ci
 f5d3766852e807f1e4fab75c90640bdf21a39cb89cd156ca45a8651376b3e263  ./assets/js/city-v3.68-r46.js
 c987338104b50b4ea5558c0094b7a08ed723eae546de2b39d857d48824764a5d  ./assets/js/city-v3.68-r47.js
 4660e4f2f5278e91326fc72e22d085f4ac24f0171e6e6b003be7bd01194a10a3  ./assets/js/city-v3.68-r48.js
+1bcdc7b6aece0f738d8704cd9301c434b6eafd7ee89286d98f5c85f224b8e5b0  ./assets/js/city-v3.68-r49.js
 b8a0ba54a23b24dcc103981dbcf7b525da751c67d5063fd3a5b3019a9d6b2fd2  ./assets/js/common-v3.68-r29.js
 96f957ed4bb2f1bc4e23f4789211194b29d30cc277d4cfa731976544f1fae078  ./assets/js/common-v3.68-r30.js
 862cea6111bd62e2b7ce13b42b012836baa6973c03d6c9b23caf907bc5e04294  ./assets/js/common-v3.68-r31.js
@@ -390,6 +406,7 @@ f3d0ca02840e667ae512c234a0f56d98790553dd2d3190383c748862d948526c  ./assets/js/co
 d6449a957c63d475bf43e3a92240c65aabe721effe538b6de08cea896320d0c3  ./assets/js/common-v3.68-r46.js
 dba275cdd8479cca3a1eb100a24ebe701435e4f47f1a5a51b1acc153f5866366  ./assets/js/common-v3.68-r47.js
 e2bffd1b7199958f50ca9d913a900fe68eaebb692b80b3dc8441f6c15b85181e  ./assets/js/common-v3.68-r48.js
+d31cabeba2904bbb5abf3922e4bc805f54b7b9cef607f999c42a9509a90471af  ./assets/js/common-v3.68-r49.js
 421b06935ac0fc36e949d6ea4b799a8a78f969a9df5fd0b3a89d6025ccf0f269  ./assets/js/common-v3.68.js
 a1fcede25bef67cb10ef32e6e110717ed6574eeedbeaf6ed54fc468fae0d439a  ./assets/js/config.js
 0d6408006687f45e83a600709181abe154fbe7a099ac332cab4eab95dda63263  ./assets/js/display-v3.68-r28.js
@@ -411,6 +428,7 @@ f3c06dc5c40d5f5d57f7d1e1e0bf8eff66cc6463aebe74c1e9aff00fa3cc963d  ./assets/js/di
 9ee8bce3d6e8a4d4a8b35cb7dc25ed808c62d59db3bc72e9a383eea61816ceb6  ./assets/js/display-v3.68-r46.js
 94c39ed318300258bff48b779bd5dac3f888a848cbc1e40342a2bf49971d2685  ./assets/js/display-v3.68-r47.js
 2fe63a82338fcca0d629f22221328b65b2793e72f4ee0e5ea7d27111f4fbc075  ./assets/js/display-v3.68-r48.js
+fd1fe9874b5932367cc69ff828204ecb6da9be498f4d48df61f2fc0e0124d714  ./assets/js/display-v3.68-r49.js
 89eda54c6d658b0509e75c23996284c899f5f9490e3763fae0b13db723acf362  ./assets/js/motion-v3.68-r37.js
 3e2c698ba0af0915233f86cb1186055f21e41a18de9544c35a5b90ef3ca9f9ab  ./assets/js/motion-v3.68-r38.js
 a1203a7e4f1eb55394c2d0098539ee64ba5b0748025d05256cdcab7bcb6c13f0  ./assets/js/motion-v3.68-r40.js
@@ -421,6 +439,7 @@ e640ba426742e04367af7177b2808b0a679ce4be86e8a3e42e5112791bd72e8a  ./assets/js/mo
 e640ba426742e04367af7177b2808b0a679ce4be86e8a3e42e5112791bd72e8a  ./assets/js/motion-v3.68-r46.js
 e640ba426742e04367af7177b2808b0a679ce4be86e8a3e42e5112791bd72e8a  ./assets/js/motion-v3.68-r47.js
 e640ba426742e04367af7177b2808b0a679ce4be86e8a3e42e5112791bd72e8a  ./assets/js/motion-v3.68-r48.js
+e640ba426742e04367af7177b2808b0a679ce4be86e8a3e42e5112791bd72e8a  ./assets/js/motion-v3.68-r49.js
 82c5c2e4436abdd45b77ed4031d8ec6b39ebb919766f4324beeb32b5289f50b0  ./assets/js/player-v3.68-r28.js
 0cc71c7795f5fe154dd38d58462d0b631529ffcca4d02c1d5e99adc2ed33e763  ./assets/js/player-v3.68-r29.js
 0274f2e666d25da6f7059b9708849be0c15069b1a63c4ea644ab268c21c800e8  ./assets/js/player-v3.68-r30.js
@@ -441,12 +460,15 @@ a106a8724a284e2acb5fb7c5879fe871f7eebbc752a3dec7329a957c020a639f  ./assets/js/pl
 01c31ff615c179acb422c9de17b979a2a734ecb98bb0797e4364581797d37000  ./assets/js/player-v3.68-r46.js
 7fefe1c42018315892a7b811ae01a2901f4528b15334d31f86aeb96a024991a0  ./assets/js/player-v3.68-r47.js
 d91fbf9da5cd85907456f13eb92af8f61a84aae455cdab592288fe3758401420  ./assets/js/player-v3.68-r48.js
+85152f54208eb019d0c4a3788f149fcbdc961a9555bf142250227c63ce0b5af1  ./assets/js/player-v3.68-r49.js
 dbd6e4bca56ab8cae85ca5937f93b0401dfa04930e3592bea3c4f7853be187cd  ./assets/js/pro-admin-v3.68-r46.js
 b308df2e26dfae5b16d01ed5578773159c1c7d0437b762ea0a811adc6002154e  ./assets/js/pro-admin-v3.68-r47.js
 706dc680e0a9dca115a317dae9bd1de8930f961afe34555e8cd9ebaada4cc860  ./assets/js/pro-admin-v3.68-r48.js
+6fae02ccc3e4722ccb8755497d13a583df6d67b185c5127059b6ff19fe2bc5ba  ./assets/js/pro-admin-v3.68-r49.js
 6443e1e98595f19874fa9fbffd9751d80ed2125176d57e2b6b74360231b17c55  ./assets/js/pro-runtime-v3.68-r46.js
 e276f6743c52351c00628f7ab2390a4b62658e6f783923147819c90a36d85cc2  ./assets/js/pro-runtime-v3.68-r47.js
 9f929e3701df6a7b25b85cb260ed607b73cf3f5678203ffba984aa7bfd82776a  ./assets/js/pro-runtime-v3.68-r48.js
+de9b2221f0291e1bc8937f44c36328e9825d57e23ecd91b0d599f24e879c4ea6  ./assets/js/pro-runtime-v3.68-r49.js
 1e3dcd02c8e70d6481aa0221e7d931168833c900e65d762c85a8afea41ff5ad7  ./assets/js/simulator-v3.68-r28.js
 5842e30639b14d7f3ceda116406f2adbd67d939c068effbb2be1fcbeed200768  ./assets/js/simulator-v3.68-r29.js
 a86fce2d415cc97baa633dd689fe369d279fc618e64ae425c6054597e7d7e238  ./assets/js/simulator-v3.68-r30.js
@@ -466,16 +488,17 @@ cc89850ca511c015faeb780442b156475c867620e69267ae834c3f374fabd697  ./assets/js/si
 bcc32ef9a36c07cffa110db1b9abdb44b9262a7d9bea276085e39876701b8543  ./assets/js/simulator-v3.68-r46.js
 6b34bb58e12d480cf3a4e41c3806c0fe287ecf391fa1567014b72ef700eede6b  ./assets/js/simulator-v3.68-r47.js
 fc187f26ddb80fcf2013e3d49fa35ee6253ef5976959b5d2b438679fd21164f1  ./assets/js/simulator-v3.68-r48.js
+93baf0e2944a860edb81ca2d375837c85c2867004c902385d46f0a7b3545e8f9  ./assets/js/simulator-v3.68-r49.js
 700bc5109a4b34a46487115bc690a89270e979b7e41b02b3848b0c5860cb4730  ./assets/maps/industry-v3.50.webp
 9130c1d5213295f3604345edfd6892be320e9ffdd7d23ef23fcee785ac4a8ed7  ./assets/maps/laboratory-v3.50.webp
 d46decfcaac29f07f29d3c43a65f4ba6dbc9f3e8ec7ffe9ddd43c6b1da6a4fb0  ./assets/maps/office-v3.50.webp
 129cfe9f9d1a41a2e53d43b6222a73bbdcd5e648b0c02461cd90797f988ba2d6  ./assets/maps/platform-v3.50.webp
 b3c7a2fadb2515b8106eae58439a4b9c0581a4eaa88d6a265701f8d4dd7dadb8  ./assets/vendor/QR_LICENSE.txt
 117b708ef39dc7ffc36a4eefb129ac5295574e6d2862edd55c104b2f9947cc58  ./assets/vendor/qr-bundle.js
-dc09226df536c17fa4ebc1b425af2ca020e9cd519bc36a43f004ac9cc0fd8e8d  ./display.html
-6c55c41f119d097e55215261093655648426f6dcbf3bffea67c7414ae2cc8400  ./index.html
-125682c0ec75a0bc033a055d66478b1ae9313daab3961897d21e5f49e0523661  ./scripts/validate-build.mjs
-6d51fe9913134fc233499e2fcd7f13e6ca8d47834636b4f255fbdb9091cac9e9  ./simulator.html
+48babfec060bdee1ec33a2ab2b3882b91e4d6286b623a3ea4825a255e70ba98c  ./display.html
+90cde96e128597ad1cfeca44a42720752a3f3a6087fceda61ae4789f96ac4fdd  ./index.html
+8b788c01636eb5228a3cb00d6bdc627ffe6c345f44208882f36bab525cd61846  ./scripts/validate-build.mjs
+d57824a19ba0d80f3c8049b408de59d20bc6cb78e350e42e4c6d5cb34ba2107e  ./simulator.html
 c776e9e02ed30b9fd9aca411e7ba103b39a2f04439912411422d14b39c2749e7  ./supabase/ADMIN_BOOTSTRAP.sql
 a146e70b201aaaaa9867bcba8042dad01f72da5b3915bd244710787d93245cf8  ./supabase/migrations/001_quiz_rounds.sql
 a87cb398f0d82628e593385e6a1a9ea28b6723a32aa57a7b4fb3eb3993b00b6e  ./supabase/migrations/002_question_archive_queue_timer.sql
