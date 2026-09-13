@@ -1,13 +1,15 @@
-# QuizRounds2 v3.68-r62 — Publicação Verificada
+# QuizRounds2 v3.68-r63 — Áudio Unificado + Publicação Verificada
 
 ## Estado desta release
 
-A r62 é a revisão estável para publicação, mantendo o runtime funcional da r61 e adicionando verificação automática do conteúdo realmente servido pelo GitHub Pages. Não cria migration nova e mantém o backend base no schema 042, com schema 043 necessário somente para os três modos avançados de formação de equipes.
+A r63 consolida o runtime pré-publicação com um único sistema de áudio exclusivo do telão e mantém a verificação automática do conteúdo realmente servido pelo GitHub Pages. Não cria migration nova e mantém o backend base no schema 042, com schema 043 necessário somente para os três modos avançados de formação de equipes.
 
-### Refatoração r62
+### Refatoração r63
 
-- Runtime ativo unificado em **r62**: HTML, JS, CSS, cache-bust, `/admin`, workflow, validador e diagnóstico usam a mesma revisão.
+- Runtime ativo unificado em **r63**: HTML, JS, CSS, cache-bust, `/admin`, workflow, validador e diagnóstico usam a mesma revisão.
 - **Sons de feedback somente no telão**. Jogadores e ADM permanecem silenciosos; no celular continuam animações e vibração.
+- **AudioManager único**: efeitos, contagem e ambiente usam o mesmo WebAudioContext e o mesmo mute/volume mestre do telão. O runtime Pro não cria AudioContext nem cues paralelos.
+- Perguntas com áudio ou vídeo são reproduzíveis somente no telão; no celular aparece um aviso para acompanhar a mídia na apresentação principal.
 - O telão exibe um controle explícito **Ativar som do telão** quando o navegador ainda não liberou o AudioContext.
 - Feedbacks do telão: todos prontos, 3–2–1, pergunta liberada, últimos 5 segundos, tempo encerrado, pausa/congelamento, novo líder, ranking final e celebração.
 - **Novo líder** só é anunciado depois que o ranking correspondente foi revelado; nunca durante resposta oculta.
@@ -21,7 +23,7 @@ A r62 é a revisão estável para publicação, mantendo o runtime funcional da 
 
 ### Publicação no GitHub Pages
 
-A r62 não considera o deploy concluído apenas porque o artefato foi enviado. O workflow gera `_site`, valida esse conteúdo, publica e depois consulta o endereço público. A Action só termina com sucesso quando `version.json`, ADM, jogador, telão, simulador e o runtime `common-v3.68-r62.js` confirmam a revisão **3.68-r62**.
+A r63 não considera o deploy concluído apenas porque o artefato foi enviado. O workflow gera `_site`, valida esse conteúdo, publica e depois consulta o endereço público. A Action só termina com sucesso quando `version.json`, ADM, jogador, telão, simulador e o runtime `common-v3.68-r63.js` confirmam a revisão **3.68-r63**.
 
 ## Supabase
 

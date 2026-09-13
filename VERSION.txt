@@ -1,16 +1,16 @@
 QUIZROUNDS2 TESTE
-RELEASE=r62
-BUILD_ID=3.68-r62
+RELEASE=r63
+BUILD_ID=3.68-r63
 BACKEND_SCHEMA_REQUIRED=42
 BACKEND_SCHEMA_RECOMMENDED=43
 TEAM_FEATURE_SCHEMA_REQUIRED=43
 SUPABASE_MIGRATIONS=001-043
 AVATAR_CATALOG=31
 UI=3.92
-PLAYER_UI=v3.92-r62
-DISPLAY_UI=v3.92-r62
-ADMIN_UI=v3.68-r62
-SIMULATOR_UI=v3.68-r62
+PLAYER_UI=v3.92-r63
+DISPLAY_UI=v3.92-r63
+ADMIN_UI=v3.68-r63
+SIMULATOR_UI=v3.68-r63
 THEME_PRIMARY=AZUL
-PACKAGE=QuizRounds2_v3_68_UI_v3_92_GitHub_Supabase_r62_Publicacao_Verificada
-NOTA=r62 mantém a estabilidade da r61 e endurece a publicação no GitHub Pages com build estático reproduzível, marcador público de versão e verificação pós-deploy para impedir falso sucesso com versão antiga em cache.
+PACKAGE=QuizRounds2_v3_68_UI_v3_92_GitHub_Supabase_r63_Audio_Unificado
+NOTA=r63 consolida todo o áudio do evento em um único AudioManager exclusivo do telão, elimina cues/ambientes duplicados do runtime Pro e impede reprodução de áudio/vídeo no celular do jogador.

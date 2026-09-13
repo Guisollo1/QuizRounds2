@@ -1,4 +1,4 @@
-name: Deploy QuizRounds2 r62 no GitHub Pages
+name: Deploy QuizRounds2 r63 no GitHub Pages
 
 on:
   push:
@@ -24,10 +24,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Validar release r62
+      - name: Validar release r63
         run: node scripts/validate-build.mjs
 
-      - name: Montar site estático r62
+      - name: Montar site estático r63
         env:
           SUPABASE_URL: ${{ vars.SUPABASE_URL }}
           SUPABASE_PUBLISHABLE_KEY: ${{ secrets.SUPABASE_PUBLISHABLE_KEY || vars.SUPABASE_PUBLISHABLE_KEY }}
@@ -48,7 +48,7 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
 
-      - name: Confirmar r62 realmente publicada
+      - name: Confirmar r63 realmente publicada
         env:
           SITE_URL: ${{ steps.deployment.outputs.page_url }}
         run: |
@@ -57,7 +57,7 @@ jobs:
           published=0
           for attempt in $(seq 1 18); do
             marker="$(curl -fsSL -H 'Cache-Control: no-cache' "${base}/version.json?run=${GITHUB_RUN_ID}&attempt=${attempt}" || true)"
-            if printf '%s' "$marker" | grep -q '"build": "3.68-r62"'; then
+            if printf '%s' "$marker" | grep -q '"build": "3.68-r63"'; then
               published=1
               break
             fi
@@ -65,17 +65,17 @@ jobs:
             sleep 5
           done
           if [ "$published" -ne 1 ]; then
-            echo "::error::O GitHub Pages não está servindo a r62 após o deploy."
+            echo "::error::O GitHub Pages não está servindo a r63 após o deploy."
             exit 1
           fi
           for page in index.html admin.html display.html simulator.html admin/; do
-            curl -fsSL -H 'Cache-Control: no-cache' "${base}/${page}?build=3.68-r62&run=${GITHUB_RUN_ID}" | grep -q '3.68-r62' || {
-              echo "::error::${page} não está servindo a r62."
+            curl -fsSL -H 'Cache-Control: no-cache' "${base}/${page}?build=3.68-r63&run=${GITHUB_RUN_ID}" | grep -q '3.68-r63' || {
+              echo "::error::${page} não está servindo a r63."
               exit 1
             }
           done
-          curl -fsSL -H 'Cache-Control: no-cache' "${base}/assets/js/common-v3.68-r62.js?run=${GITHUB_RUN_ID}" | grep -q "BUILD_ID='3.68-r62'" || {
-            echo "::error::Runtime common-v3.68-r62.js não foi publicado corretamente."
+          curl -fsSL -H 'Cache-Control: no-cache' "${base}/assets/js/common-v3.68-r63.js?run=${GITHUB_RUN_ID}" | grep -q "BUILD_ID='3.68-r63'" || {
+            echo "::error::Runtime common-v3.68-r63.js não foi publicado corretamente."
             exit 1
           }
-          echo "GitHub Pages confirmado em QuizRounds2 3.68-r62."
+          echo "GitHub Pages confirmado em QuizRounds2 3.68-r63."

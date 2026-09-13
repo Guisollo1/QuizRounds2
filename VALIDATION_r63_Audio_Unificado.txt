@@ -1,0 +1,10 @@
+VALIDAÇÃO QuizRounds2 r63 — Áudio Unificado
+
+Critérios:
+- Som somente no telão.
+- Um único AudioContext no runtime ativo.
+- Sem playProCue/ambientSchedule no runtime Pro.
+- ADM e jogador sem WebAudio.
+- Mídia de áudio/vídeo no jogador substituída por aviso de reprodução no telão.
+- Master mute controla efeitos e ambiente.
+- Build GitHub Pages e marcador público em r63.
