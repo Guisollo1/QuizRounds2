@@ -1,0 +1,29 @@
+QuizRounds2 v3.68-r57 — Hardening Real
+
+Objetivo
+- Consolidar a r56 em uma release coerente e publicável, sem runtime híbrido r55/r56.
+
+Correções críticas
+- Runtime JS/CSS unificado em r57; removidas duplicações ativas r55/r56.
+- Todos os imports ES Modules apontam para arquivos existentes da própria r57.
+- Cache-bust, /admin, simulador, diagnóstico, GitHub Actions e validação alinhados em 3.68-r57.
+- Workflow do GitHub Pages atualizado para validar/publicar a r57.
+- Manifesto SHA-256 regenerado para refletir os bytes reais da release.
+
+Avatares e mapas
+- Gambá ET preservado como avatar especial, incluindo aliases legados.
+- Nomes e avatares permanecem em camada superior ao cenário para priorizar legibilidade.
+- Gambá surpresa nasce dentro da área útil e é recortado pela camada do mapa.
+- Spawns/POIs foram restritos ao grafo realmente alcançável; personagens não nascem mais em ilhas fechadas sem rota para o restante do cenário.
+- Plataforma recebeu ligação da área de tripulação pela passagem existente.
+- Mantida regra door-only: nenhuma conexão artificial atravessa parede ou mobiliário.
+
+Apresentação
+- Troca de mapa ao vivo disponível durante lobby, preparação, pergunta, pausa e resultado.
+- Abertura do telão agora exige confirmação de que a sobreposição Pro foi limpa antes do pareamento.
+- Se a limpeza do overlay falhar, o ADM informa o erro em vez de abrir o projetor em estado visual incerto.
+
+Backend
+- Schema 042 permanece suficiente para Partida Padrão e GameShow individual.
+- Schema 043 continua necessário somente para os três modos avançados de formação de equipes.
+- Não há migration nova na r57.

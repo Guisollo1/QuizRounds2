@@ -1,37 +1,24 @@
-# QuizRounds2 v3.68-r55 — Mapas Refinados / Fluxo Estável
+# QuizRounds2 v3.68-r57 — Hardening Real
 
+## Estado desta release
 
-## Refinamento dos mapas — r55
+A r57 é a consolidação técnica da r56. O runtime ativo foi unificado em uma única revisão, os imports ES Modules foram fechados, o deploy do GitHub Pages foi alinhado à mesma versão e os mapas passaram a usar somente pontos de spawn/POIs alcançáveis pelo grafo transitável.
 
-- **Indústria:** nova arte refinada integrada ao runtime, com corredor central mais limpo e áreas funcionais mais legíveis.
-- **Escritório:** rota da recepção revisada para não atravessar sofás/mesa.
-- **Laboratório:** removido o atalho que cruzava bancadas; circulação prioriza o piso livre.
-- **Plataforma:** passarela leste e rota inferior reposicionadas para evitar tubulações/equipamentos.
-- Os quatro mapas agora usam a proporção nativa **4:3 (1448×1086)**, sem esticamento adicional.
-- Avatares do mapa ficaram aproximadamente **14% menores**, com nomes/balões compactos e maior separação quando vários jogadores ocupam a mesma área.
-- As regras de passagem continuam **door-only**: troca de ambiente somente por portas/aberturas mapeadas.
+### Correções principais
 
-## Instalação e compatibilidade do Supabase
+- JS e CSS ativos somente em **r57**, sem mistura r55/r56.
+- `/admin`, cache-bust, simulador, diagnóstico, workflow e validador alinhados em **3.68-r57**.
+- **Gambá ET** e aliases legados preservados; preview e sprite runtime continuam no catálogo de 31 avatares.
+- Nomes, balões e personagens ficam acima do mapa para não desaparecer atrás de mobiliário.
+- Gambá surpresa aparece dentro do mapa, sem escapar para a área preta externa.
+- Spawns e POIs dos quatro mapas ficam somente no componente alcançável; regiões fechadas sem porta funcional deixam de receber personagens.
+- Troca de mapa ao vivo disponível na Apresentação durante a partida.
+- Abertura do telão limpa o overlay Pro e **bloqueia com mensagem clara** se a limpeza falhar.
+- Manifesto SHA-256 e validação de release passam a fazer parte do hardening.
 
-A r55 aceita **schema 042** para Partida Padrão e GameShow individual. Isso corrige o bloqueio global visto na r52 quando aparecia “backend incompatível — aplique migration 043”.
+## Supabase
 
-Para usar **Equipes com Automático equilibrado, Jogador escolhe ou ADM escolhe**, atualize o Supabase de teste para **schema 043** executando `00_ATUALIZAR_SUPABASE_PARA_SCHEMA_043.sql`. Quem já está no schema 043 não precisa executar novamente.
-
-## Fluxo refatorado
-
-- **Partida Padrão:** Sala → Perguntas → Regras → Ordem → Revisar → Apresentar.
-- **Partida GameShow individual:** Criar (Sala + dinâmica) → Perguntas → Regras → Ordem → Revisar → Apresentar.
-- **Partida GameShow por equipes:** Criar → Perguntas → Equipes → Regras → Ordem → Revisar → Apresentar.
-- Nova sala começa com a fila vazia; reutilizar perguntas da partida anterior é uma opção explícita.
-- A Central continua a sala no modo correto, sem jogar GameShow para o fluxo Padrão.
-- Modelos GameShow preservam equipes quando o backend está no schema 043.
-- O checklist bloqueia o lobby se uma mecânica especial estiver incompleta.
-- O teste guiado adapta o número de jogadores virtuais ao tipo de partida.
-- O runtime foi enxugado para os assets ativos da r55.
-
-## Segurança do projeto
-
-Use somente no repositório **QuizRounds2** e no Supabase de teste. Não aplique migrations nem estes arquivos no QuizRounds principal de produção sem uma etapa separada de homologação.
+A r57 **não cria migration nova**. Schema **042** continua suficiente para Partida Padrão e GameShow individual. Para Equipes com Automático equilibrado, Jogador escolhe ou ADM escolhe, use schema **043** executando `00_ATUALIZAR_SUPABASE_PARA_SCHEMA_043.sql` no projeto de teste.
 
 ---
 

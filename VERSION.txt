@@ -1,16 +1,16 @@
 QUIZROUNDS2 TESTE
-RELEASE=r55
-BUILD_ID=3.68-r55
+RELEASE=r57
+BUILD_ID=3.68-r57
 BACKEND_SCHEMA_REQUIRED=42
 BACKEND_SCHEMA_RECOMMENDED=43
 TEAM_FEATURE_SCHEMA_REQUIRED=43
 SUPABASE_MIGRATIONS=001-043
 AVATAR_CATALOG=31
 UI=3.92
-PLAYER_UI=v3.92-r55
-DISPLAY_UI=v3.92-r55
-ADMIN_UI=v3.68-r55
-SIMULATOR_UI=v3.68-r55
+PLAYER_UI=v3.92-r57
+DISPLAY_UI=v3.92-r57
+ADMIN_UI=v3.68-r57
+SIMULATOR_UI=v3.68-r57
 THEME_PRIMARY=AZUL
-PACKAGE=QuizRounds2_v3_68_UI_v3_92_GitHub_Supabase_r55_Mapas_Refinados
-NOTA=r55 mantém a refatoração estável da r54 e adiciona refinamento dos mapas: nova arte da Indústria, proporção nativa 4:3 nos quatro mapas, rotas de caminhada revisadas para evitar móveis/máquinas e avatares menores/mais compactos. Schema 042 segue compatível para Padrão e GameShow individual; schema 043 continua necessário somente para os 3 modos avançados de formação de equipes.
+PACKAGE=QuizRounds2_v3_68_UI_v3_92_GitHub_Supabase_r57_Hardening_Real
+NOTA=r57 consolida a r56 em um runtime único: imports/cache/CI/alias alinhados, avatar especial preservado, camadas do mapa corrigidas, spawns somente em áreas alcançáveis, overlay do telão limpo com verificação e troca de mapa ao vivo durante a partida. Schema 042 segue compatível para Padrão e GameShow individual; schema 043 é exigido apenas pelos modos avançados de formação de equipes.

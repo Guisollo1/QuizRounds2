@@ -1,4 +1,4 @@
-name: Deploy QuizRounds2 r55 TESTE no GitHub Pages
+name: Deploy QuizRounds2 r57 TESTE no GitHub Pages
 
 on:
   push:
@@ -24,7 +24,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: Validar QuizRounds2 r55 Mapas Refinados
+      - name: Validar QuizRounds2 r57 Hardening Real
         run: node scripts/validate-build.mjs
 
       - name: Validar configuração
