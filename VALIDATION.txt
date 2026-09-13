@@ -1,0 +1,22 @@
+QuizRounds2 v3.68-r62 — VALIDAÇÃO FINAL
+
+Resultado: APROVADA — 39/39 grupos.
+
+- Sintaxe JavaScript/MJS aprovada.
+- HTML, IDs, referências e imports ES Modules verificados.
+- Runtime ativo unificado em r62, sem JS/CSS legado ativo.
+- Backend base schema 042 e recursos avançados de equipes no schema 043.
+- Migrations 001–043 contínuas.
+- 31 avatares e quatro mapas preservados.
+- Gambá ET, camadas visuais, spawns e navegação dos mapas preservados.
+- Pódio com avatar/nome separados.
+- Sons do evento exclusivamente no telão; jogador e ADM sem áudio local.
+- Novo líder somente após a revelação do ranking.
+- Fade de telas e crossfade de mapas preservados.
+- /admin aponta para r62.
+- GitHub Pages usa build reproduzível por scripts/build-pages.mjs.
+- O _site é validado antes do upload.
+- version.json expõe a revisão pública para diagnóstico.
+- O workflow verifica o site publicado após o deploy e falha se ADM, jogador, telão, simulador ou runtime não estiverem em r62.
+- Smoke test local do artefato: index.html, admin.html, display.html, simulator.html, /admin/, version.json, common JS e display CSS retornaram HTTP 200.
+- Manifesto SHA-256 regenerado após o fechamento da release.

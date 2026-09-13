@@ -1,0 +1,22 @@
+VALIDAÇÃO QuizRounds2 r44: APROVADA (21 grupos)
+- Sintaxe JS verificada em 112 arquivos + scripts de validação.
+- 4 HTML auditados; 733 IDs sem duplicidade; referências/cache-bust r44 conferidos.
+- Imports ES Modules locais resolvem e imports nomeados conferem com exports.
+- 117 CSS: referências, balanceamento, logo, picker e contenção do mapa verificados.
+- Ativos r44 e compatibilidade de cache r29/r28 verificados.
+- Contrato frontend/backend, BUILD_ID r44 e schema 40 verificados.
+- Migrations 001..040 contínuas; hardening 039 e catálogo 040 presentes.
+- Catálogo end-to-end: 31 avatares, 62 assets, seleção, Supabase e mapa do lobby verificados.
+- Suíte local determinística preservada e limites documentados.
+- Config neutro e sem credenciais privilegiadas embutidas.
+- Namespace de navegador QuizRounds2 isolado do QuizRounds principal.
+- Quatro mapas r44 auditados com nós de porta/gargalo e dispersão reduzida.
+- Relógio do telão e filtros visuais dos avatares r44 verificados.
+- r44: controlador, sala ativa, telão encerrado e persistência das regras verificados.
+- r44 ADM usa viewport integral e largura total sem max-width centralizador.
+- r44: animações de jogador, telão, ranking, relógio, mapa, ADM e controle remoto verificadas.
+- r44: observadores de animação protegidos contra feedback e reflow síncrono.
+- r44: login/entrada explícitos, boundaries de foco e animações somente após autenticação/entrada.
+- r44: jogador, telão, ADM, mapa, sons, diagnóstico, cache e redução de efeitos verificados.
+- Metadados r44 QuizRounds2, documentação, launcher e CI gate verificados.
+- r44: filtros/carrossel dos avatares, resposta estilizada e ranking sem piscadas verificados.

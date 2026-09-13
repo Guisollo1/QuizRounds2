@@ -1,0 +1,10 @@
+QuizRounds2 v3.68-r63 — Áudio Unificado
+
+- Um único AudioManager/WebAudioContext para efeitos e ambiente do telão.
+- Runtime Pro não possui mais cues próprios nem segundo ambiente sonoro.
+- Som mestre do telão controla efeitos e ambiente.
+- sound_enabled=false silencia todo o áudio do evento.
+- Volume Pro passa a governar o mixer único do telão.
+- Áudio/vídeo de perguntas não é reproduzido no celular; o jogador recebe indicação para acompanhar no telão.
+- Novo líder continua restrito à etapa de ranking/final.
+- Validador endurecido contra reintrodução de AudioContext/cues fora do módulo central.

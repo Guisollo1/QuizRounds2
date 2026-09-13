@@ -1,0 +1,28 @@
+QuizRounds2 v3.68-r45 — Validação Final
+
+VALIDAÇÃO QuizRounds2 r45: APROVADA (22 grupos)
+- Sintaxe JS verificada em 120 arquivos + scripts de validação.
+- 4 HTML auditados; 738 IDs sem duplicidade; referências/cache-bust r45 conferidos.
+- Imports ES Modules locais resolvem e imports nomeados conferem com exports.
+- 126 CSS: referências, balanceamento, logo, picker e contenção do mapa verificados.
+- Ativos r45 e compatibilidade de cache r29/r28 verificados.
+- Contrato frontend/backend, BUILD_ID r45 e schema 40 verificados.
+- Migrations 001..040 contínuas; hardening 039 e catálogo 040 presentes.
+- Catálogo end-to-end: 31 avatares, 62 assets, seleção, Supabase e mapa do lobby verificados.
+- Suíte local determinística preservada e limites documentados.
+- Config neutro e sem credenciais privilegiadas embutidas.
+- Namespace de navegador QuizRounds2 isolado do QuizRounds principal.
+- Quatro mapas r45 auditados com nós de porta/gargalo e dispersão reduzida.
+- Relógio do telão e filtros visuais dos avatares r45 verificados.
+- r45: controlador, sala ativa, telão encerrado e persistência das regras verificados.
+- r45 ADM usa viewport integral e largura total sem max-width centralizador.
+- r45: animações de jogador, telão, ranking, relógio, mapa, ADM e controle remoto verificadas.
+- r45: observadores de animação protegidos contra feedback e reflow síncrono.
+- r45: login/entrada explícitos, boundaries de foco e animações somente após autenticação/entrada.
+- r45: jogador, telão, ADM, mapa, sons, diagnóstico, cache e redução de efeitos verificados.
+- Metadados r45 QuizRounds2, documentação, launcher e CI gate verificados.
+- r45: filtros/carrossel dos avatares, resposta estilizada e ranking sem piscadas verificados.
+- r45: acabamento visual profissional de jogador, avatares, telão, ranking/pódio e ADM verificado sem mudança de schema.
+
+Supabase: schema 040 / migrations 001-040; nenhuma migration nova.
+Escopo r45: acabamento visual profissional, sem alteração de RPCs/autenticação.

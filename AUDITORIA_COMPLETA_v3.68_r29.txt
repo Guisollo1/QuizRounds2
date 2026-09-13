@@ -1,0 +1,37 @@
+QuizRounds v3.68 / r29 — Auditoria completa pós-hardening
+Data: 2026-09-08
+
+ESCOPO
+- HTML: admin, jogador, telão e simulador.
+- CSS: folhas ativas + compatibilidade mantida.
+- JavaScript: módulos ativos r29, módulos r28 preservados e utilitários.
+- Supabase: migrations 001–039, permissões/RPCs do hardening r29.
+- GitHub Pages: gate de validação, chave publishable e montagem do site.
+
+CORREÇÕES PRINCIPAIS
+1. Ranking/roster do telão protegido contra consulta de participante.
+2. Telão exige pareamento de uso único criado pelo ADM; PIN isolado não autoriza display.
+3. BUILD_ID 3.68-r29 usado no Presence e aviso de versão incompatível.
+4. Comandos administrativos críticos exigem controlador ativo no backend.
+5. Remoto administrativo vinculado à sessão autenticada do aparelho.
+6. Snapshot de elegibilidade por round para progresso e auto-close.
+7. Fallback Realtime com jitter/backoff para reduzir rajadas simultâneas.
+8. Handshake frontend/backend exige schema 39 antes de comandar a partida.
+9. Logo compartilhada não é apagada enquanto outra sala ainda referencia a URL.
+10. Logo transparente/adaptativa uniformizada no ADM, jogador e telão.
+11. Suíte local deixou de aprovar cenários por constantes e passou a testar invariantes determinísticas.
+12. GitHub Pages passou a executar a auditoria automatizada antes do deploy.
+13. Assets r28 essenciais foram mantidos por um ciclo para evitar 404 de clientes com HTML antigo em cache.
+14. Duplicidades exatas das regras de logo adaptativa do display foram removidas na consolidação final.
+
+RESULTADO DA AUDITORIA ESTÁTICA
+- JavaScript: sintaxe aprovada.
+- HTML: 689 IDs sem duplicidade.
+- Referências locais: aprovadas.
+- CSS: chaves e url(...) aprovadas.
+- Migrations: 001–039 contínuas.
+- Credenciais privilegiadas: nenhuma embutida.
+- config.js distribuído apenas com placeholders.
+
+OBSERVAÇÃO DE HOMOLOGAÇÃO
+A r26 permanece a base de rollback. A r29 corrige os problemas identificados na crítica, mas a homologação de capacidade real de 50–100 celulares depende do projeto Supabase, latência, plano, Wi‑Fi/4G e condições do evento. O pacote não executa carga destrutiva automaticamente no banco do usuário.

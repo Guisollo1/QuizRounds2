@@ -1,0 +1,6 @@
+QuizRounds2 v3.68 r33 — Tema Azul
+
+- Tema principal roxo substituído por azul em jogador, ADM, telão e simulador.
+- Compatibilidade mantida com configurações de tema já salvas usando a chave interna violet.
+- Colisões dos quatro mapas da r32 preservadas.
+- 31 avatares e schema Supabase 40 preservados.

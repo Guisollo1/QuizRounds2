@@ -1,0 +1,43 @@
+QuizRounds2 v3.68-r47 — Game Modes Expandido
+
+NOVOS GAMES / MECÂNICAS
+- Mais Próximo Vence: valor numérico; o participante mais próximo recebe a pontuação.
+- Faixa de Precisão: faixas Ouro/Prata/Bronze com pontuação proporcional.
+- Ordenação: reordenação de itens com correção parcial por posição.
+- Relacionar Colunas: associação de pares com pontuação parcial.
+- Classificação: cada item é associado a uma categoria.
+- Verdadeiro/Falso em Série: várias afirmações dentro do mesmo round.
+- Imagem Oculta: imagem revelada progressivamente durante o cronômetro.
+- Zoom Misterioso: imagem inicia ampliada e abre o enquadramento ao longo do tempo.
+- Quem Sou Eu?: pistas liberadas progressivamente.
+- Antes e Depois: comparação entre mídia inicial e mídia revelada no resultado.
+- Caso Técnico: cenário destacado com decisão por alternativas.
+- Árvore de Decisão: escolha de caminho e consequência revelada no resultado.
+- Missão em Equipe: seleção múltipla de ações e integração com ranking por equipes.
+- Bingo de Conhecimento: cartela 3×3 ou 5×5 com validação de linha/coluna/diagonal.
+- Roda da Sorte: multiplicador determinístico revelado no resultado.
+- Caixa Surpresa: bônus/multiplicador revelado ao encerrar o round.
+- Previsão da Sala: pontua quem prever a alternativa majoritária.
+- Enquete ao Vivo: votação sem pontuação dentro de um round.
+- Escolha do Público / Categoria Escolhida: votação orienta a próxima etapa.
+
+AUTOMAÇÃO / APRESENTAÇÃO
+- Categoria escolhida pelo ADM, categoria aleatória e enfileiramento pela categoria vencedora do público.
+- Dificuldade progressiva baseada no desempenho recente da sala.
+- Modo Prova: gabarito/ranking ocultos durante a execução.
+- Votação pública fora do round com atualização de resultados no ADM e telão.
+- Runtime específico para celular/telão sem MutationObserver global.
+- Respostas avançadas JSON com espelho no motor clássico para contagem, ranking e histórico.
+
+SEGURANÇA / ESTABILIDADE
+- Snapshot da mecânica é congelado ao entrar na fila e preservado no round.
+- Elegibilidade do participante por round é respeitada.
+- Gabaritos/targets e resultados secretos não são enviados antes da revelação.
+- Roda/Caixa não expõem o prêmio antes da revelação.
+- Respostas duplicadas permanecem idempotentes.
+- Mantidas as correções de login, controlador, regras, 100vh, filtros, ranking sem piscadas e GameShow Pro r46.
+
+SUPABASE
+- Backend requerido: schema 042.
+- Migration nova: 042_game_modes_pack_v368_r47.sql.
+- Se o projeto já está na r46/schema 041, execute apenas 00_APLICAR_MIGRATION_042.sql antes de publicar a r47.

@@ -1,0 +1,25 @@
+AUDITORIA DO TELÃO / CONTROLE REMOTO — v3.68 r26
+
+Sintoma observado:
+- Telão aberto e funcionando.
+- Controle remoto indicava "Telão não detectado".
+
+Evidência no backend:
+- A sala mais recente possuía membership role=display registrado poucos segundos após sua criação.
+- Portanto o display estava autorizado corretamente.
+
+Causa raiz:
+- A policy de SELECT de realtime.messages aceitava Presence para participant/admin/display.
+- A policy de INSERT aceitava Presence somente para participant.
+- Assim, display e admin conseguiam assinar o canal mas não registrar sua presença.
+
+Correção:
+- quiz_realtime_presence_write agora aceita participant/admin/display.
+- Exige auth.uid() correspondente a quiz_realtime_memberships.
+- Exige tópico exato quiz:<room_id>.
+- O display renova Presence a cada 12 segundos enquanto visível e se registra novamente ao retornar para a aba/reconectar.
+
+Regressão:
+- Teste de INSERT Presence para display: OK.
+- Teste de INSERT Presence para admin: OK.
+- Nenhum dado de teste persistido.
