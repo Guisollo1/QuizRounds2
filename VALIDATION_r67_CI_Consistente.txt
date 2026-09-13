@@ -1,0 +1,5 @@
+VALIDAÇÃO r67
+- Gate essencial e auditável separado da auditoria profunda.
+- Artefato _site é limpo de runtimes legados.
+- Áudio permanece exclusivo do telão e exige ativação por gesto real do navegador.
+- Backend permanece schema 042 base / 043 para equipes avançadas.

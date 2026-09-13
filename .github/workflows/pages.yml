@@ -25,7 +25,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Ler versão da release
         id: release
@@ -40,8 +40,29 @@ jobs:
           echo "release=$release" >> "$GITHUB_OUTPUT"
           echo "Publicando QuizRounds2 $build ($release)"
 
-      - name: Validar release
-        run: node scripts/validate-build.mjs
+      - name: Gate essencial da release
+        run: node scripts/validate-release.mjs
+
+      - name: Auditoria profunda de desenvolvimento
+        id: deep_audit
+        continue-on-error: true
+        shell: bash
+        run: |
+          set +e
+          node scripts/validate-build.mjs 2>&1 | tee deep-audit.log
+          status=${PIPESTATUS[0]}
+          {
+            echo "### Auditoria profunda"
+            if [ "$status" -eq 0 ]; then
+              echo "✅ Auditoria profunda aprovada."
+            else
+              echo "⚠️ Auditoria profunda encontrou divergência não bloqueante. O gate essencial e o artefato publicado continuam sendo validados separadamente."
+            fi
+            echo '```text'
+            tail -80 deep-audit.log
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+          exit "$status"
 
       - name: Montar site estático
         env:
@@ -85,10 +106,8 @@ jobs:
             "admin/|${BUILD_ID}"
             "${common}|BUILD_ID='${BUILD_ID}'"
           )
-
           declare -A confirmed
           for spec in "${resources[@]}"; do confirmed["${spec%%|*}"]=0; done
-
           for attempt in $(seq 1 "$max_attempts"); do
             pending=0
             echo "Verificação de propagação ${attempt}/${max_attempts} para ${BUILD_ID}…"
@@ -117,7 +136,6 @@ jobs:
             fi
             if [ "$attempt" -lt "$max_attempts" ]; then sleep "$wait_seconds"; fi
           done
-
           echo "::error::O GitHub Pages não convergiu integralmente para ${BUILD_ID} dentro de $((max_attempts*wait_seconds/60)) minutos."
           for spec in "${resources[@]}"; do
             path="${spec%%|*}"

@@ -1,12 +1,12 @@
-# QuizRounds2 v3.68-r66 — CI Consistente + Publicação Verificada
+# QuizRounds2 v3.68-r67 — CI Consistente + Publicação Verificada
 
 ## Estado desta release
 
-A r66 consolida o runtime pré-publicação com um único sistema de áudio exclusivo do telão e mantém a verificação automática do conteúdo realmente servido pelo GitHub Pages. Não cria migration nova e mantém o backend base no schema 042, com schema 043 necessário somente para os três modos avançados de formação de equipes.
+A r67 consolida o runtime pré-publicação com um único sistema de áudio exclusivo do telão e mantém a verificação automática do conteúdo realmente servido pelo GitHub Pages. Não cria migration nova e mantém o backend base no schema 042, com schema 043 necessário somente para os três modos avançados de formação de equipes.
 
-### Refatoração r66
+### Refatoração r67
 
-- Runtime ativo unificado em **r66**: HTML, JS, CSS, cache-bust, `/admin`, workflow, validador e diagnóstico usam a mesma revisão.
+- Runtime ativo unificado em **r67**: HTML, JS, CSS, cache-bust, `/admin`, workflow, validador e diagnóstico usam a mesma revisão.
 - **Sons de feedback somente no telão**. Jogadores e ADM permanecem silenciosos; no celular continuam animações e vibração.
 - **AudioManager único**: efeitos, contagem e ambiente usam o mesmo WebAudioContext e o mesmo mute/volume mestre do telão. O runtime Pro não cria AudioContext nem cues paralelos.
 - Perguntas com áudio ou vídeo são reproduzíveis somente no telão; no celular aparece um aviso para acompanhar a mídia na apresentação principal.
@@ -23,7 +23,7 @@ A r66 consolida o runtime pré-publicação com um único sistema de áudio excl
 
 ### Publicação no GitHub Pages
 
-A r66 não considera o deploy concluído apenas porque o artefato foi enviado. O workflow gera `_site`, valida esse conteúdo, publica e depois consulta o endereço público. A Action só termina com sucesso quando `version.json`, ADM, jogador, telão, simulador e o runtime `common-v3.68-r66.js` confirmam a revisão **3.68-r66**.
+A r67 não considera o deploy concluído apenas porque o artefato foi enviado. O workflow gera `_site`, valida esse conteúdo, publica e depois consulta o endereço público. A Action só termina com sucesso quando `version.json`, ADM, jogador, telão, simulador e o runtime `common-v3.68-r67.js` confirmam a revisão **3.68-r67**.
 
 ## Supabase
 
@@ -125,5 +125,5 @@ A r53 reorganiza a criação da partida para reduzir cliques e decisões técnic
 - **Sem migration nova:** mantém o backend no schema 043. Quem já aplicou a migration 043 não precisa executar SQL novamente.
 
 
-## r66 — deploy resiliente
+## r67 — deploy resiliente
 A confirmação pós-deploy aguarda a propagação de todos os endpoints públicos antes de considerar o GitHub Pages atualizado.
