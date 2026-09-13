@@ -1,4 +1,4 @@
-name: Deploy QuizRounds2 r64 no GitHub Pages
+name: Deploy QuizRounds2 no GitHub Pages
 
 on:
   push:
@@ -27,10 +27,23 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Validar release r64
+      - name: Ler versão da release
+        id: release
+        shell: bash
+        run: |
+          set -euo pipefail
+          build="$(node -p "JSON.parse(require('fs').readFileSync('version.json','utf8')).build")"
+          release="$(node -p "JSON.parse(require('fs').readFileSync('version.json','utf8')).release")"
+          [[ "$build" =~ ^3\.68-r[0-9]+$ ]] || { echo "::error::BUILD_ID inválido: $build"; exit 1; }
+          [[ "$release" =~ ^r[0-9]+$ ]] || { echo "::error::RELEASE inválida: $release"; exit 1; }
+          echo "build=$build" >> "$GITHUB_OUTPUT"
+          echo "release=$release" >> "$GITHUB_OUTPUT"
+          echo "Publicando QuizRounds2 $build ($release)"
+
+      - name: Validar release
         run: node scripts/validate-build.mjs
 
-      - name: Montar site estático r64
+      - name: Montar site estático
         env:
           SUPABASE_URL: ${{ vars.SUPABASE_URL }}
           SUPABASE_PUBLISHABLE_KEY: ${{ secrets.SUPABASE_PUBLISHABLE_KEY || vars.SUPABASE_PUBLISHABLE_KEY }}
@@ -51,24 +64,26 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
 
-      - name: Aguardar propagação e confirmar r64 publicada
+      - name: Aguardar propagação e confirmar publicação
         env:
           SITE_URL: ${{ steps.deployment.outputs.page_url }}
+          BUILD_ID: ${{ steps.release.outputs.build }}
+          RELEASE: ${{ steps.release.outputs.release }}
+        shell: bash
         run: |
           set -euo pipefail
           base="${SITE_URL%/}"
           max_attempts=60
           wait_seconds=10
-
-          # Todos estes recursos precisam pertencer à mesma release antes de a Action ficar verde.
+          common="assets/js/common-v${BUILD_ID}.js"
           resources=(
-            "version.json|\"build\": \"3.68-r64\""
-            "index.html|3.68-r64"
-            "admin.html|3.68-r64"
-            "display.html|3.68-r64"
-            "simulator.html|3.68-r64"
-            "admin/|3.68-r64"
-            "assets/js/common-v3.68-r64.js|BUILD_ID='3.68-r64'"
+            "version.json|\"build\": \"${BUILD_ID}\""
+            "index.html|${BUILD_ID}"
+            "admin.html|${BUILD_ID}"
+            "display.html|${BUILD_ID}"
+            "simulator.html|${BUILD_ID}"
+            "admin/|${BUILD_ID}"
+            "${common}|BUILD_ID='${BUILD_ID}'"
           )
 
           declare -A confirmed
@@ -76,22 +91,18 @@ jobs:
 
           for attempt in $(seq 1 "$max_attempts"); do
             pending=0
-            echo "Verificação de propagação ${attempt}/${max_attempts}…"
-
+            echo "Verificação de propagação ${attempt}/${max_attempts} para ${BUILD_ID}…"
             for spec in "${resources[@]}"; do
               path="${spec%%|*}"
               needle="${spec#*|}"
               [ "${confirmed[$path]}" -eq 1 ] && continue
-
-              sep='?'
-              [[ "$path" == *'?'* ]] && sep='&'
-              url="${base}/${path}${sep}qr_build=3.68-r64&run=${GITHUB_RUN_ID}&attempt=${attempt}&ts=$(date +%s%N)"
+              sep='?'; [[ "$path" == *'?'* ]] && sep='&'
+              url="${base}/${path}${sep}qr_build=${BUILD_ID}&run=${GITHUB_RUN_ID}&attempt=${attempt}&ts=$(date +%s%N)"
               body="$(curl --retry 2 --retry-delay 1 --connect-timeout 10 --max-time 20 -fsSL \
                 -H 'Cache-Control: no-cache, no-store, max-age=0' \
                 -H 'Pragma: no-cache' \
                 -H 'Expires: 0' \
                 "$url" || true)"
-
               if [[ "$body" == *"$needle"* ]]; then
                 confirmed["$path"]=1
                 echo "✓ ${path} propagado"
@@ -100,17 +111,14 @@ jobs:
                 echo "… ${path} ainda não propagou"
               fi
             done
-
             if [ "$pending" -eq 0 ]; then
-              echo "GitHub Pages confirmado integralmente em QuizRounds2 3.68-r64."
+              echo "GitHub Pages confirmado integralmente em QuizRounds2 ${BUILD_ID} (${RELEASE})."
               exit 0
             fi
-
             if [ "$attempt" -lt "$max_attempts" ]; then sleep "$wait_seconds"; fi
           done
 
-          echo "::error::O GitHub Pages não convergiu integralmente para a r64 dentro de $((max_attempts*wait_seconds/60)) minutos."
-          echo "Recursos ainda antigos:"
+          echo "::error::O GitHub Pages não convergiu integralmente para ${BUILD_ID} dentro de $((max_attempts*wait_seconds/60)) minutos."
           for spec in "${resources[@]}"; do
             path="${spec%%|*}"
             if [ "${confirmed[$path]}" -ne 1 ]; then echo " - ${path}"; fi

@@ -1,0 +1,7 @@
+QuizRounds2 v3.68-r65 — CI Consistente
+
+- Corrige a mistura entre release atual e scripts/workflow de release anterior.
+- Workflow do GitHub Pages deixa de ter a versão hardcoded no nome e nas etapas.
+- Build/validação do _site passam a ler VERSION.txt/version.json como fonte de verdade.
+- Mantém áudio unificado exclusivamente no telão e todas as correções da r64.
+- Inclui verificação local pré-push para detectar mistura de versões antes do commit.
