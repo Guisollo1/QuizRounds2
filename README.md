@@ -1,4 +1,16 @@
-# QuizRounds2 v3.68-r47 — Game Modes Expandido
+# QuizRounds2 v3.68-r48 — ADM organizado e estável
+
+## Estado da r48
+
+- Release visual real: frontend, cache-bust, diagnóstico e assets ativos identificados como `3.68-r48`.
+- Backend permanece no **schema 042**; não existe migration nova para esta revisão.
+- ADM 100vh/full width reorganizado com zonas claras: Saúde do evento, Controle do evento, Público e classificação, Análise e diagnóstico.
+- Sombras padronizadas em três níveis e raios em quatro tokens para evitar o efeito “caixa dentro de caixa”.
+- Barra de status compacta sem BUILD duplicado; versão permanece no cabeçalho/diagnóstico.
+- Resumo da partida não compete mais com a barra sticky.
+- Pré-teste tem uma ação principal e os testes de carga ficam agrupados.
+- Estado “somente leitura” do controlador é aviso, não falha crítica.
+- Todos os recursos GameShow Pro e Game Modes da r47 foram preservados.
 
 Ambiente de teste independente do QuizRounds principal, preparado para GitHub Pages + Supabase.
 

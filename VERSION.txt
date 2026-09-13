@@ -1,14 +1,14 @@
 QUIZROUNDS2 TESTE
-RELEASE=r47
-BUILD_ID=3.68-r47
+RELEASE=r48
+BUILD_ID=3.68-r48
 BACKEND_SCHEMA_REQUIRED=42
 SUPABASE_MIGRATIONS=001-042
 AVATAR_CATALOG=31
 UI=3.92
-PLAYER_UI=v3.92-r47
-DISPLAY_UI=v3.92-r47
-ADMIN_UI=v3.68-r47
-SIMULATOR_UI=v3.68-r47
+PLAYER_UI=v3.92-r48
+DISPLAY_UI=v3.92-r48
+ADMIN_UI=v3.68-r48
+SIMULATOR_UI=v3.68-r48
 THEME_PRIMARY=AZUL
-PACKAGE=QuizRounds2_v3_68_UI_v3_92_GitHub_Supabase_r47_GameModes_Expandido
-NOTA=Game Modes Expandido: Mais Próximo, Faixa de Precisão, Ordenação, Relacionar Colunas, Classificação, V/F em Série, Imagem Oculta, Zoom Misterioso, Quem Sou Eu, Antes e Depois, Caso Técnico, Árvore de Decisão, Missão em Equipe, Bingo, Roda da Sorte, Caixa Surpresa, categorias inteligente/aleatória, dificuldade progressiva, Modo Prova, Previsão da Sala, Enquete ao Vivo e Escolha do Público. Requer migration 042 sobre o schema 041.
+PACKAGE=QuizRounds2_v3_68_UI_v3_92_GitHub_Supabase_r48_FINAL_Admin_Organizado
+NOTA=Release visual real r48: ADM reorganizado com hierarquia semântica, sombras em 3 níveis, raios padronizados, abas compactas, status sem duplicação, resumo não sobreposto, pré-teste compacto e controlador em aviso em vez de falha quando está somente leitura. Backend permanece schema 042; sem migration nova.
