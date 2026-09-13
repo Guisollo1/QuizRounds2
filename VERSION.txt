@@ -1,16 +1,16 @@
 QUIZROUNDS2 TESTE
-RELEASE=r65
-BUILD_ID=3.68-r65
+RELEASE=r66
+BUILD_ID=3.68-r66
 BACKEND_SCHEMA_REQUIRED=42
 BACKEND_SCHEMA_RECOMMENDED=43
 TEAM_FEATURE_SCHEMA_REQUIRED=43
 SUPABASE_MIGRATIONS=001-043
 AVATAR_CATALOG=31
 UI=3.92
-PLAYER_UI=v3.92-r65
-DISPLAY_UI=v3.92-r65
-ADMIN_UI=v3.68-r65
-SIMULATOR_UI=v3.68-r65
+PLAYER_UI=v3.92-r66
+DISPLAY_UI=v3.92-r66
+ADMIN_UI=v3.68-r66
+SIMULATOR_UI=v3.68-r66
 THEME_PRIMARY=AZUL
-PACKAGE=QuizRounds2_v3_68_UI_v3_92_GitHub_Supabase_r65_CI_Consistente
-NOTA=r65 corrige definitivamente o CI híbrido: VERSION, runtime, validador, build e workflow usam a mesma release; workflow/build leem a versão como fonte de verdade e há checagem pré-push.
+PACKAGE=QuizRounds2_v3_68_UI_v3_92_GitHub_Supabase_r66_Audio_Ativacao_Garantida
+NOTA=r66 corrige o áudio do telão: ativação explícita, desbloqueio na primeira interação, estado real do AudioContext, som de teste e cues mais audíveis.
