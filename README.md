@@ -1,3 +1,29 @@
+# QuizRounds2 v3.68-r54 — Refatorado / Fluxo Estável
+
+## Instalação e compatibilidade do Supabase
+
+A r54 aceita **schema 042** para Partida Padrão e GameShow individual. Isso corrige o bloqueio global visto na r52 quando aparecia “backend incompatível — aplique migration 043”.
+
+Para usar **Equipes com Automático equilibrado, Jogador escolhe ou ADM escolhe**, atualize o Supabase de teste para **schema 043** executando `00_ATUALIZAR_SUPABASE_PARA_SCHEMA_043.sql`. Quem já está no schema 043 não precisa executar novamente.
+
+## Fluxo refatorado
+
+- **Partida Padrão:** Sala → Perguntas → Regras → Ordem → Revisar → Apresentar.
+- **Partida GameShow individual:** Criar (Sala + dinâmica) → Perguntas → Regras → Ordem → Revisar → Apresentar.
+- **Partida GameShow por equipes:** Criar → Perguntas → Equipes → Regras → Ordem → Revisar → Apresentar.
+- Nova sala começa com a fila vazia; reutilizar perguntas da partida anterior é uma opção explícita.
+- A Central continua a sala no modo correto, sem jogar GameShow para o fluxo Padrão.
+- Modelos GameShow preservam equipes quando o backend está no schema 043.
+- O checklist bloqueia o lobby se uma mecânica especial estiver incompleta.
+- O teste guiado adapta o número de jogadores virtuais ao tipo de partida.
+- O runtime foi enxugado para os assets ativos da r54.
+
+## Segurança do projeto
+
+Use somente no repositório **QuizRounds2** e no Supabase de teste. Não aplique migrations nem estes arquivos no QuizRounds principal de produção sem uma etapa separada de homologação.
+
+---
+
 # QuizRounds2 v3.68-r51 — Fluxo de Perguntas Individual
 
 ## O que mudou
@@ -80,4 +106,11 @@ A r47 mantém os recursos consolidados da r46: GameShow Pro, equipes, mídia por
 
 ## r52 — Formação de equipes em 3 modos
 No GameShow Pro > Sala > Equipes, escolha: Automático equilibrado, Jogador escolhe ou ADM escolhe. No modo ADM, o painel permite selecionar ou arrastar jogadores entre os times. No modo Jogador, a escolha aparece no celular antes da prontidão. Requer migration 043.
+
+## r53 — Fluxo simples / assistente
+A r53 reorganiza a criação da partida para reduzir cliques e decisões técnicas. **Nova partida** pergunta primeiro se o evento será Padrão ou GameShow. O modo simples fica ativo por padrão e mostra apenas o que é necessário.
+
+- **Partida Padrão:** Sala → Perguntas → Regras → Ordem → Revisar → Apresentação.
+- **Partida GameShow:** Sala → Dinâmica → Perguntas → Equipes (quando necessário) → Regras → Ordem → Revisar → Apresentação.
+- **Sem migration nova:** mantém o backend no schema 043. Quem já aplicou a migration 043 não precisa executar SQL novamente.
 
