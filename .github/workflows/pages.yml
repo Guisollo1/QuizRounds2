@@ -1,4 +1,4 @@
-name: Deploy QuizRounds2 r63 no GitHub Pages
+name: Deploy QuizRounds2 r64 no GitHub Pages
 
 on:
   push:
@@ -14,6 +14,9 @@ concurrency:
   group: pages-quizrounds2
   cancel-in-progress: true
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   deploy:
     environment:
@@ -24,10 +27,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Validar release r63
+      - name: Validar release r64
         run: node scripts/validate-build.mjs
 
-      - name: Montar site estático r63
+      - name: Montar site estático r64
         env:
           SUPABASE_URL: ${{ vars.SUPABASE_URL }}
           SUPABASE_PUBLISHABLE_KEY: ${{ secrets.SUPABASE_PUBLISHABLE_KEY || vars.SUPABASE_PUBLISHABLE_KEY }}
@@ -48,34 +51,68 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
 
-      - name: Confirmar r63 realmente publicada
+      - name: Aguardar propagação e confirmar r64 publicada
         env:
           SITE_URL: ${{ steps.deployment.outputs.page_url }}
         run: |
           set -euo pipefail
           base="${SITE_URL%/}"
-          published=0
-          for attempt in $(seq 1 18); do
-            marker="$(curl -fsSL -H 'Cache-Control: no-cache' "${base}/version.json?run=${GITHUB_RUN_ID}&attempt=${attempt}" || true)"
-            if printf '%s' "$marker" | grep -q '"build": "3.68-r63"'; then
-              published=1
-              break
+          max_attempts=60
+          wait_seconds=10
+
+          # Todos estes recursos precisam pertencer à mesma release antes de a Action ficar verde.
+          resources=(
+            "version.json|\"build\": \"3.68-r64\""
+            "index.html|3.68-r64"
+            "admin.html|3.68-r64"
+            "display.html|3.68-r64"
+            "simulator.html|3.68-r64"
+            "admin/|3.68-r64"
+            "assets/js/common-v3.68-r64.js|BUILD_ID='3.68-r64'"
+          )
+
+          declare -A confirmed
+          for spec in "${resources[@]}"; do confirmed["${spec%%|*}"]=0; done
+
+          for attempt in $(seq 1 "$max_attempts"); do
+            pending=0
+            echo "Verificação de propagação ${attempt}/${max_attempts}…"
+
+            for spec in "${resources[@]}"; do
+              path="${spec%%|*}"
+              needle="${spec#*|}"
+              [ "${confirmed[$path]}" -eq 1 ] && continue
+
+              sep='?'
+              [[ "$path" == *'?'* ]] && sep='&'
+              url="${base}/${path}${sep}qr_build=3.68-r64&run=${GITHUB_RUN_ID}&attempt=${attempt}&ts=$(date +%s%N)"
+              body="$(curl --retry 2 --retry-delay 1 --connect-timeout 10 --max-time 20 -fsSL \
+                -H 'Cache-Control: no-cache, no-store, max-age=0' \
+                -H 'Pragma: no-cache' \
+                -H 'Expires: 0' \
+                "$url" || true)"
+
+              if [[ "$body" == *"$needle"* ]]; then
+                confirmed["$path"]=1
+                echo "✓ ${path} propagado"
+              else
+                pending=$((pending+1))
+                echo "… ${path} ainda não propagou"
+              fi
+            done
+
+            if [ "$pending" -eq 0 ]; then
+              echo "GitHub Pages confirmado integralmente em QuizRounds2 3.68-r64."
+              exit 0
             fi
-            echo "Aguardando propagação do Pages (${attempt}/18)…"
-            sleep 5
+
+            if [ "$attempt" -lt "$max_attempts" ]; then sleep "$wait_seconds"; fi
           done
-          if [ "$published" -ne 1 ]; then
-            echo "::error::O GitHub Pages não está servindo a r63 após o deploy."
-            exit 1
-          fi
-          for page in index.html admin.html display.html simulator.html admin/; do
-            curl -fsSL -H 'Cache-Control: no-cache' "${base}/${page}?build=3.68-r63&run=${GITHUB_RUN_ID}" | grep -q '3.68-r63' || {
-              echo "::error::${page} não está servindo a r63."
-              exit 1
-            }
+
+          echo "::error::O GitHub Pages não convergiu integralmente para a r64 dentro de $((max_attempts*wait_seconds/60)) minutos."
+          echo "Recursos ainda antigos:"
+          for spec in "${resources[@]}"; do
+            path="${spec%%|*}"
+            if [ "${confirmed[$path]}" -ne 1 ]; then echo " - ${path}"; fi
           done
-          curl -fsSL -H 'Cache-Control: no-cache' "${base}/assets/js/common-v3.68-r63.js?run=${GITHUB_RUN_ID}" | grep -q "BUILD_ID='3.68-r63'" || {
-            echo "::error::Runtime common-v3.68-r63.js não foi publicado corretamente."
-            exit 1
-          }
-          echo "GitHub Pages confirmado em QuizRounds2 3.68-r63."
+          exit 1

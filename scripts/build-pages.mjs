@@ -22,4 +22,4 @@ for(const dir of ['admin','assets']){
 fs.writeFileSync(path.join(out,'.nojekyll'),'');
 fs.writeFileSync(path.join(out,'assets/js/config.js'),
   `export const SUPABASE_URL=${JSON.stringify(url)};\nexport const SUPABASE_PUBLISHABLE_KEY=${JSON.stringify(key)};\n`);
-console.log('BUILD PAGES: _site criado para QuizRounds2 3.68-r63.');
+console.log('BUILD PAGES: _site criado para QuizRounds2 3.68-r64.');
