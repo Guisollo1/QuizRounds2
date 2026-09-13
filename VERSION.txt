@@ -1,16 +1,16 @@
 QUIZROUNDS2 TESTE
-RELEASE=r54
-BUILD_ID=3.68-r54
+RELEASE=r55
+BUILD_ID=3.68-r55
 BACKEND_SCHEMA_REQUIRED=42
 BACKEND_SCHEMA_RECOMMENDED=43
 TEAM_FEATURE_SCHEMA_REQUIRED=43
 SUPABASE_MIGRATIONS=001-043
 AVATAR_CATALOG=31
 UI=3.92
-PLAYER_UI=v3.92-r54
-DISPLAY_UI=v3.92-r54
-ADMIN_UI=v3.68-r54
-SIMULATOR_UI=v3.68-r54
+PLAYER_UI=v3.92-r55
+DISPLAY_UI=v3.92-r55
+ADMIN_UI=v3.68-r55
+SIMULATOR_UI=v3.68-r55
 THEME_PRIMARY=AZUL
-PACKAGE=QuizRounds2_v3_68_UI_v3_92_GitHub_Supabase_r54_Refatorado_Fluxo_Estavel
-NOTA=r54 refatora o fluxo Padrão/GameShow, novas salas começam vazias por padrão, Central respeita o modo da sala, modelos preservam equipes, revisão valida mecânicas especiais, teste adapta jogadores e assets legados ativos foram removidos. Schema 042 é compatível para Padrão e GameShow individual; schema 043 é necessário somente para os 3 modos avançados de formação de equipes.
+PACKAGE=QuizRounds2_v3_68_UI_v3_92_GitHub_Supabase_r55_Mapas_Refinados
+NOTA=r55 mantém a refatoração estável da r54 e adiciona refinamento dos mapas: nova arte da Indústria, proporção nativa 4:3 nos quatro mapas, rotas de caminhada revisadas para evitar móveis/máquinas e avatares menores/mais compactos. Schema 042 segue compatível para Padrão e GameShow individual; schema 043 continua necessário somente para os 3 modos avançados de formação de equipes.

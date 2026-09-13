@@ -1,8 +1,19 @@
-# QuizRounds2 v3.68-r54 — Refatorado / Fluxo Estável
+# QuizRounds2 v3.68-r55 — Mapas Refinados / Fluxo Estável
+
+
+## Refinamento dos mapas — r55
+
+- **Indústria:** nova arte refinada integrada ao runtime, com corredor central mais limpo e áreas funcionais mais legíveis.
+- **Escritório:** rota da recepção revisada para não atravessar sofás/mesa.
+- **Laboratório:** removido o atalho que cruzava bancadas; circulação prioriza o piso livre.
+- **Plataforma:** passarela leste e rota inferior reposicionadas para evitar tubulações/equipamentos.
+- Os quatro mapas agora usam a proporção nativa **4:3 (1448×1086)**, sem esticamento adicional.
+- Avatares do mapa ficaram aproximadamente **14% menores**, com nomes/balões compactos e maior separação quando vários jogadores ocupam a mesma área.
+- As regras de passagem continuam **door-only**: troca de ambiente somente por portas/aberturas mapeadas.
 
 ## Instalação e compatibilidade do Supabase
 
-A r54 aceita **schema 042** para Partida Padrão e GameShow individual. Isso corrige o bloqueio global visto na r52 quando aparecia “backend incompatível — aplique migration 043”.
+A r55 aceita **schema 042** para Partida Padrão e GameShow individual. Isso corrige o bloqueio global visto na r52 quando aparecia “backend incompatível — aplique migration 043”.
 
 Para usar **Equipes com Automático equilibrado, Jogador escolhe ou ADM escolhe**, atualize o Supabase de teste para **schema 043** executando `00_ATUALIZAR_SUPABASE_PARA_SCHEMA_043.sql`. Quem já está no schema 043 não precisa executar novamente.
 
@@ -16,7 +27,7 @@ Para usar **Equipes com Automático equilibrado, Jogador escolhe ou ADM escolhe*
 - Modelos GameShow preservam equipes quando o backend está no schema 043.
 - O checklist bloqueia o lobby se uma mecânica especial estiver incompleta.
 - O teste guiado adapta o número de jogadores virtuais ao tipo de partida.
-- O runtime foi enxugado para os assets ativos da r54.
+- O runtime foi enxugado para os assets ativos da r55.
 
 ## Segurança do projeto
 
