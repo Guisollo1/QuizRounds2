@@ -1,5 +1,0 @@
-VALIDAÇÃO QuizRounds2 r64
-
-Objetivo: preservar a r63 funcional e endurecer a publicação no GitHub Pages.
-A release deve passar validate-build.mjs, build-pages.mjs e validate-pages.mjs.
-A confirmação pública deve aguardar propagação individual de version.json, index.html, admin.html, display.html, simulator.html, admin/ e common-v3.68-r64.js.

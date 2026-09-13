@@ -1,8 +1,0 @@
-QuizRounds2 v3.68-r64 — Deploy Resiliente
-
-- Mantém o AudioManager unificado da r63.
-- Corrige falso negativo do GitHub Pages durante propagação de cache/CDN.
-- A verificação pós-deploy aguarda até 10 minutos e confere version.json, jogador, ADM, telão, simulador, /admin/ e common.js.
-- Cada tentativa usa cache-busting exclusivo e cabeçalhos no-cache/no-store.
-- A Action só fica verde quando todos os recursos públicos convergem para a mesma release.
-- Opt-in para runtime Node.js 24 nas JavaScript Actions.
