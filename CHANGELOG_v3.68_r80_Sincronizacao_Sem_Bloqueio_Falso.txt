@@ -1,0 +1,13 @@
+QuizRounds2 v3.68-r80 — Sincronização Sem Bloqueio Falso
+
+CORREÇÕES
+- O início não é mais bloqueado por ACK perdido quando Presence confirma exatamente o mesmo build, generation e state_version com heartbeat recente.
+- ACK divergente continua bloqueando.
+- Presence atrasada, stale, inicializando, build diferente ou state_version à frente/atrás continua bloqueando.
+- Testes de conexão concorrentes são coalescidos em uma única execução.
+- Verificações de estabilidade concorrentes reutilizam a mesma execução.
+- Cliques repetidos em Começar Quiz reutilizam a tentativa atual em vez de abrir uma segunda verificação.
+
+BACKEND
+- Nenhuma migration nova.
+- Schema recomendado/atual continua 043.

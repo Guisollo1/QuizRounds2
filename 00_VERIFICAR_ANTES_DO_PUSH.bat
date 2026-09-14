@@ -2,7 +2,7 @@
 setlocal
 cd /d "%~dp0"
 echo ==============================================
-echo QuizRounds2 r79 DEPLOY ESTÁVEL COMPROVADO - pre-push
+echo QuizRounds2 r80 SINCRONIZACAO SEM BLOQUEIO FALSO - pre-push
 echo ==============================================
 where node >nul 2>nul
 if errorlevel 1 (
@@ -49,7 +49,7 @@ if errorlevel 1 (
 )
 echo.
 echo ==============================================
-echo APROVADO - r79 DEPLOY ESTÁVEL COMPROVADO pronta para enviar ao GitHub.
+echo APROVADO - r80 SINCRONIZACAO SEM BLOQUEIO FALSO pronta para enviar ao GitHub.
 echo ==============================================
 pause
 exit /b 0

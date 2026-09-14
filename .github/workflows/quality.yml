@@ -30,7 +30,7 @@ jobs:
       - name: Montar artefato técnico isolado
         env:
           SUPABASE_URL: https://example.supabase.co
-          SUPABASE_PUBLISHABLE_KEY: sb_publishable_QR79_TECHNICAL_VALIDATION_ONLY
+          SUPABASE_PUBLISHABLE_KEY: sb_publishable_QR80_TECHNICAL_VALIDATION_ONLY
         run: node scripts/build-pages.mjs
 
       - name: Validar artefato técnico

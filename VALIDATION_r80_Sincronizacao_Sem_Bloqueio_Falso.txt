@@ -1,0 +1,11 @@
+VALIDAÇÃO r80 — RESULTADO FINAL
+
+- Gate essencial: APROVADO.
+- Sincronização comportamental: 16/16 APROVADA.
+- Estresse operacional: 16/16 + 10.000 cenários + 20 transições com 101 aparelhos APROVADO.
+- Auditoria profunda: 54/54 grupos APROVADOS.
+- Build `_site`: APROVADO.
+- Smoke HTTP: 7/7 APROVADO.
+- E2E self-check: 4 cenários definidos / APROVADO.
+- Workflows YAML: pages.yml, quality.yml e e2e.yml válidos.
+- Backend: sem migration nova; cadeia 001–043 preservada.

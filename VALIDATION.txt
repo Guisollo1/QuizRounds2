@@ -1,1 +1,1 @@
-QuizRounds2 3.68-r79 — use 00_VERIFICAR_ANTES_DO_PUSH.bat. Deploy Pages em pipeline comprovado; homologações pesada/E2E isoladas.
+QuizRounds2 3.68-r80 — use 00_VERIFICAR_ANTES_DO_PUSH.bat. Deploy Pages em pipeline comprovado; homologações pesada/E2E isoladas.

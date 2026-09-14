@@ -1,0 +1,19 @@
+QUIZROUNDS2 v3.68-r80 — SINCRONIZAÇÃO SEM BLOQUEIO FALSO
+
+STATUS: FINAL_STABLE / FROZEN
+BACKEND: schema 042 base; schema 043 recomendado e necessário para equipes avançadas.
+MIGRATION NOVA: nenhuma.
+
+OBJETIVO
+Eliminar os falsos bloqueios de início observados na r79 sem permitir que um aparelho realmente atrasado, divergente ou desatualizado passe pelo pré-flight.
+
+CORREÇÕES r80
+1. `stabilizeBeforeStart()` é coalescido: chamadas simultâneas aguardam a mesma verificação.
+2. `runConnectionTest()` é coalescido: um teste não cancela outro teste ativo.
+3. `startQuiz()` é coalescido: clique duplo/repetido não abre duas sequências de início.
+4. ACK ausente pode ser confirmado por Presence somente quando a identidade está presente com heartbeat recente, mesmo build, mesma generation e mesmo state_version.
+5. ACK divergente continua bloqueante.
+6. Presence stale, inicializando, build diferente, state_version atrás ou à frente continuam bloqueantes.
+
+DEPLOY
+GitHub Pages continua no pipeline simples e comprovado. Homologação técnica e E2E permanecem isoladas do deploy.

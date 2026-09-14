@@ -1,6 +1,6 @@
 QUIZROUNDS2
-RELEASE=r79
-BUILD_ID=3.68-r79
+RELEASE=r80
+BUILD_ID=3.68-r80
 RELEASE_STATUS=FINAL_STABLE
 BACKEND_SCHEMA_REQUIRED=42
 BACKEND_SCHEMA_RECOMMENDED=43
@@ -8,10 +8,10 @@ TEAM_FEATURE_SCHEMA_REQUIRED=43
 SUPABASE_MIGRATIONS=001-043
 AVATAR_CATALOG=31
 UI=3.92
-PLAYER_UI=v3.92-r79
-DISPLAY_UI=v3.92-r79
-ADMIN_UI=v3.68-r79
-SIMULATOR_UI=v3.68-r79
+PLAYER_UI=v3.92-r80
+DISPLAY_UI=v3.92-r80
+ADMIN_UI=v3.68-r80
+SIMULATOR_UI=v3.68-r80
 THEME_PRIMARY=AZUL
-PACKAGE=QuizRounds2_v3_68_UI_v3_92_GitHub_Supabase_r79_Deploy_Estavel_Comprovado
-NOTA=r79 preserva o runtime determinístico da r78 e restaura o deploy GitHub Pages ao pipeline comprovado da r67; homologação pesada e E2E ficam isolados e não derrubam a publicação.
+PACKAGE=QuizRounds2_v3_68_UI_v3_92_GitHub_Supabase_r80_Sincronizacao_Sem_Bloqueio_Falso
+NOTA=r80 elimina bloqueio falso no início: verificações concorrentes são reaproveitadas e ACK ausente pode ser confirmado por presença Realtime exata e recente, sem relaxar build/state_version/heartbeat.
