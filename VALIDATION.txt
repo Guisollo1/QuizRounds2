@@ -1,8 +1,8 @@
-QuizRounds2 v3.68-r77 — VALIDATION
+QuizRounds2 v3.68-r78 — VALIDATION
 
-Release final com sincronização determinística da r76 + gate E2E real de navegador.
+Release final com sincronização determinística e deploy desacoplado do provisionamento de navegador.
 
-Gates locais/estruturais:
+Gates do deploy:
 1. node scripts/validate-release.mjs
 2. node scripts/validate-sync-behavior.mjs
 3. node scripts/validate-event-stress.mjs
@@ -10,13 +10,11 @@ Gates locais/estruturais:
 5. node scripts/build-pages.mjs (com SUPABASE_URL e SUPABASE_PUBLISHABLE_KEY)
 6. node scripts/validate-pages.mjs _site
 7. node scripts/validate-site-smoke.mjs _site
-8. python tests/e2e/test_browser_e2e.py --self-check _site
 
-Gate de navegador no GitHub Actions:
-- instala Playwright + Chromium;
-- executa `python tests/e2e/test_browser_e2e.py _site`;
-- exige 4/4 cenários aprovados antes de configurar/uploadar o GitHub Pages.
+Homologação E2E separada:
+- workflow `.github/workflows/e2e.yml`;
+- imagem Playwright Python v1.55.0 com Chromium pré-instalado;
+- `python tests/e2e/test_browser_e2e.py .`;
+- 4/4 cenários esperados.
 
-O E2E cobre autenticação, suíte lógica via UI, evento completo com 100 jogadores simulados, entrada/desconexão/reconexão/resposta do celular e viewport móvel.
-
-Resultado esperado: todos os gates aprovados. O pacote não contém migration nova; a cadeia permanece 001–043.
+O deploy do Pages não depende mais de instalar navegador. Nenhuma migration nova; cadeia permanece 001–043.

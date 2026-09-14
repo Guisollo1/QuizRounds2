@@ -13,9 +13,10 @@ import os
 import socket
 import sys
 import threading
+import shutil
 from pathlib import Path
 
-BUILD = "3.68-r77"
+BUILD = "3.68-r78"
 EXPECTED_SCENARIOS = 4
 
 
@@ -221,7 +222,14 @@ def run(site_root: Path) -> int:
     ]
     passed = 0
     with static_server(site_root) as base, sync_playwright() as p:
-        browser = p.chromium.launch(headless=True)
+        explicit = os.environ.get("PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH", "").strip()
+        candidates = [explicit, shutil.which("chromium"), shutil.which("chromium-browser"), shutil.which("google-chrome"), shutil.which("google-chrome-stable")]
+        executable = next((x for x in candidates if x and Path(x).exists()), None)
+        launch_kwargs = {"headless": True}
+        if executable:
+            launch_kwargs["executable_path"] = executable
+            launch_kwargs["args"] = ["--no-sandbox"]
+        browser = p.chromium.launch(**launch_kwargs)
         try:
             for name, fn in scenarios:
                 try:

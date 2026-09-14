@@ -1,0 +1,28 @@
+name: Homologação E2E QuizRounds2
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: e2e-quizrounds2
+  cancel-in-progress: true
+
+jobs:
+  chromium:
+    name: Chromium real — 4 cenários
+    runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright/python:v1.55.0-noble
+      options: --ipc=host
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Self-check do E2E
+        run: python tests/e2e/test_browser_e2e.py --self-check .
+
+      - name: E2E real de navegador — Chromium
+        run: python tests/e2e/test_browser_e2e.py .

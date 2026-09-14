@@ -1,0 +1,9 @@
+QuizRounds2 v3.68-r78 — Deploy + E2E Separado
+
+- Runtime funcional e lógica determinística da r77 preservados.
+- Corrigido o caminho crítico do deploy: Pages não instala mais Python/Playwright/Chromium.
+- E2E real movido para workflow próprio `Homologação E2E QuizRounds2`.
+- Workflow E2E usa imagem Playwright Python v1.55.0 com Chromium/dependências pré-instalados.
+- Teste E2E continua com 4 cenários de navegador e reprovação por pageerror/console.error.
+- Deploy mantém gates de release, sincronização, estresse, auditoria, artefato e smoke HTTP.
+- Nenhuma migration nova; Supabase permanece 001–043.

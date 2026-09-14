@@ -2,7 +2,7 @@
 setlocal
 cd /d "%~dp0"
 echo ==============================================
-echo QuizRounds2 r77 FINAL E2E REAL - pre-push
+echo QuizRounds2 r78 DEPLOY + E2E SEPARADO - pre-push
 echo ==============================================
 where node >nul 2>nul
 if errorlevel 1 (
@@ -49,7 +49,7 @@ if errorlevel 1 (
 )
 echo.
 echo ==============================================
-echo APROVADO - r77 FINAL E2E REAL pronta para enviar ao GitHub.
+echo APROVADO - r78 DEPLOY + E2E SEPARADO pronta para enviar ao GitHub.
 echo ==============================================
 pause
 exit /b 0

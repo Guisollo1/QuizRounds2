@@ -1,0 +1,26 @@
+QUIZROUNDS2 v3.68-r78 — DEPLOY + E2E SEPARADO
+
+STATUS: FINAL_STABLE / FROZEN
+BACKEND: schema 042 base; schema 043 recomendado e necessário para equipes avançadas.
+MIGRATION NOVA: nenhuma.
+
+OBJETIVO DA r78
+Corrigir a falha de deploy da r77 sem remover a homologação E2E real.
+
+DEPLOY
+1. GitHub Pages não depende mais de setup-python, pip ou download/instalação de Chromium.
+2. Gates bloqueantes do deploy: release, sincronização, estresse, auditoria, _site e smoke HTTP.
+3. Publicação e confirmação pós-deploy continuam com verificação de propagação.
+
+E2E ISOLADO
+1. Workflow próprio: `.github/workflows/e2e.yml`.
+2. Execução manual em Actions → Homologação E2E QuizRounds2.
+3. Imagem Playwright Python v1.55.0 com Chromium já disponível.
+4. 4 cenários reais de navegador: autenticação/suíte, evento 100 jogadores, reconnect/resposta e viewport móvel.
+5. pageerror e console.error continuam bloqueantes dentro da homologação E2E.
+
+LIMITAÇÃO
+O E2E usa o simulador integrado. Não substitui teste físico de Wi-Fi, iPhone/Android ou carga real no Supabase.
+
+REGRA DE CONGELAMENTO
+Não altere arquivos de uma r78 publicada. Defeito novo deve virar outra revisão.

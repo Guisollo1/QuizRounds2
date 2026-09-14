@@ -1,13 +1,13 @@
-# E2E de navegador — QuizRounds2 r77
+# E2E de navegador — QuizRounds2 r78
 
-Este gate abre o **simulador real** em Chromium via Playwright e dirige a interface como usuário.
-Ele cobre quatro cenários bloqueantes no CI:
+A homologação E2E é propositalmente separada do deploy do GitHub Pages. Isso evita que falhas de provisionamento/download de navegador impeçam uma publicação válida.
 
-1. autenticação e suíte lógica pelo navegador;
-2. evento completo com 100 jogadores simulados até ranking final;
-3. celular de teste com entrada, desconexão, reconexão, resposta e resultado;
-4. viewport móvel de 390×844.
+Workflow: `.github/workflows/e2e.yml` → **Homologação E2E QuizRounds2**.
 
-O teste é propositalmente independente de credenciais Supabase e de serviços externos. Assim, uma falha de rede pública não mascara regressões de DOM, JavaScript, timers, ranking ou fluxo de navegação. Os validadores `validate-sync-behavior.mjs` e `validate-event-stress.mjs` continuam cobrindo o contrato Realtime/state_version.
+Ele usa `mcr.microsoft.com/playwright/python:v1.55.0-noble` e executa quatro cenários:
+1. autenticação e suíte lógica pela interface;
+2. evento completo com 100 jogadores simulados;
+3. entrada, desconexão, reconexão, resposta e resultado do celular;
+4. viewport móvel 390×844.
 
-No GitHub Actions, o browser é instalado antes do deploy e este teste é **bloqueante**.
+O script também tenta usar Chromium/Chrome do sistema quando executado localmente. `pageerror` e `console.error` reprovam o cenário.
