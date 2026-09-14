@@ -1,0 +1,15 @@
+QuizRounds v3.68 / r30 — 31 Avatares + Lobby Map
+
+Base: r29 Hardening Completo, sem remover o hardening de segurança.
+
+Alterações:
+- Catálogo ampliado de 10 para 31 avatares selecionáveis.
+- Importada a lógica de avatares do pacote v3.79/r37d enviado pelo usuário.
+- 31 previews 320×320 e 31 sprite-sheets 640×640 4×4 adicionados ao runtime r30.
+- Seletor do jogador mostra os 31 avatares em 4 colunas no desktop, 3 no mobile e 2 em telas estreitas.
+- O avatar escolhido é salvo com chave canônica no Supabase e reaparece no lobby/mapa, ranking e painel ADM.
+- O mapa do lobby mantém animação em quatro direções e usa o avatar individual de cada participante.
+- Chaves antigas continuam sendo convertidas para os personagens profissionais equivalentes.
+- Migration 040 amplia private.normalize_avatar_key e eleva schema_version para 40.
+- BUILD_ID atualizado para 3.68-r30; frontend exige schema 40 para evitar seleção que o backend não saiba persistir.
+- Hardening r29 (pareamento do telão, privacidade, controller lease, elegibilidade, backoff, logo) preservado.

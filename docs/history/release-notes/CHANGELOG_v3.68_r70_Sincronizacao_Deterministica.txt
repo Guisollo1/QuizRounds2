@@ -1,0 +1,9 @@
+QuizRounds2 v3.68-r70 — Hardening Pré-Evento
+
+- Presença Realtime enriquecida com state_version, generation, phase e build.
+- ADM identifica jogadores/telão atrasados em relação ao estado atual.
+- Telão passa a responder ao teste de conexão do ADM.
+- Teste de conexão informa quantos responderam, quantos estão sincronizados e quantos estão atrasados.
+- Pré-teste incorpora convergência dos aparelhos como alerta operacional.
+- Diagnóstico registra atraso e recuperação de sincronização.
+- Nenhuma migration nova; schema 043 permanece compatível.

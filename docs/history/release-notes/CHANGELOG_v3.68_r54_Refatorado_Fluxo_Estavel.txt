@@ -1,0 +1,28 @@
+QuizRounds2 v3.68-r54 — Refatorado / Fluxo Estável
+
+CORREÇÕES CRÍTICAS
+- Backend mínimo global voltou a ser schema 042. O painel não bloqueia mais toda a aplicação apenas porque a migration 043 ainda não foi aplicada.
+- Schema 043 ficou como requisito específico para Equipes com os 3 modos de formação: Automático equilibrado, Jogador escolhe e ADM escolhe.
+- Incluído 00_ATUALIZAR_SUPABASE_PARA_SCHEMA_043.sql para atualizar o projeto de teste quando quiser usar equipes avançadas.
+- Nova sala começa sem perguntas por padrão. O carry legado do backend é removido imediatamente pelo frontend antes de liberar a sala.
+- Nova partida oferece a opção explícita “Reutilizar perguntas da partida atual”.
+- A Central identifica Partida Padrão ou GameShow e continua/revisa no fluxo correto.
+
+FLUXO / USABILIDADE
+- Partida Padrão simples: Sala → Perguntas → Regras → Ordem → Revisar → Apresentar.
+- GameShow: Criar (Sala + dinâmica) → Perguntas → Equipes quando aplicável → Regras → Ordem → Revisar → Apresentar.
+- Numeração do GameShow muda automaticamente quando Equipes não é utilizada.
+- Configurações avançadas de visual/lobby da Partida Padrão ficam ocultas no Modo simples e aparecem por “Personalizar visual e lobby”.
+- Distribuição manual/ao vivo de jogadores por equipe fica na Apresentação/Lobby, não na configuração inicial dos times.
+- Textos antigos que mandavam o usuário para “Configuração” foram ajustados ao novo fluxo.
+
+VALIDAÇÃO / MODELOS
+- Checklist GameShow valida dados obrigatórios de mecânicas especiais (precisão, ordenação, relacionar, classificação, V/F em série, mídia, pistas, antes/depois, árvore, missão, bingo, roda, caixa e votações).
+- Modelos GameShow preservam definição das equipes e o modo de formação no schema 043.
+- Duplicação de partida por equipes recria os times no novo evento.
+- Teste guiado adapta a quantidade de jogadores virtuais: equipes usam no mínimo 2 por time; votações usam no mínimo 8.
+
+HARDENING
+- Assets JS/CSS legados que não fazem parte do runtime r54 foram removidos do pacote.
+- Mantidos os hardenings de controlador, login, realtime, ranking sem flicker e proteção contra MutationObserver recursivo.
+- Sem migration 044: migrations continuam 001–043.

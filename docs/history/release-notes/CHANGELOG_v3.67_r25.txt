@@ -1,0 +1,18 @@
+QuizRounds v3.67 / UI v3.92 r25
+
+AUDITORIA COMPLETA
+- Corrigido ranking parcial que ainda podia ser apagado por estado vazio transitório no celular.
+- Ranking anterior agora é fornecido pelo próprio Supabase durante pergunta/preparação/pausa, sem revelar antecipadamente o ranking do round atual.
+- Posição do jogador passa a acompanhar a classificação visível.
+- Cache móvel de ranking é invalidado somente em reinício real da partida (generation).
+- Estado final do jogador deixa de mostrar a última pergunta e passa a exibir resultado/ranking final.
+- Corrigidos rounds históricos `open` incompatíveis com a fase da sala.
+- Corrigidas salas antigas ainda ativas quando já existia sala mais nova do mesmo administrador.
+- Nova sala passa a encerrar e anular round aberto da sala substituída antes de finalizar essa sala.
+- Corrigido conflito com a proteção antiga question_open -> result: substituição administrativa usa bypass transacional restrito, enquanto o fluxo normal continua protegido.
+- Preservadas correções r22-r24: logo, lobby, controle remoto e apresentação final.
+
+SUPABASE
+- 036_deep_audit_state_integrity_v367.sql
+- 037_forced_room_supersede_guard_v367.sql
+- Ambas já aplicadas ao projeto QuizRounds conectado.

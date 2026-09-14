@@ -1,0 +1,17 @@
+VALIDAÇÃO QuizRounds2 r59: APROVADA (38 grupos)
+
+01. Sintaxe JavaScript/MJS verificada.
+02. HTML, IDs e referências locais verificados.
+03. Runtime ativo unificado em r59.
+04. Imports/exportações ES Modules resolvidos.
+05. CSS ativo balanceado e URLs locais resolvidas.
+06. Backend base schema 042 / equipes avançadas schema 043 preservados.
+07. Migrations 001–043 contínuas e helpers 043 idênticos.
+08. Mecânicas GameShow, snapshots, elegibilidade e proteção de gabarito preservados.
+09. 31 avatares e quatro mapas preservados.
+10. Spawns/POIs e Gambá ET preservados.
+11. Troca de mapa ao vivo e abertura do telão sem overlay residual preservadas.
+12. Feedbacks r60 verificados: todos prontos, 3–2–1, pergunta liberada, resposta registrada, últimos 5 s, tempo encerrado, novo líder, ranking final, erro técnico e parada/congelamento.
+13. Crossfade do telão e fade na troca de mapa verificados.
+14. Runtime legado r57/r58 removido de assets/js e assets/css.
+15. CI, /admin, cache-bust e manifesto SHA-256 alinhados à r59.

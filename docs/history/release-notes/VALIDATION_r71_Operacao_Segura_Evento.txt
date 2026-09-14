@@ -1,0 +1,7 @@
+VALIDAÇÃO QuizRounds2 r71
+
+- Operação segura pré-evento integrada.
+- Recuperação de sincronização controlada e limitada.
+- ACK de jogador/telão verificado.
+- Bloqueio pré-início por aparelhos atrasados.
+- Runtime e GitHub Pages serão validados pelo gate e auditoria profunda.

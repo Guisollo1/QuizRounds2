@@ -1,0 +1,6 @@
+VALIDAÇÃO r68
+- Build guard version.json presente nas 4 páginas principais.
+- state_version do broadcast é consumido por ADM, jogador e telão.
+- Sincronização com retry curto e coalescing ativa.
+- Reconexão CLOSED ativa em ADM/jogador/telão.
+- Schema base permanece 042 e recursos de equipes em 043.

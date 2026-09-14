@@ -1,0 +1,18 @@
+VALIDAÇÃO QuizRounds2 r62 — Publicação Verificada
+
+- Runtime ativo unificado em r62.
+- HTML/CSS/JS e imports locais verificados.
+- Backend base schema 042; equipes avançadas schema 043.
+- Migrations 001–043 contínuas.
+- 31 avatares e quatro mapas preservados.
+- Sons de feedback exclusivamente no telão; jogador e ADM sem áudio local.
+- Novo líder somente após revelação do ranking.
+- Ativação explícita do áudio no telão.
+- Fade entre painéis e crossfade real de mapa preservados.
+- /admin alinhado à r62.
+- Build de Pages reproduzível por scripts/build-pages.mjs.
+- _site validado por scripts/validate-pages.mjs antes do deploy.
+- Workflow faz verificação pós-deploy contra version.json e páginas públicas.
+- Manifesto SHA-256 regenerado ao final.
+- Validador principal aprovado em 39/39 grupos.
+- Smoke test HTTP local do artefato de Pages aprovado para as rotas e assets principais.

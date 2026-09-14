@@ -1,0 +1,9 @@
+QuizRounds2 v3.68-r68 — Cache + Realtime Hardening
+
+- Autoatualização de HTML quando version.json publica um build mais novo; reduz dependência de Ctrl+F5.
+- Meta no-cache nas páginas principais e alias /admin com redirect cache-busted.
+- Realtime passa a usar state_version do broadcast e repete a leitura rapidamente até alcançar a versão esperada.
+- Eventos em rajada são coalescidos para evitar RPCs concorrentes desnecessários.
+- ADM prioriza refresh visual e adia fila/auditoria/participantes em 180 ms.
+- ADM, jogador e telão reconectam também em CHANNEL CLOSED.
+- Polling permanece como fallback de segurança.

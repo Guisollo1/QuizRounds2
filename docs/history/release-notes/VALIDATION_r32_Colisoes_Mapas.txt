@@ -1,0 +1,38 @@
+QuizRounds2 v3.68 r32 TESTE — VALIDAÇÃO DE COLISÕES DOS MAPAS
+Data: 2026-09-09
+
+STATUS: APROVADO
+
+Escopo auditado:
+- Escritório (office)
+- Laboratório (laboratory)
+- Indústria (industry)
+- Plataforma (platform)
+
+Correções validadas:
+- Rotas redesenhadas sobre áreas transitáveis.
+- Transição entre ambientes restrita a portas, corredores e aberturas reais do mapa.
+- Rotas removidas de paredes, mesas, bancadas, armários, sofás, máquinas e demais mobiliários/obstáculos.
+- Nós de porta/gargalo sem dispersão lateral do avatar.
+- Dispersão geral reduzida para evitar que offsets visuais empurrem personagens para obstáculos.
+- Mesmo grafo/motor de navegação utilizado no telão e no simulador.
+- Spawns e pontos de interesse referenciam nós válidos.
+- 31 avatares e 62 assets de avatar preservados.
+- Supabase schema 40 e migrations 001..040 preservados.
+- Isolamento do namespace QuizRounds2 preservado.
+
+Validador automático:
+VALIDAÇÃO QuizRounds2 r32: APROVADA (13 grupos)
+1. Sintaxe JS.
+2. HTML/IDs/referências/cache-bust.
+3. Imports/exports ES Modules.
+4. CSS/referências/contenção do mapa.
+5. Ativos r32 e compatibilidade de cache.
+6. Contrato frontend/backend e BUILD_ID.
+7. Migrations 001..040.
+8. Catálogo de 31 avatares/62 assets.
+9. Suíte local determinística.
+10. Configuração neutra/sem credenciais privilegiadas.
+11. Namespace QuizRounds2 isolado.
+12. Colisões/nós de porta nos quatro mapas.
+13. Metadados/documentação/launcher/CI.

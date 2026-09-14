@@ -1,8 +1,10 @@
 {
   "product": "QuizRounds2",
-  "release": "r67",
-  "build": "3.68-r67",
-  "ui": "3.92-r67",
+  "release": "r77",
+  "build": "3.68-r77",
+  "ui": "3.92-r77",
   "backend_schema_required": 42,
-  "team_feature_schema_required": 43
+  "team_feature_schema_required": 43,
+  "status": "final-stable",
+  "frozen": true
 }

@@ -1,0 +1,13 @@
+QuizRounds2 v3.68-r50 — Apresentação em subabas individuais
+
+Alterações principais
+- Removida a antiga aba principal 5 “Apresentação”.
+- Configuração (aba 3) agora possui: Sala | Regras | Rounds | Apresentação.
+- GameShow Pro (aba 4) agora possui: Sala | Regras | Rounds | Apresentação.
+- A mesma central ao vivo é montada dentro do fluxo escolhido, sem duplicar IDs, listeners ou estado da sala.
+- Contexto visual identifica “Configuração” ou “GameShow Pro”.
+- Salas criadas pelo GameShow Pro reabrem a apresentação no contexto Pro; salas comuns usam Configuração.
+- Botão “Voltar aos rounds” retorna ao fluxo correto.
+- O modo Evento também respeita o contexto da sala.
+- Atalho na Configuração → Rounds abre diretamente Apresentação/Lobby.
+- Mantido backend schema 042 e migrations 001–042; nenhuma migration nova.

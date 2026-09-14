@@ -1,0 +1,6 @@
+VALIDAÇÃO r66
+- Áudio continua exclusivo do telão.
+- Desbloqueio exige gesto conforme política do navegador e agora é explicitamente conduzido pela interface.
+- Primeira interação também tenta liberar WebAudio.
+- Som de teste confirma imediatamente o dispositivo de saída.
+- Estado visual do botão reflete AudioContext real, não somente preferência local.

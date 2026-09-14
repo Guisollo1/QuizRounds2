@@ -1,0 +1,24 @@
+VALIDAÇÃO QuizRounds2 r46: APROVADA (23 grupos)
+- Sintaxe JS verificada em 130 arquivos + scripts de validação.
+- 4 HTML auditados; 821 IDs sem duplicidade; referências/cache-bust r46 conferidos.
+- Imports ES Modules locais resolvem e imports nomeados conferem com exports.
+- 136 CSS: referências, balanceamento, logo, picker e contenção do mapa verificados.
+- Ativos r46 e compatibilidade de cache r29/r28 verificados.
+- Contrato frontend/backend, BUILD_ID r46 e schema 41 verificados.
+- Migrations 001..041 contínuas; hardening 039, catálogo 040 e GameShow Pro 041 presentes.
+- Catálogo end-to-end: 31 avatares, 62 assets, seleção, Supabase e mapa do lobby verificados.
+- Suíte local determinística preservada e limites documentados.
+- Config neutro e sem credenciais privilegiadas embutidas.
+- Namespace de navegador QuizRounds2 isolado do QuizRounds principal.
+- Quatro mapas r46 auditados com nós de porta/gargalo e dispersão reduzida.
+- Relógio do telão e filtros visuais dos avatares r46 verificados.
+- r46: controlador, sala ativa, telão encerrado e persistência das regras verificados.
+- r46 ADM usa viewport integral e largura total sem max-width centralizador.
+- r46: animações de jogador, telão, ranking, relógio, mapa, ADM e controle remoto verificadas.
+- r46: observadores de animação protegidos contra feedback e reflow síncrono.
+- r46: login/entrada explícitos, boundaries de foco e animações somente após autenticação/entrada.
+- r46: jogador, telão, ADM, mapa, sons, diagnóstico, cache e redução de efeitos verificados.
+- Metadados r46 QuizRounds2, documentação, launcher e CI gate verificados.
+- r46: filtros/carrossel dos avatares, resposta estilizada e ranking sem piscadas verificados.
+- r46: acabamento visual profissional preservado e integrado ao novo contrato Supabase schema 041.
+- GameShow Pro r46: modos, equipes, mídia, perguntas especiais, importação, dashboard, áudio, ensaio, permissões, branding e controle de apresentação verificados.

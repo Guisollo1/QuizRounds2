@@ -1,0 +1,38 @@
+VALIDAÇÃO QuizRounds2 r57: APROVADA (37 grupos)
+01. Sintaxe JavaScript/MJS verificada.
+02. 4 HTML / 958 IDs / refs principais verificados.
+03. Conjunto ativo r57 existe.
+04. Imports/exportações ES Modules resolvidos.
+05. CSS ativo balanceado e URLs locais resolvidas.
+06. Handshake r57: base schema 042, equipes avançadas schema 043.
+07. Cadeia Supabase 001–043 contínua.
+08. Migration 043 e helpers idênticos.
+09. SQL estático: delimitadores $$ balanceados.
+10. 20 mecânicas especiais preservadas.
+11. Snapshots, respostas estruturadas, elegibilidade e idempotência preservados.
+12. Segredos/gabaritos continuam protegidos até revelação.
+13. Três modos de formação de equipes preservados no schema 043.
+14. Schema 042 não bloqueia aplicação; recurso de equipes é feature-gated no 043.
+15. Jogador e telão usam o requisito base schema 042.
+16. Nova sala vazia por padrão + reutilização explícita de perguntas.
+17. Central respeita contexto Padrão/GameShow.
+18. Modelos/duplicação preservam configuração das equipes.
+19. GameShow cria Sala + dinâmica no mesmo passo.
+20. Numeração GameShow é dinâmica com/sem Equipes.
+21. Partida Padrão oculta opções avançadas no modo simples.
+22. Checklist valida mecânicas especiais antes do lobby.
+23. Distribuição ao vivo das equipes está na Apresentação/Lobby.
+24. Teste guiado adapta quantidade de jogadores virtuais.
+25. Banco de perguntas contextual Padrão/GameShow preservado.
+26. Apresentação continua como subaba individual dos dois fluxos.
+27. Proteções anti-loop/anti-flicker preservadas.
+28. Motion continua deferido após autenticação/entrada.
+29. 31 avatares + quatro mapas preservados.
+30. Runtime enxugado: assets JS/CSS legados removidos.
+31. Release docs/CI/alias/configuração neutra verificados.
+32. Mapa da Indústria r57 + proporção nativa 4:3 + escala compacta verificados.
+33. Spawns/POIs dos quatro mapas pertencem ao mesmo grafo transitável e o mascote fica contido no mapa.
+34. Avatar especial e prioridade visual de nomes/personagens protegidos.
+35. Troca de mapa ao vivo e abertura do telão sem overlay residual verificadas.
+36. Hardening de credenciais, controlador, regras e runtime Pro preservado.
+37. Manifesto SHA-256 corresponde integralmente à release.

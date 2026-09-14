@@ -1,0 +1,9 @@
+QuizRounds2 v3.68-r44 — Filtros, resultado e ranking estável
+
+- Corrigidos os filtros dos 31 avatares.
+- Carrossel horizontal com setas, toque/arraste e roda do mouse.
+- Categoria persistida no navegador.
+- Tela “Resposta correta” do telão redesenhada.
+- Ranking/pódio/campeão não recriam mais avatares a cada polling.
+- Sprites de ranking usam frame estático para eliminar piscadas.
+- Backend schema 040, sem migration nova.

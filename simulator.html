@@ -3,23 +3,39 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8"/>
+<meta content="3.68-r77" name="quizrounds-build"/>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="0"/>
+<script id="quizBuildGuard">
+(()=>{
+  const local=document.querySelector('meta[name="quizrounds-build"]')?.content||'';
+  if(!local)return;
+  const parts=value=>{const m=String(value||'').match(/^(\d+)\.(\d+)(?:\.(\d+))?-r(\d+)$/i);return m?[Number(m[1]),Number(m[2]),Number(m[3]||0),Number(m[4])]:null};
+  const compare=(a,b)=>{const A=parts(a),B=parts(b);if(!A||!B)return 0;for(let i=0;i<A.length;i++){if(A[i]!==B[i])return A[i]>B[i]?1:-1}return 0};
+  const showReload=(remote)=>{
+    const render=()=>{if(document.getElementById('quizBuildGuardBanner'))return;const b=document.createElement('button');b.id='quizBuildGuardBanner';b.type='button';b.textContent=`Nova versão ${remote} disponível — atualizar`;b.style.cssText='position:fixed;z-index:2147483647;left:50%;top:10px;transform:translateX(-50%);padding:12px 18px;border:0;border-radius:999px;background:#082b55;color:#fff;font:700 13px system-ui;box-shadow:0 8px 30px #0005;cursor:pointer';b.onclick=()=>{const u=new URL(location.href);u.searchParams.set('qr_build',remote);u.searchParams.set('qr_reload',Date.now());location.replace(u.href)};document.body.appendChild(b)};document.readyState==='loading'?document.addEventListener('DOMContentLoaded',render,{once:true}):render();
+  };
+  fetch('version.json?qr_version_check='+Date.now(),{cache:'no-store',headers:{'Cache-Control':'no-cache'}}).then(r=>r.ok?r.json():null).then(v=>{const remote=String(v?.build||'');if(!remote||compare(remote,local)<=0)return;const k='quiz2:auto-reload:'+remote;try{if(sessionStorage.getItem(k)!=='1'){sessionStorage.setItem(k,'1');const u=new URL(location.href);u.searchParams.set('qr_build',remote);u.searchParams.set('qr_reload',Date.now());location.replace(u.href);return}}catch{}showReload(remote)}).catch(()=>{});
+})();
+</script>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>Quiz Rounds 2 · TESTE v3.68 - Simulador Local de Carga e Fluxo</title>
-<link href="assets/css/core-v3.68-r67.css?v=3.68-r67" rel="stylesheet"/>
-<link href="assets/css/admin-v3.68-r67.css?v=3.68-r67" rel="stylesheet"/>
-<link href="assets/css/display-v3.68-r67.css?v=3.68-r67" rel="stylesheet"/>
-<link href="assets/css/simulator-v3.68-r67.css?v=3.68-r67" rel="stylesheet"/>
-<link href="assets/css/avatars-runtime-v3.68-r67.css?v=3.68-r67" rel="stylesheet"/>
-<link href="assets/css/avatars-ui-v3.92-r67.css?v=3.68-r67" rel="stylesheet"/>
-<script src="assets/vendor/qr-bundle.js?v=3.68-r67"></script>
-<link href="assets/css/motion-v3.68-r67.css?v=3.68-r67" rel="stylesheet"/>
+<link href="assets/css/core-v3.68-r77.css?v=3.68-r77" rel="stylesheet"/>
+<link href="assets/css/admin-v3.68-r77.css?v=3.68-r77" rel="stylesheet"/>
+<link href="assets/css/display-v3.68-r77.css?v=3.68-r77" rel="stylesheet"/>
+<link href="assets/css/simulator-v3.68-r77.css?v=3.68-r77" rel="stylesheet"/>
+<link href="assets/css/avatars-runtime-v3.68-r77.css?v=3.68-r77" rel="stylesheet"/>
+<link href="assets/css/avatars-ui-v3.92-r77.css?v=3.68-r77" rel="stylesheet"/>
+<script src="assets/vendor/qr-bundle.js?v=3.68-r77"></script>
+<link href="assets/css/motion-v3.68-r77.css?v=3.68-r77" rel="stylesheet"/>
 </head>
 <body class="sim-body">
 <section class="sim-login-view" id="simLoginView">
 <div class="sim-login-card">
 <div class="sim-brand-orb">Q</div>
 <div class="eyebrow">AMBIENTE LOCAL DE TESTE</div>
-<h1>Quiz Rounds v3.68-r67</h1>
+<h1>Quiz Rounds v3.68-r77</h1>
 <p>Entre como administrador para testar o mesmo fluxo que será usado no evento.</p>
 <form class="sim-login-form" id="simLoginForm">
 <label>Usuário
@@ -45,7 +61,7 @@
 <header class="sim-app-header">
 <div class="sim-brand-line">
 <div class="sim-brand-orb small">Q</div>
-<div><div class="eyebrow">SIMULADOR LOCAL</div><h1>Quiz Rounds 2 <span>v3.68-r67 TESTE</span></h1></div>
+<div><div class="eyebrow">SIMULADOR LOCAL</div><h1>Quiz Rounds 2 <span>v3.68-r77 TESTE</span></h1></div>
 </div>
 <div class="sim-header-actions">
 <span class="badge neutral" id="simStateBadge">CONFIGURAÇÃO</span>
@@ -252,7 +268,7 @@ TEMPO: 30
 </div>
 </aside>
 <div class="drawer-backdrop hidden" id="drawerBackdrop"></div>
-<script src="assets/js/simulator-v3.68-r67.js?v=3.68-r67" type="module"></script>
-<script src="assets/js/motion-v3.68-r67.js?v=3.68-r67" type="module"></script>
+<script src="assets/js/simulator-v3.68-r77.js?v=3.68-r77" type="module"></script>
+<script src="assets/js/motion-v3.68-r77.js?v=3.68-r77" type="module"></script>
 </body>
 </html>

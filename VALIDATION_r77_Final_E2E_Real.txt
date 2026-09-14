@@ -1,0 +1,21 @@
+VALIDAÇÃO QuizRounds2 v3.68-r77 — Final E2E Real
+
+Objetivo: elevar E2E automatizado para >= 9/10 sem modificar regras do jogo.
+
+Gates preservados da r76:
+- validate-sync-behavior.mjs: 16/16 cenários determinísticos.
+- validate-event-stress.mjs: 16/16 testes + 10.000 cenários + 20 transições com 101 aparelhos.
+- validate-build.mjs: auditoria completa bloqueante.
+- validate-pages.mjs + validate-site-smoke.mjs: artefato e smoke HTTP.
+
+Novo gate r77:
+- tests/e2e/test_browser_e2e.py
+- Browser: Chromium real via Playwright.
+- Cenário 1: autenticação inválida/válida e suíte lógica disparada pela UI.
+- Cenário 2: evento completo com 100 jogadores simulados até FINISHED e ranking final.
+- Cenário 3: celular entra no lobby, desconecta, reconecta, responde e recebe resultado.
+- Cenário 4: viewport móvel 390×844.
+- pageerror/console.error: bloqueantes.
+- E2E roda antes de configure-pages/upload/deploy.
+
+Limitação: o E2E é de navegador real sobre o simulador integrado, não um teste de infraestrutura Supabase/Wi-Fi física.

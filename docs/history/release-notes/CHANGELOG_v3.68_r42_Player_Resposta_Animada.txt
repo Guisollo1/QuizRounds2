@@ -1,0 +1,17 @@
+QuizRounds2 v3.68-r42 — Player Resposta Animada
+
+Resumo das alterações
+- Tela do jogador reformulada na fase de resultado/revelação da resposta.
+- Novo card principal com status do round (acertou, errou, não respondeu ou aproximação).
+- Novo destaque do gabarito oficial.
+- Novo card da sua resposta com cor contextual.
+- Estatísticas do round no jogador: pontos no round, total, posição, tempo e diferença numérica quando disponível.
+- Distribuição de respostas mais visual no jogador durante as etapas distribution/ranking/final.
+- Melhor acabamento também no estado “Resposta enviada”, antes da revelação.
+- Mantida a compatibilidade com o backend schema 040, sem migration nova.
+
+Arquivos principais
+- index.html
+- assets/js/common-v3.68-r42.js
+- assets/js/player-v3.68-r42.js
+- assets/css/player-ui-v3.92-r42.css

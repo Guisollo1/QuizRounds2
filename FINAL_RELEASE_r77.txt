@@ -1,0 +1,23 @@
+QUIZROUNDS2 v3.68-r77 — FINAL E2E REAL
+
+STATUS: FINAL_STABLE / FROZEN
+BACKEND: schema 042 base; schema 043 recomendado e necessário para equipes avançadas.
+MIGRATION NOVA: nenhuma.
+
+OBJETIVO DA r77
+Corrigir a única categoria da auditoria r76 que permanecia abaixo de 9/10: automação E2E de navegador.
+
+HOMOLOGAÇÃO AUTOMATIZADA
+1. Chromium real via Playwright executado no GitHub Actions antes do deploy.
+2. Login incorreto/correto + suíte lógica acionada pela interface.
+3. Evento completo com 100 jogadores simulados até ranking final.
+4. Celular de teste: entrada, desconexão, reconexão, resposta e resultado.
+5. Viewport móvel 390×844 com verificação de layout essencial.
+6. pageerror e console.error reprovam o gate.
+7. Gates determinísticos da r76 permanecem: ACK por identidade, state_version exato, stress e smoke HTTP.
+
+LIMITAÇÃO HONESTA
+O E2E usa o simulador local para ser determinístico e independente de credenciais. Ele não substitui teste físico de Wi-Fi, iPhone/Android ou carga real no Supabase.
+
+REGRA DE CONGELAMENTO
+Não altere arquivos de uma r77 publicada. Qualquer defeito novo deve virar outra revisão.

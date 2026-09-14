@@ -1,0 +1,3 @@
+QuizRounds2 v3.68-r70 — validação de hardening pré-evento
+
+APROVADA após gate de release, sintaxe JS/MJS, referências locais, imports e build do GitHub Pages.

@@ -1,0 +1,10 @@
+QuizRounds2 v3.68-r77 — Final E2E Real
+
+- Runtime funcional da r76 preservado.
+- Adicionado Playwright/Chromium como gate bloqueante no CI.
+- 4 cenários reais de navegador adicionados.
+- Evento completo de 100 bots validado no DOM até ranking final.
+- Entrada/reconexão/resposta do celular de teste validada por interação de browser.
+- Viewport móvel validado.
+- pageerror e console.error passam a reprovar o E2E.
+- Nenhuma migration nova; Supabase permanece 001–043.

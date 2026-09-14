@@ -1,0 +1,4 @@
+VALIDAÇÃO QuizRounds2 r65 — CI Consistente
+
+Objetivo: impedir release híbrida (ex.: VERSION atual + workflow/validator antigo).
+A release só deve ser enviada quando scripts/validate-build.mjs aprovar e o build _site também for validado.

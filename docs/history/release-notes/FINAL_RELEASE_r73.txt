@@ -1,0 +1,18 @@
+QUIZROUNDS2 v3.68-r73 — FINAL ESTÁVEL
+
+STATUS: FINAL_STABLE / FROZEN
+BACKEND: schema 043 recomendado e já suficiente; não aplicar migration nova se o projeto já está no 043.
+
+OBJETIVO
+Release congelada para uso em evento. Não adiciona mecânicas ou alterações de fluxo sobre a r72; consolida e bloqueia a publicação caso gate essencial, auditoria profunda ou validação do artefato falhem.
+
+ANTES DO EVENTO
+1. Executar 00_VERIFICAR_ANTES_DO_PUSH.bat antes de publicar.
+2. Confirmar Action verde até “Aguardar propagação e confirmar publicação”.
+3. Abrir ADM, telão e pelo menos dois jogadores; confirmar build 3.68-r73.
+4. No telão, ativar o som e ouvir o som de teste.
+5. Rodar o Pré-flight no ADM e exigir estado pronto antes de iniciar.
+6. Fazer uma rodada completa de ensaio e então reiniciar/criar a sala do evento.
+
+CONGELAMENTO
+Depois da homologação real, não alterar HTML/CSS/JS/SQL desta release durante o evento. Qualquer alteração posterior deve gerar nova release.

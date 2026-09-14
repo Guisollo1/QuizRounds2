@@ -1,0 +1,28 @@
+QuizRounds2 v3.68-r73 — VALIDAÇÃO FINAL ESTÁVEL
+
+STATUS: APROVADA
+RELEASE_STATUS: FINAL_STABLE / frozen=true
+BACKEND: schema base 042; schema 043 recomendado e suficiente para equipes avançadas.
+MIGRATIONS: 001–043 contínuas. Nenhuma migration nova nesta release.
+
+RESULTADOS DA AUDITORIA FINAL
+- Gate essencial: APROVADO.
+- Auditoria profunda: APROVADA — 47 grupos.
+- Sintaxe JS/MJS: APROVADA.
+- HTML principal: 4 páginas / 970 IDs / referências locais verificadas.
+- Runtime ativo: somente r73 em assets/js e assets/css, além de config.js neutro.
+- 31 avatares e 4 mapas preservados.
+- Supabase: migrations 001–043 contínuas e migration 043/helpers idênticos.
+- Cache/versionamento: anti-downgrade e autoatualização preservados.
+- Realtime: state_version monotônico, convergência limitada, fallback e reconexão preservados.
+- Operação de evento: watchdog, heartbeat, deduplicação de presença, pré-flight e gate de estabilidade preservados.
+- Áudio: WebAudio exclusivo do telão, ativação explícita e som de teste preservados.
+- CI final: gate essencial, auditoria profunda e validação do _site são bloqueantes.
+- GitHub Pages: workflow YAML válido e script de confirmação pós-deploy passou em teste local.
+- Build Pages com credenciais fictícias válidas: APROVADO.
+- Validação do _site gerado: APROVADA.
+- Confirmação local dos endpoints: version.json, jogador, ADM, telão, simulador, /admin/ e common r73 convergiram na primeira tentativa.
+- Manifesto SHA-256: íntegro após consolidação do pacote.
+
+CONCLUSÃO
+A r73 foi congelada como release final estável. Não adicionar funcionalidades nesta versão durante o evento. Qualquer mudança posterior deve gerar nova release.

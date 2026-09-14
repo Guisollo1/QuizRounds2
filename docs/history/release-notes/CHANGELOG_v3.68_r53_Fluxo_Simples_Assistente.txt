@@ -1,0 +1,23 @@
+QuizRounds2 v3.68-r53 — Fluxo Simples / Assistente
+
+OBJETIVO
+Reduzir a complexidade do ADM para que uma pessoa sem treinamento consiga criar uma partida seguindo uma sequência clara de passos.
+
+PRINCIPAIS MELHORIAS
+- Nova Partida abre uma escolha objetiva: Partida Padrão ou Partida GameShow.
+- Modo simples ativado por padrão; opções profissionais avançadas podem ser exibidas sob demanda.
+- Partida Padrão em 6 passos: Sala > Perguntas > Regras > Ordem > Revisar > Apresentação.
+- Partida GameShow em até 8 passos: Sala > Dinâmica > Perguntas > Equipes > Regras > Ordem > Revisar > Apresentação.
+- A etapa Equipes aparece somente quando a dinâmica Equipes está ativa.
+- Dinâmica principal separada visualmente dos tipos especiais de pergunta.
+- Modelos rápidos GameShow: Individual, Equipes e Evento completo.
+- Geração automática de 2 a 12 equipes com nomes e cores prontos.
+- Mantidos os três modos de formação: automático equilibrado, jogador escolhe e ADM escolhe.
+- Banco contextual mostra compatibilidade/mecânica Pro sem bloquear perguntas válidas.
+- Configuração recomendada de regras em um clique.
+- Resumo permanente mostra modo, perguntas, duração, pontos e dificuldade.
+- Checklist de revisão tem botão Corrigir para levar diretamente à etapa pendente.
+- Botão Testar esta partida abre o simulador com dois jogadores virtuais.
+- Salvar como modelo disponível também no fluxo GameShow.
+- Recursos avançados de áudio, branding, permissões, importação Pro, dashboard e automação ficam ocultos no modo simples e continuam disponíveis no modo avançado.
+- Sem alteração de banco de dados nesta release. Backend exigido: schema 043.

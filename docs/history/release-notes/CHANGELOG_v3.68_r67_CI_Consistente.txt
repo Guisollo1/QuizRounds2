@@ -1,0 +1,9 @@
+QuizRounds2 v3.68-r67 — Deploy Gate Robusto
+
+- O deploy não depende mais do validador profundo como único gate bloqueante.
+- Novo validate-release.mjs faz apenas verificações essenciais e determinísticas antes do build.
+- A auditoria profunda continua rodando e aparece no Summary, mas um teste estrutural excessivamente rígido não impede uma publicação válida.
+- build-pages.mjs remove JS/CSS versionados antigos do _site antes do upload.
+- validate-pages.mjs confirma que o artefato publicado contém somente o runtime da release ativa.
+- Workflow atualizado para checkout@v5 e diagnóstico detalhado em caso de falha.
+- Mantida a ativação explícita de áudio do telão da r66.

@@ -1,0 +1,30 @@
+QuizRounds2 v3.68-r45 — Acabamento Visual Profissional
+
+JOGADOR
+- Resultado com hierarquia de game show, resposta pessoal e gabarito destacados.
+- Pontos, total, posição e progresso visual refinados.
+- Timer com anel de progresso e alerta final sem piscadas agressivas.
+- Lobby com avatar maior e barra de prontidão da sala.
+- Em telas pequenas, o ranking fica oculto durante a pergunta para priorizar o conteúdo principal.
+
+AVATARES
+- Filtros preservados e visualmente reforçados.
+- Carrossel horizontal de avatares com setas, scroll e rodinha do mouse.
+- Avatar selecionado recebe foco, halo e check, sem animação contínua.
+
+TELÃO
+- Fundo, margens e superfícies refinadas para TV/projetor.
+- Resposta correta com card central e progresso de encerramento.
+- Ranking com avatares estáticos e animação somente quando a posição muda.
+- Pódio em plataformas 1º/2º/3º e campeão com maior destaque.
+- Cards finais e estatísticas com hierarquia e leitura aprimoradas.
+
+ADM
+- Cabeçalho mais compacto e maior área útil.
+- Configuração organizada visualmente em blocos.
+- Botões e status de salvamento padronizados.
+
+ESTABILIDADE
+- Sem mudanças em RPCs, autenticação ou migrations.
+- Supabase permanece no schema 040 / migrations 001–040.
+- Proteções de login e MutationObserver da r41 preservadas.

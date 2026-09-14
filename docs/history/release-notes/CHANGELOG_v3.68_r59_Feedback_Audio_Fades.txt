@@ -1,0 +1,17 @@
+QuizRounds2 v3.68-r60 — Feedback de Áudio + Fades
+
+- Sistema de feedback sonoro centralizado no runtime, com AudioContext reutilizável e anti-spam.
+- Som quando todos os jogadores ficam prontos no lobby.
+- Contagem 3–2–1 com tons únicos por segundo.
+- Som específico na liberação da pergunta.
+- Confirmação sonora ao registrar resposta no celular, inclusive GameShow Pro.
+- Últimos 5 segundos com ticks progressivos, sem repetição a cada ciclo do timer.
+- Som de tempo encerrado emitido uma única vez por round.
+- Som de novo líder no telão quando a liderança realmente muda.
+- Som próprio para ranking final e fanfarra do campeão apenas na etapa do campeão.
+- Alerta técnico no ADM para erros operacionais, limitado para evitar repetição excessiva.
+- Som de parada/congelamento no ADM, telão e jogador.
+- Telão com crossfade entre lobby, pergunta, resultado, pausa e telas finais.
+- Troca de mapa ao vivo também recebe fade visual.
+- Mantida a correção do pódio da r58.
+- Runtime recompactado em r60 para eliminar mistura de imports r57/r58.

@@ -1,0 +1,10 @@
+QuizRounds2 v3.68-r73 — FINAL ESTÁVEL
+
+- Base funcional congelada a partir da r72.
+- Sem novas mecânicas de jogo e sem migration nova.
+- VERSION.txt e version.json marcados como FINAL_STABLE/frozen.
+- Auditoria profunda volta a ser bloqueante na Action: deploy não prossegue se falhar.
+- Gate essencial, build do Pages e validação do _site continuam bloqueantes.
+- Runtime ativo renomeado integralmente para r73, sem JS/CSS r72 ativos.
+- Mantidos hardening de cache, Realtime/state_version, watchdog, pré-flight, áudio exclusivo do telão, mapas, 31 avatares e GameShow.
+- Incluído FINAL_RELEASE_r73.txt com checklist operacional de homologação.

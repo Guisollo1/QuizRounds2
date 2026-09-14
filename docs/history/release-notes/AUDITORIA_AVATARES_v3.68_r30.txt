@@ -1,0 +1,21 @@
+QuizRounds v3.68 / r30 — Auditoria da integração dos 31 avatares
+
+Escopo:
+- Base alvo: r29 Hardening Completo.
+- Fonte da lógica/assets: pacote v3.79/r37d com 31 avatares enviado pelo usuário.
+- Backend: Supabase + GitHub Pages preservado.
+
+Integração:
+1. Catálogo expandido de 10 para 31 opções.
+2. 31 previews e 31 sprite-sheets 4×4 incorporados ao runtime r30.
+3. Seletor do jogador ligado ao novo catálogo, sem exibir rótulos de profissão nos cards.
+4. Persistência de avatar usa chave canônica no Supabase.
+5. Lobby/telão recebe avatar_key do roster e renderiza o sprite correspondente no mapa.
+6. Navegação do mapa, colisão/rotas e quatro direções da base estável foram preservadas.
+7. Ranking, identidade do jogador, painel ADM e simulador usam o mesmo módulo de avatares r30.
+8. Chaves legadas continuam normalizadas para evitar regressão de participantes/salas antigas.
+9. Migration 040 eleva o schema para 40 e libera todas as 31 chaves.
+10. Hardening r29 não foi removido.
+
+Resultado:
+- Integração estrutural aprovada pelos 11 grupos do validador de build.

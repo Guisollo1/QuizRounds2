@@ -1,0 +1,9 @@
+QuizRounds2 v3.68-r71 — Operação Segura em Evento
+
+- Indicador SINCRONIA no painel de saúde do evento.
+- Estado de sincronização também aparece no diagnóstico técnico.
+- Botão “Sincronizar aparelhos” substitui a sincronização local simples.
+- Recuperação automática controlada: no máximo uma tentativa periódica, sem loop agressivo.
+- Teste de sincronização agora retorna resultado utilizável pelo fluxo de início.
+- Janela de estabilidade antes de iniciar: aparelhos conectados atrasados bloqueiam o início até convergirem.
+- Nenhuma migration nova; schema 043 permanece suficiente para todos os modos de equipes.

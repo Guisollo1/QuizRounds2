@@ -1,0 +1,10 @@
+QuizRounds2 v3.68-r69 — Sincronização Determinística
+
+- Version guard só atualiza para build realmente mais novo; resposta antiga do CDN nunca força downgrade.
+- state_version e generation passam a ser monotônicos no ADM, jogador e telão: respostas antigas não sobrescrevem estado mais novo.
+- Convergência rápida do Realtime limitada a aproximadamente 2,6–2,8 s; depois entra polling de segurança temporário com backoff natural.
+- Polling periódico não dispara refresh redundante enquanto uma convergência rápida está em andamento.
+- QR/link do jogador e abertura do telão recebem qr_build=3.68-r69 para reforçar cache-busting.
+- Erro de comunicação com Supabase não recomenda migration; incompatibilidade de schema só é mostrada quando confirmada pelo backend.
+- Removida reconexão CLOSED duplicada no ADM/telão.
+- Backend permanece schema 043; nenhuma migration nova.

@@ -1,0 +1,12 @@
+VALIDAÇÃO QuizRounds2 v3.68-r69
+
+Objetivo: cache/versionamento sem downgrade e sincronização Realtime determinística.
+
+Critérios principais:
+- version guard compara builds e ignora versão remota mais antiga;
+- state_version monotônico em ADM, jogador e telão;
+- convergência Realtime rápida é limitada;
+- polling é suspenso durante convergência;
+- links públicos carregam qr_build;
+- falha de rede e schema incompatível têm mensagens distintas;
+- schema Supabase permanece 043.

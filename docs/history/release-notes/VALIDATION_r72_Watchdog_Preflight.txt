@@ -1,0 +1,11 @@
+VALIDAÇÃO QuizRounds2 r72
+
+- Watchdog operacional integrado ao ADM.
+- Heartbeat de telão e jogadores classificado por frescor.
+- Presença de jogador deduplicada para o diagnóstico de sincronização.
+- session_id/reconnect_epoch presentes no jogador e telão.
+- Pré-flight automático leve no lobby e pré-teste manual completo preservados.
+- Modo Evento bloqueia início quando o telão não está operacional.
+- Mistura de builds continua sendo gate bloqueante.
+- Backend permanece schema 042 base / 043 recomendado para equipes avançadas.
+- Runtime, manifesto e GitHub Pages validados pelos scripts da release.

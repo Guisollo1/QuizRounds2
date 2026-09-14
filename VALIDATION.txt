@@ -1,22 +1,22 @@
-QuizRounds2 v3.68-r62 — VALIDAÇÃO FINAL
+QuizRounds2 v3.68-r77 — VALIDATION
 
-Resultado: APROVADA — 39/39 grupos.
+Release final com sincronização determinística da r76 + gate E2E real de navegador.
 
-- Sintaxe JavaScript/MJS aprovada.
-- HTML, IDs, referências e imports ES Modules verificados.
-- Runtime ativo unificado em r62, sem JS/CSS legado ativo.
-- Backend base schema 042 e recursos avançados de equipes no schema 043.
-- Migrations 001–043 contínuas.
-- 31 avatares e quatro mapas preservados.
-- Gambá ET, camadas visuais, spawns e navegação dos mapas preservados.
-- Pódio com avatar/nome separados.
-- Sons do evento exclusivamente no telão; jogador e ADM sem áudio local.
-- Novo líder somente após a revelação do ranking.
-- Fade de telas e crossfade de mapas preservados.
-- /admin aponta para r62.
-- GitHub Pages usa build reproduzível por scripts/build-pages.mjs.
-- O _site é validado antes do upload.
-- version.json expõe a revisão pública para diagnóstico.
-- O workflow verifica o site publicado após o deploy e falha se ADM, jogador, telão, simulador ou runtime não estiverem em r62.
-- Smoke test local do artefato: index.html, admin.html, display.html, simulator.html, /admin/, version.json, common JS e display CSS retornaram HTTP 200.
-- Manifesto SHA-256 regenerado após o fechamento da release.
+Gates locais/estruturais:
+1. node scripts/validate-release.mjs
+2. node scripts/validate-sync-behavior.mjs
+3. node scripts/validate-event-stress.mjs
+4. node scripts/validate-build.mjs
+5. node scripts/build-pages.mjs (com SUPABASE_URL e SUPABASE_PUBLISHABLE_KEY)
+6. node scripts/validate-pages.mjs _site
+7. node scripts/validate-site-smoke.mjs _site
+8. python tests/e2e/test_browser_e2e.py --self-check _site
+
+Gate de navegador no GitHub Actions:
+- instala Playwright + Chromium;
+- executa `python tests/e2e/test_browser_e2e.py _site`;
+- exige 4/4 cenários aprovados antes de configurar/uploadar o GitHub Pages.
+
+O E2E cobre autenticação, suíte lógica via UI, evento completo com 100 jogadores simulados, entrada/desconexão/reconexão/resposta do celular e viewport móvel.
+
+Resultado esperado: todos os gates aprovados. O pacote não contém migration nova; a cadeia permanece 001–043.

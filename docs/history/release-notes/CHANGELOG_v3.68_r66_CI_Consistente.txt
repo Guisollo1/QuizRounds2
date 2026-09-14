@@ -1,0 +1,11 @@
+QuizRounds2 v3.68-r66 — Áudio do telão com ativação garantida
+
+- Corrigida a experiência de desbloqueio de WebAudio exigida pelos navegadores.
+- O telão não exibe mais “Som ✓” enquanto o AudioContext estiver bloqueado.
+- Estado bloqueado agora mostra “Som: ativar”.
+- Ao abrir sala manualmente, entrar em tela cheia ou realizar a primeira interação, o telão tenta liberar o áudio imediatamente.
+- Telão aberto automaticamente pelo ADM mostra uma tela central obrigatória “Ativar som do telão”.
+- Ao liberar o áudio, toca um som de teste de três notas.
+- Feedbacks sonoros ficaram mais audíveis sem alterar a música ambiente.
+- Diagnóstico técnico informa: Ativo / Bloqueado / Desligado / Desativado na sala.
+- Botão “Testar som” adicionado ao diagnóstico do telão.

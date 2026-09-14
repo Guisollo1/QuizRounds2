@@ -1,0 +1,12 @@
+QuizRounds2 v3.68-r72 — Watchdog + Pré-flight
+
+- Watchdog operacional no ADM a cada 5 s para acompanhar Realtime, build, heartbeat e presença do telão/jogadores.
+- Detecção específica de telão com presença antiga/sem heartbeat, separada de telão realmente ausente.
+- Presença dos jogadores deduplicada por participante no diagnóstico, evitando contagem dupla após reconexão/segunda aba.
+- Jogador e telão publicam session_id + reconnect_epoch na presença e nos ACKs de teste.
+- Pré-flight automático leve a cada ~20 s no lobby, sem disparar consultas agressivas.
+- Pré-teste manual continua fazendo verificação completa de backend/Supabase.
+- No Modo Evento, telão ausente ou sem heartbeat passa a ser bloqueio real para iniciar; fora do Modo Evento continua como alerta.
+- Mistura de builds continua bloqueando o início da partida.
+- Watchdog solicita uma convergência controlada quando o telão mantém presença mas deixa de renovar heartbeat.
+- Nenhuma migration nova; schema 043 permanece suficiente.
