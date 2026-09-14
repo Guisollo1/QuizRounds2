@@ -1,0 +1,12 @@
+QUIZROUNDS2 r79 — VALIDAÇÃO DEPLOY ESTÁVEL COMPROVADO
+
+Objetivo: preservar o runtime r78 e eliminar falhas de CI causadas por homologação pesada dentro do deploy.
+
+Critérios:
+- Gate essencial bloqueante no Pages.
+- Auditoria profunda diagnóstica e não bloqueante no Pages.
+- Build e validate-pages bloqueantes.
+- Upload/deploy/propagação bloqueantes.
+- Sincronização + estresse + auditoria + smoke em quality.yml manual.
+- Playwright/Chromium em e2e.yml manual.
+- Nenhuma migration nova; cadeia 001–043 preservada.

@@ -1,0 +1,40 @@
+name: Homologação Técnica QuizRounds2
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: quality-quizrounds2
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    name: Sincronização, estresse, auditoria e smoke
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Contrato comportamental de sincronização
+        run: node scripts/validate-sync-behavior.mjs
+
+      - name: Estresse operacional determinístico
+        run: node scripts/validate-event-stress.mjs
+
+      - name: Auditoria final bloqueante
+        run: node scripts/validate-build.mjs
+
+      - name: Montar artefato técnico isolado
+        env:
+          SUPABASE_URL: https://example.supabase.co
+          SUPABASE_PUBLISHABLE_KEY: sb_publishable_QR79_TECHNICAL_VALIDATION_ONLY
+        run: node scripts/build-pages.mjs
+
+      - name: Validar artefato técnico
+        run: node scripts/validate-pages.mjs _site
+
+      - name: Smoke HTTP local do artefato
+        run: node scripts/validate-site-smoke.mjs _site

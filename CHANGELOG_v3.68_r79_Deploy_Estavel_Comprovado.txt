@@ -1,0 +1,10 @@
+QuizRounds2 v3.68-r79 — Deploy Estável Comprovado
+
+- Runtime funcional da r78 preservado e versionado como r79.
+- Deploy GitHub Pages voltou ao caminho comprovado que já publicou a r67 com sucesso.
+- Pages bloqueia somente gate essencial, build do site e validação do artefato.
+- Auditoria profunda continua visível no deploy, mas não impede uma publicação tecnicamente válida.
+- Sincronização, estresse e smoke foram movidos para workflow manual `Homologação Técnica QuizRounds2`.
+- E2E Chromium permanece isolado no workflow `Homologação E2E QuizRounds2`.
+- O deploy não instala Python, Playwright ou Chromium.
+- Supabase permanece em migrations 001–043; nenhuma migration nova.

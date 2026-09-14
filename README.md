@@ -1,6 +1,6 @@
-# QuizRounds2 v3.68-r78 — Deploy + E2E Separado
+# QuizRounds2 v3.68-r79 — Deploy Estável Comprovado
 
-A r78 preserva integralmente o runtime e as correções determinísticas da r77, mas corrige a arquitetura de CI que fez o deploy falhar: **GitHub Pages não instala mais Python, Playwright ou Chromium durante a publicação**. O deploy volta a depender apenas dos gates locais do projeto e da geração/validação do `_site`.
+A r79 preserva integralmente o runtime e as correções determinísticas da r77, mas corrige a arquitetura de CI que fez o deploy falhar: **GitHub Pages não instala mais Python, Playwright ou Chromium durante a publicação**. O deploy volta a depender apenas dos gates locais do projeto e da geração/validação do `_site`.
 
 ## Correção principal do deploy
 
@@ -32,12 +32,12 @@ A r78 preserva integralmente o runtime e as correções determinísticas da r77,
 ## Publicar no GitHub
 
 1. Preserve somente a pasta `.git` do repositório local.
-2. Remova os arquivos do projeto anterior e copie o conteúdo **de dentro desta pasta r78** para a raiz do repositório.
+2. Remova os arquivos do projeto anterior e copie o conteúdo **de dentro desta pasta r79** para a raiz do repositório.
 3. Execute `00_VERIFICAR_ANTES_DO_PUSH.bat`.
 4. Faça commit e `Push origin` somente com os gates locais aprovados.
 5. Aguarde **Deploy QuizRounds2 no GitHub Pages** concluir em verde.
 6. Depois, se quiser homologar o navegador, abra **Actions → Homologação E2E QuizRounds2 → Run workflow**. Esse teste é separado e não derruba o deploy do Pages.
-7. Abra ADM, jogador e telão e confirme o build **3.68-r78**.
+7. Abra ADM, jogador e telão e confirme o build **3.68-r79**.
 
 Não coloque `sb_secret_` ou `service_role` no navegador. O deploy usa `SUPABASE_URL` e `SUPABASE_PUBLISHABLE_KEY` configurados no GitHub Actions.
 
@@ -54,9 +54,14 @@ O E2E usa o simulador integrado e não substitui ensaio físico de Wi‑Fi, Andr
 
 ## Arquivos de homologação
 
-- `CHANGELOG_v3.68_r78_Deploy_E2E_Separado.txt`
-- `VALIDATION_r78_Deploy_E2E_Separado.txt`
-- `FINAL_RELEASE_r78.txt`
+- `CHANGELOG_v3.68_r79_Deploy_Estavel_Comprovado.txt`
+- `VALIDATION_r79_Deploy_Estavel_Comprovado.txt`
+- `FINAL_RELEASE_r79.txt`
 - `BUILD_MANIFEST_SHA256.txt`
 
 Histórico das versões anteriores permanece em `docs/history/` e não participa do runtime ativo.
+
+
+## Pipeline de deploy comprovado
+
+O GitHub Pages usa apenas o gate essencial, build/validação do artefato, upload, deploy e confirmação de propagação. Os testes pesados ficam nos workflows manuais `Homologação Técnica QuizRounds2` e `Homologação E2E QuizRounds2`, evitando que provisionamento ou testes de desenvolvimento derrubem a publicação.

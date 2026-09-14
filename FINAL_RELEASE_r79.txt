@@ -1,0 +1,22 @@
+QUIZROUNDS2 v3.68-r79 — DEPLOY ESTÁVEL COMPROVADO
+
+STATUS: FINAL_STABLE / FROZEN
+BACKEND: schema 042 base; schema 043 recomendado e necessário para equipes avançadas.
+MIGRATION NOVA: nenhuma.
+
+OBJETIVO
+Eliminar o último ponto de instabilidade do CI: testes pesados não podem impedir a publicação do GitHub Pages.
+
+DEPLOY PAGES
+1. Mantém a arquitetura do pipeline que já publicou a r67 com sucesso.
+2. Gate bloqueante: validação essencial da release.
+3. Auditoria profunda roda com diagnóstico, sem bloquear o Pages.
+4. Build e validação do _site continuam bloqueantes.
+5. Upload, deploy e confirmação de propagação permanecem obrigatórios.
+
+HOMOLOGAÇÃO
+- `.github/workflows/quality.yml`: sincronização, estresse, auditoria profunda e smoke HTTP, manual e bloqueante dentro da homologação.
+- `.github/workflows/e2e.yml`: Playwright/Chromium em workflow próprio.
+
+REGRA
+Defeito de homologação não derruba o site já pronto para publicação; defeito essencial de release/build continua bloqueando o deploy.

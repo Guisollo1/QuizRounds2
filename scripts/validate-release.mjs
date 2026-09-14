@@ -97,7 +97,7 @@ for(const [name,s] of [['admin',adminRuntime],['player',playerRuntime],['display
 if(!adminRuntime.includes("url.searchParams.set('qr_build',BUILD_ID)"))fail('ADM: link do jogador sem qr_build');
 if(!displayRuntime.includes("url.searchParams.set('qr_build',BUILD_ID)"))fail('Telão: QR do jogador sem qr_build');
 
-// r78: observabilidade, watchdog, ACK exato e pré-flight operacional.
+// r79: observabilidade, watchdog, ACK exato e pré-flight operacional.
 if(!playerRuntime.includes('state_version:Number(gameState?.room?.state_version||0)'))fail('Jogador: presença sem state_version');
 if(!playerRuntime.includes("kind:'participant',participant_id:me.id,session_id:tabId,reconnect_epoch:connectionEpoch,build:BUILD_ID,state_version"))fail('Jogador: ACK de sincronização sem sessão/estado/build');
 if(!displayRuntime.includes("kind:'display',display_id:displayPresenceId"))fail('Telão: presença/ACK enriquecido ausente');
@@ -120,7 +120,7 @@ if(!adminRuntime.includes('runPreflight({silent:true,quick:true})'))fail('ADM: p
 if(!adminRuntime.includes("phase()==='lobby'&&Date.now()-lastAutoPreflightAt>20000"))fail('ADM: cadência segura do pré-flight automático ausente');
 if(!adminRuntime.includes("displayRequired=eventModeActive"))fail('ADM: telão não vira gate crítico no modo Evento');
 if(!adminRuntime.includes('dedup=new Map()'))fail('ADM: deduplicação de presença por aparelho/jogador ausente');
-if(!adminRuntime.includes('function summarizePresenceLag(')||!adminRuntime.includes('function evaluateConnectionAcks('))fail('ADM: contrato puro de sincronização r78 ausente');
+if(!adminRuntime.includes('function summarizePresenceLag(')||!adminRuntime.includes('function evaluateConnectionAcks('))fail('ADM: contrato puro de sincronização r79 ausente');
 if(!adminRuntime.includes('Number(d.state_version||0)<=0')||!adminRuntime.includes('Number(d.state_version||0)===target-1')||!adminRuntime.includes('Number(d.state_version||0)>target'))fail('ADM: state_version zero/atrás/à frente não estão classificados de forma estrita');
 if(!adminRuntime.includes('Number(a.state_version||0)===Number(targetVersion)'))fail('ADM: ACK não exige state_version exato');
 if(!adminRuntime.includes('expectedConnectionTargets')||!adminRuntime.includes('missingIds')||!adminRuntime.includes('extraIds'))fail('ADM: ACK não está preso à identidade esperada');
@@ -131,10 +131,11 @@ if(!adminRuntime.includes('transportOk=realtimeOk||(!realtimeRequired&&rpcOk)'))
 if(!adminRuntime.includes('const ok=await refreshState(false)'))fail('ADM: pré-flight automático não atualiza o estado antes de classificar');
 if(!exists('scripts/validate-sync-behavior.mjs'))fail('Validação comportamental da sincronização ausente');
 if(!exists('scripts/validate-event-stress.mjs'))fail('Validação de estresse operacional ausente');
-if(!read('.github/workflows/pages.yml').includes('node scripts/validate-event-stress.mjs'))fail('Workflow não executa o estresse operacional bloqueante');
-if(!read('.github/workflows/pages.yml').includes('node scripts/validate-site-smoke.mjs _site'))fail('Workflow não executa o smoke HTTP bloqueante do artefato');
 const pagesWorkflow=read('.github/workflows/pages.yml');
-if(/setup-python|pip install|playwright install|test_browser_e2e\.py/i.test(pagesWorkflow))fail('Deploy Pages voltou a depender de provisionamento E2E/navegador');
+if(/setup-python|pip install|playwright install|test_browser_e2e\.py|validate-event-stress\.mjs|validate-sync-behavior\.mjs|validate-site-smoke\.mjs/i.test(pagesWorkflow))fail('Deploy Pages contém homologação pesada; mantenha somente o caminho comprovado de publicação');
+for(const token of ['Gate essencial da release','Auditoria profunda de desenvolvimento','continue-on-error: true','node scripts/build-pages.mjs','node scripts/validate-pages.mjs _site','actions/configure-pages@v5','actions/upload-pages-artifact@v4','actions/deploy-pages@v4'])if(!pagesWorkflow.includes(token))fail(`Deploy Pages sem etapa comprovada: ${token}`);
+if(!exists('.github/workflows/quality.yml'))fail('Workflow dedicado de homologação técnica ausente');
+else{const q=read('.github/workflows/quality.yml');for(const token of ['Homologação Técnica QuizRounds2','workflow_dispatch','node scripts/validate-sync-behavior.mjs','node scripts/validate-event-stress.mjs','node scripts/validate-build.mjs','node scripts/validate-site-smoke.mjs _site'])if(!q.includes(token))fail(`Homologação técnica incompleta: ${token}`);}
 if(!exists('.github/workflows/e2e.yml'))fail('Workflow dedicado de homologação E2E ausente');
 else{const e2eWorkflow=read('.github/workflows/e2e.yml');if(!e2eWorkflow.includes('mcr.microsoft.com/playwright/python:v1.55.0-noble'))fail('Workflow E2E sem imagem Playwright pré-provisionada');if(!e2eWorkflow.includes('python tests/e2e/test_browser_e2e.py .'))fail('Workflow E2E não executa os cenários de navegador');}
 
