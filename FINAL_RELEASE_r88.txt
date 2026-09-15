@@ -1,0 +1,23 @@
+QuizRounds2 v3.68-r88 — REFATORAÇÃO 80P / TELÃO FINAL SINCRONIZADO / LOBBY VERTICAL
+BUILD_ID=3.68-r88
+STATUS=FINAL_STABLE
+BACKEND=Supabase schema 42 base / 43 recomendado e necessário para equipes avançadas
+MIGRATIONS=001-043
+HTMLS_AUDITADOS=5
+
+Correções desta release:
+- Lobby do telão: PIN, QR e números do lobby agora ficam um acima do outro, eliminando disputa horizontal de largura.
+- Layout responsivo do lobby preserva o mapa e adapta alturas para projetores 720p/768p e telas menores.
+- Apresentação final: MOSTRAR ESTATÍSTICAS, MOSTRAR DESTAQUES e MOSTRAR CAMPEÃO passam a aplicar uma dica Realtime imediata no telão.
+- O ADM confirma a etapa final recebida pelo servidor antes de concluir a ação e envia um nudge de convergência para o telão.
+- Durante phase=finished, o telão faz polling de segurança a cada ~2,5 s; isso mantém a apresentação final responsiva mesmo se um broadcast Realtime for perdido.
+- Sem migration nova: Supabase 001-043 preservado.
+
+Preservado da r87:
+- Perfil 80P e proteções monotônicas de state_version.
+- Sessão persistente do jogador ao trocar de aplicativo/aba.
+- Letra + resposta do telão em uma única linha.
+- Otimização de espaço nos cinco HTMLs.
+
+Publicação:
+Copie o conteúdo desta pasta para a raiz do repositório, preservando apenas .git. Execute 00_VERIFICAR_ANTES_DO_PUSH.bat antes do commit/push.

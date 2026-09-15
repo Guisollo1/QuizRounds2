@@ -16,7 +16,7 @@ vm.runInContext(src.slice(a+begin.length,b),context,{filename:adminRel});
 const summarize=context.summarizePresenceLag;
 const evaluate=context.evaluateConnectionAcks;
 const expectedTargets=context.expectedConnectionTargets;
-if(typeof summarize!=='function'||typeof evaluate!=='function'||typeof expectedTargets!=='function')throw new Error('Contrato de sincronização r86 incompleto.');
+if(typeof summarize!=='function'||typeof evaluate!=='function'||typeof expectedTargets!=='function')throw new Error('Contrato de sincronização r88 incompleto.');
 
 let passed=0;
 const tests=[];

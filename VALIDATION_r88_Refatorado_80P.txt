@@ -1,0 +1,22 @@
+QuizRounds2 v3.68-r88 — VALIDAÇÃO FINAL
+
+Escopo da r88
+- Lobby do telão: PIN, QR, números de conectados/cadastrados e estado ficam empilhados verticalmente; não disputam largura.
+- Apresentação final: Ranking, Estatísticas, Destaques e Campeão recebem atualização imediata do evento final_show_changed.
+- ADM confirma a etapa final no estado oficial antes de disparar o nudge de convergência.
+- Telão mantém polling de segurança de aproximadamente 2,5 s durante phase=finished.
+- Sessão do jogador continua persistente ao alternar aplicativos, suspender a aba ou retornar do BFCache.
+- Resposta correta no telão continua com letra + texto em uma única linha.
+- Sem migration 044; backend continua 001–043.
+
+Validações executadas
+- Auditoria final: 59/59 grupos aprovados.
+- Sincronização comportamental: 16/16.
+- Estresse operacional: 16/16 testes determinísticos + 10.000 cenários aleatórios + 20 transições com 101 aparelhos.
+- Final Show: 4/4 cenários determinísticos, incluindo troca imediata para Estatísticas.
+- Capacidade 80P: aprovada; perfil periódico teórico 8,00 RPC/s para 80 jogadores.
+- Build Pages: aprovado com configuração temporária de validação; configuração de produção permanece fora do pacote-fonte.
+- Smoke HTTP do artefato: 7/7.
+- E2E self-check: aprovado; 4 cenários de navegador definidos.
+
+Executar antes do push: 00_VERIFICAR_ANTES_DO_PUSH.bat

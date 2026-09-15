@@ -16,7 +16,7 @@ import threading
 import shutil
 from pathlib import Path
 
-BUILD = "3.68-r86"
+BUILD = "3.68-r88"
 EXPECTED_SCENARIOS = 4
 
 
@@ -28,6 +28,7 @@ def self_check(site_root: Path) -> int:
     required = [
         "simulator.html",
         f"assets/js/simulator-v{BUILD}.js",
+        f"assets/js/player-v{BUILD}.js",
         f"assets/js/motion-v{BUILD}.js",
         f"assets/css/simulator-v{BUILD}.css",
         "assets/vendor/qr-bundle.js",
@@ -52,6 +53,21 @@ def self_check(site_root: Path) -> int:
         print("E2E SELF-CHECK: REPROVADO")
         for item in absent:
             print(f" - seletor ausente: {item}")
+        return 1
+    player_src = (site_root / f"assets/js/player-v{BUILD}.js").read_text(encoding="utf-8")
+    resume_markers = [
+        "savedPlayerId=storageGet('quiz2PlayerId','')",
+        "canAutoResume=!!(c&&savedName&&savedPlayerId&&sameSavedRoom)",
+        "setTimeout(()=>join({resume:true}),0)",
+        "async function recoverPlayerForeground({forceReconnect=false}={})",
+        "window.addEventListener('pageshow'",
+        "backgroundedAt=Date.now()",
+    ]
+    missing_resume = [x for x in resume_markers if x not in player_src]
+    if missing_resume:
+        print("E2E SELF-CHECK: REPROVADO")
+        for item in missing_resume:
+            print(f" - retomada ausente: {item}")
         return 1
     print(f"E2E SELF-CHECK: APROVADO — {BUILD} / {EXPECTED_SCENARIOS} cenários de navegador definidos")
     return 0

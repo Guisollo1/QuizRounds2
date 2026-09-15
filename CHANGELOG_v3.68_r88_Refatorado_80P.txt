@@ -1,0 +1,18 @@
+QuizRounds2 v3.68-r88 — Telão Final Sync + Lobby Vertical
+
+TELÃO / LOBBY
+- PIN, QR e números/estado do lobby foram convertidos para uma pilha vertical de uma coluna.
+- Removidas regras responsivas antigas que voltavam a colocar PIN, QR ou números lado a lado.
+- A largura disponível deixa de comprimir os dois blocos.
+
+APRESENTAÇÃO FINAL
+- Corrigido o caso em que o ADM avançava de Ranking final para Estatísticas e o telão permanecia parado.
+- O evento final_show_changed agora possui fast-path local no telão e ainda executa a sincronização oficial de estado.
+- O ADM valida que final_show_stage realmente mudou após o RPC; se necessário, faz uma segunda leitura curta.
+- Após confirmação, o ADM envia um broadcast adicional de convergência com a etapa final.
+- Em phase=finished, o telão usa polling de segurança de aproximadamente 2,5 segundos.
+
+COMPATIBILIDADE
+- Sem migration nova.
+- Supabase 001-043 mantido.
+- Perfil 80P, sessão persistente, resposta em uma linha e otimizações de espaço preservados.

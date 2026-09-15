@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
 <meta content="#0d57a1" name="theme-color"/>
-<meta content="3.68-r86" name="quizrounds-build"/>
+<meta content="3.68-r88" name="quizrounds-build"/>
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
 <meta http-equiv="Pragma" content="no-cache"/>
 <meta http-equiv="Expires" content="0"/>
@@ -22,11 +22,11 @@
 })();
 </script>
 <title>Quiz Rounds 2 · TESTE v3.68 — Administração</title>
-<link href="assets/css/core-v3.68-r86.css?v=3.68-r86" rel="stylesheet"/>
-<link href="assets/css/admin-v3.68-r86.css?v=3.68-r86" rel="stylesheet"/>
-<link href="assets/css/avatars-runtime-v3.68-r86.css?v=3.68-r86" rel="stylesheet"/>
+<link href="assets/css/core-v3.68-r88.css?v=3.68-r88" rel="stylesheet"/>
+<link href="assets/css/admin-v3.68-r88.css?v=3.68-r88" rel="stylesheet"/>
+<link href="assets/css/avatars-runtime-v3.68-r88.css?v=3.68-r88" rel="stylesheet"/>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.112.4/dist/umd/supabase.min.js"></script>
-<script src="assets/vendor/qr-bundle.js?v=3.68-r86"></script>
+<script src="assets/vendor/qr-bundle.js?v=3.68-r88"></script>
 <style id="criticalAdminLoginR43">
 /* Critical pre-auth boundary: inline on purpose so login remains usable even if an older CSS asset is cached. */
 #loginView:not(.hidden){position:relative!important;z-index:100!important;pointer-events:auto!important;isolation:isolate!important}
@@ -36,9 +36,9 @@
 #loginView .login-visual,#loginView .orbit,#loginView .login-visual::before,#loginView .login-visual::after{pointer-events:none!important}
 #loginView.hidden{display:none!important;pointer-events:none!important}
 </style>
-<link href="assets/css/pro-v3.68-r86.css?v=3.68-r86" rel="stylesheet"/>
+<link href="assets/css/pro-v3.68-r88.css?v=3.68-r88" rel="stylesheet"/>
 </head>
-<body class="admin-body admin-app" data-auth-scope="admin" data-build="3.68-r86">
+<body class="admin-body admin-app" data-auth-scope="admin" data-build="3.68-r88">
 <a class="skip-link" href="#mainContent">Pular para o conteúdo</a>
 <div class="ambient ambient-a"></div><div class="ambient ambient-b"></div><div class="ambient ambient-c"></div>
 <main class="shell wide admin-shell" id="mainContent">
@@ -48,7 +48,7 @@
 <div><div class="eyebrow light">QUIZ ROUNDS 2 · TESTE</div><h1>Painel do Administrador</h1><p>Prepare, apresente e controle o quiz em tempo real.</p></div>
 </div>
 <div aria-label="Ações do administrador" class="top-actions">
-<span class="badge version-badge" id="appVersionBadge">v3.68-r86</span><span aria-live="polite" class="connection-pill connecting" id="adminConnection" role="status">Conectando…</span>
+<span class="badge version-badge" id="appVersionBadge">v3.68-r88</span><span aria-live="polite" class="connection-pill connecting" id="adminConnection" role="status">Conectando…</span>
 <button aria-pressed="true" class="ghost glass simple-mode-toggle" id="simpleModeToggle" type="button"><span aria-hidden="true">◎</span> Modo simples</button>
 <button aria-controls="questionHelpModal" aria-haspopup="dialog" class="ghost glass admin-help-trigger" id="adminHelpBtn" type="button"><span aria-hidden="true">?</span> Ajuda</button>
 <a class="ghost glass" href="simulator.html">Simulador</a>
@@ -291,7 +291,7 @@ TEMPO: 30
 </section>
 <section aria-labelledby="adminTabPro" class="tab-panel pro-panel" data-panel="pro" data-pro-pane="room" id="adminPanelPro" role="tabpanel">
   <div class="pro-hero">
-    <div><div class="eyebrow light">PARTIDA GAMESHOW · r86</div><h2>Monte o GameShow em um fluxo guiado</h2><p>Informe a sala, escolha a dinâmica, monte as perguntas, configure equipes quando necessário e siga até o lobby.</p></div><div class="pro-simple-toolbar"><button aria-pressed="true" class="ghost" id="proSimpleModeBtn" type="button">Modo simples</button><small id="proSimpleModeHint">Recursos avançados ocultos.</small></div>
+    <div><div class="eyebrow light">PARTIDA GAMESHOW · r88</div><h2>Monte o GameShow em um fluxo guiado</h2><p>Informe a sala, escolha a dinâmica, monte as perguntas, configure equipes quando necessário e siga até o lobby.</p></div><div class="pro-simple-toolbar"><button aria-pressed="true" class="ghost" id="proSimpleModeBtn" type="button">Modo simples</button><small id="proSimpleModeHint">Recursos avançados ocultos.</small></div>
     <div class="pro-hero-badges"><span class="pro-chip" id="proRoomBadge">Sala —</span><span class="pro-chip" id="proRoleBadge">Perfil —</span><span class="pro-chip" id="proSchemaBadge">Schema —</span><span class="pro-chip hidden" id="proTeamSchemaHint">Equipes 3 modos: schema 043</span></div>
   </div>
   <nav aria-label="Fluxo da Partida GameShow" class="admin-subtabs config-subtabs pro-config-subtabs wizard-subtabs pro-wizard-subtabs" id="proConfigSubtabs" role="tablist">
@@ -364,7 +364,7 @@ TEMPO: 30
         <div class="pro-form two"><label>Tags<input id="proQuestionTags" placeholder="segurança, laboratório, nível 1"></label><label>Fonte / origem<input id="proQuestionSource" maxlength="120" placeholder="Ex.: Treinamento interno"></label></div>
         <label class="pro-check"><input id="proQuestionStarred" type="checkbox"><span><b>Favorita</b><small>Fica no topo do banco profissional.</small></span></label>
         <div class="pro-game-builder" id="proGameBuilder">
-          <div class="pro-game-builder-head"><div><div class="pro-kicker">MECÂNICA r86</div><h4>Tipo de game da pergunta</h4><p id="proGameHint">Escolha uma mecânica. O motor clássico continua disponível em “Padrão”.</p></div><span class="badge neutral" id="proGameBadge">PADRÃO</span></div>
+          <div class="pro-game-builder-head"><div><div class="pro-kicker">MECÂNICA r88</div><h4>Tipo de game da pergunta</h4><p id="proGameHint">Escolha uma mecânica. O motor clássico continua disponível em “Padrão”.</p></div><span class="badge neutral" id="proGameBadge">PADRÃO</span></div>
           <label>Game<select id="proGameType">
             <option value="standard">Padrão / clássico</option><option value="nearest">Mais Próximo Vence</option><option value="precision">Faixa de Precisão</option><option value="ordering">Ordenação</option><option value="matching">Relacionar Colunas</option><option value="classification">Classificação</option><option value="true_false_series">Verdadeiro ou Falso em Série</option><option value="hidden_image">Imagem Oculta</option><option value="zoom_mystery">Zoom Misterioso</option><option value="who_am_i">Quem Sou Eu?</option><option value="before_after">Antes e Depois</option><option value="case_study">Caso Técnico</option><option value="decision_tree">Árvore de Decisão</option><option value="team_mission">Missão em Equipe</option><option value="bingo">Bingo de Conhecimento</option><option value="wheel">Roda da Sorte</option><option value="surprise">Caixa Surpresa</option><option value="crowd_prediction">Previsão da Sala</option><option value="live_poll">Enquete ao Vivo</option><option value="audience_choice">Escolha do Público</option><option value="category_choice">Categoria Escolhida</option>
           </select></label>
@@ -381,7 +381,7 @@ TEMPO: 30
     </article>
 
     <article class="pro-card wide" data-pro-pane="rounds" id="proAutomationCard" data-advanced-feature="1">
-      <div class="pro-card-head"><div><div class="pro-kicker">AUTOMAÇÃO DE ROUNDS</div><h3>Categoria, dificuldade, prova e escolha do público</h3><p>Ferramentas para Categoria Escolhida/Aleatória, Dificuldade Progressiva, Modo Prova e votação pública sem alterar a fila manual.</p></div><span class="badge neutral">r86</span></div>
+      <div class="pro-card-head"><div><div class="pro-kicker">AUTOMAÇÃO DE ROUNDS</div><h3>Categoria, dificuldade, prova e escolha do público</h3><p>Ferramentas para Categoria Escolhida/Aleatória, Dificuldade Progressiva, Modo Prova e votação pública sem alterar a fila manual.</p></div><span class="badge neutral">r88</span></div>
       <div class="pro-automation-grid">
         <section><h4>Fila inteligente</h4><div class="pro-form"><label>Categoria<select id="proSmartCategory"><option value="">Carregando categorias…</option></select></label><div class="pro-actions"><button class="ghost" id="proQueueChosenBtn" type="button">Enfileirar categoria escolhida</button><button class="ghost" id="proQueueRandomBtn" type="button">Categoria aleatória</button><button class="primary" id="proQueueProgressiveBtn" type="button">Dificuldade progressiva</button></div><div class="pro-status" id="proSmartQueueStatus"></div></div></section>
         <section><h4>Modo Prova</h4><div class="pro-form"><label class="pro-check"><input id="proExamMode" type="checkbox"><span><b>Ocultar feedback e ranking durante a prova</b><small>Jogadores respondem normalmente; gabarito, distribuição e ranking ficam protegidos até o final.</small></span></label><label class="pro-check"><input id="proProgressiveMode" type="checkbox"><span><b>Sugerir dificuldade progressiva</b><small>O botão progressivo escolhe fácil/médio/difícil conforme o desempenho recente da sala.</small></span></label><button class="primary" id="proSaveAutomationBtn" type="button">Salvar automação</button></div><div class="pro-status" id="proAutomationStatus"></div></section>
@@ -435,7 +435,7 @@ Curiosidades"></textarea></label><div class="pro-actions"><button class="primary
     </article>
 
     <article class="pro-card wide" data-pro-pane="questions" id="proImportCard" data-advanced-feature="1">
-      <div class="pro-card-head"><div><div class="pro-kicker">IMPORTAÇÃO PROFISSIONAL</div><h3>CSV ou JSON com validação</h3><p>Complementa o TXT existente. CSV aceita cabeçalho; JSON aceita uma lista de objetos. A r86 também aceita game_type e game_spec. Até 500 perguntas por lote.</p></div><span class="badge neutral" id="proImportBadge">0 válidas</span></div>
+      <div class="pro-card-head"><div><div class="pro-kicker">IMPORTAÇÃO PROFISSIONAL</div><h3>CSV ou JSON com validação</h3><p>Complementa o TXT existente. CSV aceita cabeçalho; JSON aceita uma lista de objetos. A r88 também aceita game_type e game_spec. Até 500 perguntas por lote.</p></div><span class="badge neutral" id="proImportBadge">0 válidas</span></div>
       <div class="pro-import-drop"><input accept=".csv,.json,text/csv,application/json" id="proImportFile" type="file"><textarea id="proImportText" placeholder="Cole CSV ou JSON aqui para analisar..."></textarea><div class="pro-form two"><label>Formato<select id="proImportFormat"><option value="auto">Detectar automaticamente</option><option value="csv">CSV</option><option value="json">JSON</option></select></label><label>Modo<select id="proImportMode"><option value="append">Adicionar ao banco</option><option value="replace">Substituir banco ativo</option></select></label></div></div>
       <div class="pro-actions"><button class="ghost" id="proAnalyzeImportBtn" type="button">Analisar</button><button class="primary" disabled id="proRunImportBtn" type="button">Importar lote</button><button class="ghost" id="proDownloadCsvModelBtn" type="button">Modelo CSV</button></div><div class="pro-status" id="proImportStatus"></div><div class="pro-import-preview" id="proImportPreview"></div>
     </article>
@@ -475,7 +475,7 @@ Curiosidades"></textarea></label><div class="pro-actions"><button class="primary
 <div class="health-tile checking" id="healthQuestions"><span>PERGUNTAS</span><strong>0 prontas</strong><small>Fila da partida</small></div>
 <div class="health-tile checking" id="healthController"><span>CONTROLE</span><strong>Verificando…</strong><small>Painel principal</small></div>
 <div class="health-tile checking" id="healthRemote"><span>REMOTO</span><strong>Verificando…</strong><small>Celular autorizado</small></div>
-<div class="health-tile checking" id="healthVersions"><span>VERSÕES</span><strong>v3.68-r86</strong><small>ADM, telão e jogadores</small></div>
+<div class="health-tile checking" id="healthVersions"><span>VERSÕES</span><strong>v3.68-r88</strong><small>ADM, telão e jogadores</small></div>
 </div>
 <div class="preflight-summary neutral" id="preflightSummary">Pré-flight automático aguardando uma sala. O teste completo também pode ser executado manualmente.</div>
 </article>
@@ -524,7 +524,7 @@ Curiosidades"></textarea></label><div class="pro-actions"><button class="primary
 <article class="card participants-live-card"><div class="row wrap"><div><h2>Participantes</h2><p class="muted">Conexão, prontidão e controle de acesso.</p></div><div class="actions wrap"><span class="badge neutral" id="connectionTestResult">Teste não executado</span><button class="ghost small" id="refreshParticipantsBtn" type="button">Atualizar</button></div></div><div aria-label="Filtrar participantes" class="participant-filter-bar" role="group"><button class="active" data-participant-filter="all" type="button">Todos</button><button data-participant-filter="online" type="button">Online</button><button data-participant-filter="offline" type="button">Offline</button><button data-participant-filter="ready" type="button">Prontos</button><button data-participant-filter="issues" type="button">Problemas</button><span id="participantFilterCount">0</span></div><div class="participant-admin-list" id="participantAdminList"></div></article>
 <div class="presentation-zone-heading zone-analysis"><span>04</span><div><b>Análise e diagnóstico</b><small>Histórico, evolução e registros técnicos</small></div></div>
 <article class="card span2 event-secondary-card"><div class="row wrap"><div><h2>Histórico e evolução</h2><p class="muted">Respostas, pontos, rounds perdidos e evolução da classificação.</p></div><div class="actions"><button class="ghost small" id="loadHistoryBtn" type="button">Atualizar histórico</button><button class="ghost small" id="showEvolutionBtn" type="button">Evolução de posição</button></div></div><div class="history-summary" id="historySummary"></div><div class="evolution-chart hidden" id="evolutionChart"></div></article>
-<article class="card span2 diagnostic-card"><div class="row wrap"><div><h2>Diagnóstico do evento</h2><p class="muted">Conexão, transições, comandos e eventos técnicos desta sessão.</p></div><div class="actions wrap"><span class="badge neutral" id="latencyBadge">Latência —</span><button class="ghost small" id="exportDiagnosticsBtn" type="button">Exportar diagnóstico</button><button class="ghost small" id="reloadCurrentBuildBtn" type="button">Recarregar r86</button></div></div><div class="diagnostic-summary-grid" id="diagnosticSummaryGrid"><div><span>FRONTEND</span><strong id="diagBuild">3.68-r86</strong></div><div><span>SCHEMA</span><strong id="diagSchema">—</strong></div><div><span>ESTADO</span><strong id="diagRoomState">—</strong></div><div><span>CONTROLADOR</span><strong id="diagController">—</strong></div><div><span>SINCRONIA</span><strong id="diagSync">—</strong></div><div class="diagnostic-last-error"><span>ÚLTIMO ERRO</span><strong id="diagLastError">Nenhum</strong></div></div><div class="diagnostic-log" id="diagnosticLog"></div><details><summary>Auditoria persistida no Supabase</summary><div class="audit-list" id="auditList"></div></details></article>
+<article class="card span2 diagnostic-card"><div class="row wrap"><div><h2>Diagnóstico do evento</h2><p class="muted">Conexão, transições, comandos e eventos técnicos desta sessão.</p></div><div class="actions wrap"><span class="badge neutral" id="latencyBadge">Latência —</span><button class="ghost small" id="exportDiagnosticsBtn" type="button">Exportar diagnóstico</button><button class="ghost small" id="reloadCurrentBuildBtn" type="button">Recarregar r88</button></div></div><div class="diagnostic-summary-grid" id="diagnosticSummaryGrid"><div><span>FRONTEND</span><strong id="diagBuild">3.68-r88</strong></div><div><span>SCHEMA</span><strong id="diagSchema">—</strong></div><div><span>ESTADO</span><strong id="diagRoomState">—</strong></div><div><span>CONTROLADOR</span><strong id="diagController">—</strong></div><div><span>SINCRONIA</span><strong id="diagSync">—</strong></div><div class="diagnostic-last-error"><span>ÚLTIMO ERRO</span><strong id="diagLastError">Nenhum</strong></div></div><div class="diagnostic-log" id="diagnosticLog"></div><details><summary>Auditoria persistida no Supabase</summary><div class="audit-list" id="auditList"></div></details></article>
 </div>
 </section>
 </section>
@@ -697,7 +697,7 @@ PONTUAR: SIM
 </div>
 </div>
 </main>
-<script src="assets/js/admin-v3.68-r86.js?v=3.68-r86" type="module"></script>
-<script src="assets/js/pro-admin-v3.68-r86.js?v=3.68-r86" type="module"></script>
+<script src="assets/js/admin-v3.68-r88.js?v=3.68-r88" type="module"></script>
+<script src="assets/js/pro-admin-v3.68-r88.js?v=3.68-r88" type="module"></script>
 </body>
 </html>
