@@ -1,34 +1,30 @@
-# QuizRounds2 v3.68-r80 — Sincronização Sem Bloqueio Falso
+# QuizRounds2 v3.68-r81 — Início sem reconexão forçada
 
-A r80 corrige o bloqueio de início observado na r79 sem relaxar a proteção de sincronização real.
+A r81 corrige o bloqueio observado ao iniciar a partida: jogadores já presentes no mapa não são mais forçados a uma nova sincronização/reconexão antes do primeiro round.
 
 ## Correção principal
 
-- Verificações simultâneas de início reutilizam a mesma execução; o ADM não retorna mais “verificação de sincronização já está em andamento” como erro bloqueante.
-- Testes de ACK simultâneos também são coalescidos; um teste não cancela outro que já está em andamento.
-- Se um ACK de teste não chegar, o aparelho pode ser confirmado pela Presence do Supabase somente quando ela estiver **recente** e mostrar exatamente o mesmo `build`, `generation` e `state_version` do ADM.
-- ACK divergente, build diferente, heartbeat vencido, `state_version` atrás/à frente ou aparelho inicializando continuam bloqueando.
-- Cliques repetidos em **Começar Quiz** reutilizam a tentativa atual e não disparam dois inícios concorrentes.
-
-## Deploy e homologação
-
-- O workflow de GitHub Pages permanece no pipeline simples e comprovado: gate essencial, build, validação do `_site`, upload, deploy e confirmação de propagação.
-- Homologação técnica pesada permanece em `.github/workflows/quality.yml`.
-- Playwright/Chromium permanece em `.github/workflows/e2e.yml`.
+- **Iniciar Quiz** usa somente uma checagem passiva do estado já publicado.
+- O início não envia `state_changed`, não executa `connection_test`, não chama `recoverEventSync()` e não recria canais Realtime.
+- A recuperação ativa permanece disponível exclusivamente em **Sincronizar aparelhos** e no watchdog quando existe falha real.
+- Builds diferentes continuam bloqueando o início.
+- No **Modo Evento**, Realtime e telão continuam obrigatórios.
+- Fora do Modo Evento, o fallback controlado por polling permanece disponível.
+- Alertas passivos de convergência/heartbeat não impedem o primeiro `admin_start_quiz`; os aparelhos convergem quando ocorre a mudança real de estado da partida.
+- `state_version = 0` continua significando aparelho ainda inicializando no diagnóstico.
+- Clique repetido em **Começar Quiz** continua coalescido para impedir dois inícios concorrentes.
 
 ## Backend
 
 - Nenhuma migration nova.
 - `BACKEND_SCHEMA_REQUIRED=42`.
-- Schema 043 continua recomendado e necessário para as funções avançadas de equipes.
+- Schema 043 continua recomendado e necessário para os recursos avançados de equipes.
 - Cadeia Supabase preservada em `001–043`.
 
-## Antes do evento
+## Publicação
 
-Execute `00_VERIFICAR_ANTES_DO_PUSH.bat` antes de publicar. Depois do deploy, confirme que ADM, telão e jogadores carregaram `3.68-r80`.
+Execute `00_VERIFICAR_ANTES_DO_PUSH.bat` antes de publicar. Depois do deploy, confirme que ADM, telão e jogadores carregaram `3.68-r81`.
 
-## Diagnóstico de sincronização
+## Histórico
 
-- `state_version = 0` significa que o aparelho ainda está inicializando e não deve ser considerado sincronizado.
-- Fora do Modo Evento, existe fallback controlado por polling quando o Realtime estiver temporariamente indisponível e o Supabase/RPC continuar respondendo.
-- Documentação histórica e helpers antigos ficam organizados em `docs/history/` e não fazem parte do runtime ativo.
+Documentação histórica e helpers antigos permanecem em `docs/history/`, fora do runtime ativo.

@@ -1,0 +1,20 @@
+QUIZROUNDS2 v3.68-r81 — INÍCIO SEM RECONEXÃO FORÇADA
+
+STATUS: FINAL_STABLE / FROZEN
+BACKEND: schema 042 base; schema 043 recomendado e necessário para equipes avançadas.
+MIGRATION NOVA: nenhuma.
+
+OBJETIVO
+Eliminar o loop em que clicar em Iniciar Quiz fazia jogadores/telão entrarem em sincronização/reconexão e impedia a transição do lobby para a partida.
+
+CORREÇÕES r81
+1. Iniciar Quiz não dispara broadcast de recuperação.
+2. Iniciar Quiz não executa teste ACK/connection_test.
+3. Iniciar Quiz não recria canais Realtime nem força subscribe nos jogadores.
+4. A checagem pré-início é passiva: sala, build, Realtime/telão no Modo Evento e estado do backend.
+5. Alertas de state_version/heartbeat são observacionais no início; a convergência ocorre após a mudança real de estado.
+6. Sincronizar aparelhos continua disponível como ação manual de recuperação.
+7. Cliques repetidos em Começar Quiz continuam coalescidos.
+
+DEPLOY
+GitHub Pages permanece no pipeline simples e comprovado. Homologação técnica e E2E permanecem separadas do deploy.

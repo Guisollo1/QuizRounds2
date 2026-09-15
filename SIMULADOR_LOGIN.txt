@@ -1,9 +1,9 @@
-QUIZROUNDS2 v3.68-r80 — SIMULADOR LOCAL
+QUIZROUNDS2 v3.68-r81 — SIMULADOR LOCAL
 
 Login ADM de teste: admin
 Senha de teste: quiz123
 
-Abra 01_Abrir_Simulador_QuizRounds2_v3.68-r80.bat ou simulator.html.
+Abra 01_Abrir_Simulador_QuizRounds2_v3.68-r81.bat ou simulator.html.
 O simulador valida o fluxo local e possui a suíte determinística 100 × 20.
 Validação do contrato de sincronização: scripts/validate-sync-behavior.mjs.
 Estresse operacional 100 jogadores + telão / 8.000 cenários: scripts/validate-event-stress.mjs.

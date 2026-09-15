@@ -1,0 +1,8 @@
+QuizRounds2 v3.68-r81 — Início sem reconexão forçada
+
+- Removida a recuperação ativa do fluxo automático de Iniciar Quiz.
+- Removidos state_changed/connection_test do gate pré-início.
+- Jogadores já presentes no mapa permanecem conectados ao clicar em iniciar.
+- Sincronização ativa fica reservada ao botão Sincronizar aparelhos e a falhas reais do watchdog.
+- Build divergente e requisitos do Modo Evento continuam protegidos.
+- Nenhuma migration nova; Supabase segue 001–043.

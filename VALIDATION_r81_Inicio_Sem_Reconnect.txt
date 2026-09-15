@@ -1,0 +1,8 @@
+VALIDAÇÃO QuizRounds2 r81 — Início sem reconexão forçada
+
+Critérios adicionais:
+- stabilizeBeforeStart usa somente observação passiva.
+- fluxo de início não chama recoverEventSync.
+- fluxo de início não chama runConnectionTest.
+- fluxo de início não chama broadcastSyncNudge.
+- recuperação manual permanece disponível.

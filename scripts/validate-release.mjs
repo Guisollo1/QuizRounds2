@@ -97,7 +97,7 @@ for(const [name,s] of [['admin',adminRuntime],['player',playerRuntime],['display
 if(!adminRuntime.includes("url.searchParams.set('qr_build',BUILD_ID)"))fail('ADM: link do jogador sem qr_build');
 if(!displayRuntime.includes("url.searchParams.set('qr_build',BUILD_ID)"))fail('Telão: QR do jogador sem qr_build');
 
-// r80: observabilidade, watchdog, ACK exato e pré-flight operacional.
+// r81: observabilidade, watchdog, ACK exato e pré-flight operacional.
 if(!playerRuntime.includes('state_version:Number(gameState?.room?.state_version||0)'))fail('Jogador: presença sem state_version');
 if(!playerRuntime.includes("kind:'participant',participant_id:me.id,session_id:tabId,reconnect_epoch:connectionEpoch,build:BUILD_ID,state_version"))fail('Jogador: ACK de sincronização sem sessão/estado/build');
 if(!displayRuntime.includes("kind:'display',display_id:displayPresenceId"))fail('Telão: presença/ACK enriquecido ausente');
@@ -110,7 +110,7 @@ if(!adminRuntime.includes('syncOk=lag.lagging===0'))fail('ADM: pré-teste não c
 if(!adminRuntime.includes('function recoverEventSync('))fail('ADM: recuperação coordenada de sincronização ausente');
 if(!adminRuntime.includes('function stabilizeBeforeStart('))fail('ADM: janela de estabilidade antes do início ausente');
 if(!adminRuntime.includes('function maybeAutoRecoverLag('))fail('ADM: auto-recuperação controlada ausente');
-if(!adminRuntime.includes('Sincronização bloqueou o início'))fail('ADM: bloqueio de início por aparelhos atrasados ausente');
+if(!adminRuntime.includes('// INICIO_PASSIVO_SEM_RECONNECT_BEGIN')||!adminRuntime.includes('// INICIO_PASSIVO_SEM_RECONNECT_END'))fail('ADM: gate passivo de início sem reconexão ausente');
 if(!read('admin.html').includes('id="healthSync"')||!read('admin.html').includes('id="startSyncCheck"'))fail('ADM: indicadores visuais de sincronização ausentes');
 
 if(!playerRuntime.includes('session_id:tabId,reconnect_epoch:connectionEpoch'))fail('Jogador: identidade de sessão da presença ausente');
@@ -120,16 +120,25 @@ if(!adminRuntime.includes('runPreflight({silent:true,quick:true})'))fail('ADM: p
 if(!adminRuntime.includes("phase()==='lobby'&&Date.now()-lastAutoPreflightAt>20000"))fail('ADM: cadência segura do pré-flight automático ausente');
 if(!adminRuntime.includes("displayRequired=eventModeActive"))fail('ADM: telão não vira gate crítico no modo Evento');
 if(!adminRuntime.includes('dedup=new Map()'))fail('ADM: deduplicação de presença por aparelho/jogador ausente');
-if(!adminRuntime.includes('function summarizePresenceLag(')||!adminRuntime.includes('function evaluateConnectionAcks('))fail('ADM: contrato puro de sincronização r80 ausente');
+if(!adminRuntime.includes('function summarizePresenceLag(')||!adminRuntime.includes('function evaluateConnectionAcks('))fail('ADM: contrato puro de sincronização r81 ausente');
 if(!adminRuntime.includes('Number(d.state_version||0)<=0')||!adminRuntime.includes('Number(d.state_version||0)===target-1')||!adminRuntime.includes('Number(d.state_version||0)>target'))fail('ADM: state_version zero/atrás/à frente não estão classificados de forma estrita');
 if(!adminRuntime.includes('Number(a.state_version||0)===Number(targetVersion)'))fail('ADM: ACK não exige state_version exato');
 if(!adminRuntime.includes('expectedConnectionTargets')||!adminRuntime.includes('missingIds')||!adminRuntime.includes('extraIds'))fail('ADM: ACK não está preso à identidade esperada');
 if(!adminRuntime.includes('matched>=connectionExpectedTargets.length')||!adminRuntime.includes('Math.max(2500,Math.min(8000'))fail('ADM: early-completion/deadline adaptativo ausentes');
 if(!adminRuntime.includes('test?.complete&&sameTarget')||!adminRuntime.includes('presenceFallback=final.ok&&sameTarget&&!ackConflict&&missingCoveredByPresence'))fail('ADM: recuperação não diferencia ACK completo de confirmação secundária por presença exata');
 if(!adminRuntime.includes('if(startStabilityPromise)return startStabilityPromise')||!adminRuntime.includes('if(connectionTestPromise)return connectionTestPromise'))fail('ADM: verificações concorrentes ainda podem se cancelar ou bloquear falsamente');
-if(!adminRuntime.includes("Modo Evento exige Realtime conectado")||!adminRuntime.includes('fallback:true'))fail('ADM: fallback controlado/Modo Evento estrito ausente');
+if(!adminRuntime.includes("Modo Evento exige Realtime conectado")||!adminRuntime.includes('const fallback=!realtimeOk'))fail('ADM: fallback controlado/Modo Evento estrito ausente');
 if(!adminRuntime.includes('transportOk=realtimeOk||(!realtimeRequired&&rpcOk)'))fail('ADM: pré-flight não diferencia fallback normal de Modo Evento');
 if(!adminRuntime.includes('const ok=await refreshState(false)'))fail('ADM: pré-flight automático não atualiza o estado antes de classificar');
+const passiveStartMatch=adminRuntime.match(/\/\/ INICIO_PASSIVO_SEM_RECONNECT_BEGIN([\s\S]*?)\/\/ INICIO_PASSIVO_SEM_RECONNECT_END/);
+if(!passiveStartMatch)fail('ADM: bloco passivo de início não pôde ser localizado');
+else{
+  const passive=passiveStartMatch[1];
+  for(const forbidden of ['broadcastSyncNudge','runConnectionTest','recoverEventSync','subscribe('])if(passive.includes(forbidden))fail(`ADM: início passivo ainda dispara recuperação/reconexão: ${forbidden}`);
+  for(const requiredToken of ['refreshState(false)','trackAdminPresence','versionMismatch','eventModeActive&&!realtimeOk','eventModeActive&&!displayOnline','passive:true'])if(!passive.includes(requiredToken))fail(`ADM: gate passivo incompleto: ${requiredToken}`);
+}
+if(!adminRuntime.includes('const stability=await stabilizeBeforeStart()')||!adminRuntime.includes("db.rpc('admin_start_quiz'"))fail('ADM: fluxo de início não está ligado ao gate passivo e ao RPC real');
+
 if(!exists('scripts/validate-sync-behavior.mjs'))fail('Validação comportamental da sincronização ausente');
 if(!exists('scripts/validate-event-stress.mjs'))fail('Validação de estresse operacional ausente');
 const pagesWorkflow=read('.github/workflows/pages.yml');
