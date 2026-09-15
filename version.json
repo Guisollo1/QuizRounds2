@@ -1,8 +1,17 @@
 {
   "product": "QuizRounds2",
-  "release": "r67",
-  "build": "3.68-r67",
-  "ui": "3.92-r67",
+  "release": "r86",
+  "build": "3.68-r86",
+  "ui": "3.92-r86",
   "backend_schema_required": 42,
-  "team_feature_schema_required": 43
+  "backend_schema_recommended": 43,
+  "team_feature_schema_required": 43,
+  "status": "final-stable",
+  "frozen": true,
+  "profile": "refactored-80p-space-optimized",
+  "display_answer_single_line": true,
+  "display_result_full_width_without_ranking": true,
+  "space_optimization_all_html": true,
+  "html_pages_audited": 5,
+  "migrations": "001-043"
 }

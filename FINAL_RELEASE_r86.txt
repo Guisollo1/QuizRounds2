@@ -1,0 +1,18 @@
+QuizRounds2 v3.68-r86 — REFATORAÇÃO COMPLETA 80P / ESPAÇO OTIMIZADO
+BUILD_ID=3.68-r86
+STATUS=FINAL_STABLE
+BACKEND=Supabase schema 42 base / 43 recomendado e necessário para equipes avançadas
+MIGRATIONS=001-043
+HTMLS_AUDITADOS=5
+
+Objetivo desta release:
+Partir da r85 e eliminar áreas ociosas nos cinco HTMLs publicados sem alterar o fluxo funcional, a arquitetura 80P ou o backend.
+
+Telão:
+A resposta correta mantém letra + texto completo em uma única linha. Sem ranking, o resultado usa toda a largura útil. O mapa continua presente, mas ocupa uma faixa adaptativa menor nas fases de pergunta/resultado/final.
+
+ADM/Jogador/Simulador:
+Grades com trilhas vazias, alturas mínimas excessivas e breakpoints precoces foram corrigidos para aproveitar melhor monitores, notebooks, tablets e celulares.
+
+Publicação:
+Copie o conteúdo desta pasta para a raiz do repositório, preservando apenas .git. Execute 00_VERIFICAR_ANTES_DO_PUSH.bat antes do commit/push.

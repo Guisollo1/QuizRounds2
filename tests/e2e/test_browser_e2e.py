@@ -16,7 +16,7 @@ import threading
 import shutil
 from pathlib import Path
 
-BUILD = "3.68-r81"
+BUILD = "3.68-r86"
 EXPECTED_SCENARIOS = 4
 
 

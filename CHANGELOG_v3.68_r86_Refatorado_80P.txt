@@ -1,0 +1,18 @@
+QuizRounds2 v3.68-r86 — REFATORAÇÃO COMPLETA 80P / ESPAÇO OTIMIZADO
+
+Base: r85 — Refatoração Completa 80P / Resposta em 1 Linha.
+Backend: Supabase migrations 001–043, sem migration nova.
+
+Mudanças desta revisão:
+- Auditoria de aproveitamento de espaço em todos os 5 HTMLs publicados.
+- ADM: 4 abas principais usam 4 trilhas reais; cabeçalho se ajusta aos botões efetivamente visíveis.
+- ADM: removidas alturas mínimas excessivas de login/Central e corrigido o fluxo de subabas para não reservar posições sem conteúdo.
+- GameShow: 7 passos não reservam mais uma 8ª coluna vazia.
+- Telão: pergunta/resultado/final recebem mais largura, mantendo mapa e avatares em painel lateral adaptativo.
+- Telão: resultado sem ranking usa 100% da largura útil e não mantém coluna interna vazia.
+- Telão: letra + resposta permanecem em uma única linha; respostas longas continuam com ajuste automático de fonte.
+- Jogador: durante pergunta aberta o ranking lateral deixa de consumir largura e a questão passa a usar toda a coluna disponível.
+- Jogador: limites de largura e alturas mínimas foram recalibrados para desktop, tablet e celular.
+- Simulador: alturas fixas foram substituídas por clamp/viewport onde geravam área morta; lobby aproveita duas colunas até 960 px.
+- admin/index.html: redirecionamento sem margens padrão desnecessárias.
+- Mantidas as consolidações estruturais da r85/r83: utilitários comuns, proteção monotônica de generation/state_version e perfil operacional 80P.

@@ -24,13 +24,19 @@ jobs:
       - name: Estresse operacional determinístico
         run: node scripts/validate-event-stress.mjs
 
+      - name: Perfil de capacidade para 80 participantes
+        run: node scripts/validate-capacity-80.mjs
+
+      - name: Refatoração estrutural
+        run: node scripts/validate-refactor.mjs
+
       - name: Auditoria final bloqueante
         run: node scripts/validate-build.mjs
 
       - name: Montar artefato técnico isolado
         env:
           SUPABASE_URL: https://example.supabase.co
-          SUPABASE_PUBLISHABLE_KEY: sb_publishable_QR81_TECHNICAL_VALIDATION_ONLY
+          SUPABASE_PUBLISHABLE_KEY: sb_publishable_QR80_TECHNICAL_VALIDATION_ONLY
         run: node scripts/build-pages.mjs
 
       - name: Validar artefato técnico

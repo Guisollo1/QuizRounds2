@@ -1,4 +1,4 @@
-# E2E de navegador — QuizRounds2 r81
+# E2E de navegador — QuizRounds2 r86
 
 A homologação E2E é propositalmente separada do deploy do GitHub Pages. Isso evita que falhas de provisionamento/download de navegador impeçam uma publicação válida.
 

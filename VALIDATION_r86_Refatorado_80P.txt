@@ -1,0 +1,30 @@
+VALIDAÇÃO r86 — Refatoração Completa 80P / Espaço Otimizado
+
+Escopo estático de layout
+- 5/5 HTMLs auditados: admin.html, admin/index.html, display.html, index.html e simulator.html.
+- Referências locais src/href verificadas sem arquivos ausentes.
+- CSS ativo com chaves balanceadas.
+- ADM principal: 4 abas reais / 4 trilhas.
+- Padrão: 6 passos; GameShow: 7 passos, sem 8ª trilha vazia.
+- Telão: resultado sem ranking ocupa uma coluna completa; mapa preservado em faixa adaptativa.
+- Telão: letra + resposta em nowrap com fitDisplayAnswerLine() ativo.
+- Jogador: pergunta aberta usa uma coluna completa e não reserva a coluna do ranking.
+- Simulador: alturas e breakpoint do lobby recalibrados para viewport.
+
+Validações executadas nesta release
+- Auditoria final do build: APROVADA — 57/57 grupos.
+- Gate de release: APROVADO — 3.68-r86.
+- Refatoração estrutural: APROVADA.
+- Sincronização comportamental: APROVADA 16/16.
+- Capacidade 80P: APROVADA — perfil periódico teórico 8.00 RPC/s para 80 jogadores.
+- Estresse operacional: APROVADO — 16/16 determinísticos + 10.000 cenários aleatórios + 20 transições com 101 aparelhos.
+- E2E self-check: APROVADO — 4 cenários de navegador definidos.
+- Build Pages local: APROVADO.
+- Validação do _site: APROVADA.
+- Smoke HTTP do artefato: APROVADO 7/7.
+
+Backend
+- BACKEND_SCHEMA_REQUIRED=42.
+- TEAM_FEATURE_SCHEMA_REQUIRED=43.
+- Migrations contínuas 001–043.
+- Nenhuma migration nova nesta revisão.

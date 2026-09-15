@@ -9,6 +9,7 @@ const meta=Object.fromEntries(read('VERSION.txt').split(/\r?\n/).map(x=>x.trim()
 const build=String(meta.BUILD_ID||'').trim(),release=String(meta.RELEASE||'').trim();
 if(!/^3\.68-r\d+$/.test(build)||!/^r\d+$/.test(release))errors.push('VERSION.txt sem release/build válidos');
 if(marker.build!==build||marker.release!==release)errors.push(`version.json diverge de VERSION.txt (${marker.build}/${marker.release} != ${build}/${release})`);
+if(String(meta.RELEASE_STATUS)!=='FINAL_STABLE'||marker.status!=='final-stable'||marker.frozen!==true)errors.push('marcadores da release final ausentes ou divergentes');
 for(const rel of ['index.html','admin.html','display.html','simulator.html','admin/index.html'])if(!read(rel).includes(build))errors.push(`${rel}: marcador ${build} ausente`);
 const config=read('assets/js/config.js');
 if(!config.includes('sb_publishable_'))errors.push('config.js publicado sem Publishable Key');
