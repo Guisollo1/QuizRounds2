@@ -1,14 +1,14 @@
 {
   "product": "QuizRounds2",
-  "release": "r88",
-  "build": "3.68-r88",
-  "ui": "3.92-r88",
+  "release": "r89",
+  "build": "3.68-r89",
+  "ui": "3.92-r89",
   "backend_schema_required": 42,
   "backend_schema_recommended": 43,
   "team_feature_schema_required": 43,
   "status": "final-stable",
   "frozen": true,
-  "profile": "refactored-80p-space-optimized-session-resume-final-sync-vertical-lobby",
+  "profile": "refactored-80p-example-game-countdown-recovery-final-sync-vertical-lobby",
   "display_answer_single_line": true,
   "display_result_full_width_without_ranking": true,
   "space_optimization_all_html": true,
@@ -21,5 +21,11 @@
   "final_show_realtime_hardening": true,
   "final_show_fallback_poll_ms": 2500,
   "final_show_admin_confirmation": true,
-  "display_lobby_vertical_numbers": true
+  "display_lobby_vertical_numbers": true,
+  "example_game_one_click": true,
+  "example_game_questions": 2,
+  "example_game_opens_lobby": true,
+  "display_countdown_deadline_recovery": true,
+  "display_preparing_poll_ms": 900,
+  "display_r67_transition_reference": true
 }

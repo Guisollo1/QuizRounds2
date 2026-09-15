@@ -1,0 +1,11 @@
+QUIZROUNDS2 v3.68-r89 — PARTIDA DE EXEMPLO + CONTAGEM DO TELÃO
+
+- Novo botão "Partida de exemplo" na Central.
+- Em uma ação cria uma sala com 2 rounds, garante duas perguntas de exemplo, monta a fila e abre diretamente o Lobby/Apresentação.
+- Perguntas de exemplo: uma múltipla escolha e uma numérica com gabarito 120, cobrindo os dois formatos principais do telão.
+- Telão: a transição preparing → question_open foi reforçada tomando a r67 enviada pelo usuário como referência funcional.
+- Durante a contagem, o telão usa polling temporário de 900 ms; fora dela mantém o perfil econômico da r88.
+- Se a contagem chegar ao limite e o evento Realtime não atualizar a fase, o telão executa recuperação ativa até receber o estado oficial.
+- Eventos state_changed com a mesma state_version durante preparing agora também forçam refresh, evitando ficar preso no segundo 1.
+- Mantidas as correções r88: lobby vertical, final Estatísticas/Destaques/Campeão, resposta em uma linha, sessão persistente e perfil 80P.
+- Sem migration nova. Supabase 001–043.

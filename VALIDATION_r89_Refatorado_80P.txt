@@ -1,0 +1,22 @@
+QUIZROUNDS2 v3.68-r89 — VALIDAÇÃO
+
+Objetivos específicos da r89:
+1. Partida de exemplo em um botão.
+2. Exatamente 2 perguntas na partida de exemplo.
+3. Abertura direta do Lobby/Apresentação após criação.
+4. Recuperação do telão ao final da contagem 3-2-1.
+5. Preservação da estabilidade 80P e das correções r88.
+
+Validações executáveis incluídas em scripts/:
+- validate-build.mjs
+- validate-release.mjs
+- validate-refactor.mjs
+- validate-capacity-80.mjs
+- validate-sync-behavior.mjs
+- validate-event-stress.mjs
+- validate-final-show-sync.mjs
+- validate-r89-example-countdown.mjs
+- validate-pages.mjs
+- validate-site-smoke.mjs
+
+Supabase: 001–043, sem migration nova.

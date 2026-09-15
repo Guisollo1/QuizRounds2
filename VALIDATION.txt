@@ -1,4 +1,4 @@
-QuizRounds2 3.68-r88 — execute 00_VERIFICAR_ANTES_DO_PUSH.bat antes de publicar.
+QuizRounds2 3.68-r89 — execute 00_VERIFICAR_ANTES_DO_PUSH.bat antes de publicar.
 Release baseada na r85, com auditoria dos 5 HTMLs, aproveitamento de espaço otimizado, resposta do telão em uma única linha e perfil 80P preservado. Supabase permanece em migrations 001–043.
 
 PLAYER_AUTO_RESUME=validated

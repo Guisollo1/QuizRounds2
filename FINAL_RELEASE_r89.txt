@@ -1,0 +1,20 @@
+QUIZROUNDS2 v3.68-r89 — FINAL STABLE
+
+Base: r88 Refatoração Completa 80P.
+Referência de comportamento do telão: r67 enviada pelo usuário, na qual a transição da contagem funciona corretamente.
+
+NOVO
+- Botão Partida de exemplo na Central.
+- Criação assistida de sala com 2 perguntas e abertura direta do Lobby.
+- Pergunta 1 de múltipla escolha e pergunta 2 numérica com gabarito 120.
+- Recuperação do telão quando a contagem 3-2-1 chega ao limite sem receber a transição de fase.
+- Polling do telão temporariamente reduzido para 900 ms somente em preparing.
+- state_changed de mesma versão durante preparing força atualização do estado oficial.
+
+PRESERVADO
+- Perfil 80P.
+- Sessão persistente do jogador.
+- Resposta letra + texto em uma linha no telão.
+- Lobby vertical PIN + QR + números/status.
+- Sincronização final Ranking/Estatísticas/Destaques/Campeão.
+- Supabase migrations 001–043; nenhuma migration nova.

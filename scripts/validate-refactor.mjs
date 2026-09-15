@@ -8,16 +8,16 @@ const fail=m=>errors.push(m);
 const must=(rel,tokens)=>{const s=read(rel);for(const t of tokens)if(!s.includes(t))fail(`${rel}: marcador ausente -> ${t}`);return s;};
 const forbid=(rel,tokens)=>{const s=read(rel);for(const t of tokens)if(s.includes(t))fail(`${rel}: legado/duplicação encontrado -> ${t}`);};
 
-const common=must('assets/js/common-v3.68-r88.js',['export function storageGet(','export function storageSet(','export function storageRemove(','export function jitterDelay(','export function isOlderRoomState(']);
-const admin=must('assets/js/admin-v3.68-r88.js',['jitterDelay,isOlderRoomState','isOlderRoomState(data?.room,roomState?.room)']);
-const player=must('assets/js/player-v3.68-r88.js',['storageGet,storageSet,storageRemove,jitterDelay,isOlderRoomState','isOlderRoomState(data?.room,gameState?.room)']);
-const display=must('assets/js/display-v3.68-r88.js',['storageGet as displayStorageGet,storageSet as displayStorageSet,jitterDelay,isOlderRoomState','isOlderRoomState(data?.room,state?.room)']);
+const common=must('assets/js/common-v3.68-r89.js',['export function storageGet(','export function storageSet(','export function storageRemove(','export function jitterDelay(','export function isOlderRoomState(']);
+const admin=must('assets/js/admin-v3.68-r89.js',['jitterDelay,isOlderRoomState','isOlderRoomState(data?.room,roomState?.room)']);
+const player=must('assets/js/player-v3.68-r89.js',['storageGet,storageSet,storageRemove,jitterDelay,isOlderRoomState','isOlderRoomState(data?.room,gameState?.room)']);
+const display=must('assets/js/display-v3.68-r89.js',['storageGet as displayStorageGet,storageSet as displayStorageSet,jitterDelay,isOlderRoomState','isOlderRoomState(data?.room,state?.room)']);
 
-forbid('assets/js/admin-v3.68-r88.js',['function jitterDelay(','function exactPresenceIdentitySet(','function maybeAutoRecoverLag(','async function stabilizeBeforeStart(','lastAutoRecoveryAt','autoRecoveryInFlight','startStabilityBusy','startStabilityPromise']);
-forbid('assets/js/player-v3.68-r88.js',['function storageGet(','function storageSet(','function storageRemove(','function jitterDelay(']);
-forbid('assets/js/display-v3.68-r88.js',['function displayStorageGet(','function displayStorageSet(','function displayPollJitter(']);
+forbid('assets/js/admin-v3.68-r89.js',['function jitterDelay(','function exactPresenceIdentitySet(','function maybeAutoRecoverLag(','async function stabilizeBeforeStart(','lastAutoRecoveryAt','autoRecoveryInFlight','startStabilityBusy','startStabilityPromise']);
+forbid('assets/js/player-v3.68-r89.js',['function storageGet(','function storageSet(','function storageRemove(','function jitterDelay(']);
+forbid('assets/js/display-v3.68-r89.js',['function displayStorageGet(','function displayStorageSet(','function displayPollJitter(']);
 
-const css=read('assets/css/display-ui-v3.92-r88.css');
+const css=read('assets/css/display-ui-v3.92-r89.css');
 if(!css.includes('.display-answer-line{display:flex!important;flex-flow:row nowrap!important;'))fail('Telão: resposta correta não está em uma única linha flexível.');
 if(!css.includes('white-space:nowrap!important')||!css.includes('text-wrap:nowrap!important')||!css.includes('overflow-wrap:normal!important'))fail('Telão: texto da resposta ainda pode quebrar linha.');
 if(/\.display-answer-line\{[^}]*flex-wrap\s*:\s*wrap/s.test(css))fail('Telão: resposta ainda permite quebra estrutural entre letra e texto.');
@@ -36,10 +36,10 @@ for(const token of ["broadcastSyncNudge('final-show-stage'","event:'final_show_c
 for(const token of ['async function join({resume=false}={})',"savedPlayerId=storageGet('quiz2PlayerId','')",'canAutoResume=!!(c&&savedName&&savedPlayerId&&sameSavedRoom)','async function recoverPlayerForeground({forceReconnect=false}={})','foregroundRecoveryPromise','backgroundedAt=Date.now()',"window.addEventListener('pageshow'", "window.addEventListener('focus'"])if(!player.includes(token))fail(`Jogador: retomada de foreground ausente -> ${token}`);
 if(player.includes("visibilitychange',()=>{if(!document.hidden&&room){acquireTab();refresh(true);heartbeat();}}"))fail('Jogador: handler legado de visibilitychange ainda presente.');
 
-for(const rel of ['assets/js/admin-v3.68-r88.js','assets/js/player-v3.68-r88.js','assets/js/display-v3.68-r88.js','assets/js/common-v3.68-r88.js']){
+for(const rel of ['assets/js/admin-v3.68-r89.js','assets/js/player-v3.68-r89.js','assets/js/display-v3.68-r89.js','assets/js/common-v3.68-r89.js']){
   const check=spawnSync(process.execPath,['--check',rel],{cwd:root,encoding:'utf8'});
   if(check.status!==0)fail(`${rel}: node --check falhou: ${check.stderr||check.stdout}`);
 }
 
-if(errors.length){console.error(`REFATORAÇÃO r88: REPROVADA (${errors.length})`);errors.forEach((e,i)=>console.error(`ERRO ${i+1}: ${e}`));process.exit(1);}
-console.log('REFATORAÇÃO r88: APROVADA — lobby PIN/QR/números vertical, apresentação final com sincronização reforçada, resposta em uma linha e retomada automática do jogador.');
+if(errors.length){console.error(`REFATORAÇÃO r89: REPROVADA (${errors.length})`);errors.forEach((e,i)=>console.error(`ERRO ${i+1}: ${e}`));process.exit(1);}
+console.log('REFATORAÇÃO r89: APROVADA — lobby PIN/QR/números vertical, apresentação final com sincronização reforçada, resposta em uma linha e retomada automática do jogador.');
