@@ -1,0 +1,7 @@
+VALIDAÇÃO r91 — CI CONSISTENTE
+
+- VERSION.txt e version.json: r91 / 3.68-r91
+- Build/release gate auto-versionados
+- Assets ativos: r91
+- Supabase: 001-043
+- Base funcional: r67

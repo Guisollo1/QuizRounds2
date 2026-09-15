@@ -1,0 +1,12 @@
+QUIZROUNDS2 v3.68-r91 — VALIDAÇÃO ESPECÍFICA
+
+1. Fonte da release: pacote r67 enviado pelo usuário.
+2. Partida de exemplo: botão único presente.
+3. Exatamente 2 perguntas no fluxo de exemplo.
+4. Pergunta numérica com gabarito 120.
+5. Abertura direta do Lobby/Apresentação.
+6. PIN e QR em uma coluna.
+7. Conectados, cadastrados e status em uma coluna.
+8. Supabase 001–043, sem migration nova.
+9. Runtimes versionados para r91, sem referências locais quebradas.
+10. Comparativo r89 x r91 incluído separadamente.

@@ -1,0 +1,22 @@
+import fs from 'node:fs';
+const errors=[];
+const read=p=>fs.readFileSync(p,'utf8');
+const must=(cond,msg)=>{if(!cond)errors.push(msg);};
+const admin=read('admin.html');
+const ajs=read('assets/js/admin-v3.68-r91.js');
+const dcss=read('assets/css/display-ui-v3.92-r91.css');
+const djs=read('assets/js/display-v3.68-r91.js');
+const common=read('assets/js/common-v3.68-r91.js');
+must(admin.includes('id="createExampleGameBtn"'),'botão Partida de exemplo ausente');
+must(ajs.includes('const EXAMPLE_GAME_QUESTIONS=['),'lista de perguntas de exemplo ausente');
+must((ajs.match(/prompt:'/g)||[]).length>=2,'menos de 2 perguntas de exemplo detectadas');
+must(ajs.includes("correctNumber:120"),'gabarito numérico 120 ausente');
+must(ajs.includes("p_planned_rounds:2"),'ajuste para 2 rounds ausente');
+must(ajs.includes("journeyGo('lobby')"),'abertura direta do lobby ausente');
+must(dcss.includes('.display-lobby-grid{min-width:0;min-height:0;width:100%;height:100%;display:grid;grid-template-columns:minmax(0,1fr)'), 'lobby PIN/QR não está em grade vertical');
+must(dcss.includes('.display-lobby-footer{width:100%;display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto auto'), 'números/status do lobby não estão empilhados');
+must(!dcss.includes('.display-lobby-grid{min-width:0;min-height:0;width:100%;height:100%;display:flex;flex-flow:row nowrap'), 'layout horizontal antigo ainda é regra canônica');
+must(common.includes("BUILD_ID='3.68-r91'"),'common não aponta para r91');
+must(djs.includes("BUILD_ID")||djs.includes("3.68-r91"),'display runtime sem marcador r91');
+if(errors.length){console.error(`VALIDAÇÃO r91: REPROVADA (${errors.length})`);for(const e of errors)console.error('ERRO:',e);process.exit(1);}
+console.log('VALIDAÇÃO r91: APROVADA — base r67 + exemplo 2Q + lobby vertical.');

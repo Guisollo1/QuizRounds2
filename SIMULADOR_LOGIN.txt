@@ -1,4 +1,7 @@
-QUIZROUNDS2 v3.68-r90 — SIMULADOR LOCAL
+QUIZ ROUNDS v3.68-r30 - SIMULADOR LOCAL
 
-Abra 01_Abrir_Simulador_QuizRounds2_v3.68-r90.bat ou simulator.html.
-O simulador permanece destinado à validação visual/funcional local; ele não substitui o ensaio Realtime com aparelhos reais.
+Login ADM de teste: admin
+Senha de teste: quiz123
+
+Abra 01_Abrir_Simulador.bat ou simulator.html.
+A suíte local valida lógica determinística, mas não mede capacidade real do Supabase.

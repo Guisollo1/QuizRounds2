@@ -1,0 +1,7 @@
+QUIZROUNDS2 v3.68-r91 — CI CONSISTENTE
+
+- Release auto-versionada para r91.
+- Mantido o gate de deploy da r67.
+- Assets ativos renomeados para r91 sem carregar runtimes antigos.
+- Base funcional do telão permanece derivada diretamente da r67.
+- Partida de exemplo 2Q e lobby vertical adicionados com validação específica.

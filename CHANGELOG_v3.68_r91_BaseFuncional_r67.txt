@@ -1,0 +1,25 @@
+QUIZROUNDS2 v3.68-r91 — BASE FUNCIONAL r67 + PARTIDA DE EXEMPLO + LOBBY VERTICAL
+
+BASE FUNCIONAL
+- Esta release foi reconstruída diretamente a partir do pacote r67 fornecido pelo usuário.
+- O runtime do telão, sincronização, countdown e fluxo de jogo permanecem com a lógica funcional da r67.
+- Não foram importadas automaticamente as mudanças de sincronização/polling introduzidas nas releases r84–r89.
+
+PARTIDA DE EXEMPLO
+- Novo botão “Partida de exemplo” na Central de Partidas.
+- Em um único fluxo cria uma nova sala com exatamente 2 rounds.
+- Garante duas perguntas de exemplo no banco sem duplicá-las quando já existirem:
+  1) múltipla escolha: Planeta Vermelho = Marte;
+  2) numérica: 12 × 10 = 120.
+- Adiciona somente essas duas perguntas à fila da nova sala.
+- Abre diretamente a área de Lobby/Apresentação após a criação.
+
+TELÃO — LOBBY
+- PIN e QR passam a ocupar uma única coluna, um acima do outro.
+- Contadores de conectados, cadastrados e status também ficam em uma única coluna.
+- O layout deixa de depender de largura lateral entre PIN, QR e números.
+- QR foi dimensionado para preservar altura útil em projetores de menor resolução.
+
+BACKEND
+- Nenhuma migration nova.
+- Supabase permanece 001–043.

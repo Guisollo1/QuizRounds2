@@ -1,0 +1,30 @@
+COMPARATIVO SEPARADO — r89 ANTERIOR x r91 BASE FUNCIONAL r67
+
+Objetivo deste relatório:
+Separar claramente o que existia na versão anterior r89 do que foi mantido/adicionado nesta r91.
+A r91 NÃO foi construída sobre a r89. Ela parte diretamente da r67 enviada como padrão funcional.
+
+O que a r89 tinha além da r67:
+- Refatorações de escala 80P, incluindo mudanças em polling/heartbeat e state_version.
+- Sessão/retomada do jogador reforçada ao alternar aplicativo/aba.
+- Otimizações de espaço em todos os HTMLs.
+- Resposta correta do telão tratada para permanecer em uma linha.
+- Sincronização adicional das telas finais (Estatísticas, Destaques e Campeão).
+- Alterações adicionais na transição/countdown do telão.
+- Pipeline de QA ampliado com mais scripts/workflows.
+- Partida de exemplo e lobby vertical também haviam sido adicionados posteriormente.
+
+O que a r91 mantém:
+- O comportamento funcional original da r67 para telão, countdown, Realtime, polling e fluxo principal.
+- Backend Supabase 001–043.
+- Estrutura e funções do ADM, jogador, telão e simulador da r67.
+
+O que foi adicionado à r91 sobre a r67:
+- Botão “Partida de exemplo”.
+- Criação de sala com exatamente 2 perguntas e abertura direta do Lobby/Apresentação.
+- PIN + QR empilhados verticalmente.
+- Contadores/status do lobby empilhados verticalmente.
+- Versionamento dos runtimes para r91 sem misturar assets r89.
+
+Decisão de isolamento:
+As mudanças r89 relacionadas a sincronização, polling, heartbeat, sessão persistente, final-show e demais refatorações não foram copiadas para a r91. Isso foi intencional para conservar a r67 como referência funcional do telão. Esses recursos podem ser reintroduzidos depois, um por vez, com teste isolado.
