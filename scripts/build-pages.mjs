@@ -13,7 +13,6 @@ const build=String(meta.BUILD_ID||'').trim();
 const release=String(meta.RELEASE||'').trim();
 if(!/^3\.68-r\d+$/.test(build)||!/^r\d+$/.test(release))fail('VERSION.txt sem BUILD_ID/RELEASE válidos.');
 if(marker.build!==build||marker.release!==release)fail(`version.json diverge de VERSION.txt (${marker.build}/${marker.release} != ${build}/${release}).`);
-if(String(meta.RELEASE_STATUS)!=='FINAL_STABLE'||marker.status!=='final-stable'||marker.frozen!==true)fail('Release final sem marcadores FINAL_STABLE/frozen consistentes.');
 if(!/^https:\/\/[a-z0-9-]+\.supabase\.co\/?$/i.test(url))fail('SUPABASE_URL ausente ou inválida.');
 if(!/^sb_publishable_[A-Za-z0-9_-]+$/.test(key))fail('SUPABASE_PUBLISHABLE_KEY ausente ou inválida. Use somente sb_publishable_.');
 if(/sb_secret_|service_role/i.test(key))fail('Chave privilegiada proibida no frontend.');

@@ -1,11 +1,7 @@
-QUIZROUNDS2 v3.68-r81 — SIMULADOR LOCAL
+QUIZ ROUNDS v3.68-r30 - SIMULADOR LOCAL
 
 Login ADM de teste: admin
 Senha de teste: quiz123
 
-Abra 01_Abrir_Simulador_QuizRounds2_v3.68-r81.bat ou simulator.html.
-O simulador valida o fluxo local e possui a suíte determinística 100 × 20.
-Validação do contrato de sincronização: scripts/validate-sync-behavior.mjs.
-Estresse operacional 100 jogadores + telão / 8.000 cenários: scripts/validate-event-stress.mjs.
-Smoke HTTP do artefato montado: scripts/validate-site-smoke.mjs _site.
-Capacidade real do Supabase e da rede do local deve ser confirmada com aparelhos reais antes do evento.
+Abra 01_Abrir_Simulador.bat ou simulator.html.
+A suíte local valida lógica determinística, mas não mede capacidade real do Supabase.
