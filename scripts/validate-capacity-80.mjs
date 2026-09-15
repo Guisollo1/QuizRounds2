@@ -5,9 +5,9 @@ const root=path.resolve(path.dirname(new URL(import.meta.url).pathname),'..');
 const read=rel=>fs.readFileSync(path.join(root,rel),'utf8');
 const errors=[];
 const check=(cond,msg)=>{if(!cond)errors.push(msg);};
-const player=read('assets/js/player-v3.68-r89.js');
-const display=read('assets/js/display-v3.68-r89.js');
-const admin=read('assets/js/admin-v3.68-r89.js');
+const player=read('assets/js/player-v3.68-r90.js');
+const display=read('assets/js/display-v3.68-r90.js');
+const admin=read('assets/js/admin-v3.68-r90.js');
 const e2e=read('.github/workflows/e2e.yml');
 
 check(player.includes('POLL_CONNECTED=15000'),'poll conectado do jogador deve ser 15 s');

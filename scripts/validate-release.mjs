@@ -93,14 +93,17 @@ for(const rel of ['index.html','admin.html','display.html','simulator.html']){
 for(const rel of ['index.html','admin.html','display.html','simulator.html'])if(!read(rel).includes('compare(remote,local)<=0'))fail(`${rel}: proteção contra downgrade de build ausente`);
 const commonRuntime=read(`assets/js/common-v${build}.js`),adminRuntime=read(`assets/js/admin-v${build}.js`),playerRuntime=read(`assets/js/player-v${build}.js`),displayRuntime=read(`assets/js/display-v${build}.js`);
 if(!commonRuntime.includes('export function isOlderRoomState(')||!commonRuntime.includes('incomingGeneration<currentGeneration')||!commonRuntime.includes('state_version||0)<Number(current.state_version||0)'))fail('Common: proteção monotônica centralizada de state_version ausente');
-for(const [name,s] of [['admin',adminRuntime],['player',playerRuntime],['display',displayRuntime]]){
+for(const [name,s] of [['admin',adminRuntime],['player',playerRuntime]]){
   if(!s.includes('isOlderRoomState(data?.room,'))fail(`${name}: não usa a proteção monotônica compartilhada`);
   if(!s.includes('realtimeFallbackUntil'))fail(`${name}: fallback Realtime limitado ausente`);
 }
+if(!displayRuntime.includes('realtimeFallbackUntil'))fail('display: fallback Realtime limitado ausente');
+if(displayRuntime.includes('isOlderRoomState(data?.room,state?.room)'))fail('display: leitura oficial do RPC ainda pode ser descartada por state_version');
+if(!displayRuntime.includes("applyFinalShowRealtimeHint(payload);refresh(true);"))fail('display: state_changed não força leitura oficial autoritativa');
 if(!adminRuntime.includes("url.searchParams.set('qr_build',BUILD_ID)"))fail('ADM: link do jogador sem qr_build');
 if(!displayRuntime.includes("url.searchParams.set('qr_build',BUILD_ID)"))fail('Telão: QR do jogador sem qr_build');
 
-// r89: Realtime estável, Presence observacional e início sem churn.
+// r90: Realtime estável, Presence observacional e início sem churn.
 if(!playerRuntime.includes('state_version:Number(gameState?.room?.state_version||0)'))fail('Jogador: presença sem state_version');
 if(!displayRuntime.includes("kind:'display',display_id:displayPresenceId"))fail('Telão: presença enriquecida ausente');
 if(!adminRuntime.includes('function presenceLagSummary()'))fail('ADM: diagnóstico de presença ausente');
@@ -133,7 +136,7 @@ if(!exists('.github/workflows/e2e.yml'))fail('Workflow dedicado de homologação
 else{const e2eWorkflow=read('.github/workflows/e2e.yml');if(!e2eWorkflow.includes('mcr.microsoft.com/playwright/python:v1.55.0-noble'))fail('Workflow E2E sem imagem Playwright pré-provisionada');if(!e2eWorkflow.includes('python tests/e2e/test_browser_e2e.py .'))fail('Workflow E2E não executa os cenários de navegador');}
 
 
-// r89: retomada automática da sessão do jogador após suspensão/reload móvel.
+// r90: retomada automática da sessão do jogador após suspensão/reload móvel.
 for(const token of [
   'async function join({resume=false}={})',
   "savedPlayerId=storageGet('quiz2PlayerId','')",
@@ -148,13 +151,13 @@ for(const token of [
 ]) if(!playerRuntime.includes(token)) fail(`Jogador: retomada de sessão ausente -> ${token}`);
 if(!marker.player_auto_resume||!marker.foreground_recovery||!marker.background_session_persistence)fail('version.json não declara persistência/retomada do jogador');
 
-// r89: lobby do telão sem disputa horizontal e apresentação final resiliente.
+// r90: lobby do telão sem disputa horizontal e apresentação final resiliente.
 const displayCss=read(`assets/css/display-ui-v${ui}.css`);
 if(!displayCss.includes('display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(120px,.62fr)'))fail('Telão: lobby PIN/QR vertical não está ativo');
 if(!displayCss.includes('.display-lobby-footer{width:100%;display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto auto;'))fail('Telão: números/estado do lobby ainda disputam largura horizontal');
 for(const token of ['applyFinalShowRealtimeHint(payload)',"event!=='final_show_changed'","finalPresentation=state?.room?.phase==='finished'"])if(!displayRuntime.includes(token))fail(`Telão: sync final ausente -> ${token}`);
 for(const token of ["broadcastSyncNudge('final-show-stage'","event:'final_show_changed'","finalShowStage()!==stage"])if(!adminRuntime.includes(token))fail(`ADM: sync final ausente -> ${token}`);
-if(!marker.display_lobby_vertical_stack||!marker.display_lobby_vertical_numbers||!marker.final_show_realtime_hardening)fail('version.json não declara as correções r89 de lobby/final');
+if(!marker.display_lobby_vertical_stack||!marker.display_lobby_vertical_numbers||!marker.final_show_realtime_hardening)fail('version.json não declara as correções r90 de lobby/final');
 
 if(errors.length){
   console.error(`GATE RELEASE: REPROVADO (${errors.length})`);

@@ -1,14 +1,14 @@
-# QuizRounds2 v3.68-r89 — Refatorado 80P · Espaço Otimizado
+# QuizRounds2 v3.68-r90 — Refatorado 80P · Espaço Otimizado
 
 Release baseada na r85, mantendo a arquitetura de estabilidade 80P e a resposta do telão em uma única linha. O foco desta revisão é eliminar áreas ociosas nos cinco HTMLs publicados sem alterar o fluxo do jogo ou o backend.
 
-## Auditoria de aproveitamento de espaço — r89
+## Auditoria de aproveitamento de espaço — r90
 
 Foram auditados os cinco HTMLs publicados (`admin.html`, `admin/index.html`, `display.html`, `index.html` e `simulator.html`) e seus layouts ativos. A revisão remove trilhas de grid sem conteúdo, alturas mínimas excessivas, limites de largura que comprimiam o conteúdo útil e breakpoints que empilhavam componentes cedo demais. O telão preserva o mapa/avatares, mas entrega mais largura à pergunta e ao resultado. A regra da resposta correta continua rígida: **letra + texto permanecem na mesma linha**, com ajuste automático da fonte.
 
 ## O que foi refatorado
 
-- `common-v3.68-r89.js` concentra utilitários compartilhados de armazenamento local, jitter e validação monotônica de `generation/state_version`.
+- `common-v3.68-r90.js` concentra utilitários compartilhados de armazenamento local, jitter e validação monotônica de `generation/state_version`.
 - ADM, jogador e telão usam a mesma regra para rejeitar estados antigos.
 - Foram removidas funções e estados órfãos das estratégias antigas de auto-recuperação que não participavam mais do fluxo da r83.
 - A sincronização manual continua disponível, mas **Começar Quiz** não executa ACK obrigatório, não força `state_changed`, não remove canais e não reconecta aparelhos saudáveis.
@@ -50,6 +50,6 @@ A homologação pesada e o Playwright continuam separados do workflow de publica
 
 ## Publicação
 
-Substitua o conteúdo do repositório pelo conteúdo **desta pasta**, mantendo apenas a pasta `.git` do repositório atual. Não copie a pasta r89 como uma subpasta do projeto.
+Substitua o conteúdo do repositório pelo conteúdo **desta pasta**, mantendo apenas a pasta `.git` do repositório atual. Não copie a pasta r90 como uma subpasta do projeto.
 
 O histórico de releases e helpers antigos permanece organizado em `docs/history/`.

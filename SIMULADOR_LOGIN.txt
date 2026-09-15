@@ -1,4 +1,4 @@
-QUIZROUNDS2 v3.68-r89 — SIMULADOR LOCAL
+QUIZROUNDS2 v3.68-r90 — SIMULADOR LOCAL
 
-Abra 01_Abrir_Simulador_QuizRounds2_v3.68-r89.bat ou simulator.html.
+Abra 01_Abrir_Simulador_QuizRounds2_v3.68-r90.bat ou simulator.html.
 O simulador permanece destinado à validação visual/funcional local; ele não substitui o ensaio Realtime com aparelhos reais.

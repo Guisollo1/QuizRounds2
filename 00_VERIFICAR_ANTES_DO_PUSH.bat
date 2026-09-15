@@ -2,7 +2,7 @@
 setlocal
 cd /d "%~dp0"
 echo ==============================================
-echo QuizRounds2 r89 REFATORADO 80P - pre-push
+echo QuizRounds2 r90 REFATORADO 80P - pre-push
 echo ==============================================
 where node >nul 2>nul
 if errorlevel 1 (
@@ -58,7 +58,7 @@ if errorlevel 1 (
 )
 echo.
 echo ==============================================
-echo APROVADO - r89 REFATORADO 80P pronta para enviar ao GitHub.
+echo APROVADO - r90 REFATORADO 80P pronta para enviar ao GitHub.
 echo ==============================================
 pause
 exit /b 0

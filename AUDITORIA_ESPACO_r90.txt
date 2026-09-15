@@ -1,0 +1,29 @@
+QuizRounds2 v3.68-r90 — AUDITORIA DE APROVEITAMENTO DE ESPAÇO
+
+HTMLs auditados: 5/5
+- admin.html
+- admin/index.html
+- display.html
+- index.html
+- simulator.html
+
+Desperdícios encontrados e corrigidos
+1. ADM / abas principais: havia 4 abas reais em uma grade final de 5 colunas. Corrigido para 4/4, eliminando a trilha vazia.
+2. ADM / fluxos: as subabas Padrão e GameShow tinham quantidades diferentes. A navegação passou a respeitar o conteúdo real; no GameShow, 7 passos deixam de reservar a 8ª coluna vazia.
+3. ADM / cabeçalho: ações visíveis/ocultas usavam quantidade rígida de colunas. O bloco agora flui pelo conteúdo real e reaproveita a largura quando botões estão ocultos.
+4. ADM / vertical: login, Central e banco de perguntas tinham alturas mínimas que criavam áreas vazias em 720p/768p. Foram convertidas para altura natural ou clamp responsivo.
+5. Telão / palco: pergunta, resultado e final reservavam uma coluna lateral maior do que o necessário para o mapa. O mapa/avatares continuam visíveis, com coluna adaptativa menor e mais área para o conteúdo principal.
+6. Telão / resultado: sem ranking, a segunda coluna interna e limites de 1180/980 px comprimiam o resultado. O bloco passa a ocupar 100% da largura útil.
+7. Telão / resposta: letra + texto continuam obrigatoriamente na mesma linha. O ajuste automático de fonte permanece ativo para respostas longas.
+8. Telão / telas estreitas: o mapa empilhado consumia 34vh. O teto foi reduzido para 24vh, preservando o mapa sem roubar altura da pergunta/resultado.
+9. Jogador / pergunta aberta: o placar lateral consumia uma coluna inteira durante a pergunta. Nessa fase ele é ocultado e a pergunta usa 100% da largura; o ranking retorna nas fases de resultado.
+10. Jogador / desktop: shell, entrada e formulário tinham limites de largura conservadores; foram ampliados e margens/alturas mínimas foram reduzidas.
+11. Simulador / projetor: alturas rígidas do telão simulado, corpo do projetor, lobby e log geravam rolagem e áreas vazias. Foram trocadas por medidas responsivas baseadas no viewport.
+12. Telão e simulador / lobby: PIN, QR e números/estado foram consolidados em uma única coluna vertical, inclusive nos breakpoints, eliminando disputa horizontal por largura.
+13. admin/index.html: removidas margens padrão da página transitória de redirecionamento.
+
+Preservado
+- Supabase migrations 001–043, sem migration nova.
+- Perfil 80P, coalescência de state_version, polling/heartbeat e proteções de concorrência.
+- Mapa e avatares no telão.
+- Regra de resposta correta em uma única linha.

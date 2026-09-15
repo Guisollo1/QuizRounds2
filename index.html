@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
 <meta content="#1565c0" name="theme-color"/>
-<meta content="3.68-r89" name="quizrounds-build"/>
+<meta content="3.68-r90" name="quizrounds-build"/>
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
 <meta http-equiv="Pragma" content="no-cache"/>
 <meta http-equiv="Expires" content="0"/>
@@ -21,8 +21,8 @@
   fetch('version.json?qr_version_check='+Date.now(),{cache:'no-store',headers:{'Cache-Control':'no-cache'}}).then(r=>r.ok?r.json():null).then(v=>{const remote=String(v?.build||'');if(!remote||compare(remote,local)<=0)return;const k='quiz2:auto-reload:'+remote;try{if(sessionStorage.getItem(k)!=='1'){sessionStorage.setItem(k,'1');const u=new URL(location.href);u.searchParams.set('qr_build',remote);u.searchParams.set('qr_reload',Date.now());location.replace(u.href);return}}catch{}showReload(remote)}).catch(()=>{});
 })();
 </script>
-<title>Quiz Rounds 2 · TESTE v3.68 · Interface v3.92 r89 — Jogador</title>
-<link href="assets/css/player-ui-v3.92-r89.css?v=3.68-r89" rel="stylesheet"/><link href="assets/css/avatars-runtime-v3.68-r89.css?v=3.68-r89" rel="stylesheet"/><link href="assets/css/avatars-ui-v3.92-r89.css?v=3.68-r89" rel="stylesheet"/><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.112.4/dist/umd/supabase.min.js"></script>
+<title>Quiz Rounds 2 · TESTE v3.68 · Interface v3.92 r90 — Jogador</title>
+<link href="assets/css/player-ui-v3.92-r90.css?v=3.68-r90" rel="stylesheet"/><link href="assets/css/avatars-runtime-v3.68-r90.css?v=3.68-r90" rel="stylesheet"/><link href="assets/css/avatars-ui-v3.92-r90.css?v=3.68-r90" rel="stylesheet"/><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.112.4/dist/umd/supabase.min.js"></script>
 <style id="criticalPlayerJoinR43">
 /* Critical pre-join boundary: inline on purpose so PIN/name remain usable even if an older CSS asset is cached. */
 #joinView:not(.hidden){position:relative!important;z-index:100!important;pointer-events:auto!important;isolation:isolate!important}
@@ -32,14 +32,14 @@
 #joinView .player-bg-shape{pointer-events:none!important}
 #joinView.hidden{display:none!important;pointer-events:none!important}
 </style>
-<link href="assets/css/pro-v3.68-r89.css?v=3.68-r89" rel="stylesheet"/>
+<link href="assets/css/pro-v3.68-r90.css?v=3.68-r90" rel="stylesheet"/>
 </head>
-<body class="player-body player-v40 ui-v392-r89" data-auth-scope="player" data-build="3.68-r89" data-ui="v3.92-r89">
+<body class="player-body player-v40 ui-v392-r90" data-auth-scope="player" data-build="3.68-r90" data-ui="v3.92-r90">
 <div class="player-bg-shape pbs1"></div><div class="player-bg-shape pbs2"></div><div class="player-bg-shape pbs3"></div>
 <main class="player-shell">
 <header class="player-header">
 <div class="player-brand"><span>Q</span><div><b>Quiz Rounds 2</b><small id="statusText">Entre na sala para jogar</small></div></div>
-<div class="player-status-row"><button class="player-change-room hidden" id="changeRoomBtn" type="button">Trocar sala</button><span class="connection-pill connecting" id="connectionStatus">Conectando…</span><span class="badge neutral" id="stateVersion">Estado 0</span><span class="badge neutral player-build-badge" id="playerBuildBadge">r89</span></div>
+<div class="player-status-row"><button class="player-change-room hidden" id="changeRoomBtn" type="button">Trocar sala</button><span class="connection-pill connecting" id="connectionStatus">Conectando…</span><span class="badge neutral" id="stateVersion">Estado 0</span><span class="badge neutral player-build-badge" id="playerBuildBadge">r90</span></div>
 </header>
 <section class="player-join-stage" id="joinView">
 <article class="join-hero-card">
@@ -85,7 +85,7 @@
 </div>
 </section>
 </main>
-<script src="assets/js/player-v3.68-r89.js?v=3.68-r89" type="module"></script>
-<script src="assets/js/pro-runtime-v3.68-r89.js?v=3.68-r89" type="module"></script>
+<script src="assets/js/player-v3.68-r90.js?v=3.68-r90" type="module"></script>
+<script src="assets/js/pro-runtime-v3.68-r90.js?v=3.68-r90" type="module"></script>
 </body>
 </html>
